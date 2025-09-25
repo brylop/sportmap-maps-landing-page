@@ -8,50 +8,59 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
+    /* SportMaps Design System */
+    --sport-primary: 203 79% 32%; /* #0B5394 */
+    --sport-accent: 136 64% 42%; /* #22B14C */
+    --sport-highlight: 18 100% 60%; /* #FF6F3C */
+    --sport-wellness: 252 75% 63%; /* #8B5CF6 */
+    --sport-nutrition: 41 96% 48%; /* #F59E0B */
+    
+    --sport-background: 213 33% 97%; /* #F5F7FA */
+    --sport-card: 0 0% 100%; /* #FFFFFF */
+    --sport-text: 0 0% 20%; /* #333333 */
+    --sport-border: 210 14% 89%; /* #E9ECEF */
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)), hsl(var(--sport-highlight)));
+    --gradient-card: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 25px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 18px 35px rgba(0, 0, 0, 0.12);
+    --shadow-glow: 0 0 40px hsl(var(--sport-accent) / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Default shadcn colors */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 203 79% 32%;
     --primary-foreground: 210 40% 98%;
-
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
+    --accent: 136 64% 42%;
     --accent-foreground: 222.2 47.4% 11.2%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
-
     --radius: 0.5rem;
-
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 

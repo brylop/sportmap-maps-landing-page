@@ -14,6 +14,18 @@ export default {
     },
     extend: {
       colors: {
+        // SportMaps color system
+        "sport-primary": "hsl(var(--sport-primary))",
+        "sport-accent": "hsl(var(--sport-accent))",
+        "sport-highlight": "hsl(var(--sport-highlight))",
+        "sport-wellness": "hsl(var(--sport-wellness))",
+        "sport-nutrition": "hsl(var(--sport-nutrition))",
+        "sport-background": "hsl(var(--sport-background))",
+        "sport-card": "hsl(var(--sport-card))",
+        "sport-text": "hsl(var(--sport-text))",
+        "sport-border": "hsl(var(--sport-border))",
+        
+        // Default shadcn colors
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -57,6 +69,19 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      backgroundImage: {
+        "gradient-primary": "var(--gradient-primary)",
+        "gradient-hero": "var(--gradient-hero)",
+        "gradient-card": "var(--gradient-card)",
+      },
+      boxShadow: {
+        "elegant": "var(--shadow-elegant)",
+        "hover": "var(--shadow-hover)",
+        "glow": "var(--shadow-glow)",
+      },
+      transitionProperty: {
+        "smooth": "var(--transition-smooth)",
       },
       borderRadius: {
         lg: "var(--radius)",
