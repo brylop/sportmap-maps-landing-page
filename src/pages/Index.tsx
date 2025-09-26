@@ -2,6 +2,9 @@ import { useState } from "react";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { HowItWorksSection } from "@/components/HowItWorksSection";
+import { StatsSection } from "@/components/StatsSection";
+import { InteractiveFeatures } from "@/components/InteractiveFeatures";
+import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import { SearchSection } from "@/components/SearchSection";
 import { DemoModal } from "@/components/DemoModal";
 import { EcosistemaModule } from "@/components/modules/EcosistemaModule";
@@ -31,6 +34,9 @@ const Index = () => {
           <>
             <HeroSection onDemoClick={() => setIsDemoOpen(true)} />
             <HowItWorksSection />
+            <StatsSection />
+            <InteractiveFeatures />
+            <TestimonialsCarousel />
             <SearchSection />
             <EcosistemaModule onModuleClick={scrollToSection} />
           </>
@@ -54,6 +60,9 @@ const Index = () => {
           <>
             <HeroSection onDemoClick={() => setIsDemoOpen(true)} />
             <HowItWorksSection />
+            <StatsSection />
+            <InteractiveFeatures />
+            <TestimonialsCarousel />
             <SearchSection />
             <EcosistemaModule onModuleClick={scrollToSection} />
           </>
