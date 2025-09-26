@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Header } from "@/components/Header";
+import { ScrollDynamicBackground } from "@/components/ScrollDynamicBackground";
 import { HeroSection } from "@/components/HeroSection";
 import { HowItWorksSection } from "@/components/HowItWorksSection";
 import { StatsSection } from "@/components/StatsSection";
@@ -71,13 +72,14 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-sport-background">
+    <div className="relative min-h-screen">
+      <ScrollDynamicBackground />
       <Header 
         onSectionClick={scrollToSection}
         activeSection={activeSection}
       />
       
-      <main className="transition-all duration-300">
+      <main className="relative transition-all duration-300">
         {renderActiveModule()}
       </main>
 

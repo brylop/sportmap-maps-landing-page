@@ -3,7 +3,6 @@ import { DynamicBackground } from "./DynamicBackground";
 export function HowItWorksSection() {
   return (
     <section className="relative py-16 sm:py-20 overflow-hidden">
-      <DynamicBackground variant="secondary" intensity="light" animated={true} />
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Label */}
         <div className="flex items-center gap-2 mb-4">

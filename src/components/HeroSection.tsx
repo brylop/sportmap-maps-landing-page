@@ -8,9 +8,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ onDemoClick }: HeroSectionProps) {
   return (
-    <section className="relative bg-gradient-to-br from-slate-900 via-sport-primary to-slate-800 text-white overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_35%,rgba(255,255,255,.05)_50%,transparent_65%)] bg-[length:20px_20px]"></div>
+    <section className="relative text-white overflow-hidden">
       <FloatingElements />
       
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32">

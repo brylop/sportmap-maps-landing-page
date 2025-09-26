@@ -69,7 +69,6 @@ export function InteractiveFeatures() {
 
   return (
     <section className="relative py-16 sm:py-20 overflow-hidden">
-      <DynamicBackground variant="wellness" intensity="medium" animated={true} />
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-sport-text mb-4">
