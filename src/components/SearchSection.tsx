@@ -5,30 +5,31 @@ import { Badge } from "@/components/ui/badge";
 
 export function SearchSection() {
   return (
-    <section className="bg-sport-card p-6 rounded-3xl shadow-elegant mb-8">
-      <h3 className="text-center text-2xl font-bold mb-6 text-sport-text">
+    <section className="bg-sport-card p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-elegant mb-6 sm:mb-8">
+      <h3 className="text-center text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 text-sport-text px-2">
         Encuentra Todo lo que Necesitas
       </h3>
       
-      <div className="flex gap-2 mb-4">
+      <div className="flex flex-col sm:flex-row gap-2 mb-4">
         <Input
           type="search"
           placeholder="Buscar escuelas, productos, servicios…"
-          className="flex-1 rounded-full border-sport-border focus:border-sport-accent"
+          className="flex-1 rounded-full border-sport-border focus:border-sport-accent text-sm sm:text-base"
         />
         <Button 
-          className="bg-sport-primary hover:bg-sport-primary/90 text-white rounded-full px-6"
+          className="bg-sport-primary hover:bg-sport-primary/90 text-white rounded-full px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base w-full sm:w-auto"
         >
           <Search className="w-4 h-4 mr-2" />
-          Buscar
+          <span className="hidden sm:inline">Buscar</span>
+          <span className="sm:hidden">Buscar</span>
         </Button>
       </div>
       
-      <div className="flex justify-center flex-wrap gap-2">
-        <Badge variant="default" className="bg-sport-primary text-white">Fútbol</Badge>
-        <Badge variant="default" className="bg-sport-accent text-white">Equipamiento</Badge>
-        <Badge variant="default" className="bg-sport-nutrition text-white">Nutrición</Badge>
-        <Badge variant="default" className="bg-sport-wellness text-white">Entrenadores</Badge>
+      <div className="flex justify-center flex-wrap gap-1.5 sm:gap-2">
+        <Badge variant="default" className="bg-sport-primary text-white text-xs sm:text-sm">Fútbol</Badge>
+        <Badge variant="default" className="bg-sport-accent text-white text-xs sm:text-sm">Equipamiento</Badge>
+        <Badge variant="default" className="bg-sport-nutrition text-white text-xs sm:text-sm">Nutrición</Badge>
+        <Badge variant="default" className="bg-sport-wellness text-white text-xs sm:text-sm">Entrenadores</Badge>
       </div>
     </section>
   );
