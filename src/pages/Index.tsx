@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { SportMapsSidebar } from "@/components/SportMapsSidebar";
+import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
+import { HowItWorksSection } from "@/components/HowItWorksSection";
 import { SearchSection } from "@/components/SearchSection";
 import { DemoModal } from "@/components/DemoModal";
 import { EcosistemaModule } from "@/components/modules/EcosistemaModule";
@@ -29,6 +30,7 @@ const Index = () => {
         return (
           <>
             <HeroSection onDemoClick={() => setIsDemoOpen(true)} />
+            <HowItWorksSection />
             <SearchSection />
             <EcosistemaModule onModuleClick={scrollToSection} />
           </>
@@ -51,6 +53,7 @@ const Index = () => {
         return (
           <>
             <HeroSection onDemoClick={() => setIsDemoOpen(true)} />
+            <HowItWorksSection />
             <SearchSection />
             <EcosistemaModule onModuleClick={scrollToSection} />
           </>
@@ -59,13 +62,13 @@ const Index = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-sport-background">
-      <SportMapsSidebar 
+    <div className="min-h-screen bg-sport-background">
+      <Header 
         onSectionClick={scrollToSection}
         activeSection={activeSection}
       />
       
-      <main className="flex-1 lg:ml-72 p-4 sm:p-6 md:p-8 transition-all duration-300">
+      <main className="transition-all duration-300">
         {renderActiveModule()}
       </main>
 
