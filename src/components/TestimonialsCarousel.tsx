@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { DynamicBackground } from "./DynamicBackground";
 
 const testimonials = [
   {
@@ -56,8 +57,9 @@ export function TestimonialsCarousel() {
   };
 
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-br from-sport-background to-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 sm:py-20 overflow-hidden">
+      <DynamicBackground variant="nutrition" intensity="light" animated={true} />
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-sport-text mb-4">
             Lo que dicen nuestros usuarios

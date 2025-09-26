@@ -105,10 +105,20 @@ export default {
             height: "0",
           },
         },
+        "float-up-down": {
+          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
+          "50%": { transform: "translateY(-20px) rotate(180deg)" }
+        },
+        "gentle-bounce": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" }
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "float-up-down": "float-up-down 6s ease-in-out infinite",
+        "gentle-bounce": "gentle-bounce 4s ease-in-out infinite",
       },
     },
   },

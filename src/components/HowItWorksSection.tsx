@@ -1,7 +1,10 @@
+import { DynamicBackground } from "./DynamicBackground";
+
 export function HowItWorksSection() {
   return (
-    <section className="py-16 sm:py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 sm:py-20 overflow-hidden">
+      <DynamicBackground variant="secondary" intensity="light" animated={true} />
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Label */}
         <div className="flex items-center gap-2 mb-4">
           <div className="w-8 h-0.5 bg-sport-accent"></div>
