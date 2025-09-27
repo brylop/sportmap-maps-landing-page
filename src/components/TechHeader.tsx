@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
-import { Menu, X, Zap } from "lucide-react";
+import { JoinTechModal } from "./modals/JoinTechModal";
+import { ContactModal } from "./modals/ContactModal";
+import { Menu, X, Zap, MessageSquare } from "lucide-react";
 
 interface TechHeaderProps {
   onSectionClick: (section: string) => void;
@@ -11,6 +13,8 @@ interface TechHeaderProps {
 export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isJoinTechModalOpen, setIsJoinTechModalOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const navItems = [
     { id: "ecosistema", label: "Plataforma Tech", icon: "🚀" },
@@ -84,9 +88,19 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
             <div className="flex items-center space-x-4">
               <ThemeToggle />
               
+              {/* Contact Button */}
+              <Button
+                variant="outline"
+                onClick={() => setIsContactModalOpen(true)}
+                className="hidden md:flex border-sport-border hover:bg-sport-surface"
+              >
+                <MessageSquare className="w-4 h-4 mr-2" />
+                Contacto
+              </Button>
+              
               {/* CTA Button */}
               <Button
-                onClick={() => onSectionClick("unete")}
+                onClick={() => setIsJoinTechModalOpen(true)}
                 className="hidden sm:flex bg-gradient-tech-primary hover:shadow-glow-primary text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 hover:scale-105"
               >
                 <Zap className="w-4 h-4 mr-2" />
@@ -135,7 +149,18 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
               ))}
               <Button
                 onClick={() => {
-                  onSectionClick("unete");
+                  setIsContactModalOpen(true);
+                  setIsMobileMenuOpen(false);
+                }}
+                variant="outline"
+                className="w-full border-sport-border"
+              >
+                <MessageSquare className="w-4 h-4 mr-2" />
+                Contacto
+              </Button>
+              <Button
+                onClick={() => {
+                  setIsJoinTechModalOpen(true);
                   setIsMobileMenuOpen(false);
                 }}
                 className="w-full bg-gradient-tech-primary text-white rounded-lg font-semibold"
@@ -147,6 +172,16 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
           </div>
         </div>
       )}
+
+      {/* Modals */}
+      <JoinTechModal 
+        isOpen={isJoinTechModalOpen} 
+        onClose={() => setIsJoinTechModalOpen(false)} 
+      />
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
     </>
   );
 }
