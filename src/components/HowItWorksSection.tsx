@@ -2,78 +2,121 @@ import { DynamicBackground } from "./DynamicBackground";
 
 export function HowItWorksSection() {
   return (
-    <section className="relative py-16 sm:py-20 overflow-hidden">
+    <section className="relative py-20 sm:py-32 overflow-hidden">
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Label */}
-        <div className="flex items-center gap-2 mb-4">
-          <div className="w-8 h-0.5 bg-sport-accent"></div>
-          <span className="text-sm font-semibold text-sport-accent uppercase tracking-wider">
-            Cómo funciona
-          </span>
+        {/* Tech Section Header */}
+        <div className="text-center mb-16 space-y-6">
+          <div className="inline-flex items-center gap-3 glass-effect px-6 py-3 rounded-full border border-sport-primary/30">
+            <div className="w-2 h-2 bg-sport-primary rounded-full animate-tech-pulse" />
+            <span className="text-sm font-semibold text-sport-primary uppercase tracking-wider">
+              Tecnología Avanzada
+            </span>
+            <div className="w-2 h-2 bg-sport-accent rounded-full animate-tech-pulse" style={{ animationDelay: '0.5s' }} />
+          </div>
+
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-sport-text-primary max-w-5xl mx-auto leading-tight">
+            Ecosistema deportivo 
+            <span className="bg-gradient-tech-hero bg-clip-text text-transparent"> inteligente</span>
+            <br />
+            <span className="text-sport-text-secondary text-3xl sm:text-4xl lg:text-5xl">
+              Gestión completa del ciclo deportivo
+            </span>
+          </h2>
+
+          <p className="text-xl text-sport-text-secondary max-w-4xl mx-auto leading-relaxed">
+            Desde la búsqueda de academias deportivas hasta la gestión de equipamiento y bienestar, 
+            <span className="text-sport-primary font-semibold"> SportMaps Tech </span> 
+            simplifica procesos complejos conectando atletas, entrenadores, proveedores y servicios especializados 
+            <span className="text-sport-accent font-semibold"> en tiempo real.</span>
+          </p>
         </div>
 
-        {/* Main Title */}
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-sport-text mb-6 max-w-4xl">
-          Ecosistema deportivo integral: 
-          <span className="text-sport-primary"> gestión completa del ciclo deportivo</span>
-        </h2>
-
-        {/* Description */}
-        <p className="text-lg text-sport-text/70 mb-12 max-w-3xl leading-relaxed">
-          Desde la búsqueda de escuelas deportivas hasta la gestión de equipamiento y bienestar, 
-          SportMaps simplifica procesos complejos en el mundo deportivo, conectando atletas, 
-          entrenadores, proveedores y servicios especializados en tiempo real.
-        </p>
-
-        {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Tech Feature Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {[
             {
-              title: "Atletas y Familias",
+              title: "🏃‍♂️ Atletas & Familias",
+              subtitle: "AI-Powered Recommendations",
               features: [
-                "Búsqueda de escuelas deportivas",
-                "Comparación de programas",
-                "Gestión de inscripciones",
-                "Seguimiento de progreso",
-                "Planes nutricionales personalizados"
+                "Búsqueda inteligente de academias",
+                "Comparación automatizada de programas",
+                "Gestión digital de inscripciones",
+                "Seguimiento de progreso con IA",
+                "Planes nutricionales personalizados",
+                "Predicción de rendimiento deportivo"
               ],
-              color: "sport-primary"
+              color: "sport-primary",
+              gradient: "gradient-tech-primary",
+              icon: "🤖"
             },
             {
-              title: "Escuelas y Entrenadores", 
+              title: "🏫 Academias & Entrenadores", 
+              subtitle: "Smart Management System",
               features: [
-                "Gestión de estudiantes",
-                "Programación de entrenamientos",
-                "Comunicación con padres",
-                "Reportes de rendimiento",
-                "Certificaciones digitales"
+                "Dashboard de gestión de estudiantes",
+                "Programación automática de entrenamientos",
+                "Comunicación multi-canal con padres",
+                "Reportes de rendimiento en tiempo real",
+                "Certificaciones digitales blockchain",
+                "Analytics predictivos de estudiantes"
               ],
-              color: "sport-accent"
+              color: "sport-accent",
+              gradient: "gradient-tech-glow",
+              icon: "📊"
             },
             {
-              title: "Proveedores y Servicios",
+              title: "🛒 Proveedores & Servicios",
+              subtitle: "Ecosystem Marketplace",
               features: [
-                "Catálogo de equipamiento",
-                "Servicios de bienestar",
-                "Suplementos certificados",
-                "Logística integrada",
-                "Análisis de mercado"
+                "Catálogo inteligente de equipamiento",
+                "Servicios de bienestar integrados",
+                "Suplementos certificados con QR",
+                "Logística automatizada con IA",
+                "Análisis de mercado en tiempo real",
+                "Predicción de demanda de productos"
               ],
-              color: "sport-highlight"
+              color: "sport-highlight",
+              gradient: "gradient-tech-card",
+              icon: "🚀"
             }
           ].map((section, index) => (
-            <div key={index} className="bg-sport-card rounded-2xl p-6 shadow-elegant border border-sport-border">
-              <h3 className={`text-xl font-bold mb-4 text-${section.color}`}>
-                {section.title}
-              </h3>
-              <ul className="space-y-3">
+            <div 
+              key={index} 
+              className="group glass-effect rounded-3xl p-8 border border-sport-border/30 hover:border-sport-primary/50 shadow-tech-lg hover:shadow-tech-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-glow-primary"
+            >
+              {/* Card Header */}
+              <div className="mb-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className={`w-12 h-12 bg-${section.gradient} rounded-2xl flex items-center justify-center text-2xl shadow-glow-primary group-hover:scale-110 transition-transform duration-300`}>
+                    {section.icon}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className={`text-xl font-bold text-${section.color} mb-1`}>
+                      {section.title}
+                    </h3>
+                    <p className="text-sm text-sport-text-muted font-mono">{section.subtitle}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Features List */}
+              <ul className="space-y-4">
                 {section.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start gap-3">
-                    <div className={`w-2 h-2 rounded-full bg-${section.color} mt-2 flex-shrink-0`}></div>
-                    <span className="text-sport-text/80 text-sm">{feature}</span>
+                  <li key={featureIndex} className="flex items-start gap-3 group/item">
+                    <div className={`w-2 h-2 rounded-full bg-${section.color} mt-2 flex-shrink-0 group-hover/item:animate-tech-pulse transition-all duration-300`} />
+                    <span className="text-sport-text-secondary text-sm leading-relaxed group-hover/item:text-sport-text-primary transition-colors duration-300">
+                      {feature}
+                    </span>
                   </li>
                 ))}
               </ul>
+
+              {/* Tech Badge */}
+              <div className={`mt-6 pt-4 border-t border-sport-border/20 flex items-center gap-2 text-xs text-${section.color} font-mono`}>
+                <div className={`w-1 h-1 bg-${section.color} rounded-full animate-tech-pulse`} />
+                <span>TECH ENABLED</span>
+                <div className="ml-auto w-6 h-px bg-gradient-tech-primary" />
+              </div>
             </div>
           ))}
         </div>

@@ -8,30 +8,57 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* SportMaps Design System */
-    --sport-primary: 203 79% 32%; /* #0B5394 */
-    --sport-accent: 136 64% 42%; /* #22B14C */
-    --sport-highlight: 18 100% 60%; /* #FF6F3C */
-    --sport-wellness: 252 75% 63%; /* #8B5CF6 */
-    --sport-nutrition: 41 96% 48%; /* #F59E0B */
+    /* SportMaps Advanced Tech Design System - Light Mode */
+    --sport-primary: 220 100% 50%; /* Tech Blue #0080FF */
+    --sport-secondary: 200 100% 40%; /* Deep Tech Blue #0066CC */
+    --sport-accent: 120 100% 35%; /* Matrix Green #00B359 */
+    --sport-highlight: 0 100% 60%; /* Sport Red #FF3333 */
+    --sport-warning: 35 100% 50%; /* Energy Orange #FF8C00 */
+    --sport-success: 140 100% 40%; /* Success Green #00CC66 */
+    --sport-info: 195 100% 50%; /* Info Cyan #00BFFF */
     
-    --sport-background: 213 33% 97%; /* #F5F7FA */
-    --sport-card: 0 0% 100%; /* #FFFFFF */
-    --sport-text: 0 0% 20%; /* #333333 */
-    --sport-border: 210 14% 89%; /* #E9ECEF */
+    /* Tech Background System */
+    --sport-background: 220 15% 97%; /* Ultra Light Tech #F8FAFC */
+    --sport-surface: 0 0% 100%; /* Pure White */
+    --sport-card: 220 20% 98%; /* Subtle Tech Surface #FCFDFE */
+    --sport-glass: 220 30% 95%; /* Glass Effect #F1F5F9 */
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)), hsl(var(--sport-highlight)));
-    --gradient-card: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
+    /* Text & Borders */
+    --sport-text-primary: 220 15% 15%; /* Primary Text #1E293B */
+    --sport-text-secondary: 220 10% 45%; /* Secondary Text #64748B */
+    --sport-text-muted: 220 8% 65%; /* Muted Text #94A3B8 */
+    --sport-border: 220 15% 90%; /* Borders #E2E8F0 */
+    --sport-divider: 220 12% 85%; /* Dividers #CBD5E1 */
     
-    /* Shadows */
-    --shadow-elegant: 0 10px 25px rgba(0, 0, 0, 0.08);
-    --shadow-hover: 0 18px 35px rgba(0, 0, 0, 0.12);
-    --shadow-glow: 0 0 40px hsl(var(--sport-accent) / 0.3);
+    /* Tech Gradients */
+    --gradient-tech-primary: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-secondary)));
+    --gradient-tech-hero: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)), hsl(var(--sport-secondary)));
+    --gradient-tech-glow: linear-gradient(135deg, hsl(var(--sport-primary) / 0.1), hsl(var(--sport-accent) / 0.1));
+    --gradient-tech-card: linear-gradient(145deg, hsl(var(--sport-card)), hsl(var(--sport-glass)));
+    --gradient-tech-surface: linear-gradient(180deg, hsl(var(--sport-surface)), hsl(var(--sport-card)));
     
-    /* Animations */
+    /* Advanced Shadows */
+    --shadow-tech-sm: 0 2px 8px hsl(var(--sport-primary) / 0.08);
+    --shadow-tech-md: 0 4px 16px hsl(var(--sport-primary) / 0.12);
+    --shadow-tech-lg: 0 8px 32px hsl(var(--sport-primary) / 0.16);
+    --shadow-tech-xl: 0 16px 48px hsl(var(--sport-primary) / 0.2);
+    --shadow-glow-primary: 0 0 32px hsl(var(--sport-primary) / 0.3);
+    --shadow-glow-accent: 0 0 24px hsl(var(--sport-accent) / 0.4);
+    --shadow-inset: inset 0 1px 3px hsl(var(--sport-primary) / 0.1);
+    
+    /* Animation System */
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Tech Spacing */
+    --space-tech-xs: 0.25rem;
+    --space-tech-sm: 0.5rem;
+    --space-tech-md: 1rem;
+    --space-tech-lg: 1.5rem;
+    --space-tech-xl: 2rem;
+    --space-tech-2xl: 3rem;
 
     /* Default shadcn colors */
     --background: 0 0% 100%;
@@ -65,41 +92,72 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* SportMaps Advanced Tech Design System - Dark Mode */
+    --sport-primary: 220 100% 60%; /* Bright Tech Blue #3399FF */
+    --sport-secondary: 200 100% 50%; /* Bright Deep Tech Blue #0080FF */
+    --sport-accent: 120 100% 45%; /* Bright Matrix Green #00CC66 */
+    --sport-highlight: 0 100% 70%; /* Bright Sport Red #FF4D4D */
+    --sport-warning: 35 100% 60%; /* Bright Energy Orange #FFA64D */
+    --sport-success: 140 100% 50%; /* Bright Success Green #00FF80 */
+    --sport-info: 195 100% 60%; /* Bright Info Cyan #4DCCFF */
+    
+    /* Dark Tech Background System */
+    --sport-background: 220 25% 8%; /* Deep Dark Tech #0F172A */
+    --sport-surface: 220 20% 12%; /* Dark Surface #1E293B */
+    --sport-card: 220 15% 15%; /* Dark Card #334155 */
+    --sport-glass: 220 12% 18%; /* Dark Glass Effect #475569 */
+    
+    /* Dark Mode Text & Borders */
+    --sport-text-primary: 220 15% 95%; /* Light Text #F8FAFC */
+    --sport-text-secondary: 220 10% 75%; /* Secondary Light Text #CBD5E1 */
+    --sport-text-muted: 220 8% 55%; /* Muted Light Text #94A3B8 */
+    --sport-border: 220 15% 25%; /* Dark Borders #475569 */
+    --sport-divider: 220 12% 30%; /* Dark Dividers #64748B */
+    
+    /* Dark Tech Gradients */
+    --gradient-tech-primary: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-secondary)));
+    --gradient-tech-hero: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)), hsl(var(--sport-secondary)));
+    --gradient-tech-glow: linear-gradient(135deg, hsl(var(--sport-primary) / 0.2), hsl(var(--sport-accent) / 0.2));
+    --gradient-tech-card: linear-gradient(145deg, hsl(var(--sport-card)), hsl(var(--sport-glass)));
+    --gradient-tech-surface: linear-gradient(180deg, hsl(var(--sport-surface)), hsl(var(--sport-card)));
+    
+    /* Enhanced Dark Shadows */
+    --shadow-tech-sm: 0 2px 8px hsl(0 0% 0% / 0.3);
+    --shadow-tech-md: 0 4px 16px hsl(0 0% 0% / 0.4);
+    --shadow-tech-lg: 0 8px 32px hsl(0 0% 0% / 0.5);
+    --shadow-tech-xl: 0 16px 48px hsl(0 0% 0% / 0.6);
+    --shadow-glow-primary: 0 0 40px hsl(var(--sport-primary) / 0.5);
+    --shadow-glow-accent: 0 0 32px hsl(var(--sport-accent) / 0.6);
+    --shadow-inset: inset 0 1px 3px hsl(0 0% 0% / 0.3);
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Shadcn Dark Variables */
+    --background: 220 25% 8%;
+    --foreground: 220 15% 95%;
+    --card: 220 15% 15%;
+    --card-foreground: 220 15% 95%;
+    --popover: 220 15% 15%;
+    --popover-foreground: 220 15% 95%;
+    --primary: 220 100% 60%;
+    --primary-foreground: 220 25% 8%;
+    --secondary: 220 15% 25%;
+    --secondary-foreground: 220 15% 95%;
+    --muted: 220 15% 25%;
+    --muted-foreground: 220 10% 75%;
+    --accent: 120 100% 45%;
+    --accent-foreground: 220 25% 8%;
+    --destructive: 0 100% 70%;
+    --destructive-foreground: 220 15% 95%;
+    --border: 220 15% 25%;
+    --input: 220 15% 25%;
+    --ring: 220 100% 60%;
+    --sidebar-background: 220 20% 12%;
+    --sidebar-foreground: 220 15% 95%;
+    --sidebar-primary: 220 100% 60%;
+    --sidebar-primary-foreground: 220 25% 8%;
+    --sidebar-accent: 220 15% 25%;
+    --sidebar-accent-foreground: 220 15% 95%;
+    --sidebar-border: 220 15% 25%;
+    --sidebar-ring: 220 100% 60%;
   }
 }
 
@@ -109,6 +167,113 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
   }
+
+  /* Tech Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-sport-surface;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gradient-tech-primary rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply opacity-80;
+  }
+}
+
+@layer components {
+  /* Tech Glass Effect */
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20;
+  }
+  
+  .dark .glass-effect {
+    @apply bg-black/20 backdrop-blur-lg border border-white/10;
+  }
+  
+  /* Tech Glow Effects */
+  .glow-primary {
+    box-shadow: var(--shadow-glow-primary);
+  }
+  
+  .glow-accent {
+    box-shadow: var(--shadow-glow-accent);
+  }
+  
+  /* Tech Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce 3s infinite;
+  }
+  
+  /* Tech Hover Effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-tech-lg;
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-300 hover:glow-primary;
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+  
+  /* Tech Gradients */
+  .bg-tech-gradient {
+    background: var(--gradient-tech-primary);
+  }
+  
+  .bg-tech-hero {
+    background: var(--gradient-tech-hero);
+  }
+  
+  .bg-tech-card {
+    background: var(--gradient-tech-card);
+  }
+  
+  /* Tech Borders */
+  .border-tech {
+    @apply border border-sport-border;
+  }
+  
+  .border-tech-glow {
+    @apply border border-sport-primary/30;
+    box-shadow: 0 0 20px hsl(var(--sport-primary) / 0.2);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes matrix-rain {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes tech-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes data-flow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100vw); }
 }

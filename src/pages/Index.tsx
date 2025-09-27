@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Header } from "@/components/Header";
-import { ScrollDynamicBackground } from "@/components/ScrollDynamicBackground";
-import { HeroSection } from "@/components/HeroSection";
+import { TechHeader } from "@/components/TechHeader";
+import { TechBackground } from "@/components/TechBackground";
+import { TechHeroSection } from "@/components/TechHeroSection";
 import { HowItWorksSection } from "@/components/HowItWorksSection";
 import { StatsSection } from "@/components/StatsSection";
 import { InteractiveFeatures } from "@/components/InteractiveFeatures";
@@ -33,7 +33,7 @@ const Index = () => {
       case "inicio":
         return (
           <>
-            <HeroSection onDemoClick={() => setIsDemoOpen(true)} />
+            <TechHeroSection onDemoClick={() => setIsDemoOpen(true)} />
             <HowItWorksSection />
             <StatsSection />
             <InteractiveFeatures />
@@ -59,7 +59,7 @@ const Index = () => {
       default:
         return (
           <>
-            <HeroSection onDemoClick={() => setIsDemoOpen(true)} />
+            <TechHeroSection onDemoClick={() => setIsDemoOpen(true)} />
             <HowItWorksSection />
             <StatsSection />
             <InteractiveFeatures />
@@ -72,14 +72,14 @@ const Index = () => {
   };
 
   return (
-    <div className="relative min-h-screen">
-      <ScrollDynamicBackground />
-      <Header 
+    <div className="relative min-h-screen bg-sport-background">
+      <TechBackground />
+      <TechHeader 
         onSectionClick={scrollToSection}
         activeSection={activeSection}
       />
       
-      <main className="relative transition-all duration-300">
+      <main className="relative transition-all duration-500">
         {renderActiveModule()}
       </main>
 
