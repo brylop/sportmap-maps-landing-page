@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/lib/supabase";
 import { Zap, User, Mail, Phone, Briefcase } from "lucide-react";
 
 interface JoinTechFormProps {
@@ -28,16 +29,19 @@ export function JoinTechForm({ onClose }: JoinTechFormProps) {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/functions/v1/submit-join-application', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+      const { data, error } = await supabase.functions.invoke('submit-join-application', {
+        body: {
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          experience: formData.experience,
+          interests: formData.interests,
+          motivation: formData.motivation
+        }
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to submit application');
+      if (error) {
+        throw error;
       }
       
       toast({

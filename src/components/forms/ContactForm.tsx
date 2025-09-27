@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/lib/supabase";
 import { Send, User, Mail, MessageSquare, HelpCircle } from "lucide-react";
 
 interface ContactFormProps {
@@ -27,16 +28,18 @@ export function ContactForm({ onClose }: ContactFormProps) {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/functions/v1/submit-contact-message', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+      const { data, error } = await supabase.functions.invoke('submit-contact-message', {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          category: formData.category,
+          message: formData.message
+        }
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to submit message');
+      if (error) {
+        throw error;
       }
       
       toast({

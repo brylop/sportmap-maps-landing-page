@@ -1,4 +1,4 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { JoinTechForm } from "@/components/forms/JoinTechForm";
 
 interface JoinTechModalProps {
@@ -12,6 +12,9 @@ export function JoinTechModal({ isOpen, onClose }: JoinTechModalProps) {
       <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="sr-only">Únete a SportMaps Tech</DialogTitle>
+          <DialogDescription className="sr-only">
+            Formulario para unirse al equipo de SportMaps Tech
+          </DialogDescription>
         </DialogHeader>
         <JoinTechForm onClose={onClose} />
       </DialogContent>

@@ -1,4 +1,4 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { ContactForm } from "@/components/forms/ContactForm";
 
 interface ContactModalProps {
@@ -12,6 +12,9 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="sr-only">Contáctanos</DialogTitle>
+          <DialogDescription className="sr-only">
+            Formulario de contacto para SportMaps Tech
+          </DialogDescription>
         </DialogHeader>
         <ContactForm onClose={onClose} />
       </DialogContent>
