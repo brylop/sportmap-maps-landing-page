@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/lib/supabase";
+import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 import { Send, User, Mail, MessageSquare, HelpCircle } from "lucide-react";
 
 interface ContactFormProps {
@@ -28,6 +28,15 @@ export function ContactForm({ onClose }: ContactFormProps) {
     setIsLoading(true);
 
     try {
+      // Check if Supabase is properly configured
+      if (!isSupabaseConfigured) {
+        toast({
+          title: "Configuración pendiente",
+          description: "Supabase no está configurado. Conecta tu proyecto primero.",
+          variant: "destructive",
+        });
+        return;
+      }
       const { data, error } = await supabase.functions.invoke('submit-contact-message', {
         body: {
           name: formData.name,
