@@ -34,7 +34,7 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           isScrolled 
             ? 'glass-effect border-b border-sport-border/30 shadow-tech-lg' 
-            : 'bg-transparent'
+            : 'bg-sport-background/90 backdrop-blur-sm'
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -114,7 +114,7 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
             className="fixed inset-0 bg-black/50 backdrop-blur-sm"
             onClick={() => setIsMobileMenuOpen(false)}
           />
-          <div className="fixed top-16 left-0 right-0 glass-effect border-b border-sport-border/30 p-4">
+          <div className="fixed top-16 left-0 right-0 bg-sport-background/95 backdrop-blur-sm border-b border-sport-border/30 p-4 shadow-tech-lg">
             <nav className="space-y-4">
               {navItems.map((item) => (
                 <button

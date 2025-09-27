@@ -79,7 +79,7 @@ const Index = () => {
         activeSection={activeSection}
       />
       
-      <main className="relative transition-all duration-500">
+      <main className="relative transition-all duration-500 pt-16">
         {renderActiveModule()}
       </main>
 
