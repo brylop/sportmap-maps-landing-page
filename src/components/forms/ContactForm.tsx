@@ -27,9 +27,17 @@ export function ContactForm({ onClose }: ContactFormProps) {
     setIsLoading(true);
 
     try {
-      // TODO: Integrate with Supabase to save contact data and send notification
-      // For now, we'll simulate success
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const response = await fetch('/functions/v1/submit-contact-message', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit message');
+      }
       
       toast({
         title: "¡Mensaje enviado!",
