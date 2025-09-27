@@ -17,7 +17,8 @@ export function SearchSection() {
           className="flex-1 rounded-full border-sport-border bg-sport-surface text-sport-text-primary placeholder:text-sport-text-muted focus:border-sport-accent text-sm sm:text-base"
         />
         <Button 
-          className="bg-sport-accent hover:bg-sport-accent/90 text-white rounded-full px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base w-full sm:w-auto"
+          variant="secondary"
+          className="rounded-full px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base w-full sm:w-auto"
         >
           <Search className="w-4 h-4 mr-2" />
           <span className="hidden sm:inline">Buscar</span>

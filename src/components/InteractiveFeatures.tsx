@@ -152,7 +152,8 @@ export function InteractiveFeatures() {
             </div>
 
             <Button 
-              className={`w-full bg-${currentFeature.color} hover:bg-${currentFeature.color}/90 text-white`}
+              variant="default"
+              className="w-full"
             >
               Explorar {currentFeature.title}
             </Button>

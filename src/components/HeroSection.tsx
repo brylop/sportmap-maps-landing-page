@@ -33,7 +33,8 @@ export function HeroSection({ onDemoClick }: HeroSectionProps) {
             <Button
               onClick={onDemoClick}
               size="lg"
-              className="bg-sport-accent hover:bg-sport-accent/90 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-glow"
+              variant="secondary"
+              className="px-8 py-4 text-lg font-semibold rounded-full"
             >
               <Play className="w-5 h-5 mr-2" />
               Solicita un demo

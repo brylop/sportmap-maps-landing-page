@@ -108,7 +108,7 @@ export function TestimonialsCarousel() {
               onClick={goToPrevious}
               variant="outline"
               size="icon"
-              className="rounded-full border-sport-border hover:bg-sport-primary hover:text-white hover:border-sport-primary"
+              className="rounded-full"
             >
               <ChevronLeft className="w-4 h-4" />
             </Button>
@@ -131,7 +131,7 @@ export function TestimonialsCarousel() {
               onClick={goToNext}
               variant="outline"
               size="icon"
-              className="rounded-full border-sport-border hover:bg-sport-primary hover:text-white hover:border-sport-primary"
+              className="rounded-full"
             >
               <ChevronRight className="w-4 h-4" />
             </Button>

@@ -49,7 +49,7 @@ export function Header({ onSectionClick, activeSection }: HeaderProps) {
           {/* CTA Button */}
           <Button
             onClick={() => onSectionClick("unete")}
-            className="bg-sport-primary hover:bg-sport-primary/90 text-white"
+            variant="default"
           >
             Únete ahora
           </Button>
