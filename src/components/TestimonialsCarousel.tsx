@@ -60,10 +60,10 @@ export function TestimonialsCarousel() {
     <section className="relative py-16 sm:py-20 overflow-hidden">
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-sport-text-primary mb-4">
             Lo que dicen nuestros usuarios
           </h2>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto">
+          <p className="text-lg text-sport-text-secondary max-w-2xl mx-auto">
             Historias reales de deportistas, entrenadores y familias que han transformado su experiencia deportiva
           </p>
         </div>
@@ -80,7 +80,7 @@ export function TestimonialsCarousel() {
                 ))}
               </div>
 
-              <blockquote className="text-xl sm:text-2xl text-white/90 text-center mb-8 leading-relaxed font-medium">
+              <blockquote className="text-xl sm:text-2xl text-sport-text-primary text-center mb-8 leading-relaxed font-medium">
                 "{testimonials[currentIndex].content}"
               </blockquote>
 
@@ -91,10 +91,10 @@ export function TestimonialsCarousel() {
                   className="w-16 h-16 rounded-full object-cover border-4 border-sport-accent/20"
                 />
                 <div className="text-center sm:text-left">
-                  <div className="font-bold text-white text-lg">
+                  <div className="font-bold text-sport-text-primary text-lg">
                     {testimonials[currentIndex].name}
                   </div>
-                  <div className="text-white/70">
+                  <div className="text-sport-text-secondary">
                     {testimonials[currentIndex].role}
                   </div>
                 </div>

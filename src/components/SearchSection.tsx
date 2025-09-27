@@ -5,8 +5,8 @@ import { Badge } from "@/components/ui/badge";
 
 export function SearchSection() {
   return (
-    <section className="relative bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-elegant mb-6 sm:mb-8 mx-4 sm:mx-6 lg:mx-8 border border-white/20">
-      <h3 className="text-center text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 text-white px-2">
+    <section className="relative bg-sport-card/80 backdrop-blur-sm p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-elegant mb-6 sm:mb-8 mx-4 sm:mx-6 lg:mx-8 border border-sport-border">
+      <h3 className="text-center text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 text-sport-text-primary px-2">
         Encuentra Todo lo que Necesitas
       </h3>
       
@@ -14,7 +14,7 @@ export function SearchSection() {
         <Input
           type="search"
           placeholder="Buscar escuelas, productos, servicios…"
-          className="flex-1 rounded-full border-white/30 bg-white/20 backdrop-blur-sm text-white placeholder:text-white/70 focus:border-sport-accent text-sm sm:text-base"
+          className="flex-1 rounded-full border-sport-border bg-sport-surface text-sport-text-primary placeholder:text-sport-text-muted focus:border-sport-accent text-sm sm:text-base"
         />
         <Button 
           className="bg-sport-accent hover:bg-sport-accent/90 text-white rounded-full px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base w-full sm:w-auto"

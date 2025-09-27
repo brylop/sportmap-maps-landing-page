@@ -14,16 +14,16 @@ export function HowItWorksSection() {
             <div className="w-2 h-2 bg-sport-accent rounded-full animate-tech-pulse" style={{ animationDelay: '0.5s' }} />
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white max-w-5xl mx-auto leading-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-sport-text-primary max-w-5xl mx-auto leading-tight">
             Ecosistema deportivo 
             <span className="bg-gradient-tech-hero bg-clip-text text-transparent"> inteligente</span>
             <br />
-            <span className="text-white/90 text-3xl sm:text-4xl lg:text-5xl">
+            <span className="text-sport-text-secondary text-3xl sm:text-4xl lg:text-5xl">
               Gestión completa del ciclo deportivo
             </span>
           </h2>
 
-          <p className="text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-sport-text-secondary max-w-4xl mx-auto leading-relaxed">
             Desde la búsqueda de academias deportivas hasta la gestión de equipamiento y bienestar, 
             <span className="text-sport-accent font-semibold"> SportMaps Tech </span> 
             simplifica procesos complejos conectando atletas, entrenadores, proveedores y servicios especializados 
@@ -91,10 +91,10 @@ export function HowItWorksSection() {
                     {section.icon}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-1">
+                    <h3 className="text-xl font-bold text-sport-text-primary mb-1">
                       {section.title}
                     </h3>
-                    <p className="text-sm text-white/70 font-mono">{section.subtitle}</p>
+                    <p className="text-sm text-sport-text-muted font-mono">{section.subtitle}</p>
                   </div>
                 </div>
               </div>
@@ -104,7 +104,7 @@ export function HowItWorksSection() {
                 {section.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start gap-3 group/item">
                     <div className={`w-2 h-2 rounded-full bg-${section.color} mt-2 flex-shrink-0 group-hover/item:animate-tech-pulse transition-all duration-300`} />
-                    <span className="text-white/80 text-sm leading-relaxed group-hover/item:text-white transition-colors duration-300">
+                    <span className="text-sport-text-secondary text-sm leading-relaxed group-hover/item:text-sport-text-primary transition-colors duration-300">
                       {feature}
                     </span>
                   </li>

@@ -71,10 +71,10 @@ export function InteractiveFeatures() {
     <section className="relative py-16 sm:py-20 overflow-hidden">
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-sport-text-primary mb-4">
             Una plataforma, múltiples soluciones
           </h2>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto">
+          <p className="text-lg text-sport-text-secondary max-w-2xl mx-auto">
             Descubre cómo SportMaps se adapta a las necesidades específicas de cada usuario
           </p>
         </div>
@@ -104,10 +104,10 @@ export function InteractiveFeatures() {
                     <feature.icon className="w-6 h-6" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-2">
+                    <h3 className="text-xl font-bold text-sport-text-primary mb-2">
                       {feature.title}
                     </h3>
-                    <p className="text-white/80">
+                    <p className="text-sport-text-secondary">
                       {feature.description}
                     </p>
                   </div>
@@ -133,10 +133,10 @@ export function InteractiveFeatures() {
                 <currentFeature.icon className="w-8 h-8" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-white">
+                <h3 className="text-2xl font-bold text-sport-text-primary">
                   {currentFeature.title}
                 </h3>
-                <p className="text-white/80">
+                <p className="text-sport-text-secondary">
                   {currentFeature.description}
                 </p>
               </div>
@@ -146,7 +146,7 @@ export function InteractiveFeatures() {
               {currentFeature.details.map((detail, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <div className={`w-2 h-2 rounded-full bg-${currentFeature.color} mt-2 flex-shrink-0`}></div>
-                  <span className="text-white/80">{detail}</span>
+                  <span className="text-sport-text-secondary">{detail}</span>
                 </div>
               ))}
             </div>

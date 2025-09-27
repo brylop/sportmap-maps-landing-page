@@ -16,6 +16,8 @@ All colors MUST be HSL.
     --sport-warning: 35 100% 50%; /* Energy Orange #FF8C00 */
     --sport-success: 140 100% 40%; /* Success Green #00CC66 */
     --sport-info: 195 100% 50%; /* Info Cyan #00BFFF */
+    --sport-wellness: 0 100% 60%; /* Red for wellness */
+    --sport-nutrition: 120 100% 35%; /* Green for nutrition */
     
     /* Tech Background System */
     --sport-background: 220 15% 97%; /* Ultra Light Tech #F8FAFC */
@@ -45,6 +47,8 @@ All colors MUST be HSL.
     --shadow-glow-primary: 0 0 32px hsl(var(--sport-primary) / 0.3);
     --shadow-glow-accent: 0 0 24px hsl(var(--sport-accent) / 0.4);
     --shadow-inset: inset 0 1px 3px hsl(var(--sport-primary) / 0.1);
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--sport-primary) / 0.2);
+    --shadow-hover: 0 20px 40px -10px hsl(var(--sport-primary) / 0.3);
     
     /* Animation System */
     --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
@@ -100,6 +104,8 @@ All colors MUST be HSL.
     --sport-warning: 35 100% 60%; /* Bright Energy Orange #FFA64D */
     --sport-success: 140 100% 50%; /* Bright Success Green #00FF80 */
     --sport-info: 195 100% 60%; /* Bright Info Cyan #4DCCFF */
+    --sport-wellness: 0 100% 70%; /* Bright Red for wellness */
+    --sport-nutrition: 120 100% 45%; /* Bright Green for nutrition */
     
     /* Dark Tech Background System */
     --sport-background: 220 25% 8%; /* Deep Dark Tech #0F172A */
@@ -129,6 +135,8 @@ All colors MUST be HSL.
     --shadow-glow-primary: 0 0 40px hsl(var(--sport-primary) / 0.5);
     --shadow-glow-accent: 0 0 32px hsl(var(--sport-accent) / 0.6);
     --shadow-inset: inset 0 1px 3px hsl(0 0% 0% / 0.3);
+    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.4);
+    --shadow-hover: 0 20px 40px -10px hsl(0 0% 0% / 0.5);
 
     /* Shadcn Dark Variables */
     --background: 220 25% 8%;
