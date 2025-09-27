@@ -38,10 +38,10 @@ export function StatsSection() {
     <section className="relative py-16 sm:py-20 overflow-hidden">
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-sport-text mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Resultados que hablan por sí solos
           </h2>
-          <p className="text-lg text-sport-text/70 max-w-2xl mx-auto">
+          <p className="text-lg text-white/80 max-w-2xl mx-auto">
             Miles de deportistas ya confían en SportMaps para gestionar su carrera deportiva
           </p>
         </div>
@@ -50,15 +50,15 @@ export function StatsSection() {
           {stats.map((stat, index) => (
             <div 
               key={index}
-              className="group text-center p-6 rounded-2xl bg-sport-card border border-sport-border hover:shadow-hover transition-all duration-300 hover:-translate-y-1"
+              className="group text-center p-6 rounded-2xl bg-sport-background/60 backdrop-blur-sm border border-white/20 hover:shadow-hover transition-all duration-300 hover:-translate-y-1"
             >
               <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-${stat.color} to-${stat.color}/70 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                 <stat.icon className="w-8 h-8 text-white" />
               </div>
-              <div className="text-3xl sm:text-4xl font-bold text-sport-text mb-2">
+              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">
                 <AnimatedCounter end={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="text-sport-text/70 font-medium">{stat.label}</p>
+              <p className="text-white/80 font-medium">{stat.label}</p>
             </div>
           ))}
         </div>

@@ -71,10 +71,10 @@ export function InteractiveFeatures() {
     <section className="relative py-16 sm:py-20 overflow-hidden">
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-sport-text mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Una plataforma, múltiples soluciones
           </h2>
-          <p className="text-lg text-sport-text/70 max-w-2xl mx-auto">
+          <p className="text-lg text-white/80 max-w-2xl mx-auto">
             Descubre cómo SportMaps se adapta a las necesidades específicas de cada usuario
           </p>
         </div>
@@ -88,8 +88,8 @@ export function InteractiveFeatures() {
                 onClick={() => setActiveFeature(feature.id)}
                 className={`p-6 rounded-2xl cursor-pointer transition-all duration-300 border-2 ${
                   activeFeature === feature.id
-                    ? `border-${feature.color} bg-white shadow-hover`
-                    : 'border-transparent bg-white/50 hover:bg-white hover:shadow-elegant'
+                    ? `border-sport-accent bg-sport-background/80 backdrop-blur-sm shadow-hover`
+                    : 'border-transparent bg-sport-background/60 backdrop-blur-sm hover:bg-sport-background/80 hover:shadow-elegant'
                 }`}
               >
                 <div className="flex items-start gap-4">
@@ -104,10 +104,10 @@ export function InteractiveFeatures() {
                     <feature.icon className="w-6 h-6" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-sport-text mb-2">
+                    <h3 className="text-xl font-bold text-white mb-2">
                       {feature.title}
                     </h3>
-                    <p className="text-sport-text/70">
+                    <p className="text-white/80">
                       {feature.description}
                     </p>
                   </div>
@@ -122,7 +122,7 @@ export function InteractiveFeatures() {
           </div>
 
           {/* Feature Details */}
-          <div className="bg-white rounded-3xl p-8 shadow-elegant border border-sport-border sticky top-8">
+          <div className="bg-sport-background/80 backdrop-blur-sm rounded-3xl p-8 shadow-elegant border border-white/20 sticky top-8">
             <div className="flex items-center gap-4 mb-6">
               <div 
                 className="w-16 h-16 rounded-2xl flex items-center justify-center text-white"
@@ -133,10 +133,10 @@ export function InteractiveFeatures() {
                 <currentFeature.icon className="w-8 h-8" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-sport-text">
+                <h3 className="text-2xl font-bold text-white">
                   {currentFeature.title}
                 </h3>
-                <p className="text-sport-text/70">
+                <p className="text-white/80">
                   {currentFeature.description}
                 </p>
               </div>
@@ -146,7 +146,7 @@ export function InteractiveFeatures() {
               {currentFeature.details.map((detail, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <div className={`w-2 h-2 rounded-full bg-${currentFeature.color} mt-2 flex-shrink-0`}></div>
-                  <span className="text-sport-text/80">{detail}</span>
+                  <span className="text-white/80">{detail}</span>
                 </div>
               ))}
             </div>

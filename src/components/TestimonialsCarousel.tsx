@@ -60,16 +60,16 @@ export function TestimonialsCarousel() {
     <section className="relative py-16 sm:py-20 overflow-hidden">
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-sport-text mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Lo que dicen nuestros usuarios
           </h2>
-          <p className="text-lg text-sport-text/70 max-w-2xl mx-auto">
+          <p className="text-lg text-white/80 max-w-2xl mx-auto">
             Historias reales de deportistas, entrenadores y familias que han transformado su experiencia deportiva
           </p>
         </div>
 
         <div className="relative max-w-4xl mx-auto">
-          <div className="bg-white rounded-3xl shadow-elegant p-8 sm:p-12 relative overflow-hidden">
+          <div className="bg-sport-background/80 backdrop-blur-sm rounded-3xl shadow-elegant p-8 sm:p-12 relative overflow-hidden border border-white/20">
             {/* Background decoration */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-sport-accent/5 rounded-full -translate-y-16 translate-x-16"></div>
             
@@ -80,7 +80,7 @@ export function TestimonialsCarousel() {
                 ))}
               </div>
 
-              <blockquote className="text-xl sm:text-2xl text-sport-text/90 text-center mb-8 leading-relaxed font-medium">
+              <blockquote className="text-xl sm:text-2xl text-white/90 text-center mb-8 leading-relaxed font-medium">
                 "{testimonials[currentIndex].content}"
               </blockquote>
 
@@ -91,10 +91,10 @@ export function TestimonialsCarousel() {
                   className="w-16 h-16 rounded-full object-cover border-4 border-sport-accent/20"
                 />
                 <div className="text-center sm:text-left">
-                  <div className="font-bold text-sport-text text-lg">
+                  <div className="font-bold text-white text-lg">
                     {testimonials[currentIndex].name}
                   </div>
-                  <div className="text-sport-text/60">
+                  <div className="text-white/70">
                     {testimonials[currentIndex].role}
                   </div>
                 </div>
