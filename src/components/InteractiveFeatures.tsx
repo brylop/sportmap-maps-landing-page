@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Users, School, ShoppingBag, Heart, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DynamicBackground } from "./DynamicBackground";
+import { useNavigate } from "react-router-dom";
 
 const features = [
   {
@@ -10,6 +11,7 @@ const features = [
     title: "Para Deportistas",
     description: "Encuentra tu escuela ideal y gestiona tu carrera deportiva",
     color: "sport-primary",
+    route: "/deportistas",
     details: [
       "Búsqueda avanzada de escuelas",
       "Comparación detallada de programas",
@@ -24,6 +26,7 @@ const features = [
     title: "Para Escuelas",
     description: "Herramientas completas para gestionar tu institución deportiva",
     color: "sport-accent",
+    route: "/escuelas",
     details: [
       "Dashboard de gestión integral",
       "Comunicación con padres y estudiantes",
@@ -38,6 +41,7 @@ const features = [
     title: "Equipamiento",
     description: "Todo lo que necesitas para tu práctica deportiva",
     color: "sport-highlight",
+    route: "/equipamiento",
     details: [
       "Catálogo especializado por deporte",
       "Reseñas verificadas de productos",
@@ -52,6 +56,7 @@ const features = [
     title: "Bienestar Integral",
     description: "Cuida tu salud física y mental en el deporte",
     color: "sport-wellness",
+    route: "/bienestar",
     details: [
       "Planes nutricionales personalizados",
       "Seguimiento médico especializado",
@@ -64,6 +69,7 @@ const features = [
 
 export function InteractiveFeatures() {
   const [activeFeature, setActiveFeature] = useState("athletes");
+  const navigate = useNavigate();
 
   const currentFeature = features.find(f => f.id === activeFeature) || features[0];
 
@@ -154,6 +160,7 @@ export function InteractiveFeatures() {
             <Button 
               variant="default"
               className="w-full"
+              onClick={() => navigate(currentFeature.route)}
             >
               Explorar {currentFeature.title}
             </Button>
