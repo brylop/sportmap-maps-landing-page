@@ -37,17 +37,21 @@ export function ContactForm({ onClose }: ContactFormProps) {
         });
         return;
       }
-      const { data, error } = await supabase.functions.invoke('submit-contact-message', {
-        body: {
+
+      // Insert directly into the contact_messages table
+      const { data, error } = await supabase
+        .from('contact_messages')
+        .insert({
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
           category: formData.category,
           message: formData.message
-        }
-      });
+        })
+        .select();
 
       if (error) {
+        console.error('Supabase error:', error);
         throw error;
       }
       
@@ -66,6 +70,7 @@ export function ContactForm({ onClose }: ContactFormProps) {
       
       onClose?.();
     } catch (error) {
+      console.error('Error submitting message:', error);
       toast({
         title: "Error",
         description: "Hubo un problema al enviar tu mensaje. Inténtalo de nuevo.",

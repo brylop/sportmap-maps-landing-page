@@ -38,18 +38,22 @@ export function JoinTechForm({ onClose }: JoinTechFormProps) {
         });
         return;
       }
-      const { data, error } = await supabase.functions.invoke('submit-join-application', {
-        body: {
-          fullName: formData.fullName,
+
+      // Insert directly into the join_applications table
+      const { data, error } = await supabase
+        .from('join_applications')
+        .insert({
+          full_name: formData.fullName,
           email: formData.email,
           phone: formData.phone,
           experience: formData.experience,
           interests: formData.interests,
           motivation: formData.motivation
-        }
-      });
+        })
+        .select();
 
       if (error) {
+        console.error('Supabase error:', error);
         throw error;
       }
       
@@ -69,6 +73,7 @@ export function JoinTechForm({ onClose }: JoinTechFormProps) {
       
       onClose?.();
     } catch (error) {
+      console.error('Error submitting application:', error);
       toast({
         title: "Error",
         description: "Hubo un problema al enviar tu aplicación. Inténtalo de nuevo.",
@@ -143,7 +148,7 @@ export function JoinTechForm({ onClose }: JoinTechFormProps) {
             <Input
               id="phone"
               type="tel"
-              placeholder="+1 234 567 8900"
+              placeholder="+57 312 456 7890"
               value={formData.phone}
               onChange={(e) => handleInputChange("phone", e.target.value)}
               className="bg-sport-surface border-sport-border focus:border-sport-primary"
