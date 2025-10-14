@@ -39,21 +39,51 @@ export function JoinTechForm({ onClose }: JoinTechFormProps) {
         return;
       }
 
-      // Call the edge function to handle both DB insertion and email
-      const { data, error } = await supabase.functions.invoke('submit-join-application', {
-        body: {
-          fullName: formData.fullName,
+      // Insert into the join_applications table
+      const { data, error } = await supabase
+        .from('join_applications')
+        .insert({
+          full_name: formData.fullName,
           email: formData.email,
           phone: formData.phone,
           experience: formData.experience,
           interests: formData.interests,
           motivation: formData.motivation
-        }
-      });
+        })
+        .select();
 
       if (error) {
-        console.error('Function error:', error);
+        console.error('Supabase error:', error);
         throw error;
+      }
+
+      // Send email notification via Resend
+      try {
+        await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Bearer re_123456789', // You'll need to replace this
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            from: 'SportMaps Tech <onboarding@resend.dev>',
+            to: ['brylop71@gmail.com'],
+            subject: `Nueva aplicación SportMaps Tech: ${formData.fullName}`,
+            html: `
+              <h2>Nueva aplicación recibida</h2>
+              <p><strong>Nombre completo:</strong> ${formData.fullName}</p>
+              <p><strong>Email:</strong> ${formData.email}</p>
+              <p><strong>Teléfono:</strong> ${formData.phone || 'No proporcionado'}</p>
+              <p><strong>Nivel de experiencia:</strong> ${formData.experience || 'No especificado'}</p>
+              <p><strong>Áreas de interés:</strong></p>
+              <p>${formData.interests}</p>
+              <p><strong>Motivación:</strong></p>
+              <p>${formData.motivation}</p>
+            `
+          })
+        });
+      } catch (emailError) {
+        console.log('Email notification failed, but application was saved:', emailError);
       }
       
       toast({
