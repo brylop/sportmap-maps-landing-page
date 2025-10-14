@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { supabase, isSupabaseConfigured } from "@/lib/supabase";
+import { supabase } from "@/integrations/supabase/client";
 import { Send, User, Mail, MessageSquare, HelpCircle } from "lucide-react";
 
 interface ContactFormProps {
@@ -28,58 +28,20 @@ export function ContactForm({ onClose }: ContactFormProps) {
     setIsLoading(true);
 
     try {
-      // Check if Supabase is properly configured
-      if (!isSupabaseConfigured) {
-        toast({
-          title: "Configuración pendiente",
-          description: "Supabase no está configurado. Conecta tu proyecto primero.",
-          variant: "destructive",
-        });
-        return;
-      }
-
-      // Insert into the contact_messages table
-      const { data, error } = await supabase
-        .from('contact_messages')
-        .insert({
+      // Call the edge function to handle both DB insertion and email
+      const { data, error } = await supabase.functions.invoke('submit-contact-message', {
+        body: {
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
           category: formData.category,
           message: formData.message
-        })
-        .select();
+        }
+      });
 
       if (error) {
-        console.error('Supabase error:', error);
+        console.error('Function error:', error);
         throw error;
-      }
-
-      // Send email notification via Resend
-      try {
-        await fetch('https://api.resend.com/emails', {
-          method: 'POST',
-          headers: {
-            'Authorization': 'Bearer re_123456789', // You'll need to replace this
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            from: 'SportMaps <onboarding@resend.dev>',
-            to: ['brylop71@gmail.com'],
-            subject: `Nuevo mensaje de contacto: ${formData.subject}`,
-            html: `
-              <h2>Nuevo mensaje de contacto recibido</h2>
-              <p><strong>Nombre:</strong> ${formData.name}</p>
-              <p><strong>Email:</strong> ${formData.email}</p>
-              <p><strong>Asunto:</strong> ${formData.subject}</p>
-              <p><strong>Categoría:</strong> ${formData.category}</p>
-              <p><strong>Mensaje:</strong></p>
-              <p>${formData.message}</p>
-            `
-          })
-        });
-      } catch (emailError) {
-        console.log('Email notification failed, but form was saved:', emailError);
       }
       
       toast({
