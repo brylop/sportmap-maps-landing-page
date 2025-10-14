@@ -48,8 +48,44 @@ serve(async (req) => {
       )
     }
 
-    // TODO: Send notification email to admin
-    // TODO: Send confirmation email to applicant
+    // Send notification email to admin
+    try {
+      const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')
+      
+      const emailResponse = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${RESEND_API_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          from: 'SportMaps Tech <onboarding@resend.dev>',
+          to: ['brylop71@gmail.com'],
+          subject: `Nueva aplicación SportMaps Tech: ${fullName}`,
+          html: `
+            <h2>Nueva aplicación recibida</h2>
+            <p><strong>Nombre completo:</strong> ${fullName}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Teléfono:</strong> ${phone || 'No proporcionado'}</p>
+            <p><strong>Nivel de experiencia:</strong> ${experience || 'No especificado'}</p>
+            <p><strong>Áreas de interés:</strong></p>
+            <p>${interests}</p>
+            <p><strong>Motivación:</strong></p>
+            <p>${motivation}</p>
+          `
+        })
+      })
+      
+      if (emailResponse.ok) {
+        console.log('Notification email sent to admin')
+      } else {
+        const errorData = await emailResponse.json()
+        console.error('Error sending email:', errorData)
+      }
+    } catch (emailError) {
+      console.error('Error sending email:', emailError)
+      // Continue even if email fails
+    }
 
     return new Response(
       JSON.stringify({ 

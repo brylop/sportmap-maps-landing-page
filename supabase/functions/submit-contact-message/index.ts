@@ -47,8 +47,42 @@ serve(async (req) => {
       )
     }
 
-    // TODO: Send notification email to admin (brylop71@gmail.com)
-    // TODO: Send auto-reply to user
+    // Send notification email to admin
+    try {
+      const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')
+      
+      const emailResponse = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${RESEND_API_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          from: 'SportMaps <onboarding@resend.dev>',
+          to: ['brylop71@gmail.com'],
+          subject: `Nuevo mensaje de contacto: ${subject}`,
+          html: `
+            <h2>Nuevo mensaje de contacto recibido</h2>
+            <p><strong>Nombre:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Asunto:</strong> ${subject}</p>
+            <p><strong>Categoría:</strong> ${category}</p>
+            <p><strong>Mensaje:</strong></p>
+            <p>${message}</p>
+          `
+        })
+      })
+      
+      if (emailResponse.ok) {
+        console.log('Notification email sent to admin')
+      } else {
+        const errorData = await emailResponse.json()
+        console.error('Error sending email:', errorData)
+      }
+    } catch (emailError) {
+      console.error('Error sending email:', emailError)
+      // Continue even if email fails
+    }
 
     return new Response(
       JSON.stringify({ 
