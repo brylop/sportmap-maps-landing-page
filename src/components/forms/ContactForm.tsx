@@ -38,20 +38,19 @@ export function ContactForm({ onClose }: ContactFormProps) {
         return;
       }
 
-      // Insert directly into the contact_messages table
-      const { data, error } = await supabase
-        .from('contact_messages')
-        .insert({
+      // Call the edge function to handle both DB insertion and email
+      const { data, error } = await supabase.functions.invoke('submit-contact-message', {
+        body: {
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
           category: formData.category,
           message: formData.message
-        })
-        .select();
+        }
+      });
 
       if (error) {
-        console.error('Supabase error:', error);
+        console.error('Function error:', error);
         throw error;
       }
       

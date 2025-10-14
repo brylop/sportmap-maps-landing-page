@@ -39,21 +39,20 @@ export function JoinTechForm({ onClose }: JoinTechFormProps) {
         return;
       }
 
-      // Insert directly into the join_applications table
-      const { data, error } = await supabase
-        .from('join_applications')
-        .insert({
-          full_name: formData.fullName,
+      // Call the edge function to handle both DB insertion and email
+      const { data, error } = await supabase.functions.invoke('submit-join-application', {
+        body: {
+          fullName: formData.fullName,
           email: formData.email,
           phone: formData.phone,
           experience: formData.experience,
           interests: formData.interests,
           motivation: formData.motivation
-        })
-        .select();
+        }
+      });
 
       if (error) {
-        console.error('Supabase error:', error);
+        console.error('Function error:', error);
         throw error;
       }
       
