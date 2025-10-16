@@ -9,7 +9,7 @@ interface DemoModalProps {
 }
 
 export function DemoModal({ isOpen, onClose }: DemoModalProps) {
-  const demoUrl = "https://preview--apex-trail-maps.lovable.app/";
+  const demoUrl = "https://sportmaps.lovable.app/";
 
   const openInNewTab = () => {
     window.open(demoUrl, '_blank', 'noopener,noreferrer');
