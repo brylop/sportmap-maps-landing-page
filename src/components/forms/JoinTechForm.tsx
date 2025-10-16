@@ -26,10 +26,29 @@ export function JoinTechForm({ onClose }: JoinTechFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Client-side validation
+    if (formData.interests.trim().length < 10) {
+      toast({
+        title: "Error de validación",
+        description: "Las áreas de interés deben tener al menos 10 caracteres.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (formData.motivation.trim().length < 10) {
+      toast({
+        title: "Error de validación",
+        description: "La motivación debe tener al menos 10 caracteres.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     setIsLoading(true);
 
     try {
-      // Call the edge function to handle both DB insertion and email
       const { data, error } = await supabase.functions.invoke('submit-join-application', {
         body: {
           fullName: formData.fullName,
@@ -42,8 +61,24 @@ export function JoinTechForm({ onClose }: JoinTechFormProps) {
       });
 
       if (error) {
-        console.error('Function error:', error);
-        throw error;
+        const errorMessage = error.message || "Hubo un problema al enviar tu aplicación. Inténtalo de nuevo.";
+        toast({
+          title: "Error",
+          description: errorMessage,
+          variant: "destructive",
+        });
+        return;
+      }
+      
+      // Check if the response contains an error
+      if (data?.error) {
+        const details = data.details ? data.details.join(', ') : data.error;
+        toast({
+          title: "Error de validación",
+          description: details,
+          variant: "destructive",
+        });
+        return;
       }
       
       toast({
@@ -61,11 +96,11 @@ export function JoinTechForm({ onClose }: JoinTechFormProps) {
       });
       
       onClose?.();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error submitting application:', error);
       toast({
         title: "Error",
-        description: "Hubo un problema al enviar tu aplicación. Inténtalo de nuevo.",
+        description: error.message || "Hubo un problema al enviar tu aplicación. Inténtalo de nuevo.",
         variant: "destructive",
       });
     } finally {
@@ -164,7 +199,9 @@ export function JoinTechForm({ onClose }: JoinTechFormProps) {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="interests">Áreas de interés</Label>
+          <Label htmlFor="interests">
+            Áreas de interés <span className="text-muted-foreground text-sm">(mínimo 10 caracteres)</span>
+          </Label>
           <Textarea
             id="interests"
             placeholder="¿En qué aspectos de SportMaps Tech te gustaría participar? (desarrollo, contenido, comunidad, etc.)"
@@ -172,11 +209,14 @@ export function JoinTechForm({ onClose }: JoinTechFormProps) {
             onChange={(e) => handleInputChange("interests", e.target.value)}
             className="bg-sport-surface border-sport-border focus:border-sport-primary min-h-[100px]"
             required
+            minLength={10}
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="motivation">Motivación</Label>
+          <Label htmlFor="motivation">
+            Motivación <span className="text-muted-foreground text-sm">(mínimo 10 caracteres)</span>
+          </Label>
           <Textarea
             id="motivation"
             placeholder="Cuéntanos por qué quieres unirte a SportMaps Tech y qué puedes aportar a la comunidad"
@@ -184,6 +224,7 @@ export function JoinTechForm({ onClose }: JoinTechFormProps) {
             onChange={(e) => handleInputChange("motivation", e.target.value)}
             className="bg-sport-surface border-sport-border focus:border-sport-primary min-h-[120px]"
             required
+            minLength={10}
           />
         </div>
 
