@@ -10,6 +10,8 @@ import Deportistas from "./pages/Deportistas";
 import Escuelas from "./pages/Escuelas";
 import Equipamiento from "./pages/Equipamiento";
 import Bienestar from "./pages/Bienestar";
+import Auth from "./pages/Auth";
+import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +29,8 @@ const App = () => (
             <Route path="/escuelas" element={<Escuelas />} />
             <Route path="/equipamiento" element={<Equipamiento />} />
             <Route path="/bienestar" element={<Bienestar />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/admin" element={<Admin />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
