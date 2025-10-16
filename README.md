@@ -1,6 +1,3 @@
-Perfecto 👍 Aquí tienes el **README completamente reemplazado** con la documentación de tu proyecto **SportMaps**, estructurado profesionalmente y listo para subir al repositorio en lugar del de “Lovable”:
-
----
 
 # 🏅 **SportMaps - Plataforma Inteligente de Gestión Deportiva**
 
