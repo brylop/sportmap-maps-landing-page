@@ -2,10 +2,14 @@ import { motion } from "framer-motion";
 import { Handshake, GraduationCap, Megaphone, CheckCircle, Rocket, Users, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { JoinTechModal } from "../modals/JoinTechModal";
+import { PartnerSchoolModal } from "../modals/PartnerSchoolModal";
+import { PartnerProviderModal } from "../modals/PartnerProviderModal";
+import { PartnerTrainerModal } from "../modals/PartnerTrainerModal";
 
 export function UneteModule() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSchoolModalOpen, setIsSchoolModalOpen] = useState(false);
+  const [isProviderModalOpen, setIsProviderModalOpen] = useState(false);
+  const [isTrainerModalOpen, setIsTrainerModalOpen] = useState(false);
 
   const partnerships = [
     {
@@ -113,16 +117,38 @@ export function UneteModule() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            whileHover={{ scale: 1.05 }}
+            className="flex flex-wrap gap-4 justify-center"
           >
-            <Button 
-              size="lg"
-              onClick={() => setIsModalOpen(true)}
-              className="bg-gradient-tech-primary text-white px-8 py-6 text-lg rounded-full hover:shadow-glow-primary"
-            >
-              <Rocket className="w-5 h-5 mr-2" />
-              Comienza Ahora
-            </Button>
+            <motion.div whileHover={{ scale: 1.05 }}>
+              <Button 
+                size="lg"
+                onClick={() => setIsSchoolModalOpen(true)}
+                className="bg-sport-primary text-white px-6 py-6 text-base rounded-full hover:shadow-glow-primary"
+              >
+                <GraduationCap className="w-5 h-5 mr-2" />
+                Soy Escuela
+              </Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }}>
+              <Button 
+                size="lg"
+                onClick={() => setIsProviderModalOpen(true)}
+                className="bg-sport-highlight text-white px-6 py-6 text-base rounded-full hover:shadow-glow-primary"
+              >
+                <Handshake className="w-5 h-5 mr-2" />
+                Soy Proveedor
+              </Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }}>
+              <Button 
+                size="lg"
+                onClick={() => setIsTrainerModalOpen(true)}
+                className="bg-sport-accent text-white px-6 py-6 text-base rounded-full hover:shadow-glow-primary"
+              >
+                <Megaphone className="w-5 h-5 mr-2" />
+                Soy Entrenador
+              </Button>
+            </motion.div>
           </motion.div>
         </div>
       </motion.div>
@@ -177,7 +203,15 @@ export function UneteModule() {
                 variant="outline"
                 className="w-full border-2"
                 style={{ borderColor: `hsl(var(--${partnership.color}))` }}
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => {
+                  if (partnership.title.includes("Escuelas")) {
+                    setIsSchoolModalOpen(true);
+                  } else if (partnership.title.includes("Proveedores")) {
+                    setIsProviderModalOpen(true);
+                  } else {
+                    setIsTrainerModalOpen(true);
+                  }
+                }}
               >
                 <partnership.icon className="w-5 h-5 mr-2" />
                 Más Información
@@ -187,7 +221,9 @@ export function UneteModule() {
         ))}
       </div>
 
-      <JoinTechModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <PartnerSchoolModal isOpen={isSchoolModalOpen} onClose={() => setIsSchoolModalOpen(false)} />
+      <PartnerProviderModal isOpen={isProviderModalOpen} onClose={() => setIsProviderModalOpen(false)} />
+      <PartnerTrainerModal isOpen={isTrainerModalOpen} onClose={() => setIsTrainerModalOpen(false)} />
     </section>
   );
 }

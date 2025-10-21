@@ -77,6 +77,48 @@ export type Database = {
         }
         Relationships: []
       }
+      partner_applications: {
+        Row: {
+          business_description: string
+          business_name: string
+          contact_name: string
+          created_at: string
+          email: string
+          experience_years: number | null
+          id: string
+          partner_type: string
+          phone: string
+          updated_at: string
+          website: string | null
+        }
+        Insert: {
+          business_description: string
+          business_name: string
+          contact_name: string
+          created_at?: string
+          email: string
+          experience_years?: number | null
+          id?: string
+          partner_type: string
+          phone: string
+          updated_at?: string
+          website?: string | null
+        }
+        Update: {
+          business_description?: string
+          business_name?: string
+          contact_name?: string
+          created_at?: string
+          email?: string
+          experience_years?: number | null
+          id?: string
+          partner_type?: string
+          phone?: string
+          updated_at?: string
+          website?: string | null
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
