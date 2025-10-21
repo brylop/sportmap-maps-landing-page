@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import { ShoppingBag, Package, Truck, Sparkles, Clock, ShoppingCart, Award, TrendingUp, Shield, Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import ropaTechImg from "@/assets/tienda-ropa-tech.jpg";
+import accesoriosImg from "@/assets/tienda-accesorios.jpg";
+import ofertasExclusivas from "@/assets/tienda-ofertas-exclusivas.jpg";
 
 export function TiendaModule() {
   const features = [
@@ -33,9 +36,9 @@ export function TiendaModule() {
 
   const categories = [
     { icon: Award, name: "Equipamiento profesional certificado", image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=300&fit=crop" },
-    { icon: Clock, name: "Ropa deportiva de alta tecnología", image: "https://images.unsplash.com/photo-1556906781-9cba4a6ea6e0?w=400&h=300&fit=crop" },
-    { icon: Package, name: "Accesorios y complementos", image: "https://images.unsplash.com/photo-1523380744952-b5643e5b7ec6?w=400&h=300&fit=crop" },
-    { icon: Sparkles, name: "Ofertas exclusivas para miembros", image: "https://images.unsplash.com/photo-1524505089958-c6c4f8e03927?w=400&h=300&fit=crop" }
+    { icon: Clock, name: "Ropa deportiva de alta tecnología", image: ropaTechImg },
+    { icon: Package, name: "Accesorios y complementos", image: accesoriosImg },
+    { icon: Sparkles, name: "Ofertas exclusivas para miembros", image: ofertasExclusivas }
   ];
 
   const stats = [
