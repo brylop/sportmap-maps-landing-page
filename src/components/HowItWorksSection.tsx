@@ -1,4 +1,5 @@
 import { DynamicBackground } from "./DynamicBackground";
+import { motion } from "framer-motion";
 
 export function HowItWorksSection() {
   return (
@@ -80,16 +81,25 @@ export function HowItWorksSection() {
               icon: "🚀"
             }
           ].map((section, index) => (
-            <div 
-              key={index} 
-              className="group bg-sport-background/80 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:border-sport-primary/50 shadow-tech-lg hover:shadow-tech-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-glow-primary"
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              whileHover={{ y: -10, scale: 1.02 }}
+              className="group bg-sport-background/80 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:border-sport-primary/50 shadow-tech-lg hover:shadow-tech-xl transition-all duration-500 hover:shadow-glow-primary"
             >
               {/* Card Header */}
               <div className="mb-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className={`w-12 h-12 bg-${section.gradient} rounded-2xl flex items-center justify-center text-2xl shadow-glow-primary group-hover:scale-110 transition-transform duration-300`}>
+                  <motion.div 
+                    className={`w-12 h-12 bg-${section.gradient} rounded-2xl flex items-center justify-center text-2xl shadow-glow-primary`}
+                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                  >
                     {section.icon}
-                  </div>
+                  </motion.div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-sport-text-primary mb-1">
                       {section.title}
@@ -102,22 +112,35 @@ export function HowItWorksSection() {
               {/* Features List */}
               <ul className="space-y-4">
                 {section.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start gap-3 group/item">
+                  <motion.li 
+                    key={featureIndex} 
+                    className="flex items-start gap-3 group/item"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.5 + featureIndex * 0.05 }}
+                  >
                     <div className={`w-2 h-2 rounded-full bg-${section.color} mt-2 flex-shrink-0 group-hover/item:animate-tech-pulse transition-all duration-300`} />
                     <span className="text-sport-text-secondary text-sm leading-relaxed group-hover/item:text-sport-text-primary transition-colors duration-300">
                       {feature}
                     </span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
 
               {/* Tech Badge */}
-              <div className="mt-6 pt-4 border-t border-white/20 flex items-center gap-2 text-xs text-sport-accent font-mono">
+              <motion.div 
+                className="mt-6 pt-4 border-t border-white/20 flex items-center gap-2 text-xs text-sport-accent font-mono"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+              >
                 <div className="w-1 h-1 bg-sport-accent rounded-full animate-tech-pulse" />
                 <span>TECH ENABLED</span>
                 <div className="ml-auto w-6 h-px bg-gradient-tech-primary" />
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>

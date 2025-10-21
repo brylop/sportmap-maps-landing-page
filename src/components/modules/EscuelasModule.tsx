@@ -1,87 +1,66 @@
-import { GraduationCap, Search, Calendar, Shield, Star, MapPin, Users } from "lucide-react";
+import { motion } from "framer-motion";
+import { GraduationCap, Search, Calendar, Shield, Star, MapPin, Users, TrendingUp, Award } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 export function EscuelasModule() {
-  return (
-    <section className="bg-sport-card hover:shadow-hover transition-all duration-300 cursor-pointer border-l-4 border-l-blue-500 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 shadow-elegant">
-      <div className="flex items-center gap-4 mb-4">
-        <div className="w-12 h-12 rounded-xl bg-blue-500 flex items-center justify-center">
-          <GraduationCap className="w-6 h-6 text-white" />
-        </div>
-        <div className="flex-1">
-          <div className="flex items-center gap-3 mb-2">
-            <h2 className="text-2xl sm:text-3xl font-bold text-sport-text">Escuelas & Entrenadores</h2>
-            <Badge variant="secondary" className="bg-blue-100 text-blue-600 border-blue-200">
-              Verificados
-            </Badge>
-          </div>
-          <p className="text-sm sm:text-base text-sport-text/80">
-            Conecta con las mejores escuelas deportivas de Colombia. Búsqueda avanzada, reservas garantizadas y entrenadores certificados para impulsar tu potencial.
-          </p>
-        </div>
-      </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-6">
-        <div className="p-4 sm:p-6 border border-blue-200 bg-blue-50/30 rounded-xl sm:rounded-2xl hover:bg-blue-50/50 transition-colors">
-          <div className="flex items-center gap-3 mb-2 sm:mb-3">
-            <Search className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
-            <h6 className="font-bold text-sport-text text-sm sm:text-base">Búsqueda Inteligente</h6>
-          </div>
-          <p className="text-sport-text/70 text-xs sm:text-sm mb-3">Encuentra la escuela perfecta con filtros por ubicación, disciplina, nivel y presupuesto.</p>
-          <div className="flex flex-wrap gap-2">
-            <Badge variant="outline" className="text-xs border-blue-300 text-blue-600">Geolocalización</Badge>
-            <Badge variant="outline" className="text-xs border-blue-300 text-blue-600">Comparar precios</Badge>
-          </div>
-        </div>
-        
-        <div className="p-4 sm:p-6 border border-blue-200 bg-blue-50/30 rounded-xl sm:rounded-2xl hover:bg-blue-50/50 transition-colors">
-          <div className="flex items-center gap-3 mb-2 sm:mb-3">
-            <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
-            <h6 className="font-bold text-sport-text text-sm sm:text-base">Reservas Seguras</h6>
-          </div>
-          <p className="text-sport-text/70 text-xs sm:text-sm mb-3">Sistema de reservas en tiempo real con pago protegido y cancelación flexible.</p>
-          <div className="flex flex-wrap gap-2">
-            <Badge variant="outline" className="text-xs border-blue-300 text-blue-600">Pago seguro</Badge>
-            <Badge variant="outline" className="text-xs border-blue-300 text-blue-600">Reembolso</Badge>
-          </div>
-        </div>
-        
-        <div className="p-4 sm:p-6 border border-blue-200 bg-blue-50/30 rounded-xl sm:rounded-2xl hover:bg-blue-50/50 transition-colors">
-          <div className="flex items-center gap-3 mb-2 sm:mb-3">
-            <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
-            <h6 className="font-bold text-sport-text text-sm sm:text-base">Calidad Garantizada</h6>
-          </div>
-          <p className="text-sport-text/70 text-xs sm:text-sm mb-3">Todas las escuelas están verificadas con documentación completa y seguros vigentes.</p>
-          <div className="flex flex-wrap gap-2">
-            <Badge variant="outline" className="text-xs border-blue-300 text-blue-600">Certificados</Badge>
-            <Badge variant="outline" className="text-xs border-blue-300 text-blue-600">Seguros</Badge>
-          </div>
-        </div>
-      </div>
+  const features = [
+    { icon: Search, title: "Búsqueda Inteligente", description: "Encuentra la escuela perfecta con filtros por ubicación, disciplina, nivel y presupuesto.", badges: ["Geolocalización", "Comparar precios"], color: "sport-primary", stats: "1,200+ escuelas" },
+    { icon: Calendar, title: "Reservas Seguras", description: "Sistema de reservas en tiempo real con pago protegido y cancelación flexible.", badges: ["Pago seguro", "Reembolso"], color: "sport-accent", stats: "Tiempo real" },
+    { icon: Shield, title: "Calidad Garantizada", description: "Todas las escuelas están verificadas con documentación completa y seguros vigentes.", badges: ["Certificados", "Seguros"], color: "sport-highlight", stats: "100% verificado" }
+  ];
 
-      <div className="bg-blue-50/20 rounded-xl p-4 border border-blue-200">
-        <h3 className="font-semibold text-sport-text mb-3 flex items-center gap-2">
-          <Users className="w-4 h-4 text-blue-500" />
-          Lo que incluye:
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-sport-text/80">
-          <div className="flex items-center gap-2">
-            <Star className="w-3 h-3 text-blue-500" />
-            Reseñas verificadas de estudiantes
+  const stats = [
+    { icon: GraduationCap, value: "1,200+", label: "Escuelas Verificadas" },
+    { icon: Users, value: "50K+", label: "Estudiantes Activos" },
+    { icon: Star, value: "4.9", label: "Rating Promedio" }
+  ];
+
+  return (
+    <section className="min-h-screen py-8 sm:py-12">
+      <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="bg-sport-card rounded-3xl p-8 sm:p-12 mb-8 shadow-elegant relative overflow-hidden border-l-4 border-l-sport-primary">
+        <div className="absolute top-0 right-0 w-72 h-72 bg-sport-primary/10 rounded-full -translate-y-36 translate-x-36" />
+        <div className="relative z-10">
+          <div className="flex items-center gap-4 mb-6">
+            <motion.div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-sport-primary to-sport-primary/70 flex items-center justify-center shadow-glow-primary" whileHover={{ scale: 1.1, rotate: 10 }}>
+              <GraduationCap className="w-8 h-8 text-white" />
+            </motion.div>
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <h2 className="text-3xl sm:text-4xl font-bold text-sport-text">Escuelas & Entrenadores</h2>
+                <Badge className="bg-sport-primary text-white">Verificados</Badge>
+              </div>
+              <p className="text-base sm:text-lg text-sport-text/80">Conecta con las mejores escuelas deportivas de Colombia. Búsqueda avanzada, reservas garantizadas y entrenadores certificados.</p>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <MapPin className="w-3 h-3 text-blue-500" />
-            Ubicaciones georeferenciadas
-          </div>
-          <div className="flex items-center gap-2">
-            <Calendar className="w-3 h-3 text-blue-500" />
-            Horarios flexibles y personalizados
-          </div>
-          <div className="flex items-center gap-2">
-            <Shield className="w-3 h-3 text-blue-500" />
-            Garantía de satisfacción 100%
+          <div className="grid grid-cols-3 gap-4 mb-8">
+            {stats.map((stat, index) => (
+              <motion.div key={stat.label} initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }} whileHover={{ scale: 1.05 }} className="bg-sport-background/60 backdrop-blur-sm rounded-xl p-4 text-center">
+                <stat.icon className="w-8 h-8 mx-auto mb-2 text-sport-primary" />
+                <div className="text-2xl font-bold text-sport-text">{stat.value}</div>
+                <div className="text-xs text-sport-text/70">{stat.label}</div>
+              </motion.div>
+            ))}
           </div>
         </div>
+      </motion.div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {features.map((feature, index) => (
+          <motion.div key={feature.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.15 }} whileHover={{ y: -8 }} className="bg-sport-card rounded-3xl p-8 shadow-elegant hover:shadow-hover">
+            <motion.div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style={{ background: `linear-gradient(135deg, hsl(var(--${feature.color})), hsl(var(--${feature.color})) 70%)` }} whileHover={{ scale: 1.1, rotate: 360 }} transition={{ duration: 0.6 }}>
+              <feature.icon className="w-8 h-8 text-white" />
+            </motion.div>
+            <h3 className="text-xl font-bold text-sport-text mb-2">{feature.title}</h3>
+            <div className="text-2xl font-bold text-sport-primary mb-2">{feature.stats}</div>
+            <p className="text-sport-text/70 text-sm mb-4">{feature.description}</p>
+            <div className="flex flex-wrap gap-2">
+              {feature.badges.map((badge, idx) => (
+                <Badge key={idx} variant="outline" className="border-sport-primary/30 text-sport-primary">{badge}</Badge>
+              ))}
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
