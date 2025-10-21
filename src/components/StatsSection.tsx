@@ -1,6 +1,7 @@
 import { Users, School, ShoppingBag, Award } from "lucide-react";
 import { AnimatedCounter } from "./AnimatedCounter";
 import { DynamicBackground } from "./DynamicBackground";
+import { motion } from "framer-motion";
 
 export function StatsSection() {
   const stats = [
@@ -48,18 +49,27 @@ export function StatsSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
-            <div 
+            <motion.div 
               key={index}
-              className="group text-center p-6 rounded-2xl bg-sport-background/60 backdrop-blur-sm border border-white/20 hover:shadow-hover transition-all duration-300 hover:-translate-y-1"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -8, scale: 1.05 }}
+              className="group text-center p-6 rounded-2xl bg-sport-background/60 backdrop-blur-sm border border-white/20 hover:shadow-hover transition-all duration-300"
             >
-              <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-${stat.color} to-${stat.color}/70 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+              <motion.div 
+                className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-${stat.color} to-${stat.color}/70 flex items-center justify-center`}
+                whileHover={{ scale: 1.2, rotate: 360 }}
+                transition={{ duration: 0.6 }}
+              >
                 <stat.icon className="w-8 h-8 text-white" />
-              </div>
+              </motion.div>
               <div className="text-3xl sm:text-4xl font-bold text-sport-text-primary mb-2">
                 <AnimatedCounter end={stat.value} suffix={stat.suffix} />
               </div>
               <p className="text-sport-text-secondary font-medium">{stat.label}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

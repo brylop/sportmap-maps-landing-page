@@ -15,6 +15,9 @@ import { NutricionModule } from "@/components/modules/NutricionModule";
 import { BienestarModule } from "@/components/modules/BienestarModule";
 import { UneteModule } from "@/components/modules/UneteModule";
 import { AcercaModule } from "@/components/modules/AcercaModule";
+import { AnimatedSection } from "@/components/AnimatedSection";
+import { ParallaxHero } from "@/components/ParallaxHero";
+import { ThreeScene } from "@/components/ThreeScene";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("inicio");
@@ -33,13 +36,38 @@ const Index = () => {
       case "inicio":
         return (
           <>
-            <TechHeroSection onDemoClick={() => setIsDemoOpen(true)} />
-            <HowItWorksSection />
-            <StatsSection />
-            <InteractiveFeatures />
-            <TestimonialsCarousel />
-            <SearchSection />
-            <EcosistemaModule onModuleClick={scrollToSection} />
+            <ParallaxHero>
+              <TechHeroSection onDemoClick={() => setIsDemoOpen(true)} />
+            </ParallaxHero>
+            <AnimatedSection direction="fade" delay={0.1}>
+              <HowItWorksSection />
+            </AnimatedSection>
+            <AnimatedSection direction="up" delay={0.2}>
+              <StatsSection />
+            </AnimatedSection>
+            <AnimatedSection className="container mx-auto px-4 sm:px-6 lg:px-8 my-16" direction="fade" delay={0.3}>
+              <div className="text-center mb-8">
+                <h2 className="text-3xl sm:text-4xl font-bold text-sport-text-primary mb-4">
+                  Red de Conexiones SportMaps
+                </h2>
+                <p className="text-lg text-sport-text-secondary max-w-2xl mx-auto">
+                  Explora cómo conectamos escuelas, entrenadores y deportistas en un ecosistema integrado
+                </p>
+              </div>
+              <ThreeScene />
+            </AnimatedSection>
+            <AnimatedSection direction="up" delay={0.2}>
+              <InteractiveFeatures />
+            </AnimatedSection>
+            <AnimatedSection direction="fade" delay={0.1}>
+              <TestimonialsCarousel />
+            </AnimatedSection>
+            <AnimatedSection direction="up" delay={0.2}>
+              <SearchSection />
+            </AnimatedSection>
+            <AnimatedSection direction="fade" delay={0.1}>
+              <EcosistemaModule onModuleClick={scrollToSection} />
+            </AnimatedSection>
           </>
         );
       case "ecosistema":
@@ -59,13 +87,38 @@ const Index = () => {
       default:
         return (
           <>
-            <TechHeroSection onDemoClick={() => setIsDemoOpen(true)} />
-            <HowItWorksSection />
-            <StatsSection />
-            <InteractiveFeatures />
-            <TestimonialsCarousel />
-            <SearchSection />
-            <EcosistemaModule onModuleClick={scrollToSection} />
+            <ParallaxHero>
+              <TechHeroSection onDemoClick={() => setIsDemoOpen(true)} />
+            </ParallaxHero>
+            <AnimatedSection direction="fade" delay={0.1}>
+              <HowItWorksSection />
+            </AnimatedSection>
+            <AnimatedSection direction="up" delay={0.2}>
+              <StatsSection />
+            </AnimatedSection>
+            <AnimatedSection className="container mx-auto px-4 sm:px-6 lg:px-8 my-16" direction="fade" delay={0.3}>
+              <div className="text-center mb-8">
+                <h2 className="text-3xl sm:text-4xl font-bold text-sport-text-primary mb-4">
+                  Red de Conexiones SportMaps
+                </h2>
+                <p className="text-lg text-sport-text-secondary max-w-2xl mx-auto">
+                  Explora cómo conectamos escuelas, entrenadores y deportistas en un ecosistema integrado
+                </p>
+              </div>
+              <ThreeScene />
+            </AnimatedSection>
+            <AnimatedSection direction="up" delay={0.2}>
+              <InteractiveFeatures />
+            </AnimatedSection>
+            <AnimatedSection direction="fade" delay={0.1}>
+              <TestimonialsCarousel />
+            </AnimatedSection>
+            <AnimatedSection direction="up" delay={0.2}>
+              <SearchSection />
+            </AnimatedSection>
+            <AnimatedSection direction="fade" delay={0.1}>
+              <EcosistemaModule onModuleClick={scrollToSection} />
+            </AnimatedSection>
           </>
         );
     }

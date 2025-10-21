@@ -263,6 +263,41 @@ All colors MUST be HSL.
     @apply border border-sport-primary/30;
     box-shadow: 0 0 20px hsl(var(--sport-primary) / 0.2);
   }
+
+  /* Enhanced shadows and borders */
+  .shadow-elegant {
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1);
+  }
+
+  .shadow-hover {
+    box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.3), 0 0 30px rgba(59, 130, 246, 0.2);
+  }
+
+  .shadow-glow-primary {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+  }
+
+  .shadow-glow-accent {
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+  }
+
+  /* Smooth microinteractions */
+  button, a, .interactive {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  button:active, a:active, .interactive:active {
+    @apply scale-95;
+  }
+
+  /* Enhanced rounded corners */
+  .rounded-2xl {
+    border-radius: 1rem;
+  }
+
+  .rounded-3xl {
+    border-radius: 1.5rem;
+  }
 }
 
 @keyframes float {
