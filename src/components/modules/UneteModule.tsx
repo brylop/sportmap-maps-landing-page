@@ -197,12 +197,70 @@ export function UneteModule() {
               ))}
             </ul>
 
-            {/* CTA */}
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button 
-                variant="outline"
-                className="w-full border-2"
+            {/* Stats & CTA Section */}
+            <div className="space-y-4">
+              {/* Partners Counter */}
+              <div className="flex items-center justify-between p-4 bg-sport-background/40 rounded-xl border border-sport-primary/10">
+                <div>
+                  <div className="text-xs text-sport-text/60 mb-1">Partners Activos</div>
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.8 }}
+                    className="text-2xl font-bold"
+                    style={{ color: `hsl(var(--${partnership.color}))` }}
+                  >
+                    {partnership.title.includes("Escuelas") ? "420+" : 
+                     partnership.title.includes("Proveedores") ? "280+" : "500+"}
+                  </motion.div>
+                </div>
+                <motion.div
+                  animate={{ 
+                    scale: [1, 1.2, 1],
+                    opacity: [0.5, 1, 0.5]
+                  }}
+                  transition={{ 
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="w-3 h-3 rounded-full"
+                  style={{ backgroundColor: `hsl(var(--${partnership.color}))` }}
+                />
+              </div>
+
+              {/* Main Benefit Badge */}
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                className="p-4 rounded-xl bg-gradient-to-r from-sport-background/60 to-transparent border-l-4"
                 style={{ borderColor: `hsl(var(--${partnership.color}))` }}
+              >
+                <div className="flex items-center gap-3">
+                  <div 
+                    className="w-10 h-10 rounded-lg flex items-center justify-center"
+                    style={{ backgroundColor: `hsl(var(--${partnership.color}) / 0.2)` }}
+                  >
+                    {partnership.title.includes("Escuelas") ? "10%" : 
+                     partnership.title.includes("Proveedores") ? "24h" : "✓"}
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-sport-text">
+                      {partnership.title.includes("Escuelas") ? "Comisión Competitiva" : 
+                       partnership.title.includes("Proveedores") ? "Fulfillment Rápido" : "Verificación Incluida"}
+                    </div>
+                    <div className="text-xs text-sport-text/60">
+                      {partnership.title.includes("Escuelas") ? "Solo 10% por transacción" : 
+                       partnership.title.includes("Proveedores") ? "Entrega en 24-48 horas" : "Perfil profesional verificado"}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Interactive CTA */}
+              <motion.div 
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => {
                   if (partnership.title.includes("Escuelas")) {
                     setIsSchoolModalOpen(true);
@@ -212,11 +270,37 @@ export function UneteModule() {
                     setIsTrainerModalOpen(true);
                   }
                 }}
+                className="relative overflow-hidden rounded-xl cursor-pointer group"
               >
-                <partnership.icon className="w-5 h-5 mr-2" />
-                Más Información
-              </Button>
-            </motion.div>
+                <div 
+                  className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity"
+                  style={{ background: `linear-gradient(135deg, hsl(var(--${partnership.color})), transparent)` }}
+                />
+                <div className="relative p-5 flex items-center justify-between">
+                  <div>
+                    <div className="text-sm font-semibold text-sport-text mb-1">
+                      Únete Ahora
+                    </div>
+                    <div className="text-xs text-sport-text/60">
+                      Onboarding en 48 horas
+                    </div>
+                  </div>
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ 
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    <partnership.icon 
+                      className="w-6 h-6" 
+                      style={{ color: `hsl(var(--${partnership.color}))` }}
+                    />
+                  </motion.div>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
         ))}
       </div>
