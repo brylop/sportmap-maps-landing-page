@@ -55,7 +55,7 @@ serve(async (req) => {
       },
       body: JSON.stringify({
         from: "SportMaps <onboarding@resend.dev>",
-        to: ["byrlop71@gmail.com"],
+        to: ["spoortmaps@gmail.com"],
         subject: `Nueva Solicitud de Acceso a API - ${safeName}`,
         html: `
           <h2>Nueva Solicitud de Acceso a API</h2>

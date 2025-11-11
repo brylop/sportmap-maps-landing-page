@@ -94,7 +94,7 @@ serve(async (req) => {
         },
         body: JSON.stringify({
           from: 'SportMaps <onboarding@resend.dev>',
-          to: ['brylop71@gmail.com'],
+          to: ['spoortmaps@gmail.com'],
           subject: `Nueva solicitud de Proveedor: ${escapeHtml(businessName)}`,
           html: `
             <h2>Nueva solicitud de Proveedor/Marca</h2>
