@@ -21,7 +21,6 @@ import { ThreeScene } from "@/components/ThreeScene";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("inicio");
-  const [isDemoOpen, setIsDemoOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -31,13 +30,17 @@ const Index = () => {
     }
   };
 
+  const openDemo = () => {
+    window.open('/deportistas', '_blank');
+  };
+
   const renderActiveModule = () => {
     switch (activeSection) {
       case "inicio":
         return (
           <>
             <ParallaxHero>
-              <TechHeroSection onDemoClick={() => setIsDemoOpen(true)} />
+              <TechHeroSection onDemoClick={openDemo} />
             </ParallaxHero>
             <AnimatedSection direction="fade" delay={0.1}>
               <HowItWorksSection />
@@ -88,7 +91,7 @@ const Index = () => {
         return (
           <>
             <ParallaxHero>
-              <TechHeroSection onDemoClick={() => setIsDemoOpen(true)} />
+              <TechHeroSection onDemoClick={openDemo} />
             </ParallaxHero>
             <AnimatedSection direction="fade" delay={0.1}>
               <HowItWorksSection />
@@ -135,11 +138,6 @@ const Index = () => {
       <main className="relative transition-all duration-500 pt-16">
         {renderActiveModule()}
       </main>
-
-      <DemoModal 
-        isOpen={isDemoOpen}
-        onClose={() => setIsDemoOpen(false)}
-      />
     </div>
   );
 };
