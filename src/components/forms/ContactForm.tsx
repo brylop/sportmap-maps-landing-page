@@ -41,7 +41,14 @@ export function ContactForm({ onClose }: ContactFormProps) {
 
       if (error) {
         console.error('Function error:', error);
-        throw error;
+        const errorMessage = data?.details?.[0] || 'Hubo un problema al enviar tu mensaje. Verifica que todos los campos cumplan con los requisitos.';
+        toast({
+          title: "Error de validación",
+          description: errorMessage,
+          variant: "destructive",
+        });
+        setIsLoading(false);
+        return;
       }
       
       toast({
@@ -161,13 +168,19 @@ export function ContactForm({ onClose }: ContactFormProps) {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="message">Mensaje</Label>
+          <Label htmlFor="message" className="flex items-center justify-between">
+            <span>Mensaje</span>
+            <span className="text-xs text-sport-text-muted">
+              {formData.message.trim().length}/10 mínimo
+            </span>
+          </Label>
           <Textarea
             id="message"
-            placeholder="Describe tu consulta o mensaje en detalle..."
+            placeholder="Describe tu consulta o mensaje en detalle (mínimo 10 caracteres)..."
             value={formData.message}
             onChange={(e) => handleInputChange("message", e.target.value)}
             className="bg-sport-surface border-sport-border focus:border-sport-primary min-h-[150px]"
+            minLength={10}
             required
           />
         </div>
