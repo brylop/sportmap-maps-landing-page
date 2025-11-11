@@ -219,7 +219,7 @@ export function ContactForm({ onClose }: ContactFormProps) {
       <div className="mt-8 p-4 bg-sport-surface rounded-lg border border-sport-border">
         <h3 className="font-semibold text-sport-text-primary mb-2">Otras formas de contacto</h3>
         <div className="space-y-2 text-sm text-sport-text-muted">
-          <p>📧 Email: brylop71@gmail.com</p>
+          <p>📧 Email: spoortmaps@gmail.com</p>
           <p>📱 WhatsApp: +57 3128463555</p>
           <p>🌐 Síguenos en redes sociales para las últimas novedades</p>
         </div>
