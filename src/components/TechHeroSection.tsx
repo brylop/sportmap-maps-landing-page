@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Play, Rocket, Code2, Zap, Database, Cpu, Network } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ApiDocModal } from "@/components/modals/ApiDocModal";
 
 interface TechHeroSectionProps {
   onDemoClick: () => void;
@@ -9,6 +10,7 @@ interface TechHeroSectionProps {
 export function TechHeroSection({ onDemoClick }: TechHeroSectionProps) {
   const [currentText, setCurrentText] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [isApiDocOpen, setIsApiDocOpen] = useState(false);
 
   const techTexts = [
     "ecosistema deportivo",
@@ -67,6 +69,7 @@ export function TechHeroSection({ onDemoClick }: TechHeroSectionProps) {
                 Demo Interactivo
               </Button>
               <Button
+                onClick={() => setIsApiDocOpen(true)}
                 variant="outline"
                 size="lg"
                 className="glass-effect border-tech-glow hover:bg-sport-primary/10 px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105"
@@ -165,6 +168,9 @@ export function TechHeroSection({ onDemoClick }: TechHeroSectionProps) {
           </div>
         </div>
       </div>
+
+      {/* API Documentation Modal */}
+      <ApiDocModal isOpen={isApiDocOpen} onClose={() => setIsApiDocOpen(false)} />
     </section>
   );
 }
