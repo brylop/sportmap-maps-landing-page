@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Users, Dumbbell, Heart, School, Mail, Phone } from 'lucide-react';
+import { MapPin, Users, Dumbbell, Heart, School, Mail, Phone, Instagram, Facebook, MessageCircle } from 'lucide-react';
 
 export function SEOFooter() {
   return (
@@ -159,16 +159,34 @@ export function SEOFooter() {
       <section className="bg-sport-background border-t border-sport-border">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-6 text-sm text-sport-text-muted">
+            {/* Contact Info */}
+            <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-sport-text-muted">
               <a href="mailto:spoortmaps@gmail.com" className="flex items-center gap-2 hover:text-sport-primary transition-colors">
                 <Mail className="w-4 h-4" />
                 spoortmaps@gmail.com
               </a>
-              <a href="tel:+573128463555" className="flex items-center gap-2 hover:text-sport-primary transition-colors">
-                <Phone className="w-4 h-4" />
+              <a href="https://wa.me/573128463555" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-sport-primary transition-colors">
+                <MessageCircle className="w-4 h-4" />
                 +57 312 846 3555
               </a>
             </div>
+            
+            {/* Social Media */}
+            <div className="flex items-center gap-4">
+              <a href="https://x.com/spoort_maps" target="_blank" rel="noopener noreferrer" className="text-sport-text-muted hover:text-sport-primary transition-colors" aria-label="Twitter/X">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+              <a href="https://www.instagram.com/spoortmaps/" target="_blank" rel="noopener noreferrer" className="text-sport-text-muted hover:text-sport-primary transition-colors" aria-label="Instagram">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61583784419106" target="_blank" rel="noopener noreferrer" className="text-sport-text-muted hover:text-sport-primary transition-colors" aria-label="Facebook">
+                <Facebook className="w-5 h-5" />
+              </a>
+            </div>
+
+            {/* Navigation */}
             <nav className="flex items-center gap-4 text-sm" aria-label="Legal">
               <Link to="/" className="text-sport-text-muted hover:text-sport-primary transition-colors">
                 Inicio
