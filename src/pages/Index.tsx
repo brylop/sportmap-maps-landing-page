@@ -20,6 +20,7 @@ import { ParallaxHero } from "@/components/ParallaxHero";
 import { ThreeScene } from "@/components/ThreeScene";
 import { SEO } from "@/components/SEO";
 import { SEOFooter } from "@/components/SEOFooter";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 const Index = () => {
   const [activeSection, setActiveSection] = useState("inicio");
   const [isDemoOpen, setIsDemoOpen] = useState(false);
@@ -144,6 +145,7 @@ const Index = () => {
       </main>
 
       <SEOFooter />
+      <WhatsAppButton />
 
       <DemoModal 
         isOpen={isDemoOpen}
