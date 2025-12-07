@@ -5,10 +5,19 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { TechBackground } from "@/components/TechBackground";
 import { Link } from "react-router-dom";
+import { SEO } from "@/components/SEO";
+import { SEOFooter } from "@/components/SEOFooter";
 
 export default function Deportistas() {
   return (
     <div className="min-h-screen bg-sport-background text-sport-text-primary">
+      <SEO 
+        title="Para Deportistas - Rutas y Escuelas Deportivas"
+        description="Encuentra tu escuela deportiva ideal, descubre rutas de ciclismo, running y senderismo. Conecta con entrenadores certificados en Colombia."
+        url="https://sportmaps.co/deportistas"
+        canonical="https://sportmaps.co/deportistas"
+        keywords="deportistas, rutas ciclismo, escuelas deportivas Colombia, entrenadores, running, senderismo, atletismo"
+      />
       <TechBackground />
       
       {/* Header */}
@@ -202,6 +211,7 @@ export default function Deportistas() {
           </div>
         </section>
       </main>
+      <SEOFooter />
     </div>
   );
 }

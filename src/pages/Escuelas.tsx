@@ -4,10 +4,19 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { TechBackground } from "@/components/TechBackground";
 import { Link } from "react-router-dom";
+import { SEO } from "@/components/SEO";
+import { SEOFooter } from "@/components/SEOFooter";
 
 export default function Escuelas() {
   return (
     <div className="min-h-screen bg-sport-background text-sport-text-primary">
+      <SEO 
+        title="Para Escuelas Deportivas - Gestión Digital"
+        description="Digitaliza tu escuela deportiva con herramientas profesionales. Gestión de estudiantes, reservas online, pagos digitales y comunicación automatizada."
+        url="https://sportmaps.co/escuelas"
+        canonical="https://sportmaps.co/escuelas"
+        keywords="escuelas deportivas, gestión deportiva, software escuelas, academias deportivas Colombia, administración deportiva"
+      />
       <TechBackground />
       
       {/* Header */}
@@ -243,6 +252,7 @@ export default function Escuelas() {
           </div>
         </section>
       </main>
+      <SEOFooter />
     </div>
   );
 }

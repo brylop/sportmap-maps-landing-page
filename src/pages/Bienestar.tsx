@@ -4,10 +4,19 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { TechBackground } from "@/components/TechBackground";
 import { Link } from "react-router-dom";
+import { SEO } from "@/components/SEO";
+import { SEOFooter } from "@/components/SEOFooter";
 
 export default function Bienestar() {
   return (
     <div className="min-h-screen bg-sport-background text-sport-text-primary">
+      <SEO 
+        title="Bienestar Deportivo - Salud Física y Mental"
+        description="Cuida tu salud física y mental con profesionales certificados. Fisioterapia deportiva, psicología del deporte, teleconsultas médicas y monitoreo 24/7."
+        url="https://sportmaps.co/bienestar"
+        canonical="https://sportmaps.co/bienestar"
+        keywords="bienestar deportivo, fisioterapia deportiva, psicología deportiva, medicina deportiva Colombia, rehabilitación atletas"
+      />
       <TechBackground />
       
       {/* Header */}
@@ -298,6 +307,7 @@ export default function Bienestar() {
           </div>
         </section>
       </main>
+      <SEOFooter />
     </div>
   );
 }
