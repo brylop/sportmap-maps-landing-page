@@ -5,10 +5,19 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { TechBackground } from "@/components/TechBackground";
 import { Link } from "react-router-dom";
+import { SEO } from "@/components/SEO";
+import { SEOFooter } from "@/components/SEOFooter";
 
 export default function Equipamiento() {
   return (
     <div className="min-h-screen bg-sport-background text-sport-text-primary">
+      <SEO 
+        title="Equipamiento Deportivo - Tienda Online"
+        description="Encuentra el mejor equipamiento deportivo con entrega express. Productos originales de marcas reconocidas para fútbol, baloncesto, tenis, natación y más."
+        url="https://sportmaps.co/equipamiento"
+        canonical="https://sportmaps.co/equipamiento"
+        keywords="equipamiento deportivo Colombia, tienda deportiva, productos deportivos, marcas deportivas, fútbol, baloncesto, tenis"
+      />
       <TechBackground />
       
       {/* Header */}
@@ -262,6 +271,7 @@ export default function Equipamiento() {
           </div>
         </section>
       </main>
+      <SEOFooter />
     </div>
   );
 }

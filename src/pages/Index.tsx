@@ -18,7 +18,8 @@ import { AcercaModule } from "@/components/modules/AcercaModule";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { ParallaxHero } from "@/components/ParallaxHero";
 import { ThreeScene } from "@/components/ThreeScene";
-
+import { SEO } from "@/components/SEO";
+import { SEOFooter } from "@/components/SEOFooter";
 const Index = () => {
   const [activeSection, setActiveSection] = useState("inicio");
   const [isDemoOpen, setIsDemoOpen] = useState(false);
@@ -126,6 +127,12 @@ const Index = () => {
 
   return (
     <div className="relative min-h-screen bg-sport-background">
+      <SEO 
+        title="Inicio"
+        description="Descubre, crea y comparte rutas deportivas. La mejor plataforma de mapas para ciclismo, running, senderismo y más. Conectamos atletas, escuelas deportivas y profesionales del deporte en Colombia."
+        url="https://sportmaps.co/"
+        canonical="https://sportmaps.co/"
+      />
       <TechBackground />
       <TechHeader 
         onSectionClick={scrollToSection}
@@ -135,6 +142,8 @@ const Index = () => {
       <main className="relative transition-all duration-500 pt-16">
         {renderActiveModule()}
       </main>
+
+      <SEOFooter />
 
       <DemoModal 
         isOpen={isDemoOpen}
