@@ -21,6 +21,12 @@ import { ThreeScene } from "@/components/ThreeScene";
 import { SEO } from "@/components/SEO";
 import { SEOFooter } from "@/components/SEOFooter";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { PricingHeroSection } from "@/components/landing/PricingHeroSection";
+import { PainPointsSection } from "@/components/landing/PainPointsSection";
+import { ComparisonSection } from "@/components/landing/ComparisonSection";
+import { PlansSection } from "@/components/landing/PlansSection";
+import { SponsorshipsSection } from "@/components/landing/SponsorshipsSection";
+import { CTAFinalSection } from "@/components/landing/CTAFinalSection";
 const Index = () => {
   const [activeSection, setActiveSection] = useState("inicio");
   const [isDemoOpen, setIsDemoOpen] = useState(false);
@@ -41,6 +47,21 @@ const Index = () => {
             <ParallaxHero>
               <TechHeroSection onDemoClick={() => setIsDemoOpen(true)} />
             </ParallaxHero>
+            <AnimatedSection direction="fade" delay={0.1}>
+              <PricingHeroSection onPlanClick={() => setIsDemoOpen(true)} />
+            </AnimatedSection>
+            <AnimatedSection direction="up" delay={0.1}>
+              <PainPointsSection />
+            </AnimatedSection>
+            <AnimatedSection direction="fade" delay={0.1}>
+              <ComparisonSection />
+            </AnimatedSection>
+            <AnimatedSection direction="up" delay={0.1}>
+              <PlansSection onPlanClick={() => setIsDemoOpen(true)} />
+            </AnimatedSection>
+            <AnimatedSection direction="fade" delay={0.1}>
+              <SponsorshipsSection />
+            </AnimatedSection>
             <AnimatedSection direction="fade" delay={0.1}>
               <HowItWorksSection />
             </AnimatedSection>
@@ -69,6 +90,12 @@ const Index = () => {
             </AnimatedSection>
             <AnimatedSection direction="fade" delay={0.1}>
               <EcosistemaModule onModuleClick={scrollToSection} />
+            </AnimatedSection>
+            <AnimatedSection direction="up" delay={0.1}>
+              <CTAFinalSection 
+                onStartClick={() => setIsDemoOpen(true)} 
+                onDemoClick={() => setIsDemoOpen(true)} 
+              />
             </AnimatedSection>
           </>
         );
@@ -93,6 +120,21 @@ const Index = () => {
               <TechHeroSection onDemoClick={() => setIsDemoOpen(true)} />
             </ParallaxHero>
             <AnimatedSection direction="fade" delay={0.1}>
+              <PricingHeroSection onPlanClick={() => setIsDemoOpen(true)} />
+            </AnimatedSection>
+            <AnimatedSection direction="up" delay={0.1}>
+              <PainPointsSection />
+            </AnimatedSection>
+            <AnimatedSection direction="fade" delay={0.1}>
+              <ComparisonSection />
+            </AnimatedSection>
+            <AnimatedSection direction="up" delay={0.1}>
+              <PlansSection onPlanClick={() => setIsDemoOpen(true)} />
+            </AnimatedSection>
+            <AnimatedSection direction="fade" delay={0.1}>
+              <SponsorshipsSection />
+            </AnimatedSection>
+            <AnimatedSection direction="fade" delay={0.1}>
               <HowItWorksSection />
             </AnimatedSection>
             <AnimatedSection direction="up" delay={0.2}>
@@ -120,6 +162,12 @@ const Index = () => {
             </AnimatedSection>
             <AnimatedSection direction="fade" delay={0.1}>
               <EcosistemaModule onModuleClick={scrollToSection} />
+            </AnimatedSection>
+            <AnimatedSection direction="up" delay={0.1}>
+              <CTAFinalSection 
+                onStartClick={() => setIsDemoOpen(true)} 
+                onDemoClick={() => setIsDemoOpen(true)} 
+              />
             </AnimatedSection>
           </>
         );
