@@ -1,171 +1,325 @@
+<![CDATA[# 🏆 SportMaps Ecosystem
 
-# 🏅 **SportMaps - Plataforma Inteligente de Gestión Deportiva**
+> **Plataforma SaaS integral para la gestión y conexión del ecosistema deportivo**
 
-## 📘 **Descripción General**
-
-**SportMaps** es una plataforma integral que centraliza la gestión, monitoreo y análisis de actividades deportivas.
-Combina tecnología **SportTech**, **IA aplicada**, y **análisis de datos** para conectar clubes, atletas, escuelas deportivas, patrocinadores y federaciones, facilitando la digitalización completa del ecosistema deportivo.
-
----
-
-## 🚀 **Objetivos del Proyecto**
-
-* Digitalizar la gestión de eventos, entrenamientos y estadísticas deportivas.
-* Ofrecer un panel de control para **entrenadores, atletas y administradores**.
-* Integrar sistemas de **geolocalización**, **rendimiento deportivo**, y **ranking competitivo**.
-* Permitir la **visualización de resultados en tiempo real** y la conexión entre clubes, ligas y federaciones.
-* Incorporar **IA predictiva** para analizar rendimiento, prevenir lesiones y optimizar estrategias deportivas.
+![React](https://img.shields.io/badge/React-18.3-61DAFB?style=flat-square&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-06B6D4?style=flat-square&logo=tailwindcss)
+![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?style=flat-square&logo=vite)
+![Status](https://img.shields.io/badge/Status-Stable-success?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 
 ---
 
-## 🧩 **Módulos Principales**
+## 📋 Descripción
 
-### 1. **Módulo de Administración**
+**SportMaps** es un ecosistema digital integral que conecta los 4 actores principales del mundo deportivo:
 
-* Registro y gestión de clubes, entrenadores, jugadores y ligas.
-* Control de pagos, membresías y licencias deportivas.
-* Integración con sistemas financieros y pasarelas de pago (Wompi / Stripe / MercadoPago).
+| Actor | Descripción |
+|-------|-------------|
+| 🏃 **Deportistas** | Atletas que buscan academias, entrenadores y equipamiento |
+| 🏫 **Academias** | Escuelas deportivas que gestionan estudiantes y programas |
+| 🏭 **Proveedores** | Marcas y empresas de equipamiento deportivo |
+| 👨‍🏫 **Entrenadores** | Profesionales que ofrecen servicios de coaching |
 
-### 2. **Módulo de Competencias**
+### Funcionalidades Core
 
-* Creación y configuración de torneos, ligas y campeonatos.
-* Generación automática de fixtures, resultados y estadísticas.
-* Panel visual en tiempo real con tabla de posiciones y medallero general.
-
-### 3. **Módulo de Entrenamiento e IA**
-
-* Registro de sesiones, métricas biométricas y cargas de entrenamiento.
-* IA para predicción de rendimiento y análisis de progreso.
-* Alertas tempranas de sobreentrenamiento o riesgo de lesión.
-
-### 4. **Módulo de Geolocalización**
-
-* Mapeo de escenarios deportivos y rutas de entrenamiento.
-* Monitoreo GPS en vivo de atletas (modo competición o práctica).
-* Integración con Google Maps y OpenStreetMap.
-
-### 5. **Módulo Social / Comunidad**
-
-* Perfiles públicos de atletas y clubes.
-* Ranking deportivo nacional e internacional.
-* Sistema de logros, insignias y reconocimiento.
-
-### 6. **Módulo de Inteligencia de Negocio (BI)**
-
-* Dashboard con métricas de rendimiento, participación y finanzas.
-* Reportes exportables en Excel, PDF y conexión con Power BI.
-* Análisis predictivo para toma de decisiones estratégicas.
+- 🛒 **Marketplace** - Tienda de equipamiento con matching inteligente
+- 📊 **SaaS de Gestión** - Herramientas para academias y entrenadores
+- 🤝 **Red Social** - Conexión entre actores del ecosistema
+- 🎯 **Patrocinios IA** - Sistema de matching marca-deportista (SponsorMatch)
 
 ---
 
-## 🧠 **Arquitectura Tecnológica**
+## 🏗️ Arquitectura del Proyecto
 
-| Componente          | Tecnología                                   |
-| ------------------- | -------------------------------------------- |
-| **Frontend**        | React + TypeScript + Vite                    |
-| **UI/UX**           | Tailwind CSS + shadcn-ui                     |
-| **Backend**         | Node.js (Express / NestJS)                   |
-| **Base de Datos**   | PostgreSQL / Supabase                        |
-| **Autenticación**   | JWT + OAuth2 (Google / Facebook)             |
-| **IA y Analítica**  | Python (FastAPI) + TensorFlow / Scikit-learn |
-| **Infraestructura** | AWS / Vercel / Docker                        |
-| **CI/CD**           | GitHub Actions / Jenkins                     |
-| **Testing QA**      | Cypress + Jest + Postman                     |
+El proyecto sigue los principios de **Domain-Driven Design (DDD)** y **Atomic Design** para máxima escalabilidad y mantenibilidad.
+
+```
+📦 src/
+├── 📂 components/
+│   ├── 📂 common/                    # 🔷 Componentes Atómicos Reutilizables
+│   │   └── 📂 cards/
+│   │       ├── PricingCard.tsx       # Tarjeta de planes de precio
+│   │       ├── StepCard.tsx          # Tarjeta de pasos/procesos
+│   │       ├── TestimonialCard.tsx   # Tarjeta de testimonios
+│   │       ├── PainPointCard.tsx     # Tarjeta de puntos de dolor
+│   │       └── index.ts              # Barrel export
+│   │
+│   ├── 📂 ui/                        # 🎨 Design System (shadcn/ui)
+│   │   ├── button.tsx
+│   │   ├── card.tsx
+│   │   ├── dialog.tsx
+│   │   └── ... (50+ componentes base)
+│   │
+│   ├── 📂 sections/                  # 📄 Secciones de Landing (DDD)
+│   │   ├── 📂 Pricing/
+│   │   │   ├── PricingHeroSection.tsx
+│   │   │   ├── PlansSection.tsx
+│   │   │   ├── ComparisonSection.tsx
+│   │   │   └── index.ts
+│   │   ├── 📂 ValueProp/
+│   │   │   ├── PainPointsSection.tsx
+│   │   │   ├── SponsorshipsSection.tsx
+│   │   │   └── index.ts
+│   │   ├── 📂 CTA/
+│   │   │   └── CTAFinalSection.tsx
+│   │   ├── 📂 Testimonials/
+│   │   │   └── TestimonialsSection.tsx
+│   │   ├── HomeContent.tsx           # Composición principal
+│   │   ├── NetworkSection.tsx        # Visualización 3D de red
+│   │   └── index.ts                  # Barrel export
+│   │
+│   ├── 📂 modules/                   # 🧩 Módulos de Negocio
+│   │   ├── EcosistemaModule.tsx      # Vista del ecosistema
+│   │   ├── EscuelasModule.tsx        # Gestión de academias
+│   │   ├── TiendaModule.tsx          # Marketplace
+│   │   ├── NutricionModule.tsx       # Planes nutricionales
+│   │   ├── BienestarModule.tsx       # Bienestar deportivo
+│   │   ├── UneteModule.tsx           # Registro de partners
+│   │   └── AcercaModule.tsx          # Información corporativa
+│   │
+│   ├── 📂 modals/                    # 💬 Sistema de Modales
+│   │   ├── ContactModal.tsx          # Formulario de contacto
+│   │   ├── JoinTechModal.tsx         # Unirse al equipo tech
+│   │   ├── ApiAccessModal.tsx        # Solicitar acceso API
+│   │   ├── ApiDocModal.tsx           # Documentación API
+│   │   ├── PartnerSchoolModal.tsx    # Registro escuelas
+│   │   ├── PartnerProviderModal.tsx  # Registro proveedores
+│   │   └── PartnerTrainerModal.tsx   # Registro entrenadores
+│   │
+│   ├── 📂 forms/                     # 📝 Formularios Especializados
+│   │   ├── ContactForm.tsx
+│   │   ├── JoinTechForm.tsx
+│   │   ├── ApiAccessForm.tsx
+│   │   ├── PartnerSchoolForm.tsx
+│   │   ├── PartnerProviderForm.tsx
+│   │   └── PartnerTrainerForm.tsx
+│   │
+│   ├── 📂 layout/                    # 🖼️ Componentes de Layout
+│   │   ├── PageLayout.tsx            # Layout principal
+│   │   └── index.ts
+│   │
+│   └── 📄 [Componentes Standalone]
+│       ├── TechHeader.tsx            # Header principal
+│       ├── TechHeroSection.tsx       # Hero con terminal
+│       ├── ParallaxHero.tsx          # Efecto parallax
+│       ├── ThreeScene.tsx            # Escena 3D React Three Fiber
+│       ├── AnimatedSection.tsx       # Wrapper de animaciones
+│       ├── TestimonialsCarousel.tsx  # Carrusel de testimonios
+│       ├── StatsSection.tsx          # Métricas animadas
+│       ├── SEO.tsx                   # Meta tags dinámicos
+│       ├── SEOFooter.tsx             # Footer SEO-optimizado
+│       └── WhatsAppButton.tsx        # Botón flotante WhatsApp
+│
+├── 📂 hooks/                         # 🪝 Custom Hooks
+│   ├── usePageNavigation.ts          # Navegación SPA
+│   ├── use-mobile.tsx                # Detección responsive
+│   └── use-toast.ts                  # Sistema de notificaciones
+│
+├── 📂 pages/                         # 📱 Páginas/Rutas
+│   ├── Index.tsx                     # Landing principal
+│   ├── Auth.tsx                      # Autenticación
+│   ├── Admin.tsx                     # Panel administrativo
+│   ├── Deportistas.tsx               # Vista deportistas
+│   ├── Escuelas.tsx                  # Vista escuelas
+│   ├── Equipamiento.tsx              # Marketplace
+│   ├── Bienestar.tsx                 # Bienestar
+│   └── NotFound.tsx                  # 404
+│
+├── 📂 integrations/                  # 🔌 Integraciones Externas
+│   └── 📂 supabase/
+│       ├── client.ts                 # Cliente Supabase
+│       └── types.ts                  # Tipos auto-generados
+│
+├── 📂 lib/                           # 🛠️ Utilidades
+│   ├── utils.ts                      # Helpers generales
+│   └── supabase.ts                   # Config Supabase
+│
+└── 📂 assets/                        # 🖼️ Assets Estáticos
+    └── [imágenes optimizadas]
+```
+
+### Filosofía de Arquitectura
+
+| Capa | Propósito | Ejemplo |
+|------|-----------|---------|
+| **common/** | Átomos reutilizables sin lógica de negocio | `PricingCard`, `StepCard` |
+| **ui/** | Design System base (shadcn) | `Button`, `Dialog`, `Input` |
+| **sections/** | Secciones de página con dominio específico | `PricingHeroSection` |
+| **modules/** | Módulos de negocio completos | `EcosistemaModule` |
+| **modals/** | Interfaces flotantes y formularios | `ContactModal` |
+| **layout/** | Estructuras de página | `PageLayout` |
 
 ---
 
-## ⚙️ **Instalación y Configuración**
+## ✨ Características Técnicas
 
-### 🔧 **Requisitos Previos**
+### 🧠 Smart Matching (SponsorMatch)
+Sistema de IA que conecta deportistas con marcas patrocinadoras basado en afinidad.
 
-* Node.js (v18 o superior)
-* npm o yarn
-* Git
-* Base de datos PostgreSQL o Supabase configurada
+```typescript
+// Flujo de patrocinios inteligentes
+1. Usuario publica necesidad → "Uniformes para 50 niños"
+2. IA matchea sponsors     → Adidas (92% afinidad)
+3. Smart contract          → Escrow + Verificación
+4. Distribución            → 93% usuario / 7% plataforma
+```
 
-### 🚀 **Pasos para ejecutar el proyecto**
+### 🌐 Interactive Node Network
+Visualización 3D del ecosistema usando **React Three Fiber**.
+
+```typescript
+// ThreeScene.tsx - Red de nodos interactiva
+<Canvas>
+  <OrbitControls />
+  <NetworkNodes connections={ecosystemData} />
+  <ParticleField />
+</Canvas>
+```
+
+### 💰 Dynamic Pricing Tables
+Sistema de planes configurables con comparativas en tiempo real.
+
+```typescript
+// Planes: Starter ($19) | Pro ($49) | Elite ($99)
+// Todos incluyen: 14 días gratis, sin tarjeta
+```
+
+### 👥 Multi-tenant Roles
+Selector de perspectiva que adapta la UI según el rol del usuario.
+
+```typescript
+type UserRole = 'deportista' | 'escuela' | 'proveedor' | 'entrenador';
+```
+
+---
+
+## 🚀 Instalación
+
+### Requisitos Previos
+
+- Node.js **v18+**
+- npm o bun
+- Git
+
+### Pasos de Instalación
 
 ```bash
-# 1️⃣ Clonar el repositorio
-git clone <YOUR_GIT_URL>
+# 1. Clonar el repositorio
+git clone https://github.com/sportmaps/sportmaps-ecosystem.git
 
-# 2️⃣ Entrar al directorio del proyecto
-cd sportmaps
+# 2. Entrar al directorio
+cd sportmaps-ecosystem
 
-# 3️⃣ Instalar dependencias
+# 3. Instalar dependencias
 npm install
 
-# 4️⃣ Crear archivo de variables de entorno
-cp .env.example .env
-
-# 5️⃣ Ejecutar el entorno de desarrollo
+# 4. Ejecutar en desarrollo
 npm run dev
+
+# 5. Build de producción
+npm run build
+
+# 6. Preview del build
+npm run preview
+```
+
+### Variables de Entorno
+
+```env
+VITE_SUPABASE_URL=<tu-supabase-url>
+VITE_SUPABASE_PUBLISHABLE_KEY=<tu-anon-key>
 ```
 
 ---
 
-## 🧪 **Pruebas y QA**
+## 🎨 Sistema de Diseño
 
-El proyecto integra pruebas automatizadas para garantizar calidad y estabilidad continua:
+### Modo Visual
+- **Dark Mode por defecto** - Fondo oscuro profesional
+- **Gradientes neón** - Acentos en verde (#00F5A0) y azul (#00D9F5)
+- **Glassmorphism** - Transparencias con backdrop-blur
 
-* **Cypress** → pruebas E2E del flujo completo.
-* **Jest** → pruebas unitarias y de componentes.
-* **Postman / Newman** → validaciones de APIs.
-* **Reportes de cobertura** integrados con GitHub Actions.
+### Paleta de Colores
 
----
+| Token | Color | Uso |
+|-------|-------|-----|
+| `sport-primary` | `#00F5A0` | CTAs, enlaces activos |
+| `sport-accent` | `#00D9F5` | Acentos secundarios |
+| `sport-background` | `#0A0F1C` | Fondo principal |
+| `sport-card` | `#111827` | Tarjetas y surfaces |
+| `sport-highlight` | `#F97316` | Alertas, warnings |
+| `sport-success` | `#22C55E` | Estados exitosos |
 
-## 📊 **Roadmap de Desarrollo**
-
-| Fase       | Objetivo                             | Estado         |
-| ---------- | ------------------------------------ | -------------- |
-| **Fase 1** | Módulo de autenticación y panel base | ✅ Completa     |
-| **Fase 2** | Gestión de clubes y atletas          | 🟡 En progreso |
-| **Fase 3** | IA de rendimiento deportivo          | ⚪ Pendiente    |
-| **Fase 4** | Integración con pasarelas de pago    | ⚪ Pendiente    |
-| **Fase 5** | Lanzamiento beta público             | ⚪ Pendiente    |
-
----
-
-## 💼 **Equipo SportMaps**
-
-| Rol                      | Responsable                          |
-| ------------------------ | ------------------------------------ |
-| **CEO / QA Lead**        | Brayan Steven López Romero           |
-| **CTO**                  | [Por definir]                        |
-| **Product Owner**        | [Por definir]                        |
-| **Equipo de Desarrollo** | Frontend, Backend, AI & Data         |
-| **Equipo QA**            | Automatización y pruebas funcionales |
+### Tipografía
+- **Display:** Space Grotesk (headlines)
+- **Body:** Inter (texto general)
 
 ---
 
-## 🌐 **Despliegue**
+## 📦 Stack Tecnológico
 
-El proyecto puede desplegarse automáticamente en **Vercel**, **AWS Amplify** o **Render**.
-Configuración rápida con:
+| Categoría | Tecnología |
+|-----------|------------|
+| **Framework** | React 18 + TypeScript |
+| **Build Tool** | Vite 5 |
+| **Styling** | Tailwind CSS 3.4 |
+| **UI Components** | shadcn/ui + Radix |
+| **Animations** | Framer Motion |
+| **3D Graphics** | React Three Fiber + Three.js |
+| **State** | TanStack Query |
+| **Forms** | React Hook Form + Zod |
+| **Backend** | Supabase (Auth + DB + Edge Functions) |
+| **Routing** | React Router DOM v6 |
+
+---
+
+## 📂 Scripts Disponibles
 
 ```bash
-npm run build
-npm run start
+npm run dev        # Servidor de desarrollo
+npm run build      # Build de producción
+npm run preview    # Preview del build
+npm run lint       # Linting con ESLint
 ```
 
-También puede conectarse a un dominio personalizado desde la sección **Settings → Domains** del entorno de despliegue.
+---
+
+## 🌐 Despliegue
+
+El proyecto está configurado para despliegue automático en **Lovable Cloud** con:
+
+- ✅ SSL automático
+- ✅ CDN global
+- ✅ Preview deployments
+- ✅ Custom domains
 
 ---
 
-## 🧭 **Licencia**
+## 🤝 Contacto
 
-Proyecto bajo licencia **MIT**.
-Puedes usar, modificar y distribuir libremente, siempre que se mantenga el crédito a **SportMaps**.
-
----
-
-## 💬 **Contacto**
-
-📧 **Correo:** [contacto@sportmaps.tech](mailto:contacto@sportmaps.tech)
-🌍 **Sitio web:** [https://sportmaps.tech](https://sportmaps.tech)
-📱 **Instagram / LinkedIn / TikTok:** `@sportmapsapp`
+| Canal | Enlace |
+|-------|--------|
+| 📧 Email | spoortmaps@gmail.com |
+| 🌐 Web | [sportmaps.co](https://sportmaps.co) |
+| 📱 WhatsApp | +57 312 846 355 |
+| 🐦 Twitter | [@spoort_maps](https://twitter.com/spoort_maps) |
+| 📸 Instagram | [@spoortmaps](https://instagram.com/spoortmaps) |
 
 ---
 
+## 📄 Licencia
 
+Este proyecto está bajo la licencia **MIT**. Ver [LICENSE](LICENSE) para más detalles.
+
+---
+
+<div align="center">
+
+**Hecho con 💚 por el equipo SportMaps**
+
+*Conectando el futuro del deporte digital*
+
+</div>
+]]>
