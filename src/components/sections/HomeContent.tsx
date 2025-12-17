@@ -4,16 +4,15 @@ import { TechHeroSection } from "@/components/TechHeroSection";
 import { HowItWorksSection } from "@/components/HowItWorksSection";
 import { StatsSection } from "@/components/StatsSection";
 import { InteractiveFeatures } from "@/components/InteractiveFeatures";
-import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import { SearchSection } from "@/components/SearchSection";
 import { EcosistemaModule } from "@/components/modules/EcosistemaModule";
-import { PricingHeroSection } from "@/components/landing/PricingHeroSection";
-import { PainPointsSection } from "@/components/landing/PainPointsSection";
-import { ComparisonSection } from "@/components/landing/ComparisonSection";
-import { PlansSection } from "@/components/landing/PlansSection";
-import { SponsorshipsSection } from "@/components/landing/SponsorshipsSection";
-import { CTAFinalSection } from "@/components/landing/CTAFinalSection";
 import { NetworkSection } from "./NetworkSection";
+
+// New organized sections
+import { PricingHeroSection, PlansSection, ComparisonSection } from "./Pricing";
+import { PainPointsSection, SponsorshipsSection } from "./ValueProp";
+import { CTAFinalSection } from "./CTA";
+import { TestimonialsSection } from "./Testimonials";
 
 interface HomeContentProps {
   onDemoClick: () => void;
@@ -64,7 +63,7 @@ export function HomeContent({ onDemoClick, onModuleClick }: HomeContentProps) {
       </AnimatedSection>
       
       <AnimatedSection direction="fade" delay={0.1}>
-        <TestimonialsCarousel />
+        <TestimonialsSection />
       </AnimatedSection>
       
       <AnimatedSection direction="up" delay={0.2}>

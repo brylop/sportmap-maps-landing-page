@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { Upload, Brain, FileText, Wallet } from 'lucide-react';
+import { StepCard, StepData } from '@/components/common';
 
-const steps = [
+const steps: StepData[] = [
   {
     icon: Upload,
     step: '1',
@@ -48,27 +49,12 @@ export function SponsorshipsSection() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((item, index) => (
-            <motion.div
-              key={item.step}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
-              className="relative p-6 rounded-2xl bg-sport-card border border-sport-border"
-            >
-              <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-sport-primary text-white flex items-center justify-center text-sm font-bold">
-                {item.step}
-              </div>
-              <div className="w-12 h-12 rounded-xl bg-sport-primary/10 flex items-center justify-center mb-4 mt-2">
-                <item.icon className="w-6 h-6 text-sport-primary" />
-              </div>
-              <h3 className="text-lg font-semibold text-sport-text-primary mb-2">{item.title}</h3>
-              <p className="text-sport-text-secondary text-sm">{item.description}</p>
-              
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-sport-border" />
-              )}
-            </motion.div>
+            <StepCard 
+              key={item.step} 
+              data={item} 
+              index={index} 
+              isLast={index === steps.length - 1}
+            />
           ))}
         </div>
       </div>

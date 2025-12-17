@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { DollarSign, Lock, Users, Layers } from 'lucide-react';
+import { PainPointCard, PainPointData } from '@/components/common';
 
-const painPoints = [
+const painPoints: PainPointData[] = [
   {
     icon: DollarSign,
     title: 'Costes Ocultos',
@@ -39,20 +40,7 @@ export function PainPointsSection() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {painPoints.map((point, index) => (
-            <motion.div
-              key={point.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="p-6 rounded-2xl bg-sport-card border border-sport-border hover:border-sport-highlight/50 transition-colors"
-            >
-              <div className="w-12 h-12 rounded-xl bg-sport-highlight/10 flex items-center justify-center mb-4">
-                <point.icon className="w-6 h-6 text-sport-highlight" />
-              </div>
-              <h3 className="text-lg font-semibold text-sport-text-primary mb-2">{point.title}</h3>
-              <p className="text-sport-text-secondary text-sm">{point.description}</p>
-            </motion.div>
+            <PainPointCard key={point.title} data={point} index={index} />
           ))}
         </div>
       </div>
