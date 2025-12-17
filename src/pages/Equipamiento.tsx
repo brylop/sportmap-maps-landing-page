@@ -104,7 +104,7 @@ export default function Equipamiento() {
               { name: "Tenis", icon: "🎾", count: "1,200+" },
               { name: "Natación", icon: "🏊", count: "900+" },
               { name: "Running", icon: "🏃", count: "3,200+" },
-              { name: "Fitness", icon: "💪", count: "2,100+" }
+              { name: "Gimnasios", icon: "💪", count: "2,100+" }
             ].map((category, index) => (
               <Card key={index} className="border-sport-border bg-sport-card hover:shadow-hover transition-all duration-300 cursor-pointer text-center">
                 <CardContent className="pt-4">

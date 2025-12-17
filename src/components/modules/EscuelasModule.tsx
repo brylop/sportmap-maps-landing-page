@@ -19,7 +19,7 @@ export function EscuelasModule() {
 
   const sports = [
     { icon: Trophy, name: "Fútbol", schools: "320+", color: "sport-primary" },
-    { icon: Dumbbell, name: "Fitness", schools: "280+", color: "sport-accent" },
+    { icon: Dumbbell, name: "Gimnasios", schools: "280+", color: "sport-accent" },
     { icon: Bike, name: "Ciclismo", schools: "150+", color: "sport-highlight" },
     { icon: Waves, name: "Natación", schools: "210+", color: "sport-primary" },
     { icon: Target, name: "Tenis", schools: "180+", color: "sport-accent" },
