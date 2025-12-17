@@ -35,7 +35,7 @@ export function PainPointsSection() {
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-bold text-center text-sport-text-primary mb-12"
         >
-          ¿Por qué tu software fitness te está frenando?
+          ¿Por qué tu software de gestión deportiva te está frenando?
         </motion.h2>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
