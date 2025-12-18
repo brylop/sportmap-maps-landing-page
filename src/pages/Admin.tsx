@@ -48,6 +48,36 @@ export default function Admin() {
       return;
     }
 
+    // Verificar que el usuario tiene rol admin o hr
+    const { data: userRoles, error: rolesError } = await supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", session.user.id);
+
+    if (rolesError) {
+      toast({
+        title: "Error de verificación",
+        description: "No se pudo verificar tu rol de usuario.",
+        variant: "destructive",
+      });
+      navigate("/");
+      return;
+    }
+
+    const hasAccess = userRoles?.some(
+      (r) => r.role === "admin" || r.role === "hr"
+    );
+
+    if (!hasAccess) {
+      toast({
+        title: "Acceso denegado",
+        description: "No tienes permisos para acceder al panel de administración.",
+        variant: "destructive",
+      });
+      navigate("/");
+      return;
+    }
+
     await loadData();
   };
 
