@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Send, User, Mail, MessageSquare, HelpCircle } from "lucide-react";
+import { contactSchema, isHoneypotValid } from "@/lib/validation";
 
 interface ContactFormProps {
   onClose?: () => void;
@@ -20,31 +21,78 @@ export function ContactForm({ onClose }: ContactFormProps) {
     email: "",
     subject: "",
     category: "",
-    message: ""
+    message: "",
+    website: "" // Honeypot field
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validateForm = () => {
+    const result = contactSchema.safeParse(formData);
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      result.error.errors.forEach((err) => {
+        if (err.path[0]) {
+          fieldErrors[err.path[0] as string] = err.message;
+        }
+      });
+      setErrors(fieldErrors);
+      return false;
+    }
+    setErrors({});
+    return true;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Honeypot check - si está lleno, es un bot
+    if (!isHoneypotValid(formData.website)) {
+      // Silently reject - don't reveal to bots
+      toast({
+        title: "¡Mensaje enviado!",
+        description: "Gracias por contactarnos. Te responderemos pronto.",
+      });
+      onClose?.();
+      return;
+    }
+
+    // Validación con zod
+    if (!validateForm()) {
+      toast({
+        title: "Error de validación",
+        description: "Por favor, corrige los errores en el formulario.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsLoading(true);
 
     try {
-      // Call the edge function to handle both DB insertion and email
       const { data, error } = await supabase.functions.invoke('submit-contact-message', {
         body: {
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          subject: formData.subject.trim(),
           category: formData.category,
-          message: formData.message
+          message: formData.message.trim()
         }
       });
 
       if (error) {
-        console.error('Function error:', error);
-        const errorMessage = data?.details?.[0] || 'Hubo un problema al enviar tu mensaje. Verifica que todos los campos cumplan con los requisitos.';
+        toast({
+          title: "Error",
+          description: "Hubo un problema al enviar tu mensaje. Inténtalo de nuevo.",
+          variant: "destructive",
+        });
+        setIsLoading(false);
+        return;
+      }
+
+      if (data?.error) {
         toast({
           title: "Error de validación",
-          description: errorMessage,
+          description: "Verifica que todos los campos cumplan con los requisitos.",
           variant: "destructive",
         });
         setIsLoading(false);
@@ -61,12 +109,12 @@ export function ContactForm({ onClose }: ContactFormProps) {
         email: "",
         subject: "",
         category: "",
-        message: ""
+        message: "",
+        website: ""
       });
       
       onClose?.();
-    } catch (error) {
-      console.error('Error submitting message:', error);
+    } catch {
       toast({
         title: "Error",
         description: "Hubo un problema al enviar tu mensaje. Inténtalo de nuevo.",
@@ -79,6 +127,10 @@ export function ContactForm({ onClose }: ContactFormProps) {
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    // Clear error when user starts typing
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: "" }));
+    }
   };
 
   return (
@@ -98,6 +150,20 @@ export function ContactForm({ onClose }: ContactFormProps) {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Honeypot field - hidden from users */}
+        <div className="absolute -left-[9999px] opacity-0 pointer-events-none" aria-hidden="true">
+          <label htmlFor="website">Website</label>
+          <input
+            type="text"
+            id="website"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={formData.website}
+            onChange={(e) => handleInputChange("website", e.target.value)}
+          />
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="name" className="flex items-center space-x-2">
@@ -111,8 +177,10 @@ export function ContactForm({ onClose }: ContactFormProps) {
               value={formData.name}
               onChange={(e) => handleInputChange("name", e.target.value)}
               required
-              className="bg-sport-surface border-sport-border focus:border-sport-primary"
+              maxLength={100}
+              className={`bg-sport-surface border-sport-border focus:border-sport-primary ${errors.name ? 'border-red-500' : ''}`}
             />
+            {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
           </div>
 
           <div className="space-y-2">
@@ -127,8 +195,10 @@ export function ContactForm({ onClose }: ContactFormProps) {
               value={formData.email}
               onChange={(e) => handleInputChange("email", e.target.value)}
               required
-              className="bg-sport-surface border-sport-border focus:border-sport-primary"
+              maxLength={255}
+              className={`bg-sport-surface border-sport-border focus:border-sport-primary ${errors.email ? 'border-red-500' : ''}`}
             />
+            {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
           </div>
         </div>
 
@@ -139,7 +209,7 @@ export function ContactForm({ onClose }: ContactFormProps) {
               <span>Categoría</span>
             </Label>
             <Select value={formData.category} onValueChange={(value) => handleInputChange("category", value)}>
-              <SelectTrigger className="bg-sport-surface border-sport-border">
+              <SelectTrigger className={`bg-sport-surface border-sport-border ${errors.category ? 'border-red-500' : ''}`}>
                 <SelectValue placeholder="Selecciona una categoría" />
               </SelectTrigger>
               <SelectContent>
@@ -151,6 +221,7 @@ export function ContactForm({ onClose }: ContactFormProps) {
                 <SelectItem value="other">Otro</SelectItem>
               </SelectContent>
             </Select>
+            {errors.category && <p className="text-red-500 text-xs">{errors.category}</p>}
           </div>
 
           <div className="space-y-2">
@@ -162,8 +233,10 @@ export function ContactForm({ onClose }: ContactFormProps) {
               value={formData.subject}
               onChange={(e) => handleInputChange("subject", e.target.value)}
               required
-              className="bg-sport-surface border-sport-border focus:border-sport-primary"
+              maxLength={200}
+              className={`bg-sport-surface border-sport-border focus:border-sport-primary ${errors.subject ? 'border-red-500' : ''}`}
             />
+            {errors.subject && <p className="text-red-500 text-xs">{errors.subject}</p>}
           </div>
         </div>
 
@@ -179,10 +252,11 @@ export function ContactForm({ onClose }: ContactFormProps) {
             placeholder="Describe tu consulta o mensaje en detalle (mínimo 10 caracteres)..."
             value={formData.message}
             onChange={(e) => handleInputChange("message", e.target.value)}
-            className="bg-sport-surface border-sport-border focus:border-sport-primary min-h-[150px]"
-            minLength={10}
+            className={`bg-sport-surface border-sport-border focus:border-sport-primary min-h-[150px] ${errors.message ? 'border-red-500' : ''}`}
+            maxLength={2000}
             required
           />
+          {errors.message && <p className="text-red-500 text-xs">{errors.message}</p>}
         </div>
 
         <div className="flex space-x-4 pt-4">

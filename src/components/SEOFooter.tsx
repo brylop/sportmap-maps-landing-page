@@ -202,6 +202,18 @@ export function SEOFooter() {
               </Link>
             </nav>
           </div>
+          
+          {/* Legal Links */}
+          <div className="flex flex-wrap justify-center gap-4 mt-4 pt-4 border-t border-sport-border">
+            <Link to="/privacidad" className="text-xs text-sport-text-muted hover:text-sport-primary transition-colors">
+              Política de Privacidad
+            </Link>
+            <span className="text-sport-border">|</span>
+            <Link to="/terminos" className="text-xs text-sport-text-muted hover:text-sport-primary transition-colors">
+              Términos y Condiciones
+            </Link>
+          </div>
+          
           <p className="text-center text-xs text-sport-text-muted mt-4">
             © {new Date().getFullYear()} SportMaps. Todos los derechos reservados. 
             Plataforma de mapas deportivos y ecosistema para atletas en Colombia y Latinoamérica.
