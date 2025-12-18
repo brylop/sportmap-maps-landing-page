@@ -26,7 +26,7 @@ const Index = () => {
         />
       ),
       ecosistema: <EcosistemaModule onModuleClick={scrollToSection} />,
-      escuelas: <EscuelasModule />,
+      escuelas: <EscuelasModule onContactClick={handleDemoOpen} />,
       tienda: <TiendaModule />,
       nutricion: <NutricionModule />,
       bienestar: <BienestarModule />,
