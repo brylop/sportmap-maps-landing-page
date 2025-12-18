@@ -4,7 +4,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
-export function EscuelasModule() {
+interface EscuelasModuleProps {
+  onContactClick?: () => void;
+}
+
+export function EscuelasModule({ onContactClick }: EscuelasModuleProps) {
   const features = [
     { icon: Search, title: "Búsqueda Inteligente", description: "Encuentra la escuela perfecta con filtros por ubicación, disciplina, nivel y presupuesto.", badges: ["Geolocalización", "Comparar precios"], color: "sport-primary", stats: "1,200+ escuelas" },
     { icon: Calendar, title: "Reservas Seguras", description: "Sistema de reservas en tiempo real con pago protegido y cancelación flexible.", badges: ["Pago seguro", "Reembolso"], color: "sport-accent", stats: "Tiempo real" },
@@ -135,13 +139,13 @@ export function EscuelasModule() {
         <h3 className="text-3xl font-bold text-white mb-3">¿Listo para Comenzar?</h3>
         <p className="text-white/90 mb-6 max-w-2xl mx-auto">Únete a miles de deportistas que ya están alcanzando sus metas. Primera clase de prueba gratis.</p>
         <div className="flex flex-wrap gap-4 justify-center">
-          <Button size="lg" className="bg-white text-sport-primary hover:bg-white/90 shadow-lg">
+          <Button size="lg" className="bg-white text-sport-primary hover:bg-white/90 shadow-lg" onClick={onContactClick}>
             <Search className="w-5 h-5 mr-2" />
-            Buscar Escuelas
+            Comenzar Prueba Gratis
           </Button>
-          <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10">
+          <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10" onClick={onContactClick}>
             <CheckCircle2 className="w-5 h-5 mr-2" />
-            Ver Beneficios
+            Contactar
           </Button>
         </div>
       </motion.div>

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ArrowLeft, Users, Calendar, BarChart3, MessageSquare, Award, Bell, CreditCard, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,8 +7,12 @@ import { TechBackground } from "@/components/TechBackground";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { SEOFooter } from "@/components/SEOFooter";
+import { DemoModal } from "@/components/DemoModal";
 
 export default function Escuelas() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   return (
     <div className="min-h-screen bg-sport-background text-sport-text-primary">
       <SEO 
@@ -227,6 +232,7 @@ export default function Escuelas() {
                   <Button 
                     variant={plan.highlighted ? "default" : "outline"} 
                     className="w-full"
+                    onClick={openModal}
                   >
                     {plan.name === "Enterprise" ? "Contactar ventas" : "Comenzar prueba gratis"}
                   </Button>
@@ -243,16 +249,17 @@ export default function Escuelas() {
             Únete a cientos de escuelas que ya han transformado su gestión con SportMaps
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="default">
+            <Button size="lg" variant="default" onClick={openModal}>
               Comenzar prueba gratuita
             </Button>
-            <Button size="lg" variant="outline">
+            <Button size="lg" variant="outline" onClick={openModal}>
               Solicitar demo personalizado
             </Button>
           </div>
         </section>
       </main>
       <SEOFooter />
+      <DemoModal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 }
