@@ -6,7 +6,9 @@ import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import { PlansSection } from "@/components/sections/Pricing/PlansSection";
 import { ComparisonSection } from "@/components/sections/Pricing/ComparisonSection";
 import { Toaster } from "@/components/ui/toaster";
+import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { ContactModal } from "@/components/modals/ContactModal";
+
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("inicio");
@@ -72,10 +74,13 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="py-10 bg-sport-surface/20">
+       <div className="py-10 bg-sport-surface/20">
           <TestimonialsCarousel />
         </div>
       </main>
+
+      {/* --- AQUÍ AGREGAS EL FOOTER --- */}
+      <SportMapsFooter /> 
 
       <ContactModal 
         isOpen={isContactOpen} 
