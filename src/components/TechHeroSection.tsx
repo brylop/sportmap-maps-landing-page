@@ -3,6 +3,7 @@ import {
   Play, 
   Rocket, 
   Code2, 
+  Zap, 
   Database, 
   Cpu, 
   Network, 
@@ -12,7 +13,9 @@ import {
   Calendar 
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ApiAccessModal } from "@/components/modals/ApiAccessModal";
+
+// ELIMINADO EL IMPORT QUE CAUSABA EL ERROR
+// import { ApiAccessModal } from "@/components/modals/ApiAccessModal";
 
 interface TechHeroSectionProps {
   onDemoClick: () => void;
@@ -21,7 +24,9 @@ interface TechHeroSectionProps {
 export function TechHeroSection({ onDemoClick }: TechHeroSectionProps) {
   const [currentText, setCurrentText] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const [isApiAccessOpen, setIsApiAccessOpen] = useState(false);
+  
+  // ELIMINADO EL ESTADO DEL MODAL FALTANTE
+  // const [isApiAccessOpen, setIsApiAccessOpen] = useState(false);
 
   const techTexts = [
     "ecosistema deportivo",
@@ -44,7 +49,7 @@ export function TechHeroSection({ onDemoClick }: TechHeroSectionProps) {
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
-          {/* Left Content (Texto y Botones) - INTACTO */}
+          {/* Left Content */}
           <div className={`text-center lg:text-left space-y-8 ${isVisible ? 'animate-slide-up' : 'opacity-0'}`}>
             {/* Tech Badge */}
             <div className="inline-flex items-center gap-3 glass-effect px-6 py-3 rounded-full border border-sport-primary/30 shadow-glow-primary">
@@ -81,7 +86,8 @@ export function TechHeroSection({ onDemoClick }: TechHeroSectionProps) {
                 Demo Interactivo
               </Button>
               <Button
-                onClick={() => setIsApiAccessOpen(true)}
+                // HEMOS QUITADO LA LLAMADA AL MODAL QUE NO EXISTE
+                onClick={() => window.open('https://docs.sportmaps.co', '_blank')} 
                 variant="outline"
                 size="lg"
                 className="glass-effect border-tech-glow hover:bg-sport-primary/10 px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105"
@@ -107,7 +113,7 @@ export function TechHeroSection({ onDemoClick }: TechHeroSectionProps) {
             </div>
           </div>
 
-          {/* Right Tech Visualization - MODIFICADO (Dashboard Visual) */}
+          {/* Right Tech Visualization - DASHBOARD */}
           <div className={`relative ${isVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}>
             
             {/* Main Dashboard Card */}
@@ -223,8 +229,7 @@ export function TechHeroSection({ onDemoClick }: TechHeroSectionProps) {
         </div>
       </div>
 
-      {/* API Access Request Modal */}
-      <ApiAccessModal isOpen={isApiAccessOpen} onClose={() => setIsApiAccessOpen(false)} />
+      {/* API Access Modal ELIMINADO POR AHORA PARA EVITAR ERROR */}
     </section>
   );
 }
