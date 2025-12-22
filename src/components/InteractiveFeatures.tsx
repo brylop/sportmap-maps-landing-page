@@ -1,26 +1,19 @@
-import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  School, 
-  User, 
-  Dumbbell, 
-  Briefcase, 
-  Flag, 
-  Package, 
-  Activity,
-  CheckCircle2,
-  ArrowRight
+  School, User, Dumbbell, Briefcase, Flag, Package, Activity,
+  CheckCircle2, ArrowRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+// Nuevas props para recibir el estado desde el padre
 interface InteractiveFeaturesProps {
-  onPricingClick: () => void; // Recibe la función para ir a precios
+  onPricingClick: () => void;
+  selectedClient: string;
+  setSelectedClient: (client: string) => void;
 }
 
-export function InteractiveFeatures({ onPricingClick }: InteractiveFeaturesProps) {
-  // Estado para la pestaña activa (Por defecto Escuelas)
-  const [activeTab, setActiveTab] = useState("escuelas");
-
+export function InteractiveFeatures({ onPricingClick, selectedClient, setSelectedClient }: InteractiveFeaturesProps) {
+  
   const personas = [
     { id: "escuelas", label: "Escuelas", icon: School, color: "text-blue-400", bg: "bg-blue-500/10" },
     { id: "entrenadores", label: "Entrenadores", icon: Dumbbell, color: "text-orange-400", bg: "bg-orange-500/10" },
@@ -69,8 +62,9 @@ export function InteractiveFeatures({ onPricingClick }: InteractiveFeaturesProps
     }
   };
 
-  const activeContent = content[activeTab];
-  const ActiveIcon = personas.find(p => p.id === activeTab)?.icon || School;
+  // Usamos selectedClient en lugar de activeTab local
+  const activeContent = content[selectedClient];
+  const ActiveIcon = personas.find(p => p.id === selectedClient)?.icon || School;
 
   return (
     <section id="ecosistema" className="py-20 relative overflow-hidden bg-sport-background">
@@ -85,14 +79,13 @@ export function InteractiveFeatures({ onPricingClick }: InteractiveFeaturesProps
           </p>
         </div>
 
-        {/* Navigation Tabs (Scrollable on mobile) */}
         <div className="flex flex-wrap justify-center gap-3 mb-12 overflow-x-auto pb-4 px-2 no-scrollbar md:justify-center justify-start">
           {personas.map((persona) => (
             <button
               key={persona.id}
-              onClick={() => setActiveTab(persona.id)}
+              onClick={() => setSelectedClient(persona.id)} // Actualiza el estado del padre
               className={`flex items-center gap-2 px-5 py-2.5 rounded-full border transition-all duration-300 whitespace-nowrap ${
-                activeTab === persona.id
+                selectedClient === persona.id
                   ? `${persona.bg} ${persona.color} border-${persona.color}/50 shadow-[0_0_15px_rgba(0,0,0,0.2)] scale-105`
                   : "border-sport-border bg-sport-surface/50 text-sport-text-muted hover:border-sport-primary/30 hover:text-sport-text-primary"
               }`}
@@ -103,10 +96,9 @@ export function InteractiveFeatures({ onPricingClick }: InteractiveFeaturesProps
           ))}
         </div>
 
-        {/* Content Card */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeTab}
+            key={selectedClient}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -114,17 +106,13 @@ export function InteractiveFeatures({ onPricingClick }: InteractiveFeaturesProps
             className="max-w-5xl mx-auto"
           >
             <div className="glass-effect rounded-3xl p-8 md:p-12 border border-sport-border/50 relative overflow-hidden">
-              
-              {/* Background Glow */}
-              <div className={`absolute top-0 right-0 w-64 h-64 ${personas.find(p => p.id === activeTab)?.bg} blur-3xl rounded-full opacity-20 -z-10`} />
+              <div className={`absolute top-0 right-0 w-64 h-64 ${personas.find(p => p.id === selectedClient)?.bg} blur-3xl rounded-full opacity-20 -z-10`} />
 
               <div className="grid md:grid-cols-2 gap-12 items-center">
-                
-                {/* Text Content */}
                 <div className="space-y-6">
-                  <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${personas.find(p => p.id === activeTab)?.bg} ${personas.find(p => p.id === activeTab)?.color} w-fit`}>
+                  <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${personas.find(p => p.id === selectedClient)?.bg} ${personas.find(p => p.id === selectedClient)?.color} w-fit`}>
                     <ActiveIcon className="w-4 h-4" />
-                    <span className="capitalize">{activeTab}</span>
+                    <span className="capitalize">{selectedClient}</span>
                   </div>
                   
                   <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight">
@@ -150,35 +138,32 @@ export function InteractiveFeatures({ onPricingClick }: InteractiveFeaturesProps
                       size="lg" 
                       className="bg-white text-black hover:bg-gray-200 rounded-full px-8 font-semibold transition-transform hover:scale-105"
                     >
-                      Ver Planes para {personas.find(p => p.id === activeTab)?.label}
+                      Ver Planes para {personas.find(p => p.id === selectedClient)?.label}
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </div>
                 </div>
 
-                {/* Visual Representation (Simplified Dashboard Card) */}
                 <div className="relative hidden md:block">
-                  <div className="absolute inset-0 bg-gradient-to-br from-sport-primary/20 to-transparent rounded-2xl blur-2xl -z-10" />
-                  <div className="bg-sport-card-bg border border-white/10 rounded-2xl p-6 shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500">
+                   {/* Tarjeta Visual Derecha */}
+                   <div className="bg-sport-card-bg border border-white/10 rounded-2xl p-6 shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500">
                     <div className="flex items-center justify-between mb-6">
                       <div className="flex items-center gap-3">
-                        <div className={`p-2 rounded-lg ${personas.find(p => p.id === activeTab)?.bg}`}>
-                          <ActiveIcon className={`w-6 h-6 ${personas.find(p => p.id === activeTab)?.color}`} />
+                        <div className={`p-2 rounded-lg ${personas.find(p => p.id === selectedClient)?.bg}`}>
+                          <ActiveIcon className={`w-6 h-6 ${personas.find(p => p.id === selectedClient)?.color}`} />
                         </div>
                         <div>
                           <div className="text-sm text-sport-text-muted">Panel de Control</div>
-                          <div className="font-bold text-white capitalize">{activeTab}</div>
+                          <div className="font-bold text-white capitalize">{selectedClient}</div>
                         </div>
                       </div>
                       <div className="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full border border-green-500/30">
                         Activo
                       </div>
                     </div>
-                    
-                    {/* Simulated Content Lines */}
                     <div className="space-y-4">
                       <div className="h-24 bg-white/5 rounded-xl border border-white/5 p-4 flex items-center justify-center">
-                         <span className="text-sport-text-muted text-sm">Gráficas de rendimiento en tiempo real</span>
+                         <span className="text-sport-text-muted text-sm">Estadísticas de {selectedClient}</span>
                       </div>
                       <div className="grid grid-cols-2 gap-4">
                          <div className="h-16 bg-white/5 rounded-xl border border-white/5 animate-pulse-slow"></div>
@@ -187,7 +172,6 @@ export function InteractiveFeatures({ onPricingClick }: InteractiveFeaturesProps
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </motion.div>

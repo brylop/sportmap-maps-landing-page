@@ -1,87 +1,66 @@
-import { Check, Zap, Star, Shield } from "lucide-react";
+import { Check, Zap, Star, Shield, User, Briefcase, Flag, Dumbbell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
-export function PlansSection() {
-  const [isAnnual, setIsAnnual] = useState(true);
+// Recibe la selección del cliente
+interface PlansSectionProps {
+  selectedClient: string;
+}
 
-  // 📞 TU NÚMERO DE WHATSAPP AQUÍ (Cámbialo por el real)
+export function PlansSection({ selectedClient }: PlansSectionProps) {
+  const [isAnnual, setIsAnnual] = useState(true);
   const whatsappNumber = "573001234567"; 
 
   const handlePlanSelect = (planName: string) => {
-    // Crea el mensaje personalizado
-    const message = `Hola SportMaps, estoy interesado en el *${planName}*. ¿Me ayudan a empezar?`;
-    // Abre WhatsApp en una nueva pestaña
+    const message = `Hola SportMaps, soy ${selectedClient} y estoy interesado en el plan *${planName}*.`;
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
-  const plans = [
-    {
-      name: "Start",
-      description: "Para entrenadores independientes",
-      price: "Gratis",
-      period: "/siempre",
-      icon: Zap,
-      features: [
-        "Perfil público verificado",
-        "Aparecer en el mapa (básico)",
-        "Recepción de mensajes",
-        "Hasta 10 alumnos"
-      ],
-      cta: "Empezar Gratis",
-      popular: false,
-      gradient: "from-gray-500 to-gray-700"
-    },
-    {
-      name: "Escuela Pro",
-      description: "Para academias en crecimiento",
-      price: isAnnual ? "$89.000" : "$99.000",
-      period: "/mes",
-      icon: Star,
-      features: [
-        "Todo lo de Start",
-        "Gestión de pagos y matrículas",
-        "Tienda online de uniformes",
-        "App para padres ilimitada",
-        "Soporte prioritario"
-      ],
-      cta: "Seleccionar Pro",
-      popular: true, // Este es el que queremos vender
-      gradient: "from-sport-primary to-sport-accent" // Color llamativo
-    },
-    {
-      name: "Elite Club",
-      description: "Para grandes clubes y redes",
-      price: "Personalizado",
-      period: "",
-      icon: Shield,
-      features: [
-        "Todo lo de Pro",
-        "Múltiples sedes",
-        "API y Webhooks",
-        "Gerente de cuenta dedicado",
-        "Marca blanca (Tu propio logo)"
-      ],
-      cta: "Cotizar Club",
-      popular: false,
-      gradient: "from-purple-600 to-blue-600"
-    }
-  ];
+  // --- BASE DE DATOS DE PRECIOS DINÁMICA ---
+  const allPlans: Record<string, any[]> = {
+    escuelas: [
+      { name: "Start", price: "Gratis", features: ["Perfil público", "Mapa básico", "10 alumnos"], cta: "Empezar Gratis", popular: false, icon: Zap },
+      { name: "Escuela Pro", price: isAnnual ? "$89k" : "$99k", features: ["Pagos online", "Tienda uniformes", "App padres", "Alumnos ilimitados"], cta: "Seleccionar Pro", popular: true, icon: Star },
+      { name: "Elite Club", price: "Cotizar", features: ["Sedes múltiples", "API", "Marca blanca", "Gerente cuenta"], cta: "Cotizar Club", popular: false, icon: Shield }
+    ],
+    entrenadores: [
+      { name: "Coach Básico", price: "Gratis", features: ["Perfil verificado", "Recibir mensajes", "5 clientes"], cta: "Crear Perfil", popular: false, icon: Zap },
+      { name: "Coach Pro", price: isAnnual ? "$49k" : "$59k", features: ["Agenda online", "Pagos por clase", "Rutinas digitales", "Video análisis"], cta: "Ser Pro", popular: true, icon: Dumbbell },
+      { name: "Top Trainer", price: "$99k", features: ["Web propia", "Marketing ads", "Soporte legal", "Seguro"], cta: "Aplicar", popular: false, icon: Star }
+    ],
+    atletas: [
+      { name: "Atleta ID", price: "Gratis", features: ["Historial deportivo", "Inscripción eventos", "Perfil digital"], cta: "Crear ID", popular: true, icon: User },
+      { name: "Premium", price: "$19k/mes", features: ["Estadísticas avanzadas", "Descuentos marcas", "Video highlights"], cta: "Mejorar", popular: false, icon: Star },
+      { name: "Pro Career", price: "$39k/mes", features: ["Visibilidad scouts", "Agente digital", "Asesoría legal"], cta: "Ver más", popular: false, icon: Shield }
+    ],
+    marcas: [
+      { name: "Partner", price: "Gratis", features: ["Listado directorio", "Perfil marca"], cta: "Registrar Marca", popular: false, icon: Briefcase },
+      { name: "Marketplace", price: "10% com.", features: ["Venta productos", "Pasarela pagos", "Logística envíos"], cta: "Vender", popular: true, icon: Star },
+      { name: "Sponsor", price: "Cotizar", features: ["Ads segmentados", "Patrocinio eventos", "Banner principal"], cta: "Contactar", popular: false, icon: Shield }
+    ],
+    // ... Valores por defecto para los demás actores para que no quede vacío
+    default: [
+      { name: "Registro", price: "Gratis", features: ["Acceso al ecosistema", "Perfil verificado", "Soporte básico"], cta: "Registrarse", popular: true, icon: Zap },
+      { name: "Profesional", price: "Cotizar", features: ["Funciones avanzadas", "Verificación", "Soporte prioritario"], cta: "Contactar", popular: false, icon: Star },
+      { name: "Enterprise", price: "A medida", features: ["Solución completa", "API Access", "Soporte 24/7"], cta: "Agendar Cita", popular: false, icon: Shield }
+    ]
+  };
+
+  // Seleccionamos los planes correctos, o usamos 'default' si no hay específicos (para federaciones/proveedores/servicios si no quieres detallarlos aun)
+  const currentPlans = allPlans[selectedClient] || allPlans["default"];
 
   return (
     <section className="py-20 relative overflow-hidden">
       <div className="container mx-auto px-4">
         
-        {/* Título */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Elige tu plan de <span className="text-sport-primary">crecimiento</span>
+            Planes para <span className="text-sport-primary capitalize">{selectedClient}</span>
           </h2>
           <p className="text-sport-text-secondary text-lg mb-8">
-            Comienza gratis y escala a medida que tu academia crece. Sin contratos forzosos.
+            Soluciones diseñadas específicamente para tu rol en el deporte.
           </p>
 
-          {/* Toggle Anual/Mensual */}
           <div className="flex items-center justify-center gap-4">
             <span className={`text-sm font-medium ${!isAnnual ? 'text-white' : 'text-sport-text-muted'}`}>Mensual</span>
             <button
@@ -96,11 +75,10 @@ export function PlansSection() {
           </div>
         </div>
 
-        {/* Tarjetas de Precio */}
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {plans.map((plan) => (
+          {currentPlans.map((plan, idx) => (
             <div 
-              key={plan.name}
+              key={idx}
               className={`relative rounded-3xl p-8 border transition-all duration-300 hover:-translate-y-2 group ${
                 plan.popular 
                   ? 'bg-gradient-to-b from-white/10 to-transparent border-sport-primary/50 shadow-glow-primary' 
@@ -109,30 +87,25 @@ export function PlansSection() {
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-sport-primary to-sport-accent text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
-                  MÁS POPULAR
+                  RECOMENDADO
                 </div>
               )}
 
-              {/* Icono y Nombre */}
               <div className="mb-6">
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${plan.gradient} flex items-center justify-center mb-4 text-white shadow-lg`}>
+                <div className={`w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-4 text-white shadow-lg`}>
                   <plan.icon className="w-6 h-6" />
                 </div>
                 <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
-                <p className="text-sm text-sport-text-secondary mt-1">{plan.description}</p>
               </div>
 
-              {/* Precio */}
               <div className="mb-8">
                 <div className="flex items-baseline gap-1">
                   <span className="text-4xl font-bold text-white">{plan.price}</span>
-                  <span className="text-sport-text-muted">{plan.period}</span>
                 </div>
               </div>
 
-              {/* Lista de Features */}
               <ul className="space-y-4 mb-8">
-                {plan.features.map((feature) => (
+                {plan.features.map((feature: string) => (
                   <li key={feature} className="flex items-start gap-3 text-sm text-sport-text-secondary">
                     <Check className="w-5 h-5 text-sport-success shrink-0" />
                     {feature}
@@ -140,7 +113,6 @@ export function PlansSection() {
                 ))}
               </ul>
 
-              {/* Botón de Acción */}
               <Button
                 onClick={() => handlePlanSelect(plan.name)}
                 className={`w-full py-6 rounded-xl font-bold text-lg transition-all hover:scale-105 ${
