@@ -17,12 +17,12 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
   const [isJoinTechModalOpen, setIsJoinTechModalOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
+  // MODIFICACIÓN CRO: Menú simplificado y enfocado en venta
   const navItems = [
-    { id: "ecosistema", label: "Plataforma Tech", icon: "🚀" },
-    { id: "escuelas", label: "Academias", icon: "🏫" },
-    { id: "tienda", label: "Equipment Store", icon: "🛒" },
-    { id: "acerca", label: "About Us", icon: "💡" },
-    { id: "unete", label: "Connect", icon: "🤝" },
+    { id: "ecosistema", label: "Funcionalidades", icon: "🚀" },
+    { id: "precios", label: "Precios", icon: "💎" }, // Nueva sección prioritaria
+    { id: "escuelas", label: "Para Escuelas", icon: "🏫" },
+    { id: "tienda", label: "Marketplace", icon: "🛒" },
   ];
 
   useEffect(() => {
@@ -101,14 +101,14 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
                 </Button>
               </motion.div>
               
-              {/* CTA Button */}
+              {/* CTA Button Desktop */}
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button
                   onClick={() => setIsJoinTechModalOpen(true)}
                   className="hidden sm:flex bg-gradient-tech-primary hover:shadow-glow-primary text-white px-6 py-2 rounded-full font-semibold transition-all duration-300"
                 >
                   <Zap className="w-4 h-4 mr-2" />
-                  Join Tech
+                  Empezar Gratis
                 </Button>
               </motion.div>
 
@@ -195,7 +195,7 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
                     className="w-full bg-gradient-tech-primary text-white rounded-lg font-semibold"
                   >
                     <Zap className="w-4 h-4 mr-2" />
-                    Join Tech Platform
+                    Empezar Gratis
                   </Button>
                 </motion.div>
               </nav>

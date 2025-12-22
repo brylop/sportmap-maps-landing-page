@@ -1,7 +1,18 @@
 import { useState, useCallback, useMemo } from "react";
 import { usePageNavigation, SectionId } from "@/hooks/usePageNavigation";
 import { PageLayout } from "@/components/layout";
-import { HomeContent } from "@/components/sections";
+
+// --- 1. NUEVOS COMPONENTES (Ajustados a tu estructura de carpetas) ---
+// Estos están en la raíz de components según tus imágenes:
+import { TechHeroSection } from "@/components/TechHeroSection";
+import { InteractiveFeatures } from "@/components/InteractiveFeatures";
+import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
+
+// Estos están dentro de sections/Pricing según la imagen 'image_81d8af.png':
+import { PlansSection } from "@/components/sections/Pricing/PlansSection";
+import { ComparisonSection } from "@/components/sections/Pricing/ComparisonSection";
+
+// --- 2. MÓDULOS EXISTENTES (Se mantienen igual) ---
 import { EcosistemaModule } from "@/components/modules/EcosistemaModule";
 import { EscuelasModule } from "@/components/modules/EscuelasModule";
 import { TiendaModule } from "@/components/modules/TiendaModule";
@@ -19,12 +30,27 @@ const Index = () => {
 
   const moduleContent = useMemo(() => {
     const moduleMap: Record<SectionId, React.ReactNode> = {
+      // --- ESTRATEGIA DE CONVERSIÓN (Home) ---
       inicio: (
-        <HomeContent 
-          onDemoClick={handleDemoOpen} 
-          onModuleClick={scrollToSection} 
-        />
+        <>
+          {/* Paso 1: Hero (Promesa + Dashboard Visual) */}
+          <TechHeroSection onDemoClick={handleDemoOpen} />
+          
+          {/* Paso 2: Explicación (Cómo funciona) */}
+          <InteractiveFeatures />
+          
+          {/* Paso 3: Precios Claros (Pestañas) */}
+          <PlansSection onPlanClick={handleDemoOpen} />
+          
+          {/* Paso 4: Cierre de Venta (Comparativa vs Mindbody) */}
+          <ComparisonSection />
+
+          {/* Paso 5: Confianza (Testimonios) */}
+          <TestimonialsCarousel />
+        </>
       ),
+      
+      // --- NAVEGACIÓN INTERNA ---
       ecosistema: <EcosistemaModule onModuleClick={scrollToSection} />,
       escuelas: <EscuelasModule onContactClick={handleDemoOpen} />,
       tienda: <TiendaModule />,

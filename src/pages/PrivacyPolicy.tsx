@@ -165,7 +165,7 @@ export default function PrivacyPolicy() {
                   </p>
                   <div className="mt-4 p-4 bg-sport-background rounded-lg">
                     <p><strong>SportMaps</strong></p>
-                    <p>Email: spoortmaps@gmail.com</p>
+                    <p>Email: contacto@sportmaps.co</p>
                     <p>WhatsApp: +57 312 846 3555</p>
                     <p>Colombia</p>
                   </div>
