@@ -53,7 +53,7 @@ export function HeroSection({ onDemoClick }: HeroSectionProps) {
                 <div><span className="text-sport-accent">GET</span> /api/schools/nearby</div>
                 <div><span className="text-sport-wellness">PUT</span> /api/nutrition/plans</div>
                 <div><span className="text-sport-nutrition">GET</span> /api/equipment/catalog</div>
-                <div className="text-white/40">// Conectando el ecosistema deportivo...</div>
+                <div className="text-white/40">// Conectando el ecosistema deportivo ....</div>
               </div>
             </div>
             
