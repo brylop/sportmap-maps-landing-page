@@ -51,7 +51,7 @@ export function Header({ onSectionClick, activeSection }: HeaderProps) {
             onClick={() => onSectionClick("unete")}
             variant="default"
           >
-            Únete ahora
+            Únete ahora!
           </Button>
         </div>
       </div>
