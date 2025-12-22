@@ -1,4 +1,4 @@
-<![CDATA[# 🏆 SportMaps Ecosystem
+🏆 SportMaps Ecosystem
 
 > **Plataforma SaaS integral para la gestión y conexión del ecosistema deportivo**
 
@@ -321,5 +321,3 @@ Este proyecto está bajo la licencia **MIT**. Ver [LICENSE](LICENSE) para más d
 
 *Conectando el futuro del deporte digital*
 
-</div>
-]]>
