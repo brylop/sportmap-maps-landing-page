@@ -1,204 +1,197 @@
 import { useState } from "react";
-import { Users, School, ShoppingBag, Heart, CheckCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { DynamicBackground } from "./DynamicBackground";
-import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { 
+  School, 
+  User, 
+  Dumbbell, 
+  Briefcase, 
+  Flag, 
+  Package, 
+  Activity,
+  CheckCircle2,
+  ArrowRight
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-const features = [
-  {
-    id: "athletes",
-    icon: Users,
-    title: "Para Deportistas",
-    description: "Encuentra tu escuela ideal y gestiona tu carrera deportiva",
-    color: "sport-primary",
-    route: "/deportistas",
-    details: [
-      "Búsqueda avanzada de escuelas",
-      "Comparación detallada de programas",
-      "Seguimiento de progreso personal",
-      "Comunidad de deportistas",
-      "Recomendaciones personalizadas"
-    ]
-  },
-  {
-    id: "schools",
-    icon: School,
-    title: "Para Escuelas",
-    description: "Herramientas completas para gestionar tu institución deportiva",
-    color: "sport-accent",
-    route: "/escuelas",
-    details: [
-      "Dashboard de gestión integral",
-      "Comunicación con padres y estudiantes",
-      "Reportes de rendimiento automáticos",
-      "Sistema de inscripciones online",
-      "Certificaciones digitales"
-    ]
-  },
-  {
-    id: "equipment",
-    icon: ShoppingBag,
-    title: "Equipamiento",
-    description: "Todo lo que necesitas para tu práctica deportiva",
-    color: "sport-highlight",
-    route: "/equipamiento",
-    details: [
-      "Catálogo especializado por deporte",
-      "Reseñas verificadas de productos",
-      "Ofertas exclusivas para comunidad",
-      "Entrega rápida a domicilio",
-      "Asesoría técnica personalizada"
-    ]
-  },
-  {
-    id: "wellness",
-    icon: Heart,
-    title: "Bienestar Integral",
-    description: "Cuida tu salud física y mental en el deporte",
-    color: "sport-wellness",
-    route: "/bienestar",
-    details: [
-      "Planes nutricionales personalizados",
-      "Seguimiento médico especializado",
-      "Programas de recuperación",
-      "Análisis de rendimiento",
-      "Prevención de lesiones"
-    ]
-  }
-];
+interface InteractiveFeaturesProps {
+  onPricingClick: () => void; // Recibe la función para ir a precios
+}
 
-export function InteractiveFeatures() {
-  const [activeFeature, setActiveFeature] = useState("athletes");
-  const navigate = useNavigate();
+export function InteractiveFeatures({ onPricingClick }: InteractiveFeaturesProps) {
+  // Estado para la pestaña activa (Por defecto Escuelas)
+  const [activeTab, setActiveTab] = useState("escuelas");
 
-  const currentFeature = features.find(f => f.id === activeFeature) || features[0];
+  const personas = [
+    { id: "escuelas", label: "Escuelas", icon: School, color: "text-blue-400", bg: "bg-blue-500/10" },
+    { id: "entrenadores", label: "Entrenadores", icon: Dumbbell, color: "text-orange-400", bg: "bg-orange-500/10" },
+    { id: "atletas", label: "Atletas", icon: User, color: "text-green-400", bg: "bg-green-500/10" },
+    { id: "marcas", label: "Marcas", icon: Briefcase, color: "text-purple-400", bg: "bg-purple-500/10" },
+    { id: "federaciones", label: "Federaciones", icon: Flag, color: "text-red-400", bg: "bg-red-500/10" },
+    { id: "proveedores", label: "Proveedores", icon: Package, color: "text-yellow-400", bg: "bg-yellow-500/10" },
+    { id: "servicios", label: "Servicios", icon: Activity, color: "text-cyan-400", bg: "bg-cyan-500/10" },
+  ];
+
+  const content: Record<string, { title: string; desc: string; benefits: string[] }> = {
+    escuelas: {
+      title: "Gestión Integral para Academias",
+      desc: "Digitaliza tu escuela deportiva. Gestiona matrículas, cobros automáticos y comunicación con padres en una sola plataforma.",
+      benefits: ["Cobros automáticos recurrentes", "Base de datos de alumnos unificada", "App móvil para padres y alumnos", "Tienda online para tus uniformes"]
+    },
+    entrenadores: {
+      title: "Tu Negocio de Entrenamiento",
+      desc: "Deja de usar Excel y WhatsApp. Profesionaliza tus servicios, agenda clases y recibe pagos sin fricción.",
+      benefits: ["Agenda de clases online", "Pagos por clase o mensualidad", "Perfil profesional verificado", "Historial de progreso de atletas"]
+    },
+    atletas: {
+      title: "Tu Pasaporte Deportivo",
+      desc: "Encuentra dónde entrenar, compite y lleva tu historial deportivo contigo para siempre.",
+      benefits: ["Encuentra escuelas y canchas cercanas", "Paga tus clases desde la app", "Historial de logros y estadísticas", "Descuentos en marcas aliadas"]
+    },
+    marcas: {
+      title: "Conecta con tu Audiencia Real",
+      desc: "Llega directamente a deportistas activos. Patrocina eventos o vende tus productos en nuestro marketplace segmentado.",
+      benefits: ["Publicidad segmentada por deporte", "Venta directa en Marketplace", "Patrocinio de torneos y escuelas", "Analytics de audiencia real"]
+    },
+    federaciones: {
+      title: "Control y Transparencia",
+      desc: "Moderniza la gestión federativa. Rankings nacionales, licencias digitales y gestión de torneos oficiales.",
+      benefits: ["Base de datos nacional de atletas", "Licencias y carnets digitales", "Gestión de torneos y rankings", "Comunicación oficial masiva"]
+    },
+    proveedores: {
+      title: "Vende al Ecosistema",
+      desc: "Ofrece tus productos (balones, uniformes, trofeos) directamente a las escuelas y organizadores que los necesitan.",
+      benefits: ["Canal de venta B2B directo", "Pedidos por volumen", "Gestión de inventario", "Pagos seguros garantizados"]
+    },
+    servicios: {
+      title: "Profesionales de la Salud",
+      desc: "Fisioterapeutas, nutricionistas y psicólogos deportivos conectados con los atletas que requieren sus servicios.",
+      benefits: ["Agenda de consultas integrada", "Historia clínica deportiva", "Referidos directos de escuelas", "Teleconsulta integrada"]
+    }
+  };
+
+  const activeContent = content[activeTab];
+  const ActiveIcon = personas.find(p => p.id === activeTab)?.icon || School;
 
   return (
-    <section className="relative py-16 sm:py-20 overflow-hidden">
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-sport-text-primary mb-4">
-            Una plataforma, múltiples soluciones
+    <section id="ecosistema" className="py-20 relative overflow-hidden bg-sport-background">
+      <div className="container mx-auto px-4 relative z-10">
+        
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            <span className="bg-gradient-tech-primary bg-clip-text text-transparent">Un Ecosistema</span> para Todos
           </h2>
-          <p className="text-lg text-sport-text-secondary max-w-2xl mx-auto">
-            Descubre cómo SportMaps se adapta a las necesidades específicas de cada usuario
+          <p className="text-sport-text-secondary text-lg max-w-2xl mx-auto">
+            SportMaps conecta a todos los actores del deporte. Selecciona tu perfil y descubre cómo te potenciamos.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Feature Tabs */}
-          <div className="space-y-4">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.id}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                whileHover={{ scale: 1.02 }}
-                onClick={() => setActiveFeature(feature.id)}
-                className={`p-6 rounded-2xl cursor-pointer transition-all duration-300 border-2 ${
-                  activeFeature === feature.id
-                    ? `border-sport-accent bg-sport-background/80 backdrop-blur-sm shadow-hover`
-                    : 'border-transparent bg-sport-background/60 backdrop-blur-sm hover:bg-sport-background/80 hover:shadow-elegant'
-                }`}
-              >
-                <div className="flex items-start gap-4">
-                  <motion.div 
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center text-white transition-transform duration-300 ${
-                      activeFeature === feature.id ? 'scale-110' : ''
-                    }`}
-                    style={{ 
-                      background: `linear-gradient(135deg, hsl(var(--${feature.color})), hsl(var(--${feature.color})) 70%, hsl(var(--sport-accent)) 100%)`
-                    }}
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <feature.icon className="w-6 h-6" />
-                  </motion.div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-sport-text-primary mb-2">
-                      {feature.title}
-                    </h3>
-                    <p className="text-sport-text-secondary">
-                      {feature.description}
-                    </p>
-                  </div>
-                  <AnimatePresence>
-                    {activeFeature === feature.id && (
-                      <motion.div 
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        exit={{ scale: 0 }}
-                        className={`w-6 h-6 rounded-full bg-${feature.color} flex items-center justify-center`}
-                      >
-                        <CheckCircle className="w-4 h-4 text-white" />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Feature Details */}
-          <AnimatePresence mode="wait">
-            <motion.div 
-              key={activeFeature}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.3 }}
-              className="bg-sport-background/80 backdrop-blur-sm rounded-3xl p-8 shadow-elegant border border-white/20 sticky top-8"
+        {/* Navigation Tabs (Scrollable on mobile) */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12 overflow-x-auto pb-4 px-2 no-scrollbar md:justify-center justify-start">
+          {personas.map((persona) => (
+            <button
+              key={persona.id}
+              onClick={() => setActiveTab(persona.id)}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-full border transition-all duration-300 whitespace-nowrap ${
+                activeTab === persona.id
+                  ? `${persona.bg} ${persona.color} border-${persona.color}/50 shadow-[0_0_15px_rgba(0,0,0,0.2)] scale-105`
+                  : "border-sport-border bg-sport-surface/50 text-sport-text-muted hover:border-sport-primary/30 hover:text-sport-text-primary"
+              }`}
             >
-              <div className="flex items-center gap-4 mb-6">
-                <motion.div 
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center text-white"
-                  style={{ 
-                    background: `linear-gradient(135deg, hsl(var(--${currentFeature.color})), hsl(var(--${currentFeature.color})) 70%, hsl(var(--sport-accent)) 100%)`
-                  }}
-                  whileHover={{ scale: 1.1, rotate: 10 }}
-                >
-                  <currentFeature.icon className="w-8 h-8" />
-                </motion.div>
-                <div>
-                  <h3 className="text-2xl font-bold text-sport-text-primary">
-                    {currentFeature.title}
-                  </h3>
-                  <p className="text-sport-text-secondary">
-                    {currentFeature.description}
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-4 mb-8">
-                {currentFeature.details.map((detail, index) => (
-                  <motion.div 
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="flex items-start gap-3"
-                  >
-                    <div className={`w-2 h-2 rounded-full bg-${currentFeature.color} mt-2 flex-shrink-0`}></div>
-                    <span className="text-sport-text-secondary">{detail}</span>
-                  </motion.div>
-                ))}
-              </div>
-
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button 
-                  variant="default"
-                  className="w-full"
-                  onClick={() => navigate(currentFeature.route)}
-                >
-                  Explorar {currentFeature.title}
-                </Button>
-              </motion.div>
-            </motion.div>
-          </AnimatePresence>
+              <persona.icon className="w-4 h-4" />
+              <span className="font-medium">{persona.label}</span>
+            </button>
+          ))}
         </div>
+
+        {/* Content Card */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="max-w-5xl mx-auto"
+          >
+            <div className="glass-effect rounded-3xl p-8 md:p-12 border border-sport-border/50 relative overflow-hidden">
+              
+              {/* Background Glow */}
+              <div className={`absolute top-0 right-0 w-64 h-64 ${personas.find(p => p.id === activeTab)?.bg} blur-3xl rounded-full opacity-20 -z-10`} />
+
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                
+                {/* Text Content */}
+                <div className="space-y-6">
+                  <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${personas.find(p => p.id === activeTab)?.bg} ${personas.find(p => p.id === activeTab)?.color} w-fit`}>
+                    <ActiveIcon className="w-4 h-4" />
+                    <span className="capitalize">{activeTab}</span>
+                  </div>
+                  
+                  <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+                    {activeContent.title}
+                  </h3>
+                  
+                  <p className="text-sport-text-secondary text-lg leading-relaxed">
+                    {activeContent.desc}
+                  </p>
+
+                  <ul className="space-y-3 pt-2">
+                    {activeContent.benefits.map((benefit, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-sport-success shrink-0 mt-0.5" />
+                        <span className="text-sport-text-primary">{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="pt-6">
+                    <Button 
+                      onClick={onPricingClick}
+                      size="lg" 
+                      className="bg-white text-black hover:bg-gray-200 rounded-full px-8 font-semibold transition-transform hover:scale-105"
+                    >
+                      Ver Planes para {personas.find(p => p.id === activeTab)?.label}
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Visual Representation (Simplified Dashboard Card) */}
+                <div className="relative hidden md:block">
+                  <div className="absolute inset-0 bg-gradient-to-br from-sport-primary/20 to-transparent rounded-2xl blur-2xl -z-10" />
+                  <div className="bg-sport-card-bg border border-white/10 rounded-2xl p-6 shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500">
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex items-center gap-3">
+                        <div className={`p-2 rounded-lg ${personas.find(p => p.id === activeTab)?.bg}`}>
+                          <ActiveIcon className={`w-6 h-6 ${personas.find(p => p.id === activeTab)?.color}`} />
+                        </div>
+                        <div>
+                          <div className="text-sm text-sport-text-muted">Panel de Control</div>
+                          <div className="font-bold text-white capitalize">{activeTab}</div>
+                        </div>
+                      </div>
+                      <div className="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full border border-green-500/30">
+                        Activo
+                      </div>
+                    </div>
+                    
+                    {/* Simulated Content Lines */}
+                    <div className="space-y-4">
+                      <div className="h-24 bg-white/5 rounded-xl border border-white/5 p-4 flex items-center justify-center">
+                         <span className="text-sport-text-muted text-sm">Gráficas de rendimiento en tiempo real</span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-4">
+                         <div className="h-16 bg-white/5 rounded-xl border border-white/5 animate-pulse-slow"></div>
+                         <div className="h-16 bg-white/5 rounded-xl border border-white/5 animate-pulse-slow" style={{animationDelay: "0.2s"}}></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
