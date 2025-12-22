@@ -1,4 +1,4 @@
-🏆 SportMaps Ecosystem v1.2
+🏆 SportMaps Ecosystem v1.3
 
 > **Plataforma SaaS integral para la gestión y conexión del ecosistema deportivo**
 
