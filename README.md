@@ -288,7 +288,7 @@ npm run lint       # Linting con ESLint
 
 ## 🌐 Despliegue
 
-El proyecto está configurado para despliegue automático en **Lovable Cloud** con:
+El proyecto está configurado para despliegue automático en Vercel con:
 
 - ✅ SSL automático
 - ✅ CDN global
