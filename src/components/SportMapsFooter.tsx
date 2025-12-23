@@ -84,12 +84,12 @@ export function SportMapsFooter() {
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-sport-primary shrink-0" />
                 <a href="mailto:hola@sportmaps.co" className="hover:text-white transition-colors">
-                  hola@sportmaps.co
+                  contacto@sportmaps.co
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-sport-primary shrink-0" />
-                <span>+57 (300) 123-4567</span>
+                <span>+57 (312) 846-3555</span>
               </li>
               <li className="pt-4 border-t border-white/10 mt-2 flex flex-col gap-2">
                  <FooterLink text="Política de Privacidad" isLegal />
