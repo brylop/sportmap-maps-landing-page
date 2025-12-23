@@ -41,7 +41,7 @@ export function SportMapsFooter() {
               {/* LinkedIn (Pendiente - Déjalo así o bórralo si no tienes aún) */}
               <SocialBtn 
                 icon={Linkedin} 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/company/sportmaps/?viewAsMember=true" 
                 label="LinkedIn"
               />
             </div>
