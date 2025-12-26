@@ -62,14 +62,14 @@ export function PlansSection({ selectedClient }: PlansSectionProps) {
           </p>
 
           <div className="flex items-center justify-center gap-4">
-            <span className={`text-sm font-medium ${!isAnnual ? 'text-white' : 'text-sport-text-muted'}`}>Mensual</span>
+            <span className={`text-sm font-medium ${!isAnnual ? 'text-foreground' : 'text-sport-text-muted'}`}>Mensual</span>
             <button
               onClick={() => setIsAnnual(!isAnnual)}
-              className="relative w-14 h-7 bg-white/10 rounded-full transition-colors hover:bg-white/20"
+              className="relative w-14 h-7 bg-sport-border rounded-full transition-colors hover:bg-sport-primary/20"
             >
               <div className={`absolute top-1 w-5 h-5 bg-sport-primary rounded-full transition-all duration-300 ${isAnnual ? 'left-8' : 'left-1'}`} />
             </button>
-            <span className={`text-sm font-medium ${isAnnual ? 'text-white' : 'text-sport-text-muted'}`}>
+            <span className={`text-sm font-medium ${isAnnual ? 'text-foreground' : 'text-sport-text-muted'}`}>
               Anual <span className="text-sport-success text-xs ml-1 font-bold">-20% OFF</span>
             </span>
           </div>
@@ -81,8 +81,8 @@ export function PlansSection({ selectedClient }: PlansSectionProps) {
               key={idx}
               className={`relative rounded-3xl p-8 border transition-all duration-300 hover:-translate-y-2 group ${
                 plan.popular 
-                  ? 'bg-gradient-to-b from-white/10 to-transparent border-sport-primary/50 shadow-glow-primary' 
-                  : 'bg-sport-card-bg border-white/5 hover:border-white/20'
+                  ? 'bg-gradient-to-b from-sport-primary/10 to-transparent border-sport-primary/50 shadow-glow-primary' 
+                  : 'bg-card border-sport-border hover:border-sport-primary/30'
               }`}
             >
               {plan.popular && (
@@ -92,15 +92,15 @@ export function PlansSection({ selectedClient }: PlansSectionProps) {
               )}
 
               <div className="mb-6">
-                <div className={`w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-4 text-white shadow-lg`}>
+                <div className={`w-12 h-12 rounded-xl bg-sport-primary/10 flex items-center justify-center mb-4 text-sport-primary shadow-lg`}>
                   <plan.icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
+                <h3 className="text-2xl font-bold text-foreground">{plan.name}</h3>
               </div>
 
               <div className="mb-8">
                 <div className="flex items-baseline gap-1">
-                  <span className={`text-4xl font-bold ${plan.popular ? 'text-sport-accent' : 'text-white'}`}>{plan.price}</span>
+                  <span className={`text-4xl font-bold ${plan.popular ? 'text-sport-accent' : 'text-foreground'}`}>{plan.price}</span>
                 </div>
               </div>
 
@@ -118,7 +118,7 @@ export function PlansSection({ selectedClient }: PlansSectionProps) {
                 className={`w-full py-6 rounded-xl font-bold text-lg transition-all hover:scale-105 ${
                   plan.popular
                     ? 'bg-gradient-to-r from-sport-primary to-sport-accent text-white hover:shadow-glow-primary'
-                    : 'bg-white text-black hover:bg-gray-200'
+                    : 'bg-sport-primary text-white hover:bg-sport-primary/90'
                 }`}
               >
                 {plan.cta}

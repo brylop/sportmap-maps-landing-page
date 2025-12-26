@@ -115,7 +115,7 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
                     <span className="capitalize">{selectedClient}</span>
                   </div>
                   
-                  <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+                  <h3 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">
                     {activeContent.title}
                   </h3>
                   
@@ -146,7 +146,7 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
 
                 <div className="relative hidden md:block">
                    {/* Tarjeta Visual Derecha */}
-                   <div className="bg-sport-card-bg border border-white/10 rounded-2xl p-6 shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500">
+                   <div className="bg-card border border-sport-border rounded-2xl p-6 shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500">
                     <div className="flex items-center justify-between mb-6">
                       <div className="flex items-center gap-3">
                         <div className={`p-2 rounded-lg ${personas.find(p => p.id === selectedClient)?.bg}`}>
@@ -154,20 +154,20 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
                         </div>
                         <div>
                           <div className="text-sm text-sport-text-muted">Panel de Control</div>
-                          <div className="font-bold text-white capitalize">{selectedClient}</div>
+                          <div className="font-bold text-foreground capitalize">{selectedClient}</div>
                         </div>
                       </div>
-                      <div className="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded-full border border-green-500/30">
+                      <div className="px-2 py-1 bg-sport-success/20 text-sport-success text-xs rounded-full border border-sport-success/30">
                         Activo
                       </div>
                     </div>
                     <div className="space-y-4">
-                      <div className="h-24 bg-white/5 rounded-xl border border-white/5 p-4 flex items-center justify-center">
+                      <div className="h-24 bg-sport-surface rounded-xl border border-sport-border p-4 flex items-center justify-center">
                          <span className="text-sport-text-muted text-sm">Estadísticas de {selectedClient}</span>
                       </div>
                       <div className="grid grid-cols-2 gap-4">
-                         <div className="h-16 bg-white/5 rounded-xl border border-white/5 animate-pulse-slow"></div>
-                         <div className="h-16 bg-white/5 rounded-xl border border-white/5 animate-pulse-slow" style={{animationDelay: "0.2s"}}></div>
+                         <div className="h-16 bg-sport-surface rounded-xl border border-sport-border animate-pulse-slow"></div>
+                         <div className="h-16 bg-sport-surface rounded-xl border border-sport-border animate-pulse-slow" style={{animationDelay: "0.2s"}}></div>
                       </div>
                     </div>
                   </div>

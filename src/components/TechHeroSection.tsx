@@ -126,7 +126,7 @@ export function TechHeroSection({ onDemoClick }: TechHeroSectionProps) {
                     <BarChart3 className="w-5 h-5 text-sport-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white text-sm">Panel Director</h3>
+                    <h3 className="font-semibold text-foreground text-sm">Panel Director</h3>
                     <p className="text-xs text-sport-text-muted">Vista General - Tiempo Real</p>
                   </div>
                 </div>
@@ -142,41 +142,41 @@ export function TechHeroSection({ onDemoClick }: TechHeroSectionProps) {
                 {/* Row 1: Key Metrics */}
                 <div className="grid grid-cols-2 gap-4">
                   {/* Card Ingresos */}
-                  <div className="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-sport-success/30 transition-colors">
+                  <div className="bg-sport-surface/80 dark:bg-white/5 p-4 rounded-xl border border-sport-border hover:border-sport-success/30 transition-colors">
                     <div className="flex justify-between items-start mb-2">
                       <div className="p-1.5 rounded-md bg-sport-success/10">
                         <DollarSign className="w-4 h-4 text-sport-success" />
                       </div>
                       <span className="text-[10px] text-sport-success bg-sport-success/10 px-1.5 py-0.5 rounded">+12%</span>
                     </div>
-                    <div className="text-2xl font-bold text-white">$4.2M</div>
+                    <div className="text-2xl font-bold text-foreground">$4.2M</div>
                     <div className="text-xs text-sport-text-muted">Ingresos Mes</div>
                   </div>
 
                   {/* Card Alumnos */}
-                  <div className="bg-white/5 p-4 rounded-xl border border-white/5 hover:border-sport-primary/30 transition-colors">
+                  <div className="bg-sport-surface/80 dark:bg-white/5 p-4 rounded-xl border border-sport-border hover:border-sport-primary/30 transition-colors">
                     <div className="flex justify-between items-start mb-2">
                       <div className="p-1.5 rounded-md bg-sport-primary/10">
                         <Users className="w-4 h-4 text-sport-primary" />
                       </div>
                       <span className="text-[10px] text-sport-primary bg-sport-primary/10 px-1.5 py-0.5 rounded">+24</span>
                     </div>
-                    <div className="text-2xl font-bold text-white">1,240</div>
+                    <div className="text-2xl font-bold text-foreground">1,240</div>
                     <div className="text-xs text-sport-text-muted">Estudiantes Activos</div>
                   </div>
                 </div>
 
                 {/* Row 2: Activity Graph Simulation */}
-                <div className="bg-white/5 p-4 rounded-xl border border-white/5">
+                <div className="bg-sport-surface/80 dark:bg-white/5 p-4 rounded-xl border border-sport-border">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4 text-sport-accent" />
                       <span className="text-xs text-sport-text-secondary">Clases Hoy</span>
                     </div>
-                    <span className="text-xs font-bold text-white">8/12 Completadas</span>
+                    <span className="text-xs font-bold text-foreground">8/12 Completadas</span>
                   </div>
                   {/* Custom Progress Bar */}
-                  <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden flex">
+                  <div className="w-full h-2 bg-sport-border rounded-full overflow-hidden flex">
                     <div className="h-full bg-sport-primary w-[30%]" />
                     <div className="h-full bg-sport-accent w-[20%]" />
                     <div className="h-full bg-sport-highlight w-[15%]" />
@@ -191,12 +191,12 @@ export function TechHeroSection({ onDemoClick }: TechHeroSectionProps) {
 
                 {/* Row 3: Recent Notifications (Simulated) */}
                 <div className="space-y-2 pt-2">
-                  <div className="flex items-center gap-3 text-xs p-2 hover:bg-white/5 rounded-lg transition-colors cursor-default">
+                  <div className="flex items-center gap-3 text-xs p-2 hover:bg-sport-surface/50 dark:hover:bg-white/5 rounded-lg transition-colors cursor-default">
                     <div className="w-2 h-2 rounded-full bg-sport-primary animate-pulse" />
                     <span className="text-sport-text-secondary flex-1">Nuevo registro: Academia Elite FC</span>
                     <span className="text-sport-text-muted">Hace 2m</span>
                   </div>
-                  <div className="flex items-center gap-3 text-xs p-2 hover:bg-white/5 rounded-lg transition-colors cursor-default">
+                  <div className="flex items-center gap-3 text-xs p-2 hover:bg-sport-surface/50 dark:hover:bg-white/5 rounded-lg transition-colors cursor-default">
                     <div className="w-2 h-2 rounded-full bg-sport-success" />
                     <span className="text-sport-text-secondary flex-1">Pago recibido: Plan Anual Pro</span>
                     <span className="text-sport-text-muted">Hace 15m</span>
