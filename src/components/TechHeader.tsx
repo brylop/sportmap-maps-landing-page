@@ -41,8 +41,8 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
       <header 
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-[#0B1121]/95 backdrop-blur-md border-b border-sport-primary/20 shadow-tech-lg' 
-            : 'bg-[#0B1121]/90 backdrop-blur-sm'
+            ? 'bg-background/95 backdrop-blur-md border-b border-sport-primary/20 shadow-tech-lg' 
+            : 'bg-background/90 backdrop-blur-sm'
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -137,7 +137,7 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
-              className="fixed top-16 left-0 right-0 bg-[#0B1121]/98 backdrop-blur-md border-b border-sport-primary/20 p-4 shadow-tech-lg"
+              className="fixed top-16 left-0 right-0 bg-background/98 backdrop-blur-md border-b border-sport-primary/20 p-4 shadow-tech-lg"
             >
               <nav className="space-y-3">
                 {navItems.map((item) => (

@@ -67,7 +67,7 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
   const ActiveIcon = personas.find(p => p.id === selectedClient)?.icon || School;
 
   return (
-    <section id="ecosistema" className="py-20 relative overflow-hidden bg-[#0B1121]">
+    <section id="ecosistema" className="py-20 relative overflow-hidden bg-background">
       <div className="container mx-auto px-4 relative z-10">
         
         <div className="text-center mb-16">

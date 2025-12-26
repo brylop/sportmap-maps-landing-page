@@ -17,26 +17,26 @@ SportMaps Official Brand Colors:
     --sport-primary: 119 64% 32%; /* Official Green #248223 */
     --sport-secondary: 119 64% 25%; /* Darker Green */
     --sport-accent: 36 96% 55%; /* Official Orange #FB9F1E */
-    --sport-highlight: 0 100% 60%; /* Sport Red #FF3333 */
+    --sport-highlight: 36 96% 50%; /* Orange highlight - no más rojo */
     --sport-warning: 36 96% 55%; /* Energy Orange (same as accent) */
     --sport-success: 119 64% 40%; /* Success Green */
-    --sport-info: 195 100% 50%; /* Info Cyan #00BFFF */
-    --sport-wellness: 0 100% 60%; /* Red for wellness */
+    --sport-info: 119 64% 38%; /* Info ahora es verde, no azul */
+    --sport-wellness: 119 64% 35%; /* Green for wellness */
     --sport-nutrition: 119 64% 32%; /* Green for nutrition */
     
-    /* Tech Background System */
-    --sport-background: 220 15% 97%; /* Ultra Light Tech #F8FAFC */
-    --sport-surface: 0 0% 100%; /* Pure White */
-    --sport-card: 220 20% 98%; /* Subtle Tech Surface #FCFDFE */
-    --sport-glass: 220 30% 95%; /* Glass Effect #F1F5F9 */
-    --sport-card-bg: 220 20% 98%; /* Card background */
+    /* Light Mode Background System - Blanco limpio */
+    --sport-background: 0 0% 100%; /* Pure White */
+    --sport-surface: 0 0% 99%; /* Off White */
+    --sport-card: 0 0% 100%; /* Pure White Card */
+    --sport-glass: 0 0% 98%; /* Light Glass */
+    --sport-card-bg: 0 0% 100%; /* Card background */
     
-    /* Text & Borders */
+    /* Text & Borders - Light Mode */
     --sport-text-primary: 220 52% 9%; /* Navy Text #0B1121 */
-    --sport-text-secondary: 220 10% 45%; /* Secondary Text #64748B */
-    --sport-text-muted: 220 8% 65%; /* Muted Text #94A3B8 */
-    --sport-border: 220 15% 90%; /* Borders #E2E8F0 */
-    --sport-divider: 220 12% 85%; /* Dividers #CBD5E1 */
+    --sport-text-secondary: 220 10% 40%; /* Darker Secondary Text */
+    --sport-text-muted: 220 8% 55%; /* Muted Text */
+    --sport-border: 119 20% 85%; /* Verde suave en bordes */
+    --sport-divider: 119 15% 88%; /* Verde suave en divisores */
     
   /* Tech Gradients - Verde a Naranja oficial */
     --gradient-tech-primary: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
@@ -71,62 +71,62 @@ SportMaps Official Brand Colors:
     --space-tech-xl: 2rem;
     --space-tech-2xl: 3rem;
 
-    /* Default shadcn colors - Aligned with SportMaps brand */
-    --background: 0 0% 100%;
-    --foreground: 220 52% 9%;
+    /* Default shadcn colors - Light Mode SportMaps */
+    --background: 0 0% 100%; /* Pure White */
+    --foreground: 220 52% 9%; /* Navy Text */
     --card: 0 0% 100%;
     --card-foreground: 220 52% 9%;
     --popover: 0 0% 100%;
     --popover-foreground: 220 52% 9%;
     --primary: 119 64% 32%; /* Official Green #248223 */
     --primary-foreground: 0 0% 100%;
-    --secondary: 220 15% 95%;
-    --secondary-foreground: 220 52% 9%;
-    --muted: 220 15% 95%;
-    --muted-foreground: 220 10% 45%;
+    --secondary: 36 96% 55%; /* Official Orange #FB9F1E */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 119 15% 95%; /* Verde muy claro */
+    --muted-foreground: 220 10% 40%;
     --accent: 36 96% 55%; /* Official Orange #FB9F1E */
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
-    --border: 220 15% 90%;
-    --input: 220 15% 90%;
+    --border: 119 20% 88%; /* Verde suave */
+    --input: 119 15% 92%;
     --ring: 119 64% 32%;
     --radius: 0.75rem;
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 119 20% 97%;
     --sidebar-foreground: 220 52% 9%;
     --sidebar-primary: 119 64% 32%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 36 96% 55%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 220 15% 90%;
+    --sidebar-border: 119 20% 88%;
     --sidebar-ring: 119 64% 32%;
   }
 
   .dark {
     /* SportMaps Official Brand Design System - Dark Mode */
-    --sport-primary: 119 64% 45%; /* Brighter Green for dark mode */
-    --sport-secondary: 119 64% 35%; /* Mid Green */
+    --sport-primary: 119 64% 50%; /* Brighter Green for dark mode */
+    --sport-secondary: 119 64% 40%; /* Mid Green */
     --sport-accent: 36 96% 60%; /* Brighter Orange for dark mode */
-    --sport-highlight: 0 100% 70%; /* Bright Sport Red */
+    --sport-highlight: 36 96% 55%; /* Orange highlight */
     --sport-warning: 36 96% 60%; /* Energy Orange */
-    --sport-success: 119 64% 50%; /* Bright Success Green */
-    --sport-info: 195 100% 60%; /* Bright Info Cyan */
-    --sport-wellness: 0 100% 70%; /* Bright Red for wellness */
-    --sport-nutrition: 119 64% 45%; /* Bright Green for nutrition */
+    --sport-success: 119 64% 55%; /* Bright Success Green */
+    --sport-info: 119 64% 50%; /* Info verde brillante */
+    --sport-wellness: 119 64% 50%; /* Green for wellness */
+    --sport-nutrition: 119 64% 50%; /* Green for nutrition */
     
     /* Dark Tech Background System - Official Navy #0B1121 */
     --sport-background: 220 52% 9%; /* Official Navy #0B1121 */
-    --sport-surface: 220 45% 12%; /* Dark Surface */
-    --sport-card: 220 40% 15%; /* Dark Card */
-    --sport-glass: 220 35% 18%; /* Dark Glass Effect */
-    --sport-card-bg: 220 40% 15%; /* Card background */
+    --sport-surface: 220 50% 12%; /* Dark Surface */
+    --sport-card: 220 45% 14%; /* Dark Card */
+    --sport-glass: 220 40% 16%; /* Dark Glass Effect */
+    --sport-card-bg: 220 45% 14%; /* Card background */
     
     /* Dark Mode Text & Borders */
     --sport-text-primary: 0 0% 98%; /* Light Text */
-    --sport-text-secondary: 220 10% 75%; /* Secondary Light Text */
-    --sport-text-muted: 220 8% 55%; /* Muted Light Text */
-    --sport-border: 220 30% 20%; /* Dark Borders */
-    --sport-divider: 220 25% 25%; /* Dark Dividers */
+    --sport-text-secondary: 0 0% 80%; /* Secondary Light Text */
+    --sport-text-muted: 0 0% 60%; /* Muted Light Text */
+    --sport-border: 119 30% 25%; /* Green tint borders */
+    --sport-divider: 119 25% 22%; /* Green tint dividers */
     
   /* Dark Tech Gradients - Verde a Naranja oficial */
     --gradient-tech-primary: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));

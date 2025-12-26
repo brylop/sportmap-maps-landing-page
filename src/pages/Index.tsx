@@ -46,7 +46,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0B1121] text-sport-text-primary">
+    <div className="min-h-screen bg-background text-foreground">
       <TechHeader 
         onSectionClick={scrollToSection} 
         activeSection={activeSection} 
