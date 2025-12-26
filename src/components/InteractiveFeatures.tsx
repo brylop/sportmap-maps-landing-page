@@ -15,13 +15,13 @@ interface InteractiveFeaturesProps {
 export function InteractiveFeatures({ onPricingClick, selectedClient, setSelectedClient }: InteractiveFeaturesProps) {
   
   const personas = [
-    { id: "escuelas", label: "Escuelas", icon: School, color: "text-blue-400", bg: "bg-blue-500/10" },
-    { id: "entrenadores", label: "Entrenadores", icon: Dumbbell, color: "text-orange-400", bg: "bg-orange-500/10" },
-    { id: "atletas", label: "Atletas", icon: User, color: "text-green-400", bg: "bg-green-500/10" },
-    { id: "marcas", label: "Marcas", icon: Briefcase, color: "text-purple-400", bg: "bg-purple-500/10" },
-    { id: "federaciones", label: "Federaciones", icon: Flag, color: "text-red-400", bg: "bg-red-500/10" },
-    { id: "proveedores", label: "Proveedores", icon: Package, color: "text-yellow-400", bg: "bg-yellow-500/10" },
-    { id: "servicios", label: "Servicios", icon: Activity, color: "text-cyan-400", bg: "bg-cyan-500/10" },
+    { id: "escuelas", label: "Escuelas", icon: School, color: "text-sport-primary", bg: "bg-sport-primary/10", activeColor: "border-sport-primary" },
+    { id: "entrenadores", label: "Entrenadores", icon: Dumbbell, color: "text-sport-accent", bg: "bg-sport-accent/10", activeColor: "border-sport-accent" },
+    { id: "atletas", label: "Atletas", icon: User, color: "text-sport-primary", bg: "bg-sport-primary/10", activeColor: "border-sport-primary" },
+    { id: "marcas", label: "Marcas", icon: Briefcase, color: "text-sport-accent", bg: "bg-sport-accent/10", activeColor: "border-sport-accent" },
+    { id: "federaciones", label: "Federaciones", icon: Flag, color: "text-sport-primary", bg: "bg-sport-primary/10", activeColor: "border-sport-primary" },
+    { id: "proveedores", label: "Proveedores", icon: Package, color: "text-sport-accent", bg: "bg-sport-accent/10", activeColor: "border-sport-accent" },
+    { id: "servicios", label: "Servicios", icon: Activity, color: "text-sport-primary", bg: "bg-sport-primary/10", activeColor: "border-sport-primary" },
   ];
 
   const content: Record<string, { title: string; desc: string; benefits: string[] }> = {
@@ -67,12 +67,12 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
   const ActiveIcon = personas.find(p => p.id === selectedClient)?.icon || School;
 
   return (
-    <section id="ecosistema" className="py-20 relative overflow-hidden bg-sport-background">
+    <section id="ecosistema" className="py-20 relative overflow-hidden bg-[#0B1121]">
       <div className="container mx-auto px-4 relative z-10">
         
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-tech-primary bg-clip-text text-transparent">Un Ecosistema</span> para Todos
+            <span className="bg-gradient-to-r from-sport-primary to-sport-accent bg-clip-text text-transparent">Un Ecosistema</span> para Todos
           </h2>
           <p className="text-sport-text-secondary text-lg max-w-2xl mx-auto">
             SportMaps conecta a todos los actores del deporte. Selecciona tu perfil y descubre cómo te potenciamos.
@@ -136,7 +136,7 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
                     <Button 
                       onClick={onPricingClick}
                       size="lg" 
-                      className="bg-white text-black hover:bg-gray-200 rounded-full px-8 font-semibold transition-transform hover:scale-105"
+                      className="bg-gradient-to-r from-sport-primary to-sport-accent text-white hover:shadow-glow-primary rounded-full px-8 font-bold transition-transform hover:scale-105"
                     >
                       Ver Planes para {personas.find(p => p.id === selectedClient)?.label}
                       <ArrowRight className="w-4 h-4 ml-2" />
