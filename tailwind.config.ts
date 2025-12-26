@@ -13,8 +13,16 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Poppins', 'system-ui', 'sans-serif'],
+        poppins: ['Poppins', 'system-ui', 'sans-serif'],
+      },
       colors: {
-        // SportMaps Advanced Tech Color System
+        // SportMaps Official Brand Color System
+        // Primary Green: #248223 → HSL(119, 64%, 32%)
+        // Accent Orange: #FB9F1E → HSL(36, 96%, 55%)
+        // Navy Background: #0B1121 → HSL(220, 52%, 9%)
+        
         "sport-primary": "hsl(var(--sport-primary))",
         "sport-secondary": "hsl(var(--sport-secondary))",
         "sport-accent": "hsl(var(--sport-accent))",
@@ -29,6 +37,7 @@ export default {
         "sport-background": "hsl(var(--sport-background))",
         "sport-surface": "hsl(var(--sport-surface))",
         "sport-card": "hsl(var(--sport-card))",
+        "sport-card-bg": "hsl(var(--sport-card-bg))",
         "sport-glass": "hsl(var(--sport-glass))",
         
         // Text & Borders
