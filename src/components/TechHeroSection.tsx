@@ -44,7 +44,7 @@ export function TechHeroSection({ onDemoClick }: TechHeroSectionProps) {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 bg-[#0B1121]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 bg-background">
       {/* Hero Content */}
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -60,11 +60,11 @@ export function TechHeroSection({ onDemoClick }: TechHeroSectionProps) {
             
             {/* Main Title */}
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight">
-              <span className="block text-white">Revoluciona tu</span>
+              <span className="block text-foreground">Revoluciona tu</span>
               <span className="block bg-gradient-to-r from-sport-primary to-sport-accent bg-clip-text text-transparent">
                 {techTexts[currentText]}
               </span>
-              <span className="block text-white">con IA avanzada</span>
+              <span className="block text-foreground">con IA avanzada</span>
             </h1>
             
             {/* Subtitle */}

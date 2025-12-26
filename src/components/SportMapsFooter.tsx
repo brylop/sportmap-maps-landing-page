@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export function SportMapsFooter() {
   return (
-    <footer className="bg-[#0B1121] border-t border-white/10 pt-16 pb-8 text-sm text-gray-400">
+    <footer className="bg-sport-background border-t border-sport-border pt-16 pb-8 text-sm text-sport-text-secondary">
       <div className="container mx-auto px-4">
         
         {/* Grid de 4 Columnas */}
@@ -49,7 +49,7 @@ export function SportMapsFooter() {
 
           {/* 2. Soluciones */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-6">Soluciones</h3>
+            <h3 className="text-foreground font-semibold text-lg mb-6">Soluciones</h3>
             <ul className="space-y-3">
               <FooterLink text="Gestión para Escuelas" />
               <FooterLink text="Entrenadores Pro" />
@@ -61,7 +61,7 @@ export function SportMapsFooter() {
 
           {/* 3. Compañía */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-6">SportMaps Tech</h3>
+            <h3 className="text-foreground font-semibold text-lg mb-6">SportMaps Tech</h3>
             <ul className="space-y-3">
               <FooterLink text="Sobre Nosotros" />
               <FooterLink text="Casos de Éxito" />
@@ -75,7 +75,7 @@ export function SportMapsFooter() {
 
           {/* 4. Contacto & Legal */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-6">Contacto & Legal</h3>
+            <h3 className="text-foreground font-semibold text-lg mb-6">Contacto & Legal</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-sport-primary shrink-0" />
@@ -83,7 +83,7 @@ export function SportMapsFooter() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-sport-primary shrink-0" />
-                <a href="mailto:hola@sportmaps.co" className="hover:text-white transition-colors">
+                <a href="mailto:hola@sportmaps.co" className="hover:text-sport-primary transition-colors">
                   contacto@sportmaps.co
                 </a>
               </li>
@@ -91,7 +91,7 @@ export function SportMapsFooter() {
                 <Phone className="w-5 h-5 text-sport-primary shrink-0" />
                 <span>+57 (312) 846-3555</span>
               </li>
-              <li className="pt-4 border-t border-white/10 mt-2 flex flex-col gap-2">
+              <li className="pt-4 border-t border-sport-border mt-2 flex flex-col gap-2">
                  <FooterLink text="Política de Privacidad" isLegal />
                  <FooterLink text="Términos y Condiciones" isLegal />
                  <FooterLink text="Tratamiento de Datos" isLegal />
@@ -101,11 +101,11 @@ export function SportMapsFooter() {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-gray-500">
+        <div className="border-t border-sport-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-sport-text-muted">
             © 2025 SportMaps Technology S.A.S. Todos los derechos reservados.
           </p>
-          <div className="flex items-center gap-2 text-gray-500">
+          <div className="flex items-center gap-2 text-sport-text-muted">
             <ShieldCheck className="w-4 h-4 text-sport-success" />
             <span className="text-xs">Sitio Seguro SSL & Pagos Protegidos</span>
           </div>
@@ -122,7 +122,7 @@ function FooterLink({ text, isLegal = false }: { text: string; isLegal?: boolean
       <a 
         href="#" 
         className={`transition-colors hover:translate-x-1 inline-block ${
-          isLegal ? "text-gray-500 hover:text-gray-300 text-xs" : "hover:text-sport-primary"
+          isLegal ? "text-sport-text-muted hover:text-sport-primary text-xs" : "hover:text-sport-primary"
         }`}
       >
         {text}
@@ -138,7 +138,7 @@ function SocialBtn({ icon: Icon, href, label }: { icon: any, href: string, label
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-sport-primary hover:text-white transition-all duration-300"
+      className="w-9 h-9 rounded-full bg-sport-primary/10 flex items-center justify-center hover:bg-sport-primary hover:text-white transition-all duration-300 text-sport-primary"
     >
       <Icon className="w-4 h-4" />
     </a>
