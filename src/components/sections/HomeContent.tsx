@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { ParallaxHero } from "@/components/ParallaxHero";
 import { TechHeroSection } from "@/components/TechHeroSection";
@@ -20,6 +21,17 @@ interface HomeContentProps {
 }
 
 export function HomeContent({ onDemoClick, onModuleClick }: HomeContentProps) {
+  // Estado compartido para el cliente seleccionado
+  const [selectedClient, setSelectedClient] = useState("escuelas");
+
+  // Función para ir a la sección de planes
+  const scrollToPlans = () => {
+    const plansSection = document.getElementById('plans-section');
+    if (plansSection) {
+      plansSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <ParallaxHero>
@@ -38,8 +50,18 @@ export function HomeContent({ onDemoClick, onModuleClick }: HomeContentProps) {
         <ComparisonSection />
       </AnimatedSection>
       
+      <AnimatedSection direction="up" delay={0.2}>
+        <InteractiveFeatures 
+          onPricingClick={scrollToPlans}
+          selectedClient={selectedClient}
+          setSelectedClient={setSelectedClient}
+        />
+      </AnimatedSection>
+      
       <AnimatedSection direction="up" delay={0.1}>
-        <PlansSection onPlanClick={onDemoClick} />
+        <div id="plans-section">
+          <PlansSection selectedClient={selectedClient} />
+        </div>
       </AnimatedSection>
       
       <AnimatedSection direction="fade" delay={0.1}>
@@ -56,10 +78,6 @@ export function HomeContent({ onDemoClick, onModuleClick }: HomeContentProps) {
       
       <AnimatedSection direction="fade" delay={0.3}>
         <NetworkSection />
-      </AnimatedSection>
-      
-      <AnimatedSection direction="up" delay={0.2}>
-        <InteractiveFeatures />
       </AnimatedSection>
       
       <AnimatedSection direction="fade" delay={0.1}>
