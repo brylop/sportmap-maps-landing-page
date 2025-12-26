@@ -38,12 +38,13 @@ SportMaps Official Brand Colors:
     --sport-border: 220 15% 90%; /* Borders #E2E8F0 */
     --sport-divider: 220 12% 85%; /* Dividers #CBD5E1 */
     
-    /* Tech Gradients */
-    --gradient-tech-primary: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-secondary)));
-    --gradient-tech-hero: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)), hsl(var(--sport-secondary)));
-    --gradient-tech-glow: linear-gradient(135deg, hsl(var(--sport-primary) / 0.1), hsl(var(--sport-accent) / 0.1));
+  /* Tech Gradients - Verde a Naranja oficial */
+    --gradient-tech-primary: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
+    --gradient-tech-hero: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
+    --gradient-tech-glow: linear-gradient(135deg, hsl(var(--sport-primary) / 0.2), hsl(var(--sport-accent) / 0.2));
     --gradient-tech-card: linear-gradient(145deg, hsl(var(--sport-card)), hsl(var(--sport-glass)));
     --gradient-tech-surface: linear-gradient(180deg, hsl(var(--sport-surface)), hsl(var(--sport-card)));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
     
     /* Advanced Shadows - Using brand green */
     --shadow-tech-sm: 0 2px 8px hsl(var(--sport-primary) / 0.08);
@@ -127,12 +128,13 @@ SportMaps Official Brand Colors:
     --sport-border: 220 30% 20%; /* Dark Borders */
     --sport-divider: 220 25% 25%; /* Dark Dividers */
     
-    /* Dark Tech Gradients */
-    --gradient-tech-primary: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-secondary)));
-    --gradient-tech-hero: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)), hsl(var(--sport-secondary)));
-    --gradient-tech-glow: linear-gradient(135deg, hsl(var(--sport-primary) / 0.2), hsl(var(--sport-accent) / 0.2));
+  /* Dark Tech Gradients - Verde a Naranja oficial */
+    --gradient-tech-primary: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
+    --gradient-tech-hero: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
+    --gradient-tech-glow: linear-gradient(135deg, hsl(var(--sport-primary) / 0.3), hsl(var(--sport-accent) / 0.3));
     --gradient-tech-card: linear-gradient(145deg, hsl(var(--sport-card)), hsl(var(--sport-glass)));
     --gradient-tech-surface: linear-gradient(180deg, hsl(var(--sport-surface)), hsl(var(--sport-card)));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
     
     /* Enhanced Dark Shadows */
     --shadow-tech-sm: 0 2px 8px hsl(0 0% 0% / 0.3);

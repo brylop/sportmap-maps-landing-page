@@ -100,7 +100,7 @@ export function PlansSection({ selectedClient }: PlansSectionProps) {
 
               <div className="mb-8">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-bold text-white">{plan.price}</span>
+                  <span className={`text-4xl font-bold ${plan.popular ? 'text-sport-accent' : 'text-white'}`}>{plan.price}</span>
                 </div>
               </div>
 

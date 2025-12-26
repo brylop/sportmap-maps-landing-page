@@ -41,8 +41,8 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
       <header 
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'glass-effect border-b border-sport-border/30 shadow-tech-lg' 
-            : 'bg-sport-background/90 backdrop-blur-sm'
+            ? 'bg-[#0B1121]/95 backdrop-blur-md border-b border-sport-primary/20 shadow-tech-lg' 
+            : 'bg-[#0B1121]/90 backdrop-blur-sm'
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -99,10 +99,10 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
                 Soporte
               </Button>
               
-              {/* BOTÓN CORREGIDO: Lleva a Precios, no al form técnico */}
+              {/* BOTÓN CTA NARANJA: Lleva a Precios */}
               <Button
                 onClick={handleStartFree}
-                className="hidden sm:flex bg-gradient-tech-primary hover:shadow-glow-primary text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 hover:scale-105"
+                className="hidden sm:flex bg-gradient-to-r from-sport-primary to-sport-accent hover:shadow-glow-accent text-white px-6 py-2 rounded-full font-bold transition-all duration-300 hover:scale-105"
               >
                 <Zap className="w-4 h-4 mr-2" />
                 Empezar Gratis
@@ -137,7 +137,7 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
-              className="fixed top-16 left-0 right-0 bg-sport-background/95 backdrop-blur-md border-b border-sport-border/30 p-4 shadow-tech-lg"
+              className="fixed top-16 left-0 right-0 bg-[#0B1121]/98 backdrop-blur-md border-b border-sport-primary/20 p-4 shadow-tech-lg"
             >
               <nav className="space-y-3">
                 {navItems.map((item) => (
@@ -157,8 +157,8 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
                     <span>{item.label}</span>
                   </button>
                 ))}
-                <div className="pt-2 border-t border-sport-border/20 space-y-3">
-                   <Button onClick={handleStartFree} className="w-full bg-gradient-tech-primary text-white">
+                <div className="pt-2 border-t border-sport-primary/20 space-y-3">
+                   <Button onClick={handleStartFree} className="w-full bg-gradient-to-r from-sport-primary to-sport-accent text-white font-bold">
                       Empezar Gratis
                    </Button>
                    <Button onClick={() => setIsContactModalOpen(true)} variant="ghost" className="w-full">

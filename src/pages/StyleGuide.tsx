@@ -162,14 +162,17 @@ export default function StyleGuide() {
           <Card>
             <CardContent className="p-8">
               <div className="flex flex-wrap gap-4 items-center">
-                <Button>Primary Default</Button>
-                <Button variant="secondary">Secondary</Button>
-                <Button variant="outline">Outline</Button>
+                <Button>Primary Green</Button>
+                <Button variant="secondary">CTA Orange</Button>
+                <Button variant="outline">Outline Green</Button>
                 <Button variant="ghost">Ghost</Button>
+                <Button variant="tech">Gradient Tech</Button>
+                <Button variant="cta">CTA Bold</Button>
+                <Button variant="cart">Añadir al Carrito</Button>
                 <Button variant="destructive">Destructive</Button>
-                <Button className="bg-sport-accent hover:bg-sport-accent/90">CTA Orange</Button>
-                <Button className="bg-sport-primary hover:bg-sport-primary/90">Brand Green</Button>
-                <Button variant="outline" className="rounded-full">Rounded Full</Button>
+                <Button className="bg-gradient-to-r from-sport-primary to-sport-accent text-white hover:shadow-glow-accent rounded-full px-6">
+                  Gradient Pill
+                </Button>
               </div>
             </CardContent>
           </Card>
@@ -202,13 +205,13 @@ export default function StyleGuide() {
               </CardContent>
             </Card>
             
-            <Card className="bg-gradient-to-br from-sport-primary to-sport-secondary text-white border-0">
+            <Card className="bg-gradient-to-br from-sport-primary to-sport-accent text-white border-0">
               <CardHeader>
                 <CardTitle className="text-white">Card Gradient</CardTitle>
-                <CardDescription className="text-white/80">Fondo gradiente de marca</CardDescription>
+                <CardDescription className="text-white/80">Gradiente Verde → Naranja oficial</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-white/90">Tarjeta con gradiente verde para secciones destacadas.</p>
+                <p className="text-white/90">Tarjeta con gradiente de marca para secciones destacadas.</p>
               </CardContent>
             </Card>
           </div>
