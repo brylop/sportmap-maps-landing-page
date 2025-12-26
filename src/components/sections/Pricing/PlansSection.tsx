@@ -81,44 +81,46 @@ export function PlansSection({ selectedClient }: PlansSectionProps) {
               key={idx}
               className={`relative rounded-3xl p-8 border transition-all duration-300 hover:-translate-y-2 group ${
                 plan.popular 
-                  ? 'bg-gradient-to-b from-sport-primary/10 to-transparent border-sport-primary/50 shadow-glow-primary' 
-                  : 'bg-card border-sport-border hover:border-sport-primary/30'
+                  ? 'bg-gradient-to-b from-sport-primary/15 to-transparent border-sport-primary/60 glow-primary' 
+                  : 'bg-card border-border hover:border-sport-primary/40'
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-sport-primary to-sport-accent text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-sport-primary to-sport-accent text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg glow-accent">
                   RECOMENDADO
                 </div>
               )}
 
               <div className="mb-6">
-                <div className={`w-12 h-12 rounded-xl bg-sport-primary/10 flex items-center justify-center mb-4 text-sport-primary shadow-lg`}>
+                <div className={`w-12 h-12 rounded-xl bg-sport-primary/20 flex items-center justify-center mb-4 text-sport-primary glow-primary`}>
                   <plan.icon className="w-6 h-6" />
                 </div>
                 <h3 className="text-2xl font-bold text-foreground">{plan.name}</h3>
               </div>
 
+              {/* PRECIO EN NARANJA VIBRANTE - SIEMPRE */}
               <div className="mb-8">
                 <div className="flex items-baseline gap-1">
-                  <span className={`text-4xl font-bold ${plan.popular ? 'text-sport-accent' : 'text-foreground'}`}>{plan.price}</span>
+                  <span className="text-4xl font-bold text-sport-accent">{plan.price}</span>
                 </div>
               </div>
 
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature: string) => (
-                  <li key={feature} className="flex items-start gap-3 text-sm text-sport-text-secondary">
-                    <Check className="w-5 h-5 text-sport-success shrink-0" />
+                  <li key={feature} className="flex items-start gap-3 text-sm text-muted-foreground">
+                    <Check className="w-5 h-5 text-sport-primary shrink-0" />
                     {feature}
                   </li>
                 ))}
               </ul>
 
+              {/* BOTÓN CTA - NARANJA para compra/acción principal */}
               <Button
                 onClick={() => handlePlanSelect(plan.name)}
                 className={`w-full py-6 rounded-xl font-bold text-lg transition-all hover:scale-105 ${
                   plan.popular
-                    ? 'bg-gradient-to-r from-sport-primary to-sport-accent text-white hover:shadow-glow-primary'
-                    : 'bg-sport-primary text-white hover:bg-sport-primary/90'
+                    ? 'bg-sport-accent hover:bg-sport-accent/90 text-white glow-accent'
+                    : 'bg-sport-primary hover:bg-sport-primary/90 text-white glow-primary'
                 }`}
               >
                 {plan.cta}

@@ -72,22 +72,24 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
         
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-sport-primary to-sport-accent bg-clip-text text-transparent">Un Ecosistema</span> para Todos
+            <span className="bg-gradient-to-r from-sport-primary to-sport-accent bg-clip-text text-transparent">Un Ecosistema</span>
+            <span className="text-foreground"> para Todos</span>
           </h2>
-          <p className="text-sport-text-secondary text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             SportMaps conecta a todos los actores del deporte. Selecciona tu perfil y descubre cómo te potenciamos.
           </p>
         </div>
 
+        {/* Selector de personas con efecto neón */}
         <div className="flex flex-wrap justify-center gap-3 mb-12 overflow-x-auto pb-4 px-2 no-scrollbar md:justify-center justify-start">
           {personas.map((persona) => (
             <button
               key={persona.id}
-              onClick={() => setSelectedClient(persona.id)} // Actualiza el estado del padre
+              onClick={() => setSelectedClient(persona.id)}
               className={`flex items-center gap-2 px-5 py-2.5 rounded-full border transition-all duration-300 whitespace-nowrap ${
                 selectedClient === persona.id
-                  ? `${persona.bg} ${persona.color} border-${persona.color}/50 shadow-[0_0_15px_rgba(0,0,0,0.2)] scale-105`
-                  : "border-sport-border bg-sport-surface/50 text-sport-text-muted hover:border-sport-primary/30 hover:text-sport-text-primary"
+                  ? `${persona.bg} ${persona.color} border-current glow-primary scale-105`
+                  : "border-border bg-card text-muted-foreground hover:border-sport-primary/40 hover:text-foreground"
               }`}
             >
               <persona.icon className="w-4 h-4" />
@@ -105,8 +107,8 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
             transition={{ duration: 0.3 }}
             className="max-w-5xl mx-auto"
           >
-            <div className="glass-effect rounded-3xl p-8 md:p-12 border border-sport-border/50 relative overflow-hidden">
-              <div className={`absolute top-0 right-0 w-64 h-64 ${personas.find(p => p.id === selectedClient)?.bg} blur-3xl rounded-full opacity-20 -z-10`} />
+            <div className="card-premium p-8 md:p-12 relative overflow-hidden">
+              <div className={`absolute top-0 right-0 w-64 h-64 ${personas.find(p => p.id === selectedClient)?.bg} blur-3xl rounded-full opacity-30 -z-10`} />
 
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className="space-y-6">
@@ -119,24 +121,25 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
                     {activeContent.title}
                   </h3>
                   
-                  <p className="text-sport-text-secondary text-lg leading-relaxed">
+                  <p className="text-muted-foreground text-lg leading-relaxed">
                     {activeContent.desc}
                   </p>
 
                   <ul className="space-y-3 pt-2">
                     {activeContent.benefits.map((benefit, idx) => (
                       <li key={idx} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-sport-success shrink-0 mt-0.5" />
-                        <span className="text-sport-text-primary">{benefit}</span>
+                        <CheckCircle2 className="w-5 h-5 text-sport-primary shrink-0 mt-0.5" />
+                        <span className="text-foreground">{benefit}</span>
                       </li>
                     ))}
                   </ul>
 
                   <div className="pt-6">
+                    {/* BOTÓN CTA - Gradiente Verde a Naranja con glow */}
                     <Button 
                       onClick={onPricingClick}
                       size="lg" 
-                      className="bg-gradient-to-r from-sport-primary to-sport-accent text-white hover:shadow-glow-primary rounded-full px-8 font-bold transition-transform hover:scale-105"
+                      className="bg-gradient-to-r from-sport-primary to-sport-accent text-white hover:glow-accent rounded-full px-8 font-bold transition-all hover:scale-105"
                     >
                       Ver Planes para {personas.find(p => p.id === selectedClient)?.label}
                       <ArrowRight className="w-4 h-4 ml-2" />
@@ -145,29 +148,29 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
                 </div>
 
                 <div className="relative hidden md:block">
-                   {/* Tarjeta Visual Derecha */}
-                   <div className="bg-card border border-sport-border rounded-2xl p-6 shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500">
+                   {/* Tarjeta Visual Derecha con borde neón verde */}
+                   <div className="bg-card border border-sport-primary/30 rounded-2xl p-6 shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500 hover:glow-primary">
                     <div className="flex items-center justify-between mb-6">
                       <div className="flex items-center gap-3">
                         <div className={`p-2 rounded-lg ${personas.find(p => p.id === selectedClient)?.bg}`}>
                           <ActiveIcon className={`w-6 h-6 ${personas.find(p => p.id === selectedClient)?.color}`} />
                         </div>
                         <div>
-                          <div className="text-sm text-sport-text-muted">Panel de Control</div>
+                          <div className="text-sm text-muted-foreground">Panel de Control</div>
                           <div className="font-bold text-foreground capitalize">{selectedClient}</div>
                         </div>
                       </div>
-                      <div className="px-2 py-1 bg-sport-success/20 text-sport-success text-xs rounded-full border border-sport-success/30">
+                      <div className="px-2 py-1 bg-sport-primary/20 text-sport-primary text-xs rounded-full border border-sport-primary/30 glow-primary">
                         Activo
                       </div>
                     </div>
                     <div className="space-y-4">
-                      <div className="h-24 bg-sport-surface rounded-xl border border-sport-border p-4 flex items-center justify-center">
-                         <span className="text-sport-text-muted text-sm">Estadísticas de {selectedClient}</span>
+                      <div className="h-24 bg-muted rounded-xl border border-border p-4 flex items-center justify-center">
+                         <span className="text-muted-foreground text-sm">Estadísticas de {selectedClient}</span>
                       </div>
                       <div className="grid grid-cols-2 gap-4">
-                         <div className="h-16 bg-sport-surface rounded-xl border border-sport-border animate-pulse-slow"></div>
-                         <div className="h-16 bg-sport-surface rounded-xl border border-sport-border animate-pulse-slow" style={{animationDelay: "0.2s"}}></div>
+                         <div className="h-16 bg-muted rounded-xl border border-border animate-pulse-slow"></div>
+                         <div className="h-16 bg-muted rounded-xl border border-border animate-pulse-slow" style={{animationDelay: "0.2s"}}></div>
                       </div>
                     </div>
                   </div>
