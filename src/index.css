@@ -2,60 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-
-SportMaps Official Brand Colors:
-- Primary Green: #248223 → HSL(119, 64%, 32%)
-- Accent Orange: #FB9F1E → HSL(36, 96%, 55%)
-- Navy Background: #0B1121 → HSL(220, 52%, 9%)
-*/
+/* ============================================
+   SPORTMAPS OFFICIAL BRAND DESIGN SYSTEM
+   ============================================
+   Primary Green: #248223 → HSL(119, 64%, 32%)
+   Accent Orange: #FB9F1E → HSL(36, 96%, 55%)
+   Navy Background: #0B1121 → HSL(220, 52%, 9%)
+   
+   ZERO BLUE POLICY - All blues eliminated
+   ============================================ */
 
 @layer base {
   :root {
-    /* SportMaps Official Brand Design System - Light Mode */
+    /* ===== LIGHT MODE ===== */
+    /* Core Brand Colors */
     --sport-primary: 119 64% 32%; /* Official Green #248223 */
-    --sport-secondary: 119 64% 25%; /* Darker Green */
+    --sport-secondary: 119 64% 28%; /* Darker Green */
     --sport-accent: 36 96% 55%; /* Official Orange #FB9F1E */
-    --sport-highlight: 36 96% 50%; /* Orange highlight - no más rojo */
-    --sport-warning: 36 96% 55%; /* Energy Orange (same as accent) */
+    --sport-highlight: 36 96% 50%; /* Orange highlight */
+    --sport-warning: 36 96% 55%; /* Energy Orange */
     --sport-success: 119 64% 40%; /* Success Green */
-    --sport-info: 119 64% 38%; /* Info ahora es verde, no azul */
+    --sport-info: 119 64% 35%; /* Info Green - NO BLUE */
     --sport-wellness: 119 64% 35%; /* Green for wellness */
     --sport-nutrition: 119 64% 32%; /* Green for nutrition */
     
-    /* Light Mode Background System - Blanco limpio */
+    /* Light Mode Background System */
     --sport-background: 0 0% 100%; /* Pure White */
-    --sport-surface: 0 0% 99%; /* Off White */
+    --sport-surface: 120 10% 98%; /* Warm Off-White */
     --sport-card: 0 0% 100%; /* Pure White Card */
-    --sport-glass: 0 0% 98%; /* Light Glass */
-    --sport-card-bg: 0 0% 100%; /* Card background */
+    --sport-glass: 120 5% 97%; /* Light Glass */
+    --sport-card-bg: 0 0% 100%;
     
     /* Text & Borders - Light Mode */
     --sport-text-primary: 220 52% 9%; /* Navy Text #0B1121 */
-    --sport-text-secondary: 220 10% 40%; /* Darker Secondary Text */
-    --sport-text-muted: 220 8% 55%; /* Muted Text */
-    --sport-border: 119 20% 85%; /* Verde suave en bordes */
-    --sport-divider: 119 15% 88%; /* Verde suave en divisores */
+    --sport-text-secondary: 220 20% 35%; /* Dark Secondary Text */
+    --sport-text-muted: 220 15% 50%; /* Muted Text */
+    --sport-border: 119 25% 85%; /* Green tinted border */
+    --sport-divider: 119 20% 88%; /* Green tinted divider */
     
-  /* Tech Gradients - Verde a Naranja oficial */
-    --gradient-tech-primary: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
-    --gradient-tech-hero: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
-    --gradient-tech-glow: linear-gradient(135deg, hsl(var(--sport-primary) / 0.2), hsl(var(--sport-accent) / 0.2));
-    --gradient-tech-card: linear-gradient(145deg, hsl(var(--sport-card)), hsl(var(--sport-glass)));
-    --gradient-tech-surface: linear-gradient(180deg, hsl(var(--sport-surface)), hsl(var(--sport-card)));
-    --gradient-primary: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
+    /* Tech Gradients - Verde a Naranja */
+    --gradient-tech-primary: linear-gradient(135deg, hsl(119 64% 32%), hsl(36 96% 55%));
+    --gradient-tech-hero: linear-gradient(135deg, hsl(119 64% 32%), hsl(36 96% 55%));
+    --gradient-tech-glow: linear-gradient(135deg, hsl(119 64% 32% / 0.2), hsl(36 96% 55% / 0.2));
+    --gradient-tech-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(120 5% 97%));
+    --gradient-tech-surface: linear-gradient(180deg, hsl(120 10% 98%), hsl(0 0% 100%));
+    --gradient-primary: linear-gradient(135deg, hsl(119 64% 32%), hsl(36 96% 55%));
     
-    /* Advanced Shadows - Using brand green */
-    --shadow-tech-sm: 0 2px 8px hsl(var(--sport-primary) / 0.08);
-    --shadow-tech-md: 0 4px 16px hsl(var(--sport-primary) / 0.12);
-    --shadow-tech-lg: 0 8px 32px hsl(var(--sport-primary) / 0.16);
-    --shadow-tech-xl: 0 16px 48px hsl(var(--sport-primary) / 0.2);
-    --shadow-glow-primary: 0 0 32px hsl(var(--sport-primary) / 0.3);
-    --shadow-glow-accent: 0 0 24px hsl(var(--sport-accent) / 0.4);
-    --shadow-inset: inset 0 1px 3px hsl(var(--sport-primary) / 0.1);
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--sport-primary) / 0.2);
-    --shadow-hover: 0 20px 40px -10px hsl(var(--sport-primary) / 0.3);
+    /* Shadows - Green brand based */
+    --shadow-tech-sm: 0 2px 8px hsl(119 64% 32% / 0.08);
+    --shadow-tech-md: 0 4px 16px hsl(119 64% 32% / 0.12);
+    --shadow-tech-lg: 0 8px 32px hsl(119 64% 32% / 0.16);
+    --shadow-tech-xl: 0 16px 48px hsl(119 64% 32% / 0.2);
+    --shadow-glow-primary: 0 0 32px hsl(119 64% 32% / 0.3);
+    --shadow-glow-accent: 0 0 24px hsl(36 96% 55% / 0.4);
+    --shadow-inset: inset 0 1px 3px hsl(119 64% 32% / 0.1);
+    --shadow-elegant: 0 10px 30px -10px hsl(119 64% 32% / 0.2);
+    --shadow-hover: 0 20px 40px -10px hsl(119 64% 32% / 0.3);
     
     /* Animation System */
     --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
@@ -71,25 +73,25 @@ SportMaps Official Brand Colors:
     --space-tech-xl: 2rem;
     --space-tech-2xl: 3rem;
 
-    /* Default shadcn colors - Light Mode SportMaps */
-    --background: 0 0% 100%; /* Pure White */
-    --foreground: 220 52% 9%; /* Navy Text */
+    /* Default shadcn colors - Light Mode */
+    --background: 0 0% 100%;
+    --foreground: 220 52% 9%;
     --card: 0 0% 100%;
     --card-foreground: 220 52% 9%;
     --popover: 0 0% 100%;
     --popover-foreground: 220 52% 9%;
-    --primary: 119 64% 32%; /* Official Green #248223 */
+    --primary: 119 64% 32%; /* Official Green */
     --primary-foreground: 0 0% 100%;
-    --secondary: 36 96% 55%; /* Official Orange #FB9F1E */
+    --secondary: 36 96% 55%; /* Official Orange */
     --secondary-foreground: 0 0% 100%;
-    --muted: 119 15% 95%; /* Verde muy claro */
-    --muted-foreground: 220 10% 40%;
-    --accent: 36 96% 55%; /* Official Orange #FB9F1E */
+    --muted: 119 15% 95%;
+    --muted-foreground: 220 15% 40%;
+    --accent: 36 96% 55%; /* Official Orange */
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 119 20% 88%; /* Verde suave */
-    --input: 119 15% 92%;
+    --border: 119 25% 88%;
+    --input: 119 20% 92%;
     --ring: 119 64% 32%;
     --radius: 0.75rem;
     --sidebar-background: 119 20% 97%;
@@ -103,78 +105,79 @@ SportMaps Official Brand Colors:
   }
 
   .dark {
-    /* SportMaps Official Brand Design System - Dark Mode */
-    --sport-primary: 119 64% 50%; /* Brighter Green for dark mode */
-    --sport-secondary: 119 64% 40%; /* Mid Green */
-    --sport-accent: 36 96% 60%; /* Brighter Orange for dark mode */
+    /* ===== DARK MODE - SPORTMAPS PREMIUM ===== */
+    /* Core Brand Colors - Brighter for dark backgrounds */
+    --sport-primary: 119 64% 50%; /* Bright Green */
+    --sport-secondary: 119 64% 45%; /* Mid Green */
+    --sport-accent: 36 96% 60%; /* Bright Orange */
     --sport-highlight: 36 96% 55%; /* Orange highlight */
     --sport-warning: 36 96% 60%; /* Energy Orange */
     --sport-success: 119 64% 55%; /* Bright Success Green */
-    --sport-info: 119 64% 50%; /* Info verde brillante */
-    --sport-wellness: 119 64% 50%; /* Green for wellness */
-    --sport-nutrition: 119 64% 50%; /* Green for nutrition */
+    --sport-info: 119 64% 50%; /* Info Green - NO BLUE */
+    --sport-wellness: 119 64% 50%;
+    --sport-nutrition: 119 64% 50%;
     
     /* Dark Tech Background System - Official Navy #0B1121 */
     --sport-background: 220 52% 9%; /* Official Navy #0B1121 */
-    --sport-surface: 220 50% 12%; /* Dark Surface */
+    --sport-surface: 220 48% 12%; /* Dark Surface */
     --sport-card: 220 45% 14%; /* Dark Card */
-    --sport-glass: 220 40% 16%; /* Dark Glass Effect */
-    --sport-card-bg: 220 45% 14%; /* Card background */
+    --sport-glass: 220 40% 16%; /* Dark Glass */
+    --sport-card-bg: 220 45% 14%;
     
     /* Dark Mode Text & Borders */
-    --sport-text-primary: 0 0% 98%; /* Light Text */
-    --sport-text-secondary: 0 0% 80%; /* Secondary Light Text */
-    --sport-text-muted: 0 0% 60%; /* Muted Light Text */
+    --sport-text-primary: 0 0% 98%; /* Pure White */
+    --sport-text-secondary: 0 0% 85%; /* Light Gray */
+    --sport-text-muted: 0 0% 65%; /* Muted */
     --sport-border: 119 30% 25%; /* Green tint borders */
     --sport-divider: 119 25% 22%; /* Green tint dividers */
     
-  /* Dark Tech Gradients - Verde a Naranja oficial */
-    --gradient-tech-primary: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
-    --gradient-tech-hero: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
-    --gradient-tech-glow: linear-gradient(135deg, hsl(var(--sport-primary) / 0.3), hsl(var(--sport-accent) / 0.3));
-    --gradient-tech-card: linear-gradient(145deg, hsl(var(--sport-card)), hsl(var(--sport-glass)));
-    --gradient-tech-surface: linear-gradient(180deg, hsl(var(--sport-surface)), hsl(var(--sport-card)));
-    --gradient-primary: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
+    /* Dark Tech Gradients - Verde a Naranja */
+    --gradient-tech-primary: linear-gradient(135deg, hsl(119 64% 50%), hsl(36 96% 60%));
+    --gradient-tech-hero: linear-gradient(135deg, hsl(119 64% 50%), hsl(36 96% 60%));
+    --gradient-tech-glow: linear-gradient(135deg, hsl(119 64% 50% / 0.3), hsl(36 96% 60% / 0.3));
+    --gradient-tech-card: linear-gradient(145deg, hsl(220 45% 14%), hsl(220 40% 18%));
+    --gradient-tech-surface: linear-gradient(180deg, hsl(220 48% 12%), hsl(220 45% 14%));
+    --gradient-primary: linear-gradient(135deg, hsl(119 64% 50%), hsl(36 96% 60%));
     
-    /* Enhanced Dark Shadows */
-    --shadow-tech-sm: 0 2px 8px hsl(0 0% 0% / 0.3);
-    --shadow-tech-md: 0 4px 16px hsl(0 0% 0% / 0.4);
-    --shadow-tech-lg: 0 8px 32px hsl(0 0% 0% / 0.5);
-    --shadow-tech-xl: 0 16px 48px hsl(0 0% 0% / 0.6);
-    --shadow-glow-primary: 0 0 40px hsl(var(--sport-primary) / 0.5);
-    --shadow-glow-accent: 0 0 32px hsl(var(--sport-accent) / 0.6);
-    --shadow-inset: inset 0 1px 3px hsl(0 0% 0% / 0.3);
-    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.4);
-    --shadow-hover: 0 20px 40px -10px hsl(0 0% 0% / 0.5);
+    /* Enhanced Dark Shadows with brand colors */
+    --shadow-tech-sm: 0 2px 8px hsl(0 0% 0% / 0.4);
+    --shadow-tech-md: 0 4px 16px hsl(0 0% 0% / 0.5);
+    --shadow-tech-lg: 0 8px 32px hsl(0 0% 0% / 0.6);
+    --shadow-tech-xl: 0 16px 48px hsl(0 0% 0% / 0.7);
+    --shadow-glow-primary: 0 0 40px hsl(119 64% 50% / 0.5);
+    --shadow-glow-accent: 0 0 32px hsl(36 96% 60% / 0.5);
+    --shadow-inset: inset 0 1px 3px hsl(0 0% 0% / 0.4);
+    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
+    --shadow-hover: 0 20px 40px -10px hsl(0 0% 0% / 0.6);
 
-    /* Shadcn Dark Variables - Aligned with SportMaps brand */
+    /* Shadcn Dark Variables - Brand aligned */
     --background: 220 52% 9%; /* Official Navy #0B1121 */
     --foreground: 0 0% 98%;
-    --card: 220 40% 15%;
+    --card: 220 45% 14%;
     --card-foreground: 0 0% 98%;
-    --popover: 220 40% 15%;
+    --popover: 220 45% 14%;
     --popover-foreground: 0 0% 98%;
-    --primary: 119 64% 45%; /* Brighter Green for dark mode */
+    --primary: 119 64% 50%; /* Bright Green */
     --primary-foreground: 0 0% 100%;
-    --secondary: 220 30% 20%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 36 96% 60%; /* Bright Orange */
+    --secondary-foreground: 0 0% 100%;
     --muted: 220 30% 20%;
-    --muted-foreground: 220 10% 65%;
-    --accent: 36 96% 60%; /* Brighter Orange for dark mode */
+    --muted-foreground: 0 0% 65%;
+    --accent: 36 96% 60%; /* Bright Orange */
     --accent-foreground: 0 0% 100%;
     --destructive: 0 100% 70%;
     --destructive-foreground: 0 0% 100%;
-    --border: 220 30% 20%;
+    --border: 220 30% 22%;
     --input: 220 30% 20%;
-    --ring: 119 64% 45%;
-    --sidebar-background: 220 45% 12%;
+    --ring: 119 64% 50%;
+    --sidebar-background: 220 48% 12%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 119 64% 45%;
+    --sidebar-primary: 119 64% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 36 96% 60%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 220 30% 20%;
-    --sidebar-ring: 119 64% 45%;
+    --sidebar-border: 220 30% 22%;
+    --sidebar-ring: 119 64% 50%;
   }
 }
 
@@ -194,41 +197,71 @@ SportMaps Official Brand Colors:
     font-weight: 700;
   }
 
-  /* Tech Scrollbar */
+  /* Tech Scrollbar - Green to Orange gradient */
   ::-webkit-scrollbar {
     width: 8px;
   }
   
   ::-webkit-scrollbar-track {
-    @apply bg-sport-surface;
+    background: hsl(var(--sport-background));
   }
   
   ::-webkit-scrollbar-thumb {
-    @apply bg-gradient-tech-primary rounded-full;
+    background: linear-gradient(180deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
+    border-radius: 9999px;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    @apply opacity-80;
+    opacity: 0.8;
   }
 }
 
 @layer components {
-  /* Tech Glass Effect */
+  /* Premium Glass Effect - Web style */
   .glass-effect {
-    @apply bg-white/10 backdrop-blur-lg border border-white/20;
+    background: hsl(var(--sport-card) / 0.8);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(0 0% 100% / 0.1);
   }
   
   .dark .glass-effect {
-    @apply bg-black/20 backdrop-blur-lg border border-white/10;
+    background: hsl(var(--sport-card) / 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(0 0% 100% / 0.08);
   }
   
-  /* Tech Glow Effects - Using brand green */
+  /* Premium Card Style - Like sportmaps.co */
+  .card-premium {
+    background: hsl(var(--card));
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(0 0% 100% / 0.1);
+    border-radius: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .dark .card-premium {
+    background: hsl(220 45% 14% / 0.8);
+    border: 1px solid hsl(0 0% 100% / 0.08);
+  }
+  
+  .card-premium:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+  
+  /* Glow Effects - Brand Green */
   .glow-primary {
-    box-shadow: var(--shadow-glow-primary);
+    box-shadow: 0 0 30px hsl(119 64% 50% / 0.4);
   }
   
   .glow-accent {
-    box-shadow: var(--shadow-glow-accent);
+    box-shadow: 0 0 30px hsl(36 96% 55% / 0.4);
+  }
+  
+  /* Neon Border Glow - Green */
+  .border-glow-primary {
+    border: 2px solid hsl(var(--sport-primary));
+    box-shadow: 0 0 20px hsl(var(--sport-primary) / 0.4), inset 0 0 20px hsl(var(--sport-primary) / 0.1);
   }
   
   /* Tech Animations */
@@ -246,11 +279,16 @@ SportMaps Official Brand Colors:
   
   /* Tech Hover Effects */
   .hover-lift {
-    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-tech-lg;
+    @apply transition-all duration-300 hover:-translate-y-2;
+    box-shadow: var(--shadow-tech-md);
   }
   
-  .hover-glow {
-    @apply transition-all duration-300 hover:glow-primary;
+  .hover-lift:hover {
+    box-shadow: var(--shadow-tech-xl);
+  }
+  
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow-primary);
   }
   
   .hover-scale {
@@ -259,11 +297,11 @@ SportMaps Official Brand Colors:
   
   /* Tech Gradients */
   .bg-tech-gradient {
-    background: var(--gradient-tech-primary);
+    background: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
   }
   
   .bg-tech-hero {
-    background: var(--gradient-tech-hero);
+    background: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
   }
   
   .bg-tech-card {
@@ -272,44 +310,58 @@ SportMaps Official Brand Colors:
   
   /* Tech Borders */
   .border-tech {
-    @apply border border-sport-border;
+    border: 1px solid hsl(var(--sport-border));
   }
   
   .border-tech-glow {
-    @apply border border-sport-primary/30;
+    border: 1px solid hsl(var(--sport-primary) / 0.3);
     box-shadow: 0 0 20px hsl(var(--sport-primary) / 0.2);
   }
 
-  /* Enhanced shadows and borders - Using brand green */
+  /* Enhanced shadows and borders - Brand Green */
   .shadow-elegant {
-    box-shadow: 0 10px 40px -10px rgba(36, 130, 35, 0.2), 0 0 20px rgba(36, 130, 35, 0.1);
+    box-shadow: 0 10px 40px -10px hsl(119 64% 32% / 0.2), 0 0 20px hsl(119 64% 32% / 0.1);
+  }
+  
+  .dark .shadow-elegant {
+    box-shadow: 0 10px 40px -10px hsl(0 0% 0% / 0.5), 0 0 20px hsl(119 64% 50% / 0.15);
   }
 
   .shadow-hover {
-    box-shadow: 0 20px 60px -15px rgba(36, 130, 35, 0.3), 0 0 30px rgba(36, 130, 35, 0.2);
+    box-shadow: 0 20px 60px -15px hsl(119 64% 32% / 0.3), 0 0 30px hsl(119 64% 32% / 0.2);
   }
-
-  .shadow-glow-primary {
-    box-shadow: 0 0 30px rgba(36, 130, 35, 0.4);
-  }
-
-  .shadow-glow-accent {
-    box-shadow: 0 0 30px rgba(251, 159, 30, 0.4);
+  
+  .dark .shadow-hover {
+    box-shadow: 0 20px 60px -15px hsl(0 0% 0% / 0.6), 0 0 30px hsl(119 64% 50% / 0.2);
   }
 
   /* CTA Button with brand orange */
   .btn-cta {
-    @apply bg-sport-accent text-white font-semibold;
-    box-shadow: 0 4px 14px rgba(251, 159, 30, 0.4);
+    background: hsl(var(--sport-accent));
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 14px hsl(36 96% 55% / 0.4);
   }
 
   .btn-cta:hover {
-    box-shadow: 0 6px 20px rgba(251, 159, 30, 0.6);
+    box-shadow: 0 6px 20px hsl(36 96% 55% / 0.6);
+    transform: translateY(-2px);
   }
 
-  /* Price highlight with brand orange */
+  /* Price Display - Orange */
   .price-highlight {
-    @apply text-sport-accent font-bold;
+    color: hsl(var(--sport-accent));
+    font-weight: 700;
+  }
+
+  /* Sale Badge - Orange */
+  .badge-sale {
+    background: hsl(var(--sport-accent));
+    color: white;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
   }
 
   /* Smooth microinteractions */
