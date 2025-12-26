@@ -4,29 +4,35 @@
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
+
+SportMaps Official Brand Colors:
+- Primary Green: #248223 → HSL(119, 64%, 32%)
+- Accent Orange: #FB9F1E → HSL(36, 96%, 55%)
+- Navy Background: #0B1121 → HSL(220, 52%, 9%)
 */
 
 @layer base {
   :root {
-    /* SportMaps Advanced Tech Design System - Light Mode */
-    --sport-primary: 220 100% 50%; /* Tech Blue #0080FF */
-    --sport-secondary: 200 100% 40%; /* Deep Tech Blue #0066CC */
-    --sport-accent: 120 100% 35%; /* Matrix Green #00B359 */
+    /* SportMaps Official Brand Design System - Light Mode */
+    --sport-primary: 119 64% 32%; /* Official Green #248223 */
+    --sport-secondary: 119 64% 25%; /* Darker Green */
+    --sport-accent: 36 96% 55%; /* Official Orange #FB9F1E */
     --sport-highlight: 0 100% 60%; /* Sport Red #FF3333 */
-    --sport-warning: 35 100% 50%; /* Energy Orange #FF8C00 */
-    --sport-success: 140 100% 40%; /* Success Green #00CC66 */
+    --sport-warning: 36 96% 55%; /* Energy Orange (same as accent) */
+    --sport-success: 119 64% 40%; /* Success Green */
     --sport-info: 195 100% 50%; /* Info Cyan #00BFFF */
     --sport-wellness: 0 100% 60%; /* Red for wellness */
-    --sport-nutrition: 120 100% 35%; /* Green for nutrition */
+    --sport-nutrition: 119 64% 32%; /* Green for nutrition */
     
     /* Tech Background System */
     --sport-background: 220 15% 97%; /* Ultra Light Tech #F8FAFC */
     --sport-surface: 0 0% 100%; /* Pure White */
     --sport-card: 220 20% 98%; /* Subtle Tech Surface #FCFDFE */
     --sport-glass: 220 30% 95%; /* Glass Effect #F1F5F9 */
+    --sport-card-bg: 220 20% 98%; /* Card background */
     
     /* Text & Borders */
-    --sport-text-primary: 220 15% 15%; /* Primary Text #1E293B */
+    --sport-text-primary: 220 52% 9%; /* Navy Text #0B1121 */
     --sport-text-secondary: 220 10% 45%; /* Secondary Text #64748B */
     --sport-text-muted: 220 8% 65%; /* Muted Text #94A3B8 */
     --sport-border: 220 15% 90%; /* Borders #E2E8F0 */
@@ -39,7 +45,7 @@ All colors MUST be HSL.
     --gradient-tech-card: linear-gradient(145deg, hsl(var(--sport-card)), hsl(var(--sport-glass)));
     --gradient-tech-surface: linear-gradient(180deg, hsl(var(--sport-surface)), hsl(var(--sport-card)));
     
-    /* Advanced Shadows */
+    /* Advanced Shadows - Using brand green */
     --shadow-tech-sm: 0 2px 8px hsl(var(--sport-primary) / 0.08);
     --shadow-tech-md: 0 4px 16px hsl(var(--sport-primary) / 0.12);
     --shadow-tech-lg: 0 8px 32px hsl(var(--sport-primary) / 0.16);
@@ -64,61 +70,62 @@ All colors MUST be HSL.
     --space-tech-xl: 2rem;
     --space-tech-2xl: 3rem;
 
-    /* Default shadcn colors */
+    /* Default shadcn colors - Aligned with SportMaps brand */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 220 52% 9%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 52% 9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 203 79% 32%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 136 64% 42%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --popover-foreground: 220 52% 9%;
+    --primary: 119 64% 32%; /* Official Green #248223 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 15% 95%;
+    --secondary-foreground: 220 52% 9%;
+    --muted: 220 15% 95%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 36 96% 55%; /* Official Orange #FB9F1E */
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 119 64% 32%;
+    --radius: 0.75rem;
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-foreground: 220 52% 9%;
+    --sidebar-primary: 119 64% 32%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 36 96% 55%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 220 15% 90%;
+    --sidebar-ring: 119 64% 32%;
   }
 
   .dark {
-    /* SportMaps Advanced Tech Design System - Dark Mode */
-    --sport-primary: 220 100% 60%; /* Bright Tech Blue #3399FF */
-    --sport-secondary: 200 100% 50%; /* Bright Deep Tech Blue #0080FF */
-    --sport-accent: 120 100% 45%; /* Bright Matrix Green #00CC66 */
-    --sport-highlight: 0 100% 70%; /* Bright Sport Red #FF4D4D */
-    --sport-warning: 35 100% 60%; /* Bright Energy Orange #FFA64D */
-    --sport-success: 140 100% 50%; /* Bright Success Green #00FF80 */
-    --sport-info: 195 100% 60%; /* Bright Info Cyan #4DCCFF */
+    /* SportMaps Official Brand Design System - Dark Mode */
+    --sport-primary: 119 64% 45%; /* Brighter Green for dark mode */
+    --sport-secondary: 119 64% 35%; /* Mid Green */
+    --sport-accent: 36 96% 60%; /* Brighter Orange for dark mode */
+    --sport-highlight: 0 100% 70%; /* Bright Sport Red */
+    --sport-warning: 36 96% 60%; /* Energy Orange */
+    --sport-success: 119 64% 50%; /* Bright Success Green */
+    --sport-info: 195 100% 60%; /* Bright Info Cyan */
     --sport-wellness: 0 100% 70%; /* Bright Red for wellness */
-    --sport-nutrition: 120 100% 45%; /* Bright Green for nutrition */
+    --sport-nutrition: 119 64% 45%; /* Bright Green for nutrition */
     
-    /* Dark Tech Background System */
-    --sport-background: 220 25% 8%; /* Deep Dark Tech #0F172A */
-    --sport-surface: 220 20% 12%; /* Dark Surface #1E293B */
-    --sport-card: 220 15% 15%; /* Dark Card #334155 */
-    --sport-glass: 220 12% 18%; /* Dark Glass Effect #475569 */
+    /* Dark Tech Background System - Official Navy #0B1121 */
+    --sport-background: 220 52% 9%; /* Official Navy #0B1121 */
+    --sport-surface: 220 45% 12%; /* Dark Surface */
+    --sport-card: 220 40% 15%; /* Dark Card */
+    --sport-glass: 220 35% 18%; /* Dark Glass Effect */
+    --sport-card-bg: 220 40% 15%; /* Card background */
     
     /* Dark Mode Text & Borders */
-    --sport-text-primary: 220 15% 95%; /* Light Text #F8FAFC */
-    --sport-text-secondary: 220 10% 75%; /* Secondary Light Text #CBD5E1 */
-    --sport-text-muted: 220 8% 55%; /* Muted Light Text #94A3B8 */
-    --sport-border: 220 15% 25%; /* Dark Borders #475569 */
-    --sport-divider: 220 12% 30%; /* Dark Dividers #64748B */
+    --sport-text-primary: 0 0% 98%; /* Light Text */
+    --sport-text-secondary: 220 10% 75%; /* Secondary Light Text */
+    --sport-text-muted: 220 8% 55%; /* Muted Light Text */
+    --sport-border: 220 30% 20%; /* Dark Borders */
+    --sport-divider: 220 25% 25%; /* Dark Dividers */
     
     /* Dark Tech Gradients */
     --gradient-tech-primary: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-secondary)));
@@ -138,34 +145,34 @@ All colors MUST be HSL.
     --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.4);
     --shadow-hover: 0 20px 40px -10px hsl(0 0% 0% / 0.5);
 
-    /* Shadcn Dark Variables */
-    --background: 220 25% 8%;
-    --foreground: 220 15% 95%;
-    --card: 220 15% 15%;
-    --card-foreground: 220 15% 95%;
-    --popover: 220 15% 15%;
-    --popover-foreground: 220 15% 95%;
-    --primary: 220 100% 60%;
-    --primary-foreground: 220 25% 8%;
-    --secondary: 220 15% 25%;
-    --secondary-foreground: 220 15% 95%;
-    --muted: 220 15% 25%;
-    --muted-foreground: 220 10% 75%;
-    --accent: 120 100% 45%;
-    --accent-foreground: 220 25% 8%;
+    /* Shadcn Dark Variables - Aligned with SportMaps brand */
+    --background: 220 52% 9%; /* Official Navy #0B1121 */
+    --foreground: 0 0% 98%;
+    --card: 220 40% 15%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 40% 15%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 119 64% 45%; /* Brighter Green for dark mode */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 30% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 30% 20%;
+    --muted-foreground: 220 10% 65%;
+    --accent: 36 96% 60%; /* Brighter Orange for dark mode */
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 100% 70%;
-    --destructive-foreground: 220 15% 95%;
-    --border: 220 15% 25%;
-    --input: 220 15% 25%;
-    --ring: 220 100% 60%;
-    --sidebar-background: 220 20% 12%;
-    --sidebar-foreground: 220 15% 95%;
-    --sidebar-primary: 220 100% 60%;
-    --sidebar-primary-foreground: 220 25% 8%;
-    --sidebar-accent: 220 15% 25%;
-    --sidebar-accent-foreground: 220 15% 95%;
-    --sidebar-border: 220 15% 25%;
-    --sidebar-ring: 220 100% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 30% 20%;
+    --input: 220 30% 20%;
+    --ring: 119 64% 45%;
+    --sidebar-background: 220 45% 12%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 119 64% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 36 96% 60%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 220 30% 20%;
+    --sidebar-ring: 119 64% 45%;
   }
 }
 
@@ -175,7 +182,14 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+
+  /* Poppins Typography Hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', system-ui, sans-serif;
+    font-weight: 700;
   }
 
   /* Tech Scrollbar */
@@ -206,7 +220,7 @@ All colors MUST be HSL.
     @apply bg-black/20 backdrop-blur-lg border border-white/10;
   }
   
-  /* Tech Glow Effects */
+  /* Tech Glow Effects - Using brand green */
   .glow-primary {
     box-shadow: var(--shadow-glow-primary);
   }
@@ -264,21 +278,36 @@ All colors MUST be HSL.
     box-shadow: 0 0 20px hsl(var(--sport-primary) / 0.2);
   }
 
-  /* Enhanced shadows and borders */
+  /* Enhanced shadows and borders - Using brand green */
   .shadow-elegant {
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 10px 40px -10px rgba(36, 130, 35, 0.2), 0 0 20px rgba(36, 130, 35, 0.1);
   }
 
   .shadow-hover {
-    box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.3), 0 0 30px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 20px 60px -15px rgba(36, 130, 35, 0.3), 0 0 30px rgba(36, 130, 35, 0.2);
   }
 
   .shadow-glow-primary {
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 30px rgba(36, 130, 35, 0.4);
   }
 
   .shadow-glow-accent {
-    box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 0 30px rgba(251, 159, 30, 0.4);
+  }
+
+  /* CTA Button with brand orange */
+  .btn-cta {
+    @apply bg-sport-accent text-white font-semibold;
+    box-shadow: 0 4px 14px rgba(251, 159, 30, 0.4);
+  }
+
+  .btn-cta:hover {
+    box-shadow: 0 6px 20px rgba(251, 159, 30, 0.6);
+  }
+
+  /* Price highlight with brand orange */
+  .price-highlight {
+    @apply text-sport-accent font-bold;
   }
 
   /* Smooth microinteractions */
