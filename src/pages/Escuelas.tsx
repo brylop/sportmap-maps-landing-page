@@ -7,6 +7,7 @@ import { TechBackground } from "@/components/TechBackground";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { SportMapsFooter } from "@/components/SportMapsFooter";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { DemoRequestModal } from "@/components/modals/DemoRequestModal";
 
 export default function Escuelas() {
@@ -259,6 +260,7 @@ export default function Escuelas() {
         </section>
       </main>
       <SportMapsFooter />
+      <WhatsAppButton />
       <DemoRequestModal isOpen={isModalOpen} onClose={closeModal} source="escuelas" />
     </div>
   );

@@ -8,6 +8,7 @@ import { TechBackground } from "@/components/TechBackground";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { SportMapsFooter } from "@/components/SportMapsFooter";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { DemoRequestModal } from "@/components/modals/DemoRequestModal";
 
 export default function Equipamiento() {
@@ -275,6 +276,7 @@ export default function Equipamiento() {
         </section>
       </main>
       <SportMapsFooter />
+      <WhatsAppButton />
       <DemoRequestModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} source="equipamiento" />
     </div>
   );
