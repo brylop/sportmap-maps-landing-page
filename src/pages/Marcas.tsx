@@ -8,9 +8,11 @@ import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { PlansSection } from "@/components/sections/Pricing/PlansSection";
+import { MarcasRegistroModal } from "@/components/modals/MarcasRegistroModal";
 
 export default function Marcas() {
   const [selectedClient] = useState("marcas");
+  const [isRegistroOpen, setIsRegistroOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-sport-background text-sport-text-primary">
@@ -132,15 +134,19 @@ export default function Marcas() {
             Únete al marketplace deportivo más grande y conecta con tu audiencia ideal
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/planes">
-              <Button size="lg" variant="default">
-                Ver planes de Marcas
-              </Button>
-            </Link>
+            <Button size="lg" variant="default" onClick={() => setIsRegistroOpen(true)}>
+              Registrar mi marca
+            </Button>
           </div>
         </section>
       </main>
+      
       <SportMapsFooter />
+      
+      <MarcasRegistroModal 
+        isOpen={isRegistroOpen} 
+        onClose={() => setIsRegistroOpen(false)} 
+      />
     </div>
   );
 }
