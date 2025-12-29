@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { SEO } from "@/components/SEO";
 import { TechHeader } from "@/components/TechHeader";
 import { SportMapsFooter } from "@/components/SportMapsFooter";
@@ -10,8 +11,10 @@ import {
   CheckCircle, ArrowRight, Award
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { DemoRequestModal } from "@/components/modals/DemoRequestModal";
 
 const Federaciones = () => {
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
   const features = [
     {
       icon: Building2,
@@ -204,15 +207,21 @@ const Federaciones = () => {
           <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
             Agenda una demostración personalizada con nuestro equipo.
           </p>
-          <Button size="lg" className="bg-sport-primary hover:bg-sport-primary/90">
-            Contactar Ventas
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-sport-primary hover:bg-sport-primary/90" onClick={() => setIsDemoOpen(true)}>
+              Comenzar prueba gratuita
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+            <Button size="lg" variant="outline" onClick={() => setIsDemoOpen(true)}>
+              Solicitar demo personalizado
+            </Button>
+          </div>
         </div>
       </section>
 
       <SportMapsFooter />
       <WhatsAppButton />
+      <DemoRequestModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} source="federaciones" />
     </div>
   );
 };

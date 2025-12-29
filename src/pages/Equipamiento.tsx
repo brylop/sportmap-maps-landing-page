@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ArrowLeft, ShoppingCart, Truck, Shield, Star, Filter, Search, Package, Award, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,9 +7,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { TechBackground } from "@/components/TechBackground";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
-import { SEOFooter } from "@/components/SEOFooter";
+import { SportMapsFooter } from "@/components/SportMapsFooter";
+import { DemoRequestModal } from "@/components/modals/DemoRequestModal";
 
 export default function Equipamiento() {
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
   return (
     <div className="min-h-screen bg-sport-background text-sport-text-primary">
       <SEO 
@@ -262,16 +265,17 @@ export default function Equipamiento() {
             Nuestros expertos en equipamiento deportivo están aquí para ayudarte a encontrar lo que necesitas
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="default">
-              Chat con un experto
+            <Button size="lg" variant="default" onClick={() => setIsDemoOpen(true)}>
+              Comenzar prueba gratuita
             </Button>
-            <Button size="lg" variant="outline">
-              Ver guía de compras
+            <Button size="lg" variant="outline" onClick={() => setIsDemoOpen(true)}>
+              Solicitar demo personalizado
             </Button>
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <SportMapsFooter />
+      <DemoRequestModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} source="equipamiento" />
     </div>
   );
 }

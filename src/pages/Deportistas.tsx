@@ -1,4 +1,5 @@
-import { ArrowLeft, Search, Filter, Star, MapPin, Clock, Users, Trophy, Target, BookOpen } from "lucide-react";
+import { useState } from "react";
+import { ArrowLeft, Search, Filter, Star, MapPin, Users, Trophy, Target, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -6,9 +7,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { TechBackground } from "@/components/TechBackground";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
-import { SEOFooter } from "@/components/SEOFooter";
+import { SportMapsFooter } from "@/components/SportMapsFooter";
+import { DemoRequestModal } from "@/components/modals/DemoRequestModal";
 
 export default function Deportistas() {
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
   return (
     <div className="min-h-screen bg-sport-background text-sport-text-primary">
       <SEO 
@@ -202,16 +205,17 @@ export default function Deportistas() {
             Únete a miles de deportistas que ya han encontrado su lugar ideal para entrenar y crecer
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="default">
-              Crear mi perfil deportivo
+            <Button size="lg" variant="default" onClick={() => setIsDemoOpen(true)}>
+              Comenzar prueba gratuita
             </Button>
-            <Button size="lg" variant="outline">
-              Explorar escuelas cerca de mí
+            <Button size="lg" variant="outline" onClick={() => setIsDemoOpen(true)}>
+              Solicitar demo personalizado
             </Button>
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <SportMapsFooter />
+      <DemoRequestModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} source="deportistas" />
     </div>
   );
 }

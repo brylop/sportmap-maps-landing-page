@@ -1,154 +1,234 @@
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, ShieldCheck, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
+import { MapPin, School, Heart, Mail, Phone, Instagram, Facebook } from "lucide-react";
 
 export function SportMapsFooter() {
   return (
-    <footer className="bg-sport-background border-t border-sport-border pt-16 pb-8 text-sm text-sport-text-secondary">
-      <div className="container mx-auto px-4">
-        
-        {/* Grid de 4 Columnas */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+    <footer className="bg-sport-background border-t border-sport-border">
+      {/* Main SEO Content Section */}
+      <section className="max-w-7xl mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           
-          {/* 1. Identidad y Redes (ACTUALIZADO CON TUS LINKS REALES) */}
-          <div className="space-y-6">
-            <div>
-              <span className="text-2xl font-bold bg-gradient-tech-primary bg-clip-text text-transparent">
-                SportMaps
-              </span>
-              <p className="mt-4 leading-relaxed">
-                Co-creando la realidad tecnológica del deporte. Conectamos atletas, escuelas y marcas en un ecosistema unificado.
-              </p>
-            </div>
-            <div className="flex gap-3">
-              {/* Instagram */}
-              <SocialBtn 
-                icon={Instagram} 
-                href="https://www.instagram.com/spoortmaps/" 
-                label="Instagram"
-              />
-              {/* Facebook */}
-              <SocialBtn 
-                icon={Facebook} 
-                href="https://www.facebook.com/profile.php?id=61583784419106" 
-                label="Facebook"
-              />
-              {/* X (Twitter) */}
-              <SocialBtn 
-                icon={Twitter} 
-                href="https://x.com/spoort_maps" 
-                label="X (Twitter)"
-              />
-              {/* LinkedIn (Pendiente - Déjalo así o bórralo si no tienes aún) */}
-              <SocialBtn 
-                icon={Linkedin} 
-                href="https://www.linkedin.com/company/sportmaps/?viewAsMember=true" 
-                label="LinkedIn"
-              />
-            </div>
-          </div>
+          {/* About SportMaps */}
+          <article className="space-y-4">
+            <h2 className="text-xl font-bold text-foreground">
+              Sobre SportMaps
+            </h2>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              SportMaps es la plataforma líder en ecosistemas deportivos. Conectamos atletas, 
+              escuelas deportivas, entrenadores y profesionales del bienestar en una sola red. 
+              Descubre rutas de ciclismo, running y senderismo, encuentra tu escuela deportiva ideal 
+              y accede a programas de nutrición personalizados.
+            </p>
+          </article>
 
-          {/* 2. Soluciones */}
-          <div>
-            <h3 className="text-foreground font-semibold text-lg mb-6">Soluciones</h3>
-            <ul className="space-y-3">
-              <FooterLink text="Gestión para Escuelas" href="/escuelas" />
-              <FooterLink text="Entrenadores Pro" href="/entrenadores" />
-              <FooterLink text="Perfil de Atleta" href="/deportistas" />
-              <FooterLink text="Marketplace Deportivo" href="/equipamiento" />
-              <FooterLink text="Federaciones y Ligas" href="/federaciones" />
-            </ul>
-          </div>
-
-          {/* 3. Compañía */}
-          <div>
-            <h3 className="text-foreground font-semibold text-lg mb-6">SportMaps Tech</h3>
-            <ul className="space-y-3">
-              <FooterLink text="Sobre Nosotros" href="/sobre-nosotros" />
-              <FooterLink text="Casos de Éxito" href="/casos-exito" />
-              <FooterLink text="Blog de Tecnología" href="/blog" />
-              <FooterLink text="Centro de Ayuda" href="/ayuda" />
+          {/* Routes & Maps */}
+          <nav className="space-y-4" aria-label="Rutas y Mapas">
+            <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
+              <MapPin className="w-5 h-5 text-sport-primary" />
+              Rutas y Mapas Deportivos
+            </h2>
+            <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/partners" className="inline-block mt-4 border border-sport-primary text-sport-primary hover:bg-sport-primary hover:text-white transition-colors h-9 px-4 rounded-md text-sm font-medium leading-9 text-center">
-                  Zona de Partners
+                <Link to="/deportistas" className="text-muted-foreground hover:text-sport-primary transition-colors">
+                  Rutas de Ciclismo en Colombia
+                </Link>
+              </li>
+              <li>
+                <Link to="/deportistas" className="text-muted-foreground hover:text-sport-primary transition-colors">
+                  Mapas de Running y Atletismo
+                </Link>
+              </li>
+              <li>
+                <Link to="/deportistas" className="text-muted-foreground hover:text-sport-primary transition-colors">
+                  Senderos para Senderismo
+                </Link>
+              </li>
+              <li>
+                <Link to="/deportistas" className="text-muted-foreground hover:text-sport-primary transition-colors">
+                  Rutas de Altimetría
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
 
-          {/* 4. Contacto & Legal */}
-          <div>
-            <h3 className="text-foreground font-semibold text-lg mb-6">Contacto & Legal</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-sport-primary shrink-0" />
-                <span>Bogotá D.C., Colombia<br/>Latinoamérica</span>
+          {/* Sports Schools */}
+          <nav className="space-y-4" aria-label="Escuelas Deportivas">
+            <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
+              <School className="w-5 h-5 text-sport-primary" />
+              Escuelas Deportivas
+            </h2>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/escuelas" className="text-muted-foreground hover:text-sport-primary transition-colors">
+                  Escuelas de Fútbol
+                </Link>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-sport-primary shrink-0" />
-                <a href="mailto:hola@sportmaps.co" className="hover:text-sport-primary transition-colors">
-                  contacto@sportmaps.co
-                </a>
+              <li>
+                <Link to="/escuelas" className="text-muted-foreground hover:text-sport-primary transition-colors">
+                  Academias de Natación
+                </Link>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-sport-primary shrink-0" />
-                <span>+57 (312) 846-3555</span>
+              <li>
+                <Link to="/escuelas" className="text-muted-foreground hover:text-sport-primary transition-colors">
+                  Centros de Artes Marciales
+                </Link>
+              </li>
+              <li>
+                <Link to="/escuelas" className="text-muted-foreground hover:text-sport-primary transition-colors">
+                  Clubes de Ciclismo
+                </Link>
               </li>
             </ul>
-            <div className="pt-4 border-t border-sport-border mt-4 flex flex-col gap-2">
-              <Link to="/privacidad" className="text-sport-text-muted hover:text-sport-primary text-xs transition-colors hover:translate-x-1 inline-block">
-                Política de Privacidad
-              </Link>
-              <Link to="/terminos" className="text-sport-text-muted hover:text-sport-primary text-xs transition-colors hover:translate-x-1 inline-block">
-                Términos y Condiciones
-              </Link>
-              <Link to="/tratamiento-datos" className="text-sport-text-muted hover:text-sport-primary text-xs transition-colors hover:translate-x-1 inline-block">
-                Tratamiento de Datos
-              </Link>
+          </nav>
+
+          {/* Wellness & Nutrition */}
+          <nav className="space-y-4" aria-label="Bienestar y Nutrición">
+            <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
+              <Heart className="w-5 h-5 text-sport-primary" />
+              Bienestar Deportivo
+            </h2>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/bienestar" className="text-muted-foreground hover:text-sport-primary transition-colors">
+                  Nutrición para Atletas
+                </Link>
+              </li>
+              <li>
+                <Link to="/bienestar" className="text-muted-foreground hover:text-sport-primary transition-colors">
+                  Planes de Suplementación
+                </Link>
+              </li>
+              <li>
+                <Link to="/bienestar" className="text-muted-foreground hover:text-sport-primary transition-colors">
+                  Fisioterapia Deportiva
+                </Link>
+              </li>
+              <li>
+                <Link to="/bienestar" className="text-muted-foreground hover:text-sport-primary transition-colors">
+                  Psicología del Deporte
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        {/* Extended SEO Description */}
+        <article className="mt-12 pt-8 border-t border-sport-border">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
+            El Ecosistema Deportivo más Completo de Latinoamérica
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6 text-muted-foreground text-sm leading-relaxed">
+            <p>
+              En <strong className="text-foreground">SportMaps</strong> creamos el puente entre deportistas amateur y profesionales, 
+              escuelas deportivas certificadas, entrenadores personales y expertos en nutrición deportiva. 
+              Nuestra plataforma ofrece mapas interactivos con rutas verificadas para ciclismo de montaña, 
+              ciclismo de ruta, running urbano y trail running en toda Colombia y Latinoamérica.
+            </p>
+            <p>
+              Encuentra tu próxima aventura deportiva, conecta con entrenadores certificados, 
+              descubre escuelas deportivas cerca de ti y accede a planes de nutrición personalizados. 
+              Ya seas un corredor principiante buscando rutas seguras o un ciclista experimentado 
+              explorando nuevos desafíos de altimetría, SportMaps tiene todo lo que necesitas.
+            </p>
+          </div>
+        </article>
+
+        {/* Features Grid for SEO */}
+        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <MapPin className="w-4 h-4 text-sport-primary" />
+            <span>+500 Rutas Deportivas</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <School className="w-4 h-4 text-sport-primary" />
+            <span>+200 Escuelas Registradas</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <span className="w-4 h-4 text-sport-primary">👥</span>
+            <span>+50 Entrenadores</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <span className="w-4 h-4 text-sport-primary">🏃</span>
+            <span>+1000 Atletas Activos</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact & Legal */}
+      <section className="bg-sport-surface border-t border-sport-border">
+        <div className="max-w-7xl mx-auto px-4 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            {/* Contact Info */}
+            <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
+              <a href="mailto:contacto@sportmaps.co" className="flex items-center gap-2 hover:text-sport-primary transition-colors">
+                <Mail className="w-4 h-4" />
+                spoortmaps@gmail.com
+              </a>
+              <a href="https://wa.me/573128463555" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-sport-primary transition-colors">
+                <Phone className="w-4 h-4" />
+                +57 312 846 3555
+              </a>
             </div>
-          </div>
-        </div>
+            
+            {/* Social Media */}
+            <div className="flex items-center gap-4">
+              <a href="https://x.com/spoort_maps" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-sport-primary transition-colors" aria-label="Twitter/X">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+              <a href="https://www.instagram.com/spoortmaps/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-sport-primary transition-colors" aria-label="Instagram">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61583784419106" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-sport-primary transition-colors" aria-label="Facebook">
+                <Facebook className="w-5 h-5" />
+              </a>
+            </div>
 
-        {/* Copyright */}
-        <div className="border-t border-sport-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-sport-text-muted">
-            © 2025 SportMaps Technology S.A.S. Todos los derechos reservados.
+            {/* Navigation */}
+            <nav className="flex items-center gap-4 text-sm" aria-label="Footer Navigation">
+              <Link to="/" className="text-muted-foreground hover:text-sport-primary transition-colors">
+                Inicio
+              </Link>
+              <Link to="/deportistas" className="text-muted-foreground hover:text-sport-primary transition-colors">
+                Deportistas
+              </Link>
+              <Link to="/escuelas" className="text-muted-foreground hover:text-sport-primary transition-colors">
+                Escuelas
+              </Link>
+              <Link to="/bienestar" className="text-muted-foreground hover:text-sport-primary transition-colors">
+                Bienestar
+              </Link>
+            </nav>
+          </div>
+          
+          {/* Legal Links */}
+          <div className="flex flex-wrap justify-center gap-4 mt-4 pt-4 border-t border-sport-border">
+            <Link to="/privacidad" className="text-xs text-muted-foreground hover:text-sport-primary transition-colors">
+              Política de Privacidad
+            </Link>
+            <span className="text-border">|</span>
+            <Link to="/terminos" className="text-xs text-muted-foreground hover:text-sport-primary transition-colors">
+              Términos y Condiciones
+            </Link>
+          </div>
+          
+          <p className="text-center text-xs text-muted-foreground mt-4">
+            © {new Date().getFullYear()} SportMaps. Todos los derechos reservados. 
+            Plataforma de mapas deportivos y ecosistema para atletas en Colombia y Latinoamérica.
           </p>
-          <div className="flex items-center gap-2 text-sport-text-muted">
-            <ShieldCheck className="w-4 h-4 text-sport-success" />
-            <span className="text-xs">Sitio Seguro SSL & Pagos Protegidos</span>
-          </div>
         </div>
-      </div>
+      </section>
+
+      {/* Hidden Partners Section - Uncomment when ready to launch 
+      <section className="py-8 bg-sport-surface border-t border-sport-border">
+        <div className="container mx-auto px-4 text-center">
+          <Link to="/partners" className="inline-block border border-sport-primary text-sport-primary hover:bg-sport-primary hover:text-white transition-colors h-10 px-6 rounded-md text-sm font-medium leading-10">
+            Zona de Partners
+          </Link>
+        </div>
+      </section>
+      */}
     </footer>
-  );
-}
-
-// Componentes auxiliares
-function FooterLink({ text, href = "#", isLegal = false }: { text: string; href?: string; isLegal?: boolean }) {
-  return (
-    <li>
-      <Link 
-        to={href} 
-        className={`transition-colors hover:translate-x-1 inline-block ${
-          isLegal ? "text-sport-text-muted hover:text-sport-primary text-xs" : "hover:text-sport-primary"
-        }`}
-      >
-        {text}
-      </Link>
-    </li>
-  );
-}
-
-function SocialBtn({ icon: Icon, href, label }: { icon: any, href: string, label: string }) {
-  return (
-    <a 
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={label}
-      className="w-9 h-9 rounded-full bg-sport-primary/10 flex items-center justify-center hover:bg-sport-primary hover:text-white transition-all duration-300 text-sport-primary"
-    >
-      <Icon className="w-4 h-4" />
-    </a>
   );
 }

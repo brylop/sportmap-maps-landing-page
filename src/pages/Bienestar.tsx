@@ -1,13 +1,15 @@
+import { useState } from "react";
 import { ArrowLeft, Heart, Calendar, Video, Activity, Brain, Shield, Users, Clock, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { TechBackground } from "@/components/TechBackground";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
-import { SEOFooter } from "@/components/SEOFooter";
+import { SportMapsFooter } from "@/components/SportMapsFooter";
+import { DemoRequestModal } from "@/components/modals/DemoRequestModal";
 
 export default function Bienestar() {
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
   return (
     <div className="min-h-screen bg-sport-background text-sport-text-primary">
       <SEO 
@@ -298,16 +300,17 @@ export default function Bienestar() {
             Comienza tu viaje hacia un rendimiento óptimo con el apoyo de nuestros profesionales
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="default">
-              Agendar primera consulta
+            <Button size="lg" variant="default" onClick={() => setIsDemoOpen(true)}>
+              Comenzar prueba gratuita
             </Button>
-            <Button size="lg" variant="outline">
-              Hablar con un especialista
+            <Button size="lg" variant="outline" onClick={() => setIsDemoOpen(true)}>
+              Solicitar demo personalizado
             </Button>
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <SportMapsFooter />
+      <DemoRequestModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} source="bienestar" />
     </div>
   );
 }
