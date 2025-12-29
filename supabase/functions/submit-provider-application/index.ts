@@ -7,15 +7,16 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
-// Validation schema
+// Flexible validation schema that accepts both camelCase and snake_case
 const providerSchema = z.object({
-  businessName: z.string().trim().min(1, "Business name is required").max(100),
-  contactName: z.string().trim().min(1, "Contact name is required").max(100),
-  email: z.string().trim().email("Invalid email address").max(255),
-  phone: z.string().trim().min(10, "Invalid phone number").max(20),
-  businessDescription: z.string().trim().min(20, "Description must be at least 20 characters").max(1000),
-  experienceYears: z.number().int().min(0, "Experience years must be positive"),
-  website: z.string().trim().url("Invalid URL").optional().nullable()
+  business_name: z.string().trim().min(1, "Nombre de negocio requerido").max(100),
+  contact_name: z.string().trim().min(1, "Nombre de contacto requerido").max(100),
+  email: z.string().trim().email("Email inválido").max(255),
+  phone: z.string().trim().min(7, "Teléfono inválido").max(20),
+  business_description: z.string().trim().min(5, "Descripción muy corta").max(2000),
+  experience_years: z.number().int().min(0).max(100).optional().nullable(),
+  website: z.string().trim().url("URL inválida").optional().nullable().or(z.literal("")).or(z.null()),
+  partner_type: z.string().optional(),
 })
 
 // HTML escape function to prevent injection
@@ -30,9 +31,16 @@ function escapeHtml(text: string): string {
   return text.replace(/[&<>"']/g, (m) => map[m])
 }
 
+// Sanitize string input
+function sanitizeString(input: string): string {
+  return input.trim().replace(/[\x00-\x1F\x7F]/g, '')
+}
+
 serve(async (req) => {
+  console.log('Received request:', req.method)
+  
   if (req.method === 'OPTIONS') {
-    return new Response('ok', { headers: corsHeaders })
+    return new Response(null, { headers: corsHeaders })
   }
 
   try {
@@ -42,78 +50,112 @@ serve(async (req) => {
     )
 
     const body = await req.json()
+    console.log('Request body received:', JSON.stringify(body, null, 2))
+
+    // Normalize the input (accept both camelCase and snake_case)
+    const normalizedBody = {
+      business_name: body.business_name || body.businessName || '',
+      contact_name: body.contact_name || body.contactName || '',
+      email: body.email || '',
+      phone: body.phone || '',
+      business_description: body.business_description || body.businessDescription || '',
+      experience_years: body.experience_years ?? body.experienceYears ?? null,
+      website: body.website || null,
+      partner_type: body.partner_type || 'provider',
+    }
+
+    console.log('Normalized body:', JSON.stringify(normalizedBody, null, 2))
 
     // Validate input with zod
-    const validationResult = providerSchema.safeParse(body)
+    const validationResult = providerSchema.safeParse(normalizedBody)
     
     if (!validationResult.success) {
       console.error('Validation failed:', validationResult.error.issues)
       return new Response(
         JSON.stringify({ 
-          error: 'Invalid input data',
+          error: 'Datos inválidos',
           details: validationResult.error.issues.map(i => i.message)
         }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       )
     }
 
-    const { businessName, contactName, email, phone, businessDescription, experienceYears, website } = validationResult.data
+    const validData = validationResult.data
+
+    // Sanitize all string inputs
+    const sanitizedData = {
+      partner_type: sanitizeString(validData.partner_type || 'provider'),
+      business_name: sanitizeString(validData.business_name),
+      contact_name: sanitizeString(validData.contact_name),
+      email: sanitizeString(validData.email).toLowerCase(),
+      phone: sanitizeString(validData.phone),
+      business_description: sanitizeString(validData.business_description),
+      experience_years: validData.experience_years ? Number(validData.experience_years) : null,
+      website: validData.website && validData.website !== '' ? sanitizeString(validData.website) : null,
+    }
+
+    console.log('Sanitized data for insertion:', JSON.stringify(sanitizedData, null, 2))
 
     // Insert the provider application
     const { data, error } = await supabaseClient
       .from('partner_applications')
-      .insert({
-        partner_type: 'provider',
-        business_name: businessName,
-        contact_name: contactName,
-        email,
-        phone,
-        business_description: businessDescription,
-        experience_years: experienceYears,
-        website
-      })
+      .insert(sanitizedData)
       .select()
 
     if (error) {
       console.error('Database insertion failed:', error)
       return new Response(
-        JSON.stringify({ error: 'Failed to submit application' }),
+        JSON.stringify({ error: 'Error al guardar la solicitud', details: error.message }),
         { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       )
     }
+
+    console.log('Successfully inserted application:', data)
 
     // Send notification email to admin
     try {
       const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')
       
-      const emailResponse = await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${RESEND_API_KEY}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          from: 'SportMaps <onboarding@resend.dev>',
-          to: ['spoortmaps@gmail.com'],
-          subject: `Nueva solicitud de Proveedor: ${escapeHtml(businessName)}`,
-          html: `
-            <h2>Nueva solicitud de Proveedor/Marca</h2>
-            <p><strong>Negocio/Marca:</strong> ${escapeHtml(businessName)}</p>
-            <p><strong>Contacto:</strong> ${escapeHtml(contactName)}</p>
-            <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-            <p><strong>Teléfono:</strong> ${escapeHtml(phone)}</p>
-            <p><strong>Años de Experiencia:</strong> ${experienceYears}</p>
-            ${website ? `<p><strong>Sitio Web:</strong> <a href="${escapeHtml(website)}">${escapeHtml(website)}</a></p>` : ''}
-            <p><strong>Descripción:</strong></p>
-            <p>${escapeHtml(businessDescription).replace(/\n/g, '<br>')}</p>
-          `
+      if (RESEND_API_KEY) {
+        const emailResponse = await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${RESEND_API_KEY}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            from: 'SportMaps <onboarding@resend.dev>',
+            to: ['spoortmaps@gmail.com'],
+            subject: `Nueva solicitud: ${escapeHtml(sanitizedData.business_name)} (${sanitizedData.partner_type})`,
+            html: `
+              <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                <h2 style="color: #22c55e;">Nueva Solicitud de Registro</h2>
+                <div style="background: #f9fafb; padding: 20px; border-radius: 8px;">
+                  <p><strong>Tipo:</strong> ${escapeHtml(sanitizedData.partner_type)}</p>
+                  <p><strong>Negocio/Marca:</strong> ${escapeHtml(sanitizedData.business_name)}</p>
+                  <p><strong>Contacto:</strong> ${escapeHtml(sanitizedData.contact_name)}</p>
+                  <p><strong>Email:</strong> <a href="mailto:${escapeHtml(sanitizedData.email)}">${escapeHtml(sanitizedData.email)}</a></p>
+                  <p><strong>Teléfono:</strong> ${escapeHtml(sanitizedData.phone)}</p>
+                  ${sanitizedData.experience_years ? `<p><strong>Años de Experiencia:</strong> ${sanitizedData.experience_years}</p>` : ''}
+                  ${sanitizedData.website ? `<p><strong>Sitio Web:</strong> <a href="${escapeHtml(sanitizedData.website)}">${escapeHtml(sanitizedData.website)}</a></p>` : ''}
+                  <p><strong>Descripción:</strong></p>
+                  <p style="white-space: pre-wrap;">${escapeHtml(sanitizedData.business_description)}</p>
+                </div>
+                <p style="color: #6b7280; font-size: 12px; margin-top: 20px;">
+                  Este mensaje fue enviado desde el formulario de registro de SportMaps.
+                </p>
+              </div>
+            `
+          })
         })
-      })
-      
-      if (emailResponse.ok) {
-        console.log('Notification email sent to admin')
+        
+        if (emailResponse.ok) {
+          console.log('Notification email sent to admin')
+        } else {
+          console.error('Email sending failed:', await emailResponse.text())
+        }
       } else {
-        console.error('Email sending failed:', await emailResponse.text())
+        console.log('RESEND_API_KEY not configured, skipping email notification')
       }
     } catch (emailError) {
       console.error('Email sending exception:', emailError)
@@ -123,7 +165,7 @@ serve(async (req) => {
     return new Response(
       JSON.stringify({ 
         success: true, 
-        message: 'Provider application submitted successfully',
+        message: 'Solicitud enviada exitosamente',
         data 
       }),
       { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
@@ -132,7 +174,7 @@ serve(async (req) => {
   } catch (error) {
     console.error('Unexpected error:', error)
     return new Response(
-      JSON.stringify({ error: 'Internal server error' }),
+      JSON.stringify({ error: 'Error interno del servidor' }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     )
   }
