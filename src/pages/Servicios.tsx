@@ -7,9 +7,11 @@ import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { PlansSection } from "@/components/sections/Pricing/PlansSection";
+import { ServiciosRegistroModal } from "@/components/modals/ServiciosRegistroModal";
 
 export default function Servicios() {
   const [selectedClient] = useState("default");
+  const [isRegistroOpen, setIsRegistroOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-sport-background text-sport-text-primary">
@@ -119,15 +121,19 @@ export default function Servicios() {
             Registra tu servicio y conecta con atletas y escuelas que necesitan tu expertise
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/planes">
-              <Button size="lg" variant="default">
-                Registrar mi servicio
-              </Button>
-            </Link>
+            <Button size="lg" variant="default" onClick={() => setIsRegistroOpen(true)}>
+              Registrar mi servicio
+            </Button>
           </div>
         </section>
       </main>
+      
       <SportMapsFooter />
+      
+      <ServiciosRegistroModal 
+        isOpen={isRegistroOpen} 
+        onClose={() => setIsRegistroOpen(false)} 
+      />
     </div>
   );
 }
