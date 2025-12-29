@@ -4,7 +4,7 @@ import { TechHeader } from "@/components/TechHeader";
 import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
-import { Check, Zap, Star, Shield, User, Dumbbell, School, Heart, ArrowRight, Building2, ShoppingBag, Truck, Sparkles } from "lucide-react";
+import { Check, Zap, Star, Shield, User, Dumbbell, School, Heart, ArrowRight, Building2, ShoppingBag, Truck, Sparkles, MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
 import { DeportistasRegistroModal } from "@/components/modals/DeportistasRegistroModal";
 import { EscuelasRegistroModal } from "@/components/modals/EscuelasRegistroModal";
@@ -14,6 +14,7 @@ import { MarcasRegistroModal } from "@/components/modals/MarcasRegistroModal";
 import { FederacionesRegistroModal } from "@/components/modals/FederacionesRegistroModal";
 import { ProveedoresRegistroModal } from "@/components/modals/ProveedoresRegistroModal";
 import { ServiciosRegistroModal } from "@/components/modals/ServiciosRegistroModal";
+import { ContactEquipoModal } from "@/components/modals/ContactEquipoModal";
 
 type CategoryType = "atletas" | "escuelas" | "entrenadores" | "bienestar" | "marcas" | "federaciones" | "proveedores" | "servicios";
 
@@ -24,6 +25,7 @@ const Planes = () => {
     type: CategoryType | null;
     plan: string;
   }>({ type: null, plan: "" });
+  const [isContactEquipoOpen, setIsContactEquipoOpen] = useState(false);
 
   const categories = [
     { id: "atletas" as const, label: "Atletas", icon: User },
@@ -216,16 +218,22 @@ const Planes = () => {
 
         {/* CTA Section */}
         <section className="container mx-auto px-4 mt-20">
-          <div className="bg-gradient-to-r from-sport-primary/20 to-sport-accent/20 rounded-3xl p-8 md:p-12 text-center">
+          <div className="bg-gradient-to-r from-sport-primary/20 to-sport-accent/20 rounded-3xl p-8 md:p-12 text-center border border-sport-primary/30">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-sport-primary to-sport-accent flex items-center justify-center">
+              <MessageSquare className="w-8 h-8 text-white" />
+            </div>
             <h2 className="text-3xl font-bold mb-4">¿Necesitas un plan personalizado?</h2>
             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-              Contáctanos para crear una solución a la medida de tu organización.
+              Cuéntanos sobre tu organización y te diseñaremos una solución a medida con las funcionalidades exactas que necesitas.
             </p>
-            <Link to="/sobre-nosotros">
-              <Button variant="outline" size="lg" className="border-sport-primary text-sport-primary hover:bg-sport-primary hover:text-white">
-                Contactar al equipo
-              </Button>
-            </Link>
+            <Button 
+              size="lg" 
+              onClick={() => setIsContactEquipoOpen(true)}
+              className="bg-gradient-to-r from-sport-primary to-sport-accent hover:opacity-90 text-white px-8"
+            >
+              <MessageSquare className="w-5 h-5 mr-2" />
+              Contactar al equipo
+            </Button>
           </div>
         </section>
       </main>
@@ -273,6 +281,11 @@ const Planes = () => {
         isOpen={modalState.type === "servicios"} 
         onClose={closeModal} 
         planSelected={modalState.plan} 
+      />
+      <ContactEquipoModal
+        isOpen={isContactEquipoOpen}
+        onClose={() => setIsContactEquipoOpen(false)}
+        preselectedCategory={categories.find(c => c.id === selectedCategory)?.label}
       />
     </div>
   );
