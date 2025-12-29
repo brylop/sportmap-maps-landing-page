@@ -9,13 +9,11 @@ import { Toaster } from "@/components/ui/toaster";
 import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { ContactModal } from "@/components/modals/ContactModal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-
+import { TiendaModule } from "@/components/modules/TiendaModule";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("inicio");
   const [isContactOpen, setIsContactOpen] = useState(false);
-  
-  // ESTADO NUEVO: Controla qué actor está seleccionado globalmente
   const [selectedClient, setSelectedClient] = useState("escuelas");
 
   const scrollToSection = (sectionId: string) => {
@@ -31,7 +29,7 @@ const Index = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["inicio", "ecosistema", "precios"];
+      const sections = ["inicio", "ecosistema", "precios", "tienda"];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -59,7 +57,6 @@ const Index = () => {
         </div>
 
         <div id="ecosistema">
-          {/* PASAMOS EL ESTADO Y LA FUNCIÓN PARA CAMBIARLO */}
           <InteractiveFeatures 
             selectedClient={selectedClient}
             setSelectedClient={setSelectedClient}
@@ -68,19 +65,21 @@ const Index = () => {
         </div>
 
         <div id="precios" className="py-10 scroll-mt-24">
-          {/* LOS PRECIOS AHORA RECIBEN QUÉ CLIENTE ESTÁ SELECCIONADO */}
           <PlansSection selectedClient={selectedClient} />
           <div className="mt-12">
             <ComparisonSection />
           </div>
         </div>
 
-       <div className="py-10 bg-sport-surface/20">
+        <div id="tienda" className="py-10 scroll-mt-24 container mx-auto px-4">
+          <TiendaModule />
+        </div>
+
+        <div className="py-10 bg-sport-surface/20">
           <TestimonialsCarousel />
         </div>
       </main>
 
-      {/* --- AQUÍ AGREGAS EL FOOTER --- */}
       <SportMapsFooter /> 
 
       <ContactModal 
