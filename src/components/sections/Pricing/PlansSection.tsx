@@ -9,7 +9,7 @@ interface PlansSectionProps {
 
 export function PlansSection({ selectedClient }: PlansSectionProps) {
   const [isAnnual, setIsAnnual] = useState(true);
-  const whatsappNumber = "573001234567"; 
+  const whatsappNumber = "573128463555"; 
 
   const handlePlanSelect = (planName: string) => {
     const message = `Hola SportMaps, soy ${selectedClient} y estoy interesado en el plan *${planName}*.`;
