@@ -32,6 +32,9 @@ export function SportMapsFooter() {
             <Link to="/bienestar" className="text-muted-foreground hover:text-sport-primary transition-colors">
               Bienestar
             </Link>
+            <Link to="/planes" className="text-muted-foreground hover:text-sport-primary transition-colors">
+              Planes
+            </Link>
             <Link to="/sobre-nosotros" className="text-muted-foreground hover:text-sport-primary transition-colors">
               Nosotros
             </Link>
