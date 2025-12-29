@@ -8,6 +8,7 @@ import { ComparisonSection } from "@/components/sections/Pricing/ComparisonSecti
 import { Toaster } from "@/components/ui/toaster";
 import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { ContactModal } from "@/components/modals/ContactModal";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 
 const Index = () => {
@@ -86,6 +87,7 @@ const Index = () => {
         isOpen={isContactOpen} 
         onClose={() => setIsContactOpen(false)} 
       />
+      <WhatsAppButton />
       <Toaster />
     </div>
   );
