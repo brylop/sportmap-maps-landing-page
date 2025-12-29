@@ -1,5 +1,5 @@
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, ShieldCheck, Twitter } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export function SportMapsFooter() {
   return (
@@ -67,9 +67,9 @@ export function SportMapsFooter() {
               <FooterLink text="Casos de Éxito" href="/casos-exito" />
               <FooterLink text="Blog de Tecnología" href="/blog" />
               <FooterLink text="Centro de Ayuda" href="/ayuda" />
-              <a href="/partners" className="inline-block mt-4 border border-sport-primary text-sport-primary hover:bg-sport-primary hover:text-white transition-colors h-9 px-4 rounded-md flex items-center justify-center text-sm font-medium">
+              <Link to="/partners" className="inline-block mt-4 border border-sport-primary text-sport-primary hover:bg-sport-primary hover:text-white transition-colors h-9 px-4 rounded-md flex items-center justify-center text-sm font-medium">
                 Zona de Partners
-              </a>
+              </Link>
             </ul>
           </div>
 
@@ -119,14 +119,14 @@ export function SportMapsFooter() {
 function FooterLink({ text, href = "#", isLegal = false }: { text: string; href?: string; isLegal?: boolean }) {
   return (
     <li>
-      <a 
-        href={href} 
+      <Link 
+        to={href} 
         className={`transition-colors hover:translate-x-1 inline-block ${
           isLegal ? "text-sport-text-muted hover:text-sport-primary text-xs" : "hover:text-sport-primary"
         }`}
       >
         {text}
-      </a>
+      </Link>
     </li>
   );
 }
