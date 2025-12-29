@@ -213,7 +213,13 @@ const CentroAyuda = () => {
                 </div>
                 <h3 className="font-semibold mb-2">Chat en Vivo</h3>
                 <p className="text-sm text-muted-foreground mb-4">Respuesta inmediata de nuestro equipo</p>
-                <Button variant="outline" size="sm">Iniciar Chat</Button>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => window.open('https://wa.me/573128463555?text=' + encodeURIComponent('Hola, necesito ayuda con la plataforma SportMaps'), '_blank')}
+                >
+                  Iniciar Chat
+                </Button>
               </CardContent>
             </Card>
             <Card className="bg-card/50 backdrop-blur border-border/50 text-center hover:border-sport-primary/50 transition-colors">
@@ -223,7 +229,13 @@ const CentroAyuda = () => {
                 </div>
                 <h3 className="font-semibold mb-2">Email</h3>
                 <p className="text-sm text-muted-foreground mb-4">contacto@sportmaps.co</p>
-                <Button variant="outline" size="sm">Enviar Email</Button>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => window.location.href = 'mailto:contacto@sportmaps.co?subject=Consulta desde Centro de Ayuda'}
+                >
+                  Enviar Email
+                </Button>
               </CardContent>
             </Card>
             <Card className="bg-card/50 backdrop-blur border-border/50 text-center hover:border-sport-primary/50 transition-colors">
@@ -233,7 +245,13 @@ const CentroAyuda = () => {
                 </div>
                 <h3 className="font-semibold mb-2">WhatsApp</h3>
                 <p className="text-sm text-muted-foreground mb-4">+57 312 846 3555</p>
-                <Button variant="outline" size="sm">Contactar</Button>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => window.open('https://wa.me/573128463555?text=' + encodeURIComponent('Hola, me gustaría contactarlos para más información'), '_blank')}
+                >
+                  Contactar
+                </Button>
               </CardContent>
             </Card>
           </div>
