@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 import { ContactModal } from "./modals/ContactModal";
-import { Menu, X, Zap, MessageSquare, CreditCard, Users, Store } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface TechHeaderProps {
@@ -21,14 +21,14 @@ export function TechHeader({ onSectionClick, activeSection = "" }: TechHeaderPro
   const isHomePage = location.pathname === "/";
 
   const navItems = [
-    { id: "ecosistema", label: "Soluciones", icon: <Users className="w-4 h-4" /> },
-    { id: "precios", label: "Precios y Planes", icon: <CreditCard className="w-4 h-4" /> },
-    { id: "tienda", label: "Marketplace", icon: <Store className="w-4 h-4" /> },
+    { id: "ecosistema", label: "Soluciones" },
+    { id: "precios", label: "Precios" },
+    { id: "tienda", label: "Marketplace" },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -63,79 +63,78 @@ export function TechHeader({ onSectionClick, activeSection = "" }: TechHeaderPro
   return (
     <>
       <header 
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
           isScrolled 
-            ? 'bg-background/95 backdrop-blur-md border-b border-sport-primary/20 shadow-tech-lg' 
-            : 'bg-background/90 backdrop-blur-sm'
+            ? 'bg-background/80 backdrop-blur-xl border-b border-sport-border/50 shadow-tech-sm' 
+            : 'bg-transparent'
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <div 
+          <div className="flex items-center justify-between h-16 lg:h-20">
+            {/* Logo - Clean & Minimal */}
+            <motion.div 
               onClick={handleLogoClick}
-              className="flex items-center space-x-3 cursor-pointer group"
+              className="flex items-center gap-2 cursor-pointer group"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
             >
-              <div className="relative">
-                <div className="w-10 h-10 bg-gradient-tech-primary rounded-xl flex items-center justify-center shadow-glow-primary group-hover:shadow-glow-accent transition-all duration-300 group-hover:scale-110">
-                  <Zap className="w-6 h-6 text-white animate-tech-pulse" />
-                </div>
+              <div className="relative w-9 h-9 bg-gradient-to-br from-sport-primary to-sport-accent rounded-xl flex items-center justify-center shadow-tech-sm group-hover:shadow-glow-primary transition-all duration-500">
+                <span className="text-white font-bold text-lg">S</span>
               </div>
-              <div>
-                <span className="text-xl font-bold bg-gradient-tech-primary bg-clip-text text-transparent">
-                  SportMaps
-                </span>
-                <div className="text-xs text-sport-text-muted font-mono">ECOSYSTEM</div>
-              </div>
-            </div>
+              <span className="text-xl font-bold text-foreground tracking-tight">
+                SportMaps
+              </span>
+            </motion.div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            {/* Desktop Navigation - Minimal Style */}
+            <nav className="hidden lg:flex items-center gap-1">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`group flex items-center space-x-2 text-sm font-medium transition-all duration-300 relative ${
+                  className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${
                     activeSection === item.id 
-                      ? 'text-sport-primary' 
-                      : 'text-sport-text-secondary hover:text-sport-primary'
+                      ? 'text-foreground' 
+                      : 'text-sport-text-secondary hover:text-foreground'
                   }`}
                 >
-                  <span className="text-base opacity-70 group-hover:opacity-100">{item.icon}</span>
-                  <span>{item.label}</span>
+                  {item.label}
                   {activeSection === item.id && (
-                    <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-tech-primary rounded-full animate-scale-in" />
+                    <motion.div 
+                      layoutId="activeNav"
+                      className="absolute inset-0 bg-sport-surface rounded-lg -z-10"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
                   )}
                 </button>
               ))}
             </nav>
 
             {/* Actions */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center gap-3">
               <ThemeToggle />
               
               <Button
-                variant="outline"
+                variant="ghost"
                 onClick={() => setIsContactModalOpen(true)}
-                className="hidden md:flex border-sport-border hover:bg-sport-surface"
+                className="hidden md:flex text-sm font-medium text-sport-text-secondary hover:text-foreground hover:bg-sport-surface"
               >
-                <MessageSquare className="w-4 h-4 mr-2" />
-                Soporte
+                Contacto
               </Button>
               
               <Button
                 onClick={handleStartFree}
-                className="hidden sm:flex bg-gradient-to-r from-sport-primary to-sport-accent hover:shadow-glow-accent text-white px-6 py-2 rounded-full font-bold transition-all duration-300 hover:scale-105"
+                className="hidden sm:flex bg-foreground hover:bg-foreground/90 text-background px-5 py-2 text-sm font-semibold rounded-full transition-all duration-300 hover:scale-[1.02] group"
               >
-                <Zap className="w-4 h-4 mr-2" />
-                Empezar Gratis
+                Empezar
+                <ArrowRight className="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-0.5" />
               </Button>
 
               {/* Mobile Toggle */}
               <Button
-                variant="outline"
+                variant="ghost"
                 size="icon"
-                className="lg:hidden glass-effect border-tech"
+                className="lg:hidden hover:bg-sport-surface"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
                 {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -145,7 +144,7 @@ export function TechHeader({ onSectionClick, activeSection = "" }: TechHeaderPro
         </div>
       </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Clean Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <div className="fixed inset-0 z-40 lg:hidden">
@@ -153,36 +152,48 @@ export function TechHeader({ onSectionClick, activeSection = "" }: TechHeaderPro
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-background/60 backdrop-blur-md"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.div 
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
-              className="fixed top-16 left-0 right-0 bg-background/98 backdrop-blur-md border-b border-sport-primary/20 p-4 shadow-tech-lg"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="fixed top-16 left-4 right-4 bg-card border border-sport-border rounded-2xl p-4 shadow-tech-lg"
             >
-              <nav className="space-y-3">
+              <nav className="space-y-1">
                 {navItems.map((item) => (
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item.id)}
-                    className={`w-full flex items-center space-x-3 p-3 rounded-lg text-left transition-all ${
+                    className={`w-full flex items-center p-3 rounded-xl text-left transition-all duration-300 ${
                       activeSection === item.id 
-                        ? 'bg-sport-primary/10 text-sport-primary font-semibold' 
-                        : 'text-sport-text-secondary hover:bg-sport-surface'
+                        ? 'bg-sport-surface text-foreground font-semibold' 
+                        : 'text-sport-text-secondary hover:bg-sport-surface/50 hover:text-foreground'
                     }`}
                   >
-                    {item.icon}
-                    <span>{item.label}</span>
+                    {item.label}
                   </button>
                 ))}
-                <div className="pt-2 border-t border-sport-primary/20 space-y-3">
-                   <Button onClick={handleStartFree} className="w-full bg-gradient-to-r from-sport-primary to-sport-accent text-white font-bold">
-                      Empezar Gratis
+                <div className="pt-3 mt-3 border-t border-sport-border space-y-2">
+                   <Button 
+                     onClick={handleStartFree} 
+                     className="w-full bg-foreground hover:bg-foreground/90 text-background font-semibold rounded-xl"
+                   >
+                      Empezar gratis
+                      <ArrowRight className="w-4 h-4 ml-2" />
                    </Button>
-                   <Button onClick={() => setIsContactModalOpen(true)} variant="ghost" className="w-full">
-                      Contactar Soporte
+                   <Button 
+                     onClick={() => {
+                       setIsMobileMenuOpen(false);
+                       setIsContactModalOpen(true);
+                     }} 
+                     variant="ghost" 
+                     className="w-full hover:bg-sport-surface rounded-xl"
+                   >
+                      Contacto
                    </Button>
                 </div>
               </nav>

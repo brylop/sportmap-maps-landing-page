@@ -3,171 +3,169 @@
 @tailwind utilities;
 
 /* ============================================
-   SPORTMAPS OFFICIAL BRAND DESIGN SYSTEM
+   SPORTMAPS PREMIUM DESIGN SYSTEM
+   Inspired by Anthropic & OpenAI
    ============================================
    Primary Green: #248223 → HSL(119, 64%, 32%)
    Accent Orange: #FB9F1E → HSL(36, 96%, 55%)
-   Navy Background: #0B1121 → HSL(220, 52%, 9%)
-   
-   ZERO BLUE POLICY - All blues eliminated
+   Premium Warm Background: #FAF9F6
    ============================================ */
 
 @layer base {
   :root {
-    /* ===== LIGHT MODE ===== */
+    /* ===== LIGHT MODE - WARM PREMIUM ===== */
     /* Core Brand Colors */
-    --sport-primary: 119 64% 32%; /* Official Green #248223 */
-    --sport-secondary: 119 64% 28%; /* Darker Green */
-    --sport-accent: 36 96% 55%; /* Official Orange #FB9F1E */
-    --sport-highlight: 36 96% 50%; /* Orange highlight */
-    --sport-warning: 36 96% 55%; /* Energy Orange */
-    --sport-success: 119 64% 40%; /* Success Green */
-    --sport-info: 119 64% 35%; /* Info Green - NO BLUE */
-    --sport-wellness: 119 64% 35%; /* Green for wellness */
-    --sport-nutrition: 119 64% 32%; /* Green for nutrition */
+    --sport-primary: 119 64% 32%;
+    --sport-secondary: 119 64% 28%;
+    --sport-accent: 36 96% 55%;
+    --sport-highlight: 36 96% 50%;
+    --sport-warning: 36 96% 55%;
+    --sport-success: 119 64% 40%;
+    --sport-info: 119 64% 35%;
+    --sport-wellness: 119 64% 35%;
+    --sport-nutrition: 119 64% 32%;
     
-    /* Light Mode Background System */
-    --sport-background: 0 0% 100%; /* Pure White */
-    --sport-surface: 120 10% 98%; /* Warm Off-White */
-    --sport-card: 0 0% 100%; /* Pure White Card */
-    --sport-glass: 120 5% 97%; /* Light Glass */
-    --sport-card-bg: 0 0% 100%;
+    /* Premium Warm Background - Like Anthropic */
+    --sport-background: 40 20% 98%;
+    --sport-surface: 40 15% 96%;
+    --sport-card: 40 10% 99%;
+    --sport-glass: 40 8% 97%;
+    --sport-card-bg: 40 10% 99%;
     
-    /* Text & Borders - Light Mode */
-    --sport-text-primary: 220 52% 9%; /* Navy Text #0B1121 */
-    --sport-text-secondary: 220 20% 35%; /* Dark Secondary Text */
-    --sport-text-muted: 220 15% 50%; /* Muted Text */
-    --sport-border: 119 25% 85%; /* Green tinted border */
-    --sport-divider: 119 20% 88%; /* Green tinted divider */
+    /* Refined Text & Borders */
+    --sport-text-primary: 30 10% 15%;
+    --sport-text-secondary: 30 8% 35%;
+    --sport-text-muted: 30 6% 50%;
+    --sport-border: 30 10% 90%;
+    --sport-divider: 30 8% 92%;
     
-    /* Tech Gradients - Verde a Naranja */
+    /* Premium Gradients */
     --gradient-tech-primary: linear-gradient(135deg, hsl(119 64% 32%), hsl(36 96% 55%));
     --gradient-tech-hero: linear-gradient(135deg, hsl(119 64% 32%), hsl(36 96% 55%));
-    --gradient-tech-glow: linear-gradient(135deg, hsl(119 64% 32% / 0.2), hsl(36 96% 55% / 0.2));
-    --gradient-tech-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(120 5% 97%));
-    --gradient-tech-surface: linear-gradient(180deg, hsl(120 10% 98%), hsl(0 0% 100%));
+    --gradient-tech-glow: linear-gradient(135deg, hsl(119 64% 32% / 0.15), hsl(36 96% 55% / 0.15));
+    --gradient-tech-card: linear-gradient(145deg, hsl(40 10% 99%), hsl(40 8% 97%));
+    --gradient-tech-surface: linear-gradient(180deg, hsl(40 15% 96%), hsl(40 10% 99%));
     --gradient-primary: linear-gradient(135deg, hsl(119 64% 32%), hsl(36 96% 55%));
     
-    /* Shadows - Green brand based */
-    --shadow-tech-sm: 0 2px 8px hsl(119 64% 32% / 0.08);
-    --shadow-tech-md: 0 4px 16px hsl(119 64% 32% / 0.12);
-    --shadow-tech-lg: 0 8px 32px hsl(119 64% 32% / 0.16);
-    --shadow-tech-xl: 0 16px 48px hsl(119 64% 32% / 0.2);
-    --shadow-glow-primary: 0 0 32px hsl(119 64% 32% / 0.3);
-    --shadow-glow-accent: 0 0 24px hsl(36 96% 55% / 0.4);
-    --shadow-inset: inset 0 1px 3px hsl(119 64% 32% / 0.1);
-    --shadow-elegant: 0 10px 30px -10px hsl(119 64% 32% / 0.2);
-    --shadow-hover: 0 20px 40px -10px hsl(119 64% 32% / 0.3);
+    /* Elegant Shadows */
+    --shadow-tech-sm: 0 1px 3px hsl(30 10% 15% / 0.04), 0 1px 2px hsl(30 10% 15% / 0.02);
+    --shadow-tech-md: 0 4px 12px hsl(30 10% 15% / 0.06), 0 2px 4px hsl(30 10% 15% / 0.03);
+    --shadow-tech-lg: 0 12px 32px hsl(30 10% 15% / 0.08), 0 4px 8px hsl(30 10% 15% / 0.04);
+    --shadow-tech-xl: 0 24px 48px hsl(30 10% 15% / 0.1), 0 8px 16px hsl(30 10% 15% / 0.05);
+    --shadow-glow-primary: 0 8px 32px hsl(119 64% 32% / 0.2);
+    --shadow-glow-accent: 0 8px 24px hsl(36 96% 55% / 0.25);
+    --shadow-inset: inset 0 1px 2px hsl(30 10% 15% / 0.05);
+    --shadow-elegant: 0 4px 24px hsl(30 10% 15% / 0.08);
+    --shadow-hover: 0 12px 40px hsl(30 10% 15% / 0.12);
     
-    /* Animation System */
+    /* Smooth Animation System */
     --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-slow: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     
-    /* Tech Spacing */
+    /* Premium Spacing */
     --space-tech-xs: 0.25rem;
     --space-tech-sm: 0.5rem;
     --space-tech-md: 1rem;
     --space-tech-lg: 1.5rem;
-    --space-tech-xl: 2rem;
-    --space-tech-2xl: 3rem;
+    --space-tech-xl: 2.5rem;
+    --space-tech-2xl: 4rem;
 
-    /* Default shadcn colors - Light Mode */
-    --background: 0 0% 100%;
-    --foreground: 220 52% 9%;
-    --card: 0 0% 100%;
-    --card-foreground: 220 52% 9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 52% 9%;
-    --primary: 119 64% 32%; /* Official Green */
+    /* Shadcn colors - Premium Light */
+    --background: 40 20% 98%;
+    --foreground: 30 10% 15%;
+    --card: 40 10% 99%;
+    --card-foreground: 30 10% 15%;
+    --popover: 40 10% 99%;
+    --popover-foreground: 30 10% 15%;
+    --primary: 119 64% 32%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 36 96% 55%; /* Official Orange */
+    --secondary: 36 96% 55%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 119 15% 95%;
-    --muted-foreground: 220 15% 40%;
-    --accent: 36 96% 55%; /* Official Orange */
+    --muted: 40 10% 94%;
+    --muted-foreground: 30 8% 40%;
+    --accent: 36 96% 55%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 119 25% 88%;
-    --input: 119 20% 92%;
+    --border: 30 10% 90%;
+    --input: 30 10% 92%;
     --ring: 119 64% 32%;
-    --radius: 0.75rem;
-    --sidebar-background: 119 20% 97%;
-    --sidebar-foreground: 220 52% 9%;
+    --radius: 1rem;
+    --sidebar-background: 40 15% 97%;
+    --sidebar-foreground: 30 10% 15%;
     --sidebar-primary: 119 64% 32%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 36 96% 55%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 119 20% 88%;
+    --sidebar-border: 30 10% 90%;
     --sidebar-ring: 119 64% 32%;
   }
 
   .dark {
-    /* ===== DARK MODE - NEGRO PROFUNDO CON NEÓN ===== */
-    /* Core Brand Colors - NEON intensity for dark backgrounds */
-    --sport-primary: 119 70% 45%; /* Neon Green - brighter */
-    --sport-secondary: 119 65% 40%; /* Mid Green */
-    --sport-accent: 36 100% 55%; /* Vivid Orange */
-    --sport-highlight: 36 100% 52%; /* Orange highlight */
-    --sport-warning: 36 100% 55%; /* Energy Orange */
-    --sport-success: 119 70% 50%; /* Neon Success Green */
-    --sport-info: 119 70% 45%; /* Info Green - NO BLUE */
+    /* ===== DARK MODE - DEEP ELEGANT ===== */
+    --sport-primary: 119 70% 45%;
+    --sport-secondary: 119 65% 40%;
+    --sport-accent: 36 100% 55%;
+    --sport-highlight: 36 100% 52%;
+    --sport-warning: 36 100% 55%;
+    --sport-success: 119 70% 50%;
+    --sport-info: 119 70% 45%;
     --sport-wellness: 119 70% 45%;
     --sport-nutrition: 119 70% 45%;
     
-    /* DEEP BLACK Background System - NO BLUE/GRAY */
-    --sport-background: 220 60% 6%; /* Almost Pure Black #0B1121 */
-    --sport-surface: 220 55% 8%; /* Very Dark */
-    --sport-card: 220 50% 10%; /* Dark Card - minimal blue */
-    --sport-glass: 220 45% 12%; /* Dark Glass */
+    /* Deep Black Background */
+    --sport-background: 220 60% 6%;
+    --sport-surface: 220 55% 8%;
+    --sport-card: 220 50% 10%;
+    --sport-glass: 220 45% 12%;
     --sport-card-bg: 220 50% 10%;
     
-    /* Pure White Text & Green-tinted Borders */
-    --sport-text-primary: 0 0% 100%; /* Pure White #FFFFFF */
-    --sport-text-secondary: 0 0% 90%; /* Almost White */
-    --sport-text-muted: 0 0% 70%; /* Light Gray */
-    --sport-border: 119 40% 20%; /* Green tint borders - NO BLUE */
-    --sport-divider: 119 35% 18%; /* Green tint dividers */
+    /* Pure White Text */
+    --sport-text-primary: 0 0% 100%;
+    --sport-text-secondary: 0 0% 85%;
+    --sport-text-muted: 0 0% 60%;
+    --sport-border: 119 30% 18%;
+    --sport-divider: 119 25% 15%;
     
-    /* Neon Tech Gradients - Verde a Naranja */
+    /* Dark Mode Gradients */
     --gradient-tech-primary: linear-gradient(135deg, hsl(119 70% 45%), hsl(36 100% 55%));
     --gradient-tech-hero: linear-gradient(135deg, hsl(119 70% 45%), hsl(36 100% 55%));
-    --gradient-tech-glow: linear-gradient(135deg, hsl(119 70% 45% / 0.4), hsl(36 100% 55% / 0.4));
+    --gradient-tech-glow: linear-gradient(135deg, hsl(119 70% 45% / 0.3), hsl(36 100% 55% / 0.3));
     --gradient-tech-card: linear-gradient(145deg, hsl(220 50% 10%), hsl(220 45% 14%));
     --gradient-tech-surface: linear-gradient(180deg, hsl(220 55% 8%), hsl(220 50% 10%));
     --gradient-primary: linear-gradient(135deg, hsl(119 70% 45%), hsl(36 100% 55%));
     
-    /* NEON GLOW Shadows - Electric effect */
-    --shadow-tech-sm: 0 2px 8px hsl(0 0% 0% / 0.5);
-    --shadow-tech-md: 0 4px 16px hsl(0 0% 0% / 0.6);
-    --shadow-tech-lg: 0 8px 32px hsl(0 0% 0% / 0.7);
-    --shadow-tech-xl: 0 16px 48px hsl(0 0% 0% / 0.8);
-    --shadow-glow-primary: 0 0 50px hsl(119 70% 45% / 0.6);
-    --shadow-glow-accent: 0 0 40px hsl(36 100% 55% / 0.6);
-    --shadow-inset: inset 0 1px 3px hsl(0 0% 0% / 0.5);
-    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.6);
-    --shadow-hover: 0 20px 40px -10px hsl(0 0% 0% / 0.7);
+    /* Neon Glow Shadows */
+    --shadow-tech-sm: 0 2px 8px hsl(0 0% 0% / 0.4);
+    --shadow-tech-md: 0 4px 16px hsl(0 0% 0% / 0.5);
+    --shadow-tech-lg: 0 8px 32px hsl(0 0% 0% / 0.6);
+    --shadow-tech-xl: 0 16px 48px hsl(0 0% 0% / 0.7);
+    --shadow-glow-primary: 0 0 40px hsl(119 70% 45% / 0.5);
+    --shadow-glow-accent: 0 0 32px hsl(36 100% 55% / 0.5);
+    --shadow-inset: inset 0 1px 3px hsl(0 0% 0% / 0.4);
+    --shadow-elegant: 0 8px 32px hsl(0 0% 0% / 0.5);
+    --shadow-hover: 0 16px 48px hsl(0 0% 0% / 0.6);
 
-    /* Shadcn Dark Variables - PURE BLACK theme */
-    --background: 220 60% 6%; /* Deep Black */
-    --foreground: 0 0% 100%; /* Pure White */
+    /* Shadcn Dark */
+    --background: 220 60% 6%;
+    --foreground: 0 0% 100%;
     --card: 220 50% 10%;
     --card-foreground: 0 0% 100%;
     --popover: 220 50% 10%;
     --popover-foreground: 0 0% 100%;
-    --primary: 119 70% 45%; /* Neon Green */
+    --primary: 119 70% 45%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 36 100% 55%; /* Vivid Orange */
+    --secondary: 36 100% 55%;
     --secondary-foreground: 0 0% 100%;
     --muted: 220 40% 15%;
-    --muted-foreground: 0 0% 70%;
-    --accent: 36 100% 55%; /* Vivid Orange */
+    --muted-foreground: 0 0% 65%;
+    --accent: 36 100% 55%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 100% 65%;
     --destructive-foreground: 0 0% 100%;
-    --border: 119 30% 18%; /* Green tint - NO BLUE */
+    --border: 119 25% 16%;
     --input: 220 40% 15%;
     --ring: 119 70% 45%;
     --sidebar-background: 220 55% 8%;
@@ -176,7 +174,7 @@
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 36 100% 55%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 119 30% 18%;
+    --sidebar-border: 119 25% 16%;
     --sidebar-ring: 119 70% 45%;
   }
 }
@@ -189,110 +187,95 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Poppins', system-ui, sans-serif;
+    font-feature-settings: "kern" 1, "liga" 1;
+    text-rendering: optimizeLegibility;
   }
 
-  /* Poppins Typography Hierarchy */
+  /* Premium Typography */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', system-ui, sans-serif;
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
   }
 
-  /* Tech Scrollbar - Green to Orange gradient */
+  h1 { font-weight: 700; letter-spacing: -0.03em; }
+
+  /* Elegant Scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
   
   ::-webkit-scrollbar-track {
-    background: hsl(var(--sport-background));
+    background: transparent;
   }
   
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
+    background: hsl(var(--sport-border));
     border-radius: 9999px;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    opacity: 0.8;
+    background: hsl(var(--sport-primary) / 0.5);
   }
 }
 
 @layer components {
-  /* Premium Glass Effect - Dark Neon style */
+  /* Premium Glass Effect - Anthropic style */
   .glass-effect {
-    background: hsl(var(--sport-card) / 0.9);
-    backdrop-filter: blur(20px);
-    border: 1px solid hsl(119 70% 45% / 0.15);
+    background: hsl(var(--sport-card) / 0.8);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid hsl(var(--sport-border) / 0.5);
   }
   
   .dark .glass-effect {
-    background: hsl(var(--sport-card) / 0.7);
-    backdrop-filter: blur(24px);
-    border: 1px solid hsl(119 70% 45% / 0.2);
-  }
-  
-  /* Premium Card Style - Neon Glow on dark */
-  .card-premium {
-    background: hsl(var(--card));
-    backdrop-filter: blur(20px);
-    border: 1px solid hsl(119 70% 45% / 0.1);
-    border-radius: 1.5rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .dark .card-premium {
-    background: hsl(220 50% 10% / 0.9);
+    background: hsl(var(--sport-card) / 0.6);
     border: 1px solid hsl(119 70% 45% / 0.15);
   }
   
+  /* Premium Card - Refined style */
+  .card-premium {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--sport-border));
+    border-radius: 1.25rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
   .card-premium:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 30px hsl(119 70% 45% / 0.2);
-    border-color: hsl(119 70% 45% / 0.3);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-tech-lg);
+    border-color: hsl(var(--sport-primary) / 0.3);
   }
   
-  /* NEON Glow Effects - Electric Green */
+  /* Refined Glow Effects */
   .glow-primary {
-    box-shadow: 0 0 40px hsl(119 70% 45% / 0.5), 0 0 80px hsl(119 70% 45% / 0.2);
+    box-shadow: 0 0 32px hsl(var(--sport-primary) / 0.3);
   }
   
-  /* NEON Glow Effects - Vivid Orange */
   .glow-accent {
-    box-shadow: 0 0 40px hsl(36 100% 55% / 0.5), 0 0 80px hsl(36 100% 55% / 0.2);
+    box-shadow: 0 0 32px hsl(var(--sport-accent) / 0.3);
   }
   
-  /* Neon Border Glow - Green */
   .border-glow-primary {
-    border: 2px solid hsl(119 70% 45%);
-    box-shadow: 0 0 25px hsl(119 70% 45% / 0.5), inset 0 0 25px hsl(119 70% 45% / 0.1);
+    border: 1px solid hsl(var(--sport-primary) / 0.4);
+    box-shadow: 0 0 20px hsl(var(--sport-primary) / 0.15);
   }
   
-  /* Neon Border Glow - Orange */
   .border-glow-accent {
-    border: 2px solid hsl(36 100% 55%);
-    box-shadow: 0 0 25px hsl(36 100% 55% / 0.5), inset 0 0 25px hsl(36 100% 55% / 0.1);
+    border: 1px solid hsl(var(--sport-accent) / 0.4);
+    box-shadow: 0 0 20px hsl(var(--sport-accent) / 0.15);
   }
   
-  /* Tech Animations */
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  .animate-pulse-slow {
-    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-  
-  .animate-bounce-slow {
-    animation: bounce 3s infinite;
-  }
-  
-  /* Tech Hover Effects */
+  /* Smooth Hover Effects */
   .hover-lift {
-    @apply transition-all duration-300 hover:-translate-y-2;
-    box-shadow: var(--shadow-tech-md);
+    @apply transition-all duration-500;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
   
   .hover-lift:hover {
-    box-shadow: var(--shadow-tech-xl);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-tech-lg);
   }
   
   .hover-glow:hover {
@@ -300,10 +283,15 @@
   }
   
   .hover-scale {
-    @apply transition-transform duration-300 hover:scale-105;
+    @apply transition-transform duration-500;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
   
-  /* Tech Gradients */
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Gradient Backgrounds */
   .bg-tech-gradient {
     background: linear-gradient(135deg, hsl(var(--sport-primary)), hsl(var(--sport-accent)));
   }
@@ -316,53 +304,54 @@
     background: var(--gradient-tech-card);
   }
   
-  /* Tech Borders */
+  /* Premium Borders */
   .border-tech {
     border: 1px solid hsl(var(--sport-border));
   }
   
   .border-tech-glow {
-    border: 1px solid hsl(var(--sport-primary) / 0.3);
-    box-shadow: 0 0 20px hsl(var(--sport-primary) / 0.2);
+    border: 1px solid hsl(var(--sport-primary) / 0.2);
+    box-shadow: 0 0 16px hsl(var(--sport-primary) / 0.1);
   }
 
-  /* Enhanced shadows and borders - Brand Green */
+  /* Elegant Shadows */
   .shadow-elegant {
-    box-shadow: 0 10px 40px -10px hsl(119 64% 32% / 0.2), 0 0 20px hsl(119 64% 32% / 0.1);
+    box-shadow: 0 4px 24px hsl(30 10% 15% / 0.08);
   }
   
   .dark .shadow-elegant {
-    box-shadow: 0 10px 40px -10px hsl(0 0% 0% / 0.5), 0 0 20px hsl(119 64% 50% / 0.15);
+    box-shadow: 0 8px 32px hsl(0 0% 0% / 0.4);
   }
 
   .shadow-hover {
-    box-shadow: 0 20px 60px -15px hsl(119 64% 32% / 0.3), 0 0 30px hsl(119 64% 32% / 0.2);
+    box-shadow: 0 12px 40px hsl(30 10% 15% / 0.12);
   }
   
   .dark .shadow-hover {
-    box-shadow: 0 20px 60px -15px hsl(0 0% 0% / 0.6), 0 0 30px hsl(119 64% 50% / 0.2);
+    box-shadow: 0 16px 48px hsl(0 0% 0% / 0.5);
   }
 
-  /* CTA Button with brand orange */
+  /* Premium CTA Button */
   .btn-cta {
     background: hsl(var(--sport-accent));
     color: white;
     font-weight: 600;
-    box-shadow: 0 4px 14px hsl(36 96% 55% / 0.4);
+    box-shadow: 0 4px 12px hsl(36 96% 55% / 0.3);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .btn-cta:hover {
-    box-shadow: 0 6px 20px hsl(36 96% 55% / 0.6);
+    box-shadow: 0 8px 24px hsl(36 96% 55% / 0.4);
     transform: translateY(-2px);
   }
 
-  /* Price Display - Orange */
+  /* Price Display */
   .price-highlight {
     color: hsl(var(--sport-accent));
     font-weight: 700;
   }
 
-  /* Sale Badge - Orange */
+  /* Sale Badge */
   .badge-sale {
     background: hsl(var(--sport-accent));
     color: white;
@@ -372,42 +361,120 @@
     font-size: 0.75rem;
   }
 
-  /* Smooth microinteractions */
+  /* Smooth Microinteractions */
   button, a, .interactive {
-    @apply transition-all duration-300 ease-out;
+    @apply transition-all duration-300;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   button:active, a:active, .interactive:active {
-    @apply scale-95;
+    transform: scale(0.98);
   }
 
-  /* Enhanced rounded corners */
-  .rounded-2xl {
-    border-radius: 1rem;
+  /* Text Animations */
+  .text-reveal {
+    animation: text-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(20px);
   }
 
-  .rounded-3xl {
-    border-radius: 1.5rem;
+  .text-reveal-delay-1 { animation-delay: 0.1s; }
+  .text-reveal-delay-2 { animation-delay: 0.2s; }
+  .text-reveal-delay-3 { animation-delay: 0.3s; }
+  .text-reveal-delay-4 { animation-delay: 0.4s; }
+
+  /* Floating Animation */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-slow {
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce-gentle 3s infinite;
+  }
+
+  /* Enhanced Corners */
+  .rounded-2xl { border-radius: 1rem; }
+  .rounded-3xl { border-radius: 1.5rem; }
+  .rounded-4xl { border-radius: 2rem; }
+
+  /* Underline Animation - OpenAI style */
+  .link-underline {
+    position: relative;
+    text-decoration: none;
+  }
+
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Feature Card - Anthropic style */
+  .feature-card {
+    background: hsl(var(--sport-surface));
+    border: 1px solid hsl(var(--sport-border));
+    border-radius: 1.25rem;
+    padding: 2rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .feature-card:hover {
+    background: hsl(var(--card));
+    border-color: hsl(var(--sport-primary) / 0.3);
+    box-shadow: var(--shadow-tech-md);
   }
 }
 
+/* Keyframes */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-16px); }
 }
 
-@keyframes matrix-rain {
-  0% { transform: translateY(-100%); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(100vh); opacity: 0; }
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes text-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes tech-pulse {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  50% { opacity: 0.6; }
 }
 
 @keyframes data-flow {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100vw); }
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
