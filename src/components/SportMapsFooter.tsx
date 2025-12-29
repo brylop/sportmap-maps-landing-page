@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Instagram, Facebook, MessageCircle } from "lucide-react";
+import { Mail, Instagram, Facebook, MessageCircle, Linkedin } from "lucide-react";
 
 export function SportMapsFooter() {
   return (
@@ -46,6 +46,15 @@ export function SportMapsFooter() {
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/company/spoortmaps" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-muted-foreground hover:text-sport-primary transition-colors" 
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
               </a>
             </div>
           </div>
