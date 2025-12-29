@@ -67,9 +67,11 @@ export function SportMapsFooter() {
               <FooterLink text="Casos de Éxito" href="/casos-exito" />
               <FooterLink text="Blog de Tecnología" href="/blog" />
               <FooterLink text="Centro de Ayuda" href="/ayuda" />
-              <Link to="/partners" className="inline-block mt-4 border border-sport-primary text-sport-primary hover:bg-sport-primary hover:text-white transition-colors h-9 px-4 rounded-md flex items-center justify-center text-sm font-medium">
-                Zona de Partners
-              </Link>
+              <li>
+                <Link to="/partners" className="inline-block mt-4 border border-sport-primary text-sport-primary hover:bg-sport-primary hover:text-white transition-colors h-9 px-4 rounded-md text-sm font-medium leading-9 text-center">
+                  Zona de Partners
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -91,12 +93,18 @@ export function SportMapsFooter() {
                 <Phone className="w-5 h-5 text-sport-primary shrink-0" />
                 <span>+57 (312) 846-3555</span>
               </li>
-              <li className="pt-4 border-t border-sport-border mt-2 flex flex-col gap-2">
-                 <FooterLink text="Política de Privacidad" href="/privacidad" isLegal />
-                 <FooterLink text="Términos y Condiciones" href="/terminos" isLegal />
-                 <FooterLink text="Tratamiento de Datos" href="/tratamiento-datos" isLegal />
-              </li>
             </ul>
+            <div className="pt-4 border-t border-sport-border mt-4 flex flex-col gap-2">
+              <Link to="/privacidad" className="text-sport-text-muted hover:text-sport-primary text-xs transition-colors hover:translate-x-1 inline-block">
+                Política de Privacidad
+              </Link>
+              <Link to="/terminos" className="text-sport-text-muted hover:text-sport-primary text-xs transition-colors hover:translate-x-1 inline-block">
+                Términos y Condiciones
+              </Link>
+              <Link to="/tratamiento-datos" className="text-sport-text-muted hover:text-sport-primary text-xs transition-colors hover:translate-x-1 inline-block">
+                Tratamiento de Datos
+              </Link>
+            </div>
           </div>
         </div>
 
