@@ -1,26 +1,34 @@
-import { SEOFooter } from "@/components/SEOFooter";
-import { SimpleHeader } from "@/components/SimpleHeader";
+import { SEO } from "@/components/SEO";
+import { TechHeader } from "@/components/TechHeader";
+import { SportMapsFooter } from "@/components/SportMapsFooter";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Card, CardContent } from "@/components/ui/card";
 import { FileText, Scale, AlertTriangle, CheckCircle, Users, ShieldCheck, Ban, HelpCircle } from "lucide-react";
 
 export default function TermsConditions() {
   return (
-    <div className="min-h-screen bg-sport-background text-sport-text-primary">
-      <SimpleHeader />
+    <div className="min-h-screen bg-background text-foreground">
+      <SEO 
+        title="Términos y Condiciones | SportMaps"
+        description="Términos y condiciones de uso de la plataforma SportMaps. Conoce tus derechos y obligaciones al usar nuestros servicios."
+        keywords="términos condiciones, condiciones uso, términos servicio, sportmaps legal"
+        canonical="https://sportmaps.co/terminos"
+      />
+      <TechHeader onSectionClick={() => {}} activeSection="" />
       
-      <main className="pt-20 pb-16">
+      <main className="pt-28 pb-16">
         <div className="max-w-4xl mx-auto px-4">
           {/* Header */}
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-4">
-              <div className="w-16 h-16 bg-gradient-tech-primary rounded-2xl flex items-center justify-center shadow-glow-primary">
+              <div className="w-16 h-16 bg-gradient-to-br from-sport-primary to-sport-accent rounded-2xl flex items-center justify-center shadow-lg">
                 <Scale className="w-8 h-8 text-white" />
               </div>
             </div>
-            <h1 className="text-4xl font-bold mb-4 bg-gradient-tech-primary bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold mb-4 text-sport-primary">
               Términos y Condiciones
             </h1>
-            <p className="text-sport-text-muted">
+            <p className="text-muted-foreground">
               Última actualización: {new Date().toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
           </div>
@@ -191,7 +199,8 @@ export default function TermsConditions() {
         </div>
       </main>
 
-      <SEOFooter />
+      <SportMapsFooter />
+      <WhatsAppButton />
     </div>
   );
 }
