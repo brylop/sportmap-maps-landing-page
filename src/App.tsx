@@ -5,6 +5,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { ChatBotButton } from "@/components/ChatBotButton";
 import Index from "./pages/Index";
 import Deportistas from "./pages/Deportistas";
 import Escuelas from "./pages/Escuelas";
@@ -64,6 +66,9 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          {/* Floating buttons - global */}
+          <WhatsAppButton />
+          <ChatBotButton />
         </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>
