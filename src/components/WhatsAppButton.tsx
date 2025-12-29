@@ -1,10 +1,39 @@
 import { MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
+
+const pageMessages: Record<string, string> = {
+  '/': 'Hola, me interesa conocer más sobre SportMaps',
+  '/deportistas': 'Hola, soy deportista y me gustaría saber más sobre cómo SportMaps puede ayudarme',
+  '/escuelas': 'Hola, tengo una escuela deportiva y quiero digitalizar mi gestión con SportMaps',
+  '/entrenadores': 'Hola, soy entrenador y me interesa la plataforma SportMaps para gestionar mis atletas',
+  '/bienestar': 'Hola, me interesa el módulo de bienestar y salud deportiva de SportMaps',
+  '/equipamiento': 'Hola, quiero información sobre equipamiento deportivo en SportMaps',
+  '/federaciones': 'Hola, represento una federación/liga y me interesa SportMaps para nuestra organización',
+  '/planes': 'Hola, quiero conocer los planes y precios de SportMaps',
+  '/marcas': 'Hola, tengo una marca deportiva y me interesa ser parte del marketplace de SportMaps',
+  '/proveedores': 'Hola, soy proveedor y quiero registrarme en el ecosistema SportMaps',
+  '/servicios': 'Hola, ofrezco servicios deportivos y me interesa unirme a SportMaps',
+  '/partners': 'Hola, me interesa ser partner de SportMaps',
+  '/blog': 'Hola, me gustaría saber más sobre SportMaps después de leer el blog',
+  '/casos-exito': 'Hola, vi los casos de éxito y quiero que mi organización también crezca con SportMaps',
+  '/ayuda': 'Hola, necesito ayuda con la plataforma SportMaps',
+  '/sobre-nosotros': 'Hola, me gustaría conocer más sobre el equipo de SportMaps',
+  '/privacidad': 'Hola, tengo consultas sobre la política de privacidad de SportMaps',
+  '/terminos': 'Hola, tengo consultas sobre los términos y condiciones de SportMaps',
+  '/tratamiento-datos': 'Hola, tengo consultas sobre el tratamiento de datos en SportMaps',
+};
 
 export function WhatsAppButton() {
+  const location = useLocation();
   const phoneNumber = '573128463555';
-  const message = encodeURIComponent('Hola, me interesa conocer más sobre SportMaps');
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+  
+  const getMessage = () => {
+    const path = location.pathname;
+    return pageMessages[path] || pageMessages['/'];
+  };
+  
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(getMessage())}`;
 
   return (
     <motion.a
