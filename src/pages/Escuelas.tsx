@@ -6,8 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { TechBackground } from "@/components/TechBackground";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
-import { SEOFooter } from "@/components/SEOFooter";
-import { DemoModal } from "@/components/DemoModal";
+import { SportMapsFooter } from "@/components/SportMapsFooter";
+import { DemoRequestModal } from "@/components/modals/DemoRequestModal";
 
 export default function Escuelas() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -258,8 +258,8 @@ export default function Escuelas() {
           </div>
         </section>
       </main>
-      <SEOFooter />
-      <DemoModal isOpen={isModalOpen} onClose={closeModal} />
+      <SportMapsFooter />
+      <DemoRequestModal isOpen={isModalOpen} onClose={closeModal} source="escuelas" />
     </div>
   );
 }
