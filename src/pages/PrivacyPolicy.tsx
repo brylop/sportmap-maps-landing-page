@@ -1,26 +1,34 @@
-import { SEOFooter } from "@/components/SEOFooter";
-import { SimpleHeader } from "@/components/SimpleHeader";
+import { SEO } from "@/components/SEO";
+import { TechHeader } from "@/components/TechHeader";
+import { SportMapsFooter } from "@/components/SportMapsFooter";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Card, CardContent } from "@/components/ui/card";
 import { Shield, Eye, Lock, Users, Mail, FileText, Clock, Globe } from "lucide-react";
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-sport-background text-sport-text-primary">
-      <SimpleHeader />
+    <div className="min-h-screen bg-background text-foreground">
+      <SEO 
+        title="Política de Privacidad | SportMaps"
+        description="Conoce cómo SportMaps protege tu privacidad y tus datos personales. Política de privacidad conforme a la Ley 1581 de 2012 de Colombia."
+        keywords="política privacidad, protección datos, privacidad sportmaps, datos personales, ley 1581"
+        canonical="https://sportmaps.co/privacidad"
+      />
+      <TechHeader onSectionClick={() => {}} activeSection="" />
       
-      <main className="pt-20 pb-16">
+      <main className="pt-28 pb-16">
         <div className="max-w-4xl mx-auto px-4">
           {/* Header */}
           <div className="text-center mb-12">
             <div className="flex items-center justify-center mb-4">
-              <div className="w-16 h-16 bg-gradient-tech-primary rounded-2xl flex items-center justify-center shadow-glow-primary">
+              <div className="w-16 h-16 bg-gradient-to-br from-sport-primary to-sport-accent rounded-2xl flex items-center justify-center shadow-lg">
                 <Shield className="w-8 h-8 text-white" />
               </div>
             </div>
-            <h1 className="text-4xl font-bold mb-4 bg-gradient-tech-primary bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold mb-4 text-sport-primary">
               Política de Privacidad
             </h1>
-            <p className="text-sport-text-muted">
+            <p className="text-muted-foreground">
               Última actualización: {new Date().toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
           </div>
@@ -176,7 +184,8 @@ export default function PrivacyPolicy() {
         </div>
       </main>
 
-      <SEOFooter />
+      <SportMapsFooter />
+      <WhatsAppButton />
     </div>
   );
 }
