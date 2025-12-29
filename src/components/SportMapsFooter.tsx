@@ -51,11 +51,11 @@ export function SportMapsFooter() {
           <div>
             <h3 className="text-foreground font-semibold text-lg mb-6">Soluciones</h3>
             <ul className="space-y-3">
-              <FooterLink text="Gestión para Escuelas" />
-              <FooterLink text="Entrenadores Pro" />
-              <FooterLink text="Perfil de Atleta" />
-              <FooterLink text="Marketplace Deportivo" />
-              <FooterLink text="Federaciones y Ligas" />
+              <FooterLink text="Gestión para Escuelas" href="/escuelas" />
+              <FooterLink text="Entrenadores Pro" href="/entrenadores" />
+              <FooterLink text="Perfil de Atleta" href="/deportistas" />
+              <FooterLink text="Marketplace Deportivo" href="/equipamiento" />
+              <FooterLink text="Federaciones y Ligas" href="/federaciones" />
             </ul>
           </div>
 
@@ -63,13 +63,13 @@ export function SportMapsFooter() {
           <div>
             <h3 className="text-foreground font-semibold text-lg mb-6">SportMaps Tech</h3>
             <ul className="space-y-3">
-              <FooterLink text="Sobre Nosotros" />
-              <FooterLink text="Casos de Éxito" />
-              <FooterLink text="Blog de Tecnología" />
-              <FooterLink text="Centro de Ayuda" />
-              <Button variant="outline" className="mt-4 border-sport-primary text-sport-primary hover:bg-sport-primary hover:text-white transition-colors h-9 px-4">
+              <FooterLink text="Sobre Nosotros" href="/sobre-nosotros" />
+              <FooterLink text="Casos de Éxito" href="/casos-exito" />
+              <FooterLink text="Blog de Tecnología" href="/blog" />
+              <FooterLink text="Centro de Ayuda" href="/ayuda" />
+              <a href="/partners" className="inline-block mt-4 border border-sport-primary text-sport-primary hover:bg-sport-primary hover:text-white transition-colors h-9 px-4 rounded-md flex items-center justify-center text-sm font-medium">
                 Zona de Partners
-              </Button>
+              </a>
             </ul>
           </div>
 
@@ -92,9 +92,9 @@ export function SportMapsFooter() {
                 <span>+57 (312) 846-3555</span>
               </li>
               <li className="pt-4 border-t border-sport-border mt-2 flex flex-col gap-2">
-                 <FooterLink text="Política de Privacidad" isLegal />
-                 <FooterLink text="Términos y Condiciones" isLegal />
-                 <FooterLink text="Tratamiento de Datos" isLegal />
+                 <FooterLink text="Política de Privacidad" href="/privacidad" isLegal />
+                 <FooterLink text="Términos y Condiciones" href="/terminos" isLegal />
+                 <FooterLink text="Tratamiento de Datos" href="/tratamiento-datos" isLegal />
               </li>
             </ul>
           </div>
@@ -116,11 +116,11 @@ export function SportMapsFooter() {
 }
 
 // Componentes auxiliares
-function FooterLink({ text, isLegal = false }: { text: string; isLegal?: boolean }) {
+function FooterLink({ text, href = "#", isLegal = false }: { text: string; href?: string; isLegal?: boolean }) {
   return (
     <li>
       <a 
-        href="#" 
+        href={href} 
         className={`transition-colors hover:translate-x-1 inline-block ${
           isLegal ? "text-sport-text-muted hover:text-sport-primary text-xs" : "hover:text-sport-primary"
         }`}
