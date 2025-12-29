@@ -12,9 +12,11 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { ChatBotModal } from "@/components/modals/ChatBotModal";
 
 const CentroAyuda = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
   const categories = [
     {
@@ -216,7 +218,7 @@ const CentroAyuda = () => {
                 <Button 
                   variant="outline" 
                   size="sm"
-                  onClick={() => window.open('https://wa.me/573128463555?text=' + encodeURIComponent('Hola, necesito ayuda con la plataforma SportMaps'), '_blank')}
+                  onClick={() => setIsChatOpen(true)}
                 >
                   Iniciar Chat
                 </Button>
@@ -260,6 +262,7 @@ const CentroAyuda = () => {
 
       <SportMapsFooter />
       <WhatsAppButton />
+      <ChatBotModal isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </div>
   );
 };
