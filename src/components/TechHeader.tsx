@@ -1,21 +1,25 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
-import { ContactModal } from "./modals/ContactModal"; // JoinTechModal eliminado
+import { ContactModal } from "./modals/ContactModal";
 import { Menu, X, Zap, MessageSquare, CreditCard, Users, Store } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface TechHeaderProps {
-  onSectionClick: (section: string) => void;
-  activeSection: string;
+  onSectionClick?: (section: string) => void;
+  activeSection?: string;
 }
 
-export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
+export function TechHeader({ onSectionClick, activeSection = "" }: TechHeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  // Menú simplificado y enfocado en tus clientes
+  const isHomePage = location.pathname === "/";
+
   const navItems = [
     { id: "ecosistema", label: "Soluciones", icon: <Users className="w-4 h-4" /> },
     { id: "precios", label: "Precios y Planes", icon: <CreditCard className="w-4 h-4" /> },
@@ -30,10 +34,30 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Función para ir a precios (La clave para vender)
-  const handleStartFree = () => {
-    onSectionClick("precios");
+  const handleNavClick = (sectionId: string) => {
     setIsMobileMenuOpen(false);
+    if (isHomePage && onSectionClick) {
+      onSectionClick(sectionId);
+    } else {
+      navigate(`/#${sectionId}`);
+    }
+  };
+
+  const handleLogoClick = () => {
+    if (isHomePage && onSectionClick) {
+      onSectionClick("inicio");
+    } else {
+      navigate("/");
+    }
+  };
+
+  const handleStartFree = () => {
+    setIsMobileMenuOpen(false);
+    if (isHomePage && onSectionClick) {
+      onSectionClick("precios");
+    } else {
+      navigate("/#precios");
+    }
   };
 
   return (
@@ -49,7 +73,7 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div 
-              onClick={() => onSectionClick("inicio")}
+              onClick={handleLogoClick}
               className="flex items-center space-x-3 cursor-pointer group"
             >
               <div className="relative">
@@ -70,7 +94,7 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => onSectionClick(item.id)}
+                  onClick={() => handleNavClick(item.id)}
                   className={`group flex items-center space-x-2 text-sm font-medium transition-all duration-300 relative ${
                     activeSection === item.id 
                       ? 'text-sport-primary' 
@@ -99,7 +123,6 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
                 Soporte
               </Button>
               
-              {/* BOTÓN CTA NARANJA: Lleva a Precios */}
               <Button
                 onClick={handleStartFree}
                 className="hidden sm:flex bg-gradient-to-r from-sport-primary to-sport-accent hover:shadow-glow-accent text-white px-6 py-2 rounded-full font-bold transition-all duration-300 hover:scale-105"
@@ -143,10 +166,7 @@ export function TechHeader({ onSectionClick, activeSection }: TechHeaderProps) {
                 {navItems.map((item) => (
                   <button
                     key={item.id}
-                    onClick={() => {
-                      onSectionClick(item.id);
-                      setIsMobileMenuOpen(false);
-                    }}
+                    onClick={() => handleNavClick(item.id)}
                     className={`w-full flex items-center space-x-3 p-3 rounded-lg text-left transition-all ${
                       activeSection === item.id 
                         ? 'bg-sport-primary/10 text-sport-primary font-semibold' 
