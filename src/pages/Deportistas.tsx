@@ -9,9 +9,11 @@ import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { DemoRequestModal } from "@/components/modals/DemoRequestModal";
+import { PlansSection } from "@/components/sections/Pricing/PlansSection";
 
 export default function Deportistas() {
   const [isDemoOpen, setIsDemoOpen] = useState(false);
+  const selectedClient = "atletas";
   return (
     <div className="min-h-screen bg-sport-background text-sport-text-primary">
       <SEO 
@@ -197,6 +199,9 @@ export default function Deportistas() {
             ))}
           </div>
         </section>
+
+        {/* Plans Section */}
+        <PlansSection selectedClient={selectedClient} />
 
         {/* CTA Section */}
         <section className="text-center bg-sport-card rounded-3xl p-8 border border-sport-border">

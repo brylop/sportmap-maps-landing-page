@@ -25,6 +25,9 @@ import TermsConditions from "./pages/TermsConditions";
 import StyleGuide from "./pages/StyleGuide";
 import NotFound from "./pages/NotFound";
 import Planes from "./pages/Planes";
+import Marcas from "./pages/Marcas";
+import Proveedores from "./pages/Proveedores";
+import Servicios from "./pages/Servicios";
 
 const queryClient = new QueryClient();
 
@@ -55,6 +58,9 @@ const App = () => (
             <Route path="/terminos" element={<TermsConditions />} />
             <Route path="/style-guide" element={<StyleGuide />} />
             <Route path="/planes" element={<Planes />} />
+            <Route path="/marcas" element={<Marcas />} />
+            <Route path="/proveedores" element={<Proveedores />} />
+            <Route path="/servicios" element={<Servicios />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
