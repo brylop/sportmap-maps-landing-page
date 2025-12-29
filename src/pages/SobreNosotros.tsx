@@ -36,10 +36,11 @@ const SobreNosotros = () => {
   ];
 
   const team = [
-    { role: "CEO & Founder", description: "Apasionado por la tecnología y el deporte" },
-    { role: "CTO", description: "Experto en desarrollo de plataformas escalables" },
-    { role: "COO", description: "Especialista en operaciones y crecimiento" },
-    { role: "Head of Product", description: "Enfocado en la experiencia del usuario" }
+    { name: "Brayan López", role: "Chief Executive Officer (CEO)", badge: "Co-Founder" },
+    { name: "Andrés Pardo", role: "Chief Technology Officer (CTO)", badge: "Co-Founder" },
+    { name: "Julián Gómez", role: "Chief Growth Officer (CGO)", badge: "Co-Founder" },
+    { name: "Maleja Duarte", role: "Marketing Director", badge: "Co-Founder" },
+    { name: "Sebastian Rodríguez", role: "Chief Commercial Officer (CCO)", badge: "" }
   ];
 
   return (
@@ -153,10 +154,10 @@ const SobreNosotros = () => {
               Profesionales apasionados por la tecnología y el deporte.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
             {team.map((member, index) => (
               <motion.div
-                key={member.role}
+                key={member.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -167,8 +168,13 @@ const SobreNosotros = () => {
                     <div className="w-20 h-20 rounded-full bg-gradient-to-br from-sport-primary to-sport-accent flex items-center justify-center mx-auto mb-4">
                       <Users className="w-10 h-10 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold mb-2">{member.role}</h3>
-                    <p className="text-sm text-muted-foreground">{member.description}</p>
+                    <h3 className="text-lg font-bold mb-1">{member.name}</h3>
+                    <p className="text-sm text-sport-primary font-medium mb-1">{member.role}</p>
+                    {member.badge && (
+                      <span className="inline-block text-xs bg-sport-primary/10 text-sport-primary px-2 py-1 rounded-full">
+                        {member.badge}
+                      </span>
+                    )}
                   </CardContent>
                 </Card>
               </motion.div>
