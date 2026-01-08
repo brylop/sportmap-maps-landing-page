@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { TechHeader } from "@/components/TechHeader";
-import { TechHeroSection } from "@/components/TechHeroSection";
+import { CompactHero } from "@/components/CompactHero";
+import { MapHeroSection } from "@/components/map/MapHeroSection";
 import { InteractiveFeatures } from "@/components/InteractiveFeatures";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import { PlansSection } from "@/components/sections/Pricing/PlansSection";
@@ -15,6 +16,7 @@ const Index = () => {
   const [activeSection, setActiveSection] = useState("inicio");
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [selectedClient, setSelectedClient] = useState("escuelas");
+  const mapSectionRef = useRef<HTMLDivElement>(null);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -27,9 +29,13 @@ const Index = () => {
     }
   };
 
+  const scrollToMap = () => {
+    mapSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["inicio", "ecosistema", "precios", "tienda"];
+      const sections = ["inicio", "mapa", "ecosistema", "precios", "tienda"];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -52,10 +58,17 @@ const Index = () => {
       />
 
       <main className="pt-16">
+        {/* Compact Hero with CTA to Map */}
         <div id="inicio">
-          <TechHeroSection onDemoClick={() => scrollToSection("precios")} />
+          <CompactHero onScrollToMap={scrollToMap} />
         </div>
 
+        {/* Interactive Map Section */}
+        <div id="mapa" ref={mapSectionRef}>
+          <MapHeroSection onScrollToFeatures={() => scrollToSection("ecosistema")} />
+        </div>
+
+        {/* Ecosystem Features */}
         <div id="ecosistema">
           <InteractiveFeatures 
             selectedClient={selectedClient}
@@ -64,6 +77,7 @@ const Index = () => {
           />
         </div>
 
+        {/* Pricing Section */}
         <div id="precios" className="py-10 scroll-mt-24">
           <PlansSection selectedClient={selectedClient} />
           <div className="mt-12">
@@ -71,10 +85,12 @@ const Index = () => {
           </div>
         </div>
 
+        {/* Store Section */}
         <div id="tienda" className="py-10 scroll-mt-24 container mx-auto px-4">
           <TiendaModule />
         </div>
 
+        {/* Testimonials */}
         <div className="py-10 bg-sport-surface/20">
           <TestimonialsCarousel />
         </div>

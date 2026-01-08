@@ -411,3 +411,26 @@
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100vw); }
 }
+
+/* Leaflet Map Customization */
+.leaflet-container {
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+.custom-div-icon {
+  background: transparent;
+  border: none;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.leaflet-popup-content {
+  margin: 0;
+}
+
+.dark .leaflet-tile {
+  filter: brightness(0.9) contrast(1.1);
+}
