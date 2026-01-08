@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { TechHeader } from "@/components/TechHeader";
-import { CompactHero } from "@/components/CompactHero";
+import { SegmentedHero } from "@/components/SegmentedHero";
 import { MapHeroSection } from "@/components/map/MapHeroSection";
 import { InteractiveFeatures } from "@/components/InteractiveFeatures";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
@@ -58,9 +58,9 @@ const Index = () => {
       />
 
       <main className="pt-16">
-        {/* Compact Hero with CTA to Map */}
+        {/* Segmented Hero with Role Selection */}
         <div id="inicio">
-          <CompactHero onScrollToMap={scrollToMap} />
+          <SegmentedHero onScrollToMap={scrollToMap} />
         </div>
 
         {/* Interactive Map Section */}
