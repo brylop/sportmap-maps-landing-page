@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-leaflet';
+import { useEffect, useRef, useState, useCallback } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap, Circle } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { 
@@ -8,9 +8,13 @@ import {
   defaultCenter, 
   defaultZoom,
   MapLocation,
-  SportRoute 
+  SportRoute,
+  cities,
+  findNearestCity,
+  getNearbyLocations
 } from '@/data/mapData';
-import { MapPin, GraduationCap, Users, MapIcon, Bike, PersonStanding, Mountain } from 'lucide-react';
+import { Navigation, Loader2 } from 'lucide-react';
+import { toast } from 'sonner';
 
 // Fix Leaflet default icon issue
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -26,7 +30,8 @@ const createCustomIcon = (type: string, color: string) => {
     academy: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M12 3L1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>`,
     court: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7m0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5"/></svg>`,
     trainer: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>`,
-    route: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M13.5 5.5c1.09 0 2-.92 2-2s-.91-2-2-2-2 .92-2 2 .91 2 2 2M9.89 19.38l1-4.38L13 17v6h2v-7.5l-2.11-2 .61-3A7.35 7.35 0 0 0 19 13v-2c-1.91 0-3.5-.74-4.55-1.95L13 7.5c-.3-.36-.78-.56-1.28-.5-.5.05-.93.28-1.2.63L8 11h.01L6 12l1 2 2.5-1.6-.36 3.8L6.5 21l1.5.77z"/></svg>`
+    route: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M13.5 5.5c1.09 0 2-.92 2-2s-.91-2-2-2-2 .92-2 2 .91 2 2 2M9.89 19.38l1-4.38L13 17v6h2v-7.5l-2.11-2 .61-3A7.35 7.35 0 0 0 19 13v-2c-1.91 0-3.5-.74-4.55-1.95L13 7.5c-.3-.36-.78-.56-1.28-.5-.5.05-.93.28-1.2.63L8 11h.01L6 12l1 2 2.5-1.6-.36 3.8L6.5 21l1.5.77z"/></svg>`,
+    user: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="8"/></svg>`
   };
 
   return L.divIcon({
@@ -40,13 +45,26 @@ const createCustomIcon = (type: string, color: string) => {
   });
 };
 
+// User location icon
+const createUserIcon = () => {
+  return L.divIcon({
+    html: `<div style="position: relative;">
+      <div style="background: #3b82f6; width: 20px; height: 20px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);"></div>
+      <div style="position: absolute; top: -5px; left: -5px; width: 30px; height: 30px; border-radius: 50%; border: 2px solid #3b82f6; opacity: 0.5; animation: pulse 2s infinite;"></div>
+    </div>`,
+    className: 'user-location-icon',
+    iconSize: [20, 20],
+    iconAnchor: [10, 10]
+  });
+};
+
 // Get color based on type
 const getTypeColor = (type: string): string => {
   switch (type) {
-    case 'academy': return '#248223'; // Sport primary green
-    case 'court': return '#FB9F1E'; // Sport accent orange
-    case 'trainer': return '#6366f1'; // Indigo for trainers
-    case 'route': return '#ec4899'; // Pink for routes
+    case 'academy': return '#248223';
+    case 'court': return '#FB9F1E';
+    case 'trainer': return '#6366f1';
+    case 'route': return '#ec4899';
     default: return '#248223';
   }
 };
@@ -54,9 +72,9 @@ const getTypeColor = (type: string): string => {
 // Route color based on type
 const getRouteColor = (type: string): string => {
   switch (type) {
-    case 'running': return '#ef4444'; // Red
-    case 'cycling': return '#22c55e'; // Green
-    case 'hiking': return '#f59e0b'; // Amber
+    case 'running': return '#ef4444';
+    case 'cycling': return '#22c55e';
+    case 'hiking': return '#f59e0b';
     default: return '#248223';
   }
 };
@@ -66,15 +84,27 @@ interface InteractiveMapProps {
   onRouteSelect?: (route: SportRoute | null) => void;
   selectedFilters?: string[];
   searchQuery?: string;
+  userLocation?: { lat: number; lng: number } | null;
+  onUserLocationChange?: (location: { lat: number; lng: number } | null) => void;
 }
 
-// Map controller component for external controls
-function MapController({ center, zoom }: { center: [number, number]; zoom: number }) {
+// Map controller for centering on user location
+function MapController({ 
+  userLocation, 
+  shouldCenter 
+}: { 
+  userLocation: { lat: number; lng: number } | null;
+  shouldCenter: boolean;
+}) {
   const map = useMap();
   
   useEffect(() => {
-    map.setView(center, zoom);
-  }, [center, zoom, map]);
+    if (userLocation && shouldCenter) {
+      map.flyTo([userLocation.lat, userLocation.lng], 13, {
+        duration: 1.5
+      });
+    }
+  }, [userLocation, shouldCenter, map]);
   
   return null;
 }
@@ -83,11 +113,70 @@ export function InteractiveMap({
   onLocationSelect, 
   onRouteSelect,
   selectedFilters = ['academy', 'court', 'trainer', 'route'],
-  searchQuery = ''
+  searchQuery = '',
+  userLocation,
+  onUserLocationChange
 }: InteractiveMapProps) {
   const mapRef = useRef<L.Map | null>(null);
-  const [activeLocation, setActiveLocation] = useState<MapLocation | null>(null);
-  const [activeRoute, setActiveRoute] = useState<SportRoute | null>(null);
+  const [isLocating, setIsLocating] = useState(false);
+  const [shouldCenterOnUser, setShouldCenterOnUser] = useState(false);
+  const [nearbyLocations, setNearbyLocations] = useState<MapLocation[]>([]);
+
+  // Request user's location
+  const requestLocation = useCallback(() => {
+    if (!navigator.geolocation) {
+      toast.error('Tu navegador no soporta geolocalización');
+      return;
+    }
+
+    setIsLocating(true);
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        const newLocation = { lat: latitude, lng: longitude };
+        onUserLocationChange?.(newLocation);
+        setShouldCenterOnUser(true);
+        
+        // Get nearby locations
+        const nearby = getNearbyLocations(latitude, longitude, 50);
+        setNearbyLocations(nearby);
+        
+        // Find nearest city
+        const nearestCity = findNearestCity(latitude, longitude);
+        const cityData = cities[nearestCity];
+        
+        toast.success(`📍 Ubicación encontrada cerca de ${cityData.name}`, {
+          description: `${nearby.length} lugares deportivos a menos de 50km`
+        });
+        
+        setIsLocating(false);
+        
+        // Reset center flag after a short delay
+        setTimeout(() => setShouldCenterOnUser(false), 2000);
+      },
+      (error) => {
+        setIsLocating(false);
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            toast.error('Permiso de ubicación denegado', {
+              description: 'Habilita la ubicación en tu navegador para ver lugares cercanos'
+            });
+            break;
+          case error.POSITION_UNAVAILABLE:
+            toast.error('Ubicación no disponible');
+            break;
+          case error.TIMEOUT:
+            toast.error('Tiempo de espera agotado');
+            break;
+        }
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 300000 // 5 minutes cache
+      }
+    );
+  }, [onUserLocationChange]);
 
   // Filter locations based on selected filters and search
   const filteredLocations = allMapLocations.filter(loc => {
@@ -95,7 +184,8 @@ export function InteractiveMap({
     const matchesSearch = searchQuery === '' || 
       loc.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       loc.sport.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      loc.description.toLowerCase().includes(searchQuery.toLowerCase());
+      loc.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      loc.city.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesFilter && matchesSearch;
   });
 
@@ -109,14 +199,10 @@ export function InteractiveMap({
     : [];
 
   const handleLocationClick = (location: MapLocation) => {
-    setActiveLocation(location);
-    setActiveRoute(null);
     onLocationSelect?.(location);
   };
 
   const handleRouteClick = (route: SportRoute) => {
-    setActiveRoute(route);
-    setActiveLocation(null);
     onRouteSelect?.(route);
   };
 
@@ -130,11 +216,44 @@ export function InteractiveMap({
         zoomControl={false}
         attributionControl={false}
       >
-        {/* Dark theme tile layer */}
         <TileLayer
           url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
           className="map-tiles"
         />
+
+        <MapController 
+          userLocation={userLocation} 
+          shouldCenter={shouldCenterOnUser} 
+        />
+
+        {/* User location marker */}
+        {userLocation && (
+          <>
+            <Circle
+              center={[userLocation.lat, userLocation.lng]}
+              radius={500}
+              pathOptions={{
+                color: '#3b82f6',
+                fillColor: '#3b82f6',
+                fillOpacity: 0.1,
+                weight: 2
+              }}
+            />
+            <Marker
+              position={[userLocation.lat, userLocation.lng]}
+              icon={createUserIcon()}
+            >
+              <Popup>
+                <div className="p-2 text-center">
+                  <p className="font-bold text-sm">📍 Tu ubicación</p>
+                  <p className="text-xs text-gray-600">
+                    {nearbyLocations.length} lugares cerca
+                  </p>
+                </div>
+              </Popup>
+            </Marker>
+          </>
+        )}
 
         {/* Location markers */}
         {filteredLocations.map((location) => (
@@ -149,6 +268,7 @@ export function InteractiveMap({
             <Popup className="custom-popup">
               <div className="p-2 min-w-[200px]">
                 <h3 className="font-bold text-sm">{location.name}</h3>
+                <p className="text-xs text-gray-500">{location.city}</p>
                 <p className="text-xs text-gray-600">{location.sport}</p>
                 <p className="text-xs mt-1">{location.description}</p>
                 {location.rating && (
@@ -183,6 +303,7 @@ export function InteractiveMap({
             <Popup className="custom-popup">
               <div className="p-2 min-w-[180px]">
                 <h3 className="font-bold text-sm">{route.name}</h3>
+                <p className="text-xs text-gray-500">{route.city}</p>
                 <div className="flex items-center gap-2 mt-1">
                   <span className="text-xs bg-gray-100 px-2 py-0.5 rounded">{route.distance}</span>
                   <span className={`text-xs px-2 py-0.5 rounded ${
@@ -195,9 +316,6 @@ export function InteractiveMap({
                   </span>
                 </div>
                 <p className="text-xs mt-1">{route.description}</p>
-                {route.elevation && (
-                  <p className="text-xs text-gray-500 mt-1">↗ {route.elevation}</p>
-                )}
               </div>
             </Popup>
           </Polyline>
@@ -249,8 +367,25 @@ export function InteractiveMap({
         </div>
       </div>
 
-      {/* Zoom Controls */}
+      {/* Controls */}
       <div className="absolute top-4 right-4 flex flex-col gap-2 z-[1000]">
+        {/* Geolocation Button */}
+        <button 
+          onClick={requestLocation}
+          disabled={isLocating}
+          className={`w-10 h-10 glass-effect rounded-lg flex items-center justify-center transition-colors ${
+            userLocation ? 'bg-blue-500/20 text-blue-500' : 'hover:bg-sport-primary/20'
+          } ${isLocating ? 'animate-pulse' : ''}`}
+          title="Encontrar mi ubicación"
+        >
+          {isLocating ? (
+            <Loader2 className="w-5 h-5 animate-spin" />
+          ) : (
+            <Navigation className="w-5 h-5" />
+          )}
+        </button>
+        
+        {/* Zoom Controls */}
         <button 
           onClick={() => mapRef.current?.zoomIn()}
           className="w-10 h-10 glass-effect rounded-lg flex items-center justify-center text-lg font-bold hover:bg-sport-primary/20 transition-colors"
