@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { TechHeader } from "@/components/TechHeader";
-import { TechHeroSection } from "@/components/TechHeroSection";
+import { MapHeroSection } from "@/components/map/MapHeroSection";
 import { InteractiveFeatures } from "@/components/InteractiveFeatures";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import { PlansSection } from "@/components/sections/Pricing/PlansSection";
@@ -10,10 +10,12 @@ import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { ContactModal } from "@/components/modals/ContactModal";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { TiendaModule } from "@/components/modules/TiendaModule";
+import { EscuelasRegistroModal } from "@/components/modals/EscuelasRegistroModal";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("inicio");
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [selectedClient, setSelectedClient] = useState("escuelas");
 
   const scrollToSection = (sectionId: string) => {
@@ -53,7 +55,10 @@ const Index = () => {
 
       <main className="pt-16">
         <div id="inicio">
-          <TechHeroSection onDemoClick={() => scrollToSection("precios")} />
+          <MapHeroSection 
+            onDemoClick={() => scrollToSection("ecosistema")} 
+            onRegisterClick={() => setIsRegisterOpen(true)}
+          />
         </div>
 
         <div id="ecosistema">
@@ -85,6 +90,10 @@ const Index = () => {
       <ContactModal 
         isOpen={isContactOpen} 
         onClose={() => setIsContactOpen(false)} 
+      />
+      <EscuelasRegistroModal
+        isOpen={isRegisterOpen}
+        onClose={() => setIsRegisterOpen(false)}
       />
       <WhatsAppButton />
       <Toaster />
