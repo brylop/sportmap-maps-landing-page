@@ -7,6 +7,7 @@ export interface MapLocation {
   sport: string;
   lat: number;
   lng: number;
+  city: string;
   description: string;
   rating?: number;
   address?: string;
@@ -27,6 +28,16 @@ export interface SportRoute {
   elevation?: string;
 }
 
+// Ciudades disponibles con sus coordenadas
+export const cities = {
+  bogota: { name: 'Bogotá', lat: 4.6486, lng: -74.0628, zoom: 12 },
+  medellin: { name: 'Medellín', lat: 6.2442, lng: -75.5812, zoom: 12 },
+  cali: { name: 'Cali', lat: 3.4372, lng: -76.5225, zoom: 12 },
+  barranquilla: { name: 'Barranquilla', lat: 10.9685, lng: -74.7813, zoom: 12 },
+  bucaramanga: { name: 'Bucaramanga', lat: 7.1254, lng: -73.1198, zoom: 12 },
+  cartagena: { name: 'Cartagena', lat: 10.3910, lng: -75.4794, zoom: 12 },
+};
+
 // Academias y escuelas deportivas reales
 export const academies: MapLocation[] = [
   // Bogotá
@@ -37,6 +48,7 @@ export const academies: MapLocation[] = [
     sport: 'Fútbol',
     lat: 4.6865,
     lng: -74.0468,
+    city: 'Bogotá',
     description: 'Academia de alto rendimiento con metodología europea',
     rating: 4.8,
     address: 'Calle 127 #15-20, Usaquén',
@@ -50,6 +62,7 @@ export const academies: MapLocation[] = [
     sport: 'Fútbol',
     lat: 4.6241,
     lng: -74.0817,
+    city: 'Bogotá',
     description: 'Escuela oficial del club profesional',
     rating: 4.9,
     address: 'Av. 68 #49-10, Estadio El Campín',
@@ -63,6 +76,7 @@ export const academies: MapLocation[] = [
     sport: 'Tenis',
     lat: 4.6680,
     lng: -74.0544,
+    city: 'Bogotá',
     description: 'Formación integral en tenis desde los 5 años',
     rating: 4.7,
     address: 'Club El Nogal, Calle 78',
@@ -76,6 +90,7 @@ export const academies: MapLocation[] = [
     sport: 'Natación',
     lat: 4.6097,
     lng: -74.0657,
+    city: 'Bogotá',
     description: 'Centro acuático con piscina olímpica',
     rating: 4.6,
     address: 'Centro Internacional, Calle 26',
@@ -90,6 +105,7 @@ export const academies: MapLocation[] = [
     sport: 'Fútbol',
     lat: 6.2567,
     lng: -75.5905,
+    city: 'Medellín',
     description: 'Semillero del club campeón de América',
     rating: 4.9,
     address: 'Estadio Atanasio Girardot',
@@ -103,6 +119,7 @@ export const academies: MapLocation[] = [
     sport: 'Gimnasia',
     lat: 6.2442,
     lng: -75.5812,
+    city: 'Medellín',
     description: 'Centro de alto rendimiento en gimnasia',
     rating: 4.8,
     address: 'Unidad Deportiva Atanasio Girardot',
@@ -117,6 +134,7 @@ export const academies: MapLocation[] = [
     sport: 'Fútbol',
     lat: 3.4186,
     lng: -76.5227,
+    city: 'Cali',
     description: 'Cantera del club caleño',
     rating: 4.7,
     address: 'Sede Deportiva Pance',
@@ -130,11 +148,141 @@ export const academies: MapLocation[] = [
     sport: 'Baile',
     lat: 3.4372,
     lng: -76.5225,
+    city: 'Cali',
     description: 'Academia de salsa y baile fitness',
     rating: 4.9,
     address: 'Granada, Cali',
     phone: '+57 319 012 3456',
     price: 'Desde $120.000/mes'
+  },
+  // Barranquilla
+  {
+    id: 'acad-9',
+    name: 'Junior FC Escuela de Fútbol',
+    type: 'academy',
+    sport: 'Fútbol',
+    lat: 10.9639,
+    lng: -74.7964,
+    city: 'Barranquilla',
+    description: 'Escuela oficial del Junior de Barranquilla',
+    rating: 4.8,
+    address: 'Estadio Metropolitano Roberto Meléndez',
+    phone: '+57 305 111 2233',
+    price: 'Desde $170.000/mes'
+  },
+  {
+    id: 'acad-10',
+    name: 'Academia de Béisbol Caribe',
+    type: 'academy',
+    sport: 'Béisbol',
+    lat: 10.9756,
+    lng: -74.7889,
+    city: 'Barranquilla',
+    description: 'Formación profesional en béisbol desde los 6 años',
+    rating: 4.7,
+    address: 'Estadio Édgar Rentería',
+    phone: '+57 301 222 3344',
+    price: 'Desde $140.000/mes'
+  },
+  {
+    id: 'acad-11',
+    name: 'Escuela de Voleibol Costa Atlántica',
+    type: 'academy',
+    sport: 'Voleibol',
+    lat: 10.9812,
+    lng: -74.8012,
+    city: 'Barranquilla',
+    description: 'Centro de entrenamiento de voleibol de playa y sala',
+    rating: 4.6,
+    address: 'Coliseo Humberto Perea',
+    phone: '+57 302 333 4455',
+    price: 'Desde $130.000/mes'
+  },
+  // Bucaramanga
+  {
+    id: 'acad-12',
+    name: 'Atlético Bucaramanga Escuela',
+    type: 'academy',
+    sport: 'Fútbol',
+    lat: 7.1192,
+    lng: -73.1228,
+    city: 'Bucaramanga',
+    description: 'Academia oficial del club Atlético Bucaramanga',
+    rating: 4.7,
+    address: 'Estadio Alfonso López',
+    phone: '+57 315 444 5566',
+    price: 'Desde $150.000/mes'
+  },
+  {
+    id: 'acad-13',
+    name: 'Academia de Patinaje Santander',
+    type: 'academy',
+    sport: 'Patinaje',
+    lat: 7.1156,
+    lng: -73.1089,
+    city: 'Bucaramanga',
+    description: 'Centro de alto rendimiento en patinaje de velocidad',
+    rating: 4.9,
+    address: 'Parque del Agua',
+    phone: '+57 316 555 6677',
+    price: 'Desde $160.000/mes'
+  },
+  {
+    id: 'acad-14',
+    name: 'Club de Tenis Mesa Santander',
+    type: 'academy',
+    sport: 'Tenis de Mesa',
+    lat: 7.1298,
+    lng: -73.1156,
+    city: 'Bucaramanga',
+    description: 'Formación deportiva y competitiva en tenis de mesa',
+    rating: 4.5,
+    address: 'Coliseo Vicente Díaz Romero',
+    phone: '+57 317 666 7788',
+    price: 'Desde $100.000/mes'
+  },
+  // Cartagena
+  {
+    id: 'acad-15',
+    name: 'Real Cartagena FC Academy',
+    type: 'academy',
+    sport: 'Fútbol',
+    lat: 10.4195,
+    lng: -75.5329,
+    city: 'Cartagena',
+    description: 'Escuela de formación del Real Cartagena',
+    rating: 4.6,
+    address: 'Estadio Jaime Morón León',
+    phone: '+57 300 777 8899',
+    price: 'Desde $140.000/mes'
+  },
+  {
+    id: 'acad-16',
+    name: 'Academia de Boxeo Cartagena',
+    type: 'academy',
+    sport: 'Boxeo',
+    lat: 10.3978,
+    lng: -75.4912,
+    city: 'Cartagena',
+    description: 'Cuna de campeones mundiales de boxeo',
+    rating: 4.9,
+    address: 'Barrio Getsemaní',
+    phone: '+57 301 888 9900',
+    price: 'Desde $100.000/mes'
+  },
+  {
+    id: 'acad-17',
+    name: 'Escuela Náutica del Caribe',
+    type: 'academy',
+    sport: 'Vela/Kayak',
+    lat: 10.4023,
+    lng: -75.5512,
+    city: 'Cartagena',
+    description: 'Deportes acuáticos en la bahía de Cartagena',
+    rating: 4.8,
+    address: 'Club Náutico de Cartagena',
+    phone: '+57 302 999 0011',
+    price: 'Desde $250.000/mes'
   }
 ];
 
@@ -148,6 +296,7 @@ export const courts: MapLocation[] = [
     sport: 'Fútbol',
     lat: 4.7110,
     lng: -74.0721,
+    city: 'Bogotá',
     description: 'Complejo de 4 canchas sintéticas con iluminación LED',
     rating: 4.5,
     address: 'Calle 170 #45-20, Suba',
@@ -161,6 +310,7 @@ export const courts: MapLocation[] = [
     sport: 'Tenis/Padel',
     lat: 4.6762,
     lng: -74.0340,
+    city: 'Bogotá',
     description: '6 canchas de tenis y 4 de pádel',
     rating: 4.7,
     address: 'Carrera 7 #116-50',
@@ -174,6 +324,7 @@ export const courts: MapLocation[] = [
     sport: 'Múltiples',
     lat: 4.6576,
     lng: -74.0934,
+    city: 'Bogotá',
     description: 'Complejo deportivo público con múltiples disciplinas',
     rating: 4.3,
     address: 'Parque Simón Bolívar',
@@ -188,6 +339,7 @@ export const courts: MapLocation[] = [
     sport: 'Fútbol',
     lat: 6.2456,
     lng: -75.5867,
+    city: 'Medellín',
     description: 'Canchas sintéticas de última generación',
     rating: 4.6,
     address: 'Laureles, Medellín',
@@ -202,16 +354,91 @@ export const courts: MapLocation[] = [
     sport: 'Natación',
     lat: 3.4123,
     lng: -76.5389,
+    city: 'Cali',
     description: 'Complejo acuático de los Juegos Panamericanos',
     rating: 4.8,
     address: 'Calle 9 #34-01',
     phone: '+57 317 567 8901',
     price: '$15.000/ingreso'
+  },
+  // Barranquilla
+  {
+    id: 'court-6',
+    name: 'Canchas Sintéticas La Castellana',
+    type: 'court',
+    sport: 'Fútbol',
+    lat: 10.9823,
+    lng: -74.8134,
+    city: 'Barranquilla',
+    description: 'Complejo con 6 canchas sintéticas profesionales',
+    rating: 4.7,
+    address: 'La Castellana, Barranquilla',
+    phone: '+57 300 111 2222',
+    price: '$110.000/hora'
+  },
+  {
+    id: 'court-7',
+    name: 'Centro Acuático Metropolitano',
+    type: 'court',
+    sport: 'Natación',
+    lat: 10.9567,
+    lng: -74.7923,
+    city: 'Barranquilla',
+    description: 'Piscina olímpica de los Juegos Centroamericanos',
+    rating: 4.8,
+    address: 'Villa Olímpica',
+    phone: '+57 301 222 3333',
+    price: '$20.000/ingreso'
+  },
+  // Bucaramanga
+  {
+    id: 'court-8',
+    name: 'Canchas del Parque del Agua',
+    type: 'court',
+    sport: 'Múltiples',
+    lat: 7.1134,
+    lng: -73.1078,
+    city: 'Bucaramanga',
+    description: 'Canchas múltiples en el mejor parque de la ciudad',
+    rating: 4.6,
+    address: 'Parque del Agua',
+    phone: '+57 315 333 4444',
+    price: '$90.000/hora'
+  },
+  // Cartagena
+  {
+    id: 'court-9',
+    name: 'Centro Deportivo Mamonal',
+    type: 'court',
+    sport: 'Múltiples',
+    lat: 10.3567,
+    lng: -75.5123,
+    city: 'Cartagena',
+    description: 'Complejo deportivo con canchas de fútbol, tenis y básquet',
+    rating: 4.5,
+    address: 'Zona Industrial Mamonal',
+    phone: '+57 300 444 5555',
+    price: '$100.000/hora'
+  },
+  {
+    id: 'court-10',
+    name: 'Club de Playa Bocagrande',
+    type: 'court',
+    sport: 'Voleibol Playa',
+    lat: 10.3989,
+    lng: -75.5567,
+    city: 'Cartagena',
+    description: 'Canchas de voleibol de playa frente al mar',
+    rating: 4.9,
+    address: 'Bocagrande, Cartagena',
+    phone: '+57 301 555 6666',
+    price: '$60.000/hora'
   }
 ];
 
 // Entrenadores independientes
 export const trainers: MapLocation[] = [
+  // Bogotá
   {
     id: 'trainer-1',
     name: 'Carlos Mendoza - Personal Trainer',
@@ -219,6 +446,7 @@ export const trainers: MapLocation[] = [
     sport: 'Fitness',
     lat: 4.6723,
     lng: -74.0589,
+    city: 'Bogotá',
     description: 'Especialista en transformación corporal y nutrición deportiva',
     rating: 4.9,
     address: 'Chapinero, Bogotá',
@@ -232,12 +460,14 @@ export const trainers: MapLocation[] = [
     sport: 'Yoga',
     lat: 4.6489,
     lng: -74.0628,
+    city: 'Bogotá',
     description: 'Instructora certificada Yoga Alliance 500hrs',
     rating: 4.8,
     address: 'Teusaquillo, Bogotá',
     phone: '+57 301 222 3333',
     price: '$60.000/clase'
   },
+  // Medellín
   {
     id: 'trainer-3',
     name: 'Andrés Gómez - Running Coach',
@@ -245,12 +475,14 @@ export const trainers: MapLocation[] = [
     sport: 'Running',
     lat: 6.2512,
     lng: -75.5634,
+    city: 'Medellín',
     description: 'Coach de maratón con experiencia internacional',
     rating: 4.7,
     address: 'El Poblado, Medellín',
     phone: '+57 302 333 4444',
     price: '$100.000/mes'
   },
+  // Cali
   {
     id: 'trainer-4',
     name: 'Laura Vargas - CrossFit',
@@ -258,11 +490,85 @@ export const trainers: MapLocation[] = [
     sport: 'CrossFit',
     lat: 3.4298,
     lng: -76.5412,
+    city: 'Cali',
     description: 'Coach Level 2 CrossFit certificada',
     rating: 4.6,
     address: 'Ciudad Jardín, Cali',
     phone: '+57 303 444 5555',
     price: '$150.000/mes'
+  },
+  // Barranquilla
+  {
+    id: 'trainer-5',
+    name: 'Roberto Herrera - Béisbol',
+    type: 'trainer',
+    sport: 'Béisbol',
+    lat: 10.9712,
+    lng: -74.7845,
+    city: 'Barranquilla',
+    description: 'Ex jugador profesional, especialista en bateo y pitcheo',
+    rating: 4.8,
+    address: 'Norte Centro Histórico',
+    phone: '+57 304 555 6666',
+    price: '$90.000/sesión'
+  },
+  {
+    id: 'trainer-6',
+    name: 'Ana María Polo - Natación',
+    type: 'trainer',
+    sport: 'Natación',
+    lat: 10.9634,
+    lng: -74.7912,
+    city: 'Barranquilla',
+    description: 'Ex nadadora olímpica, técnica de natación para todas las edades',
+    rating: 4.9,
+    address: 'Riomar, Barranquilla',
+    phone: '+57 305 666 7777',
+    price: '$70.000/clase'
+  },
+  // Bucaramanga
+  {
+    id: 'trainer-7',
+    name: 'Diego Patiño - Patinaje',
+    type: 'trainer',
+    sport: 'Patinaje',
+    lat: 7.1178,
+    lng: -73.1112,
+    city: 'Bucaramanga',
+    description: 'Campeón nacional de patinaje, técnicas avanzadas',
+    rating: 4.9,
+    address: 'Cabecera del Llano',
+    phone: '+57 316 777 8888',
+    price: '$85.000/sesión'
+  },
+  // Cartagena
+  {
+    id: 'trainer-8',
+    name: 'Miguel Ángel Barrios - Boxeo',
+    type: 'trainer',
+    sport: 'Boxeo',
+    lat: 10.4012,
+    lng: -75.4978,
+    city: 'Cartagena',
+    description: 'Ex campeón nacional, entrenador de boxeo olímpico',
+    rating: 4.9,
+    address: 'Getsemaní, Cartagena',
+    phone: '+57 300 888 9999',
+    price: '$70.000/sesión'
+  },
+  {
+    id: 'trainer-9',
+    name: 'Sandra Milena - Fitness Playa',
+    type: 'trainer',
+    sport: 'Fitness',
+    lat: 10.3945,
+    lng: -75.5534,
+    city: 'Cartagena',
+    description: 'Entrenamientos funcionales en la playa',
+    rating: 4.7,
+    address: 'Bocagrande, Cartagena',
+    phone: '+57 301 999 0000',
+    price: '$60.000/sesión'
   }
 ];
 
@@ -388,6 +694,111 @@ export const sportRoutes: SportRoute[] = [
     ],
     description: 'Ascenso al monumento Cristo Rey',
     elevation: '350m desnivel'
+  },
+  // Barranquilla
+  {
+    id: 'route-8',
+    name: 'Running Malecón del Río',
+    type: 'running',
+    distance: '8 km',
+    difficulty: 'easy',
+    city: 'Barranquilla',
+    coordinates: [
+      [10.9756, -74.7812],
+      [10.9712, -74.7856],
+      [10.9667, -74.7901],
+      [10.9623, -74.7945],
+      [10.9578, -74.7989]
+    ],
+    description: 'Ruta panorámica a lo largo del río Magdalena',
+    elevation: '15m desnivel'
+  },
+  {
+    id: 'route-9',
+    name: 'Cicloruta Vía 40',
+    type: 'cycling',
+    distance: '12 km',
+    difficulty: 'easy',
+    city: 'Barranquilla',
+    coordinates: [
+      [10.9934, -74.7756],
+      [10.9867, -74.7812],
+      [10.9789, -74.7867],
+      [10.9712, -74.7923],
+      [10.9634, -74.7978]
+    ],
+    description: 'Ciclovía principal de la ciudad',
+    elevation: '20m desnivel'
+  },
+  // Bucaramanga
+  {
+    id: 'route-10',
+    name: 'Senderismo Mesa de los Santos',
+    type: 'hiking',
+    distance: '10 km',
+    difficulty: 'hard',
+    city: 'Bucaramanga',
+    coordinates: [
+      [6.8923, -73.0945],
+      [6.8867, -73.0889],
+      [6.8812, -73.0834],
+      [6.8756, -73.0778],
+      [6.8701, -73.0723]
+    ],
+    description: 'Sendero con vistas panorámicas del cañón del Chicamocha',
+    elevation: '600m desnivel'
+  },
+  {
+    id: 'route-11',
+    name: 'Running Parque del Agua',
+    type: 'running',
+    distance: '5 km',
+    difficulty: 'easy',
+    city: 'Bucaramanga',
+    coordinates: [
+      [7.1134, -73.1078],
+      [7.1167, -73.1045],
+      [7.1189, -73.1012],
+      [7.1156, -73.0989],
+      [7.1134, -73.1078]
+    ],
+    description: 'Circuito ideal para correr en familia',
+    elevation: '25m desnivel'
+  },
+  // Cartagena
+  {
+    id: 'route-12',
+    name: 'Running Murallas Históricas',
+    type: 'running',
+    distance: '7 km',
+    difficulty: 'easy',
+    city: 'Cartagena',
+    coordinates: [
+      [10.4234, -75.5478],
+      [10.4267, -75.5423],
+      [10.4212, -75.5367],
+      [10.4156, -75.5312],
+      [10.4189, -75.5389]
+    ],
+    description: 'Ruta histórica por las murallas de la ciudad amurallada',
+    elevation: '10m desnivel'
+  },
+  {
+    id: 'route-13',
+    name: 'Cicloruta Bocagrande - La Boquilla',
+    type: 'cycling',
+    distance: '15 km',
+    difficulty: 'easy',
+    city: 'Cartagena',
+    coordinates: [
+      [10.3989, -75.5567],
+      [10.4123, -75.5423],
+      [10.4256, -75.5289],
+      [10.4389, -75.5145],
+      [10.4523, -75.5012]
+    ],
+    description: 'Ruta costera con vistas al mar Caribe',
+    elevation: '5m desnivel'
   }
 ];
 
@@ -404,9 +815,49 @@ export const mapStats = {
   courts: courts.length,
   trainers: trainers.length,
   routes: sportRoutes.length,
-  cities: 3
+  cities: Object.keys(cities).length
 };
 
-// Centro del mapa (Bogotá)
-export const defaultCenter: [number, number] = [4.6486, -74.0628];
-export const defaultZoom = 12;
+// Centro del mapa (Colombia vista general)
+export const defaultCenter: [number, number] = [6.2442, -74.5];
+export const defaultZoom = 6;
+
+// Función para calcular distancia entre dos puntos (fórmula de Haversine)
+export function calculateDistance(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const R = 6371; // Radio de la Tierra en km
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLng = (lng2 - lng1) * Math.PI / 180;
+  const a = 
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+    Math.sin(dLng/2) * Math.sin(dLng/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  return R * c;
+}
+
+// Función para obtener ubicaciones cercanas
+export function getNearbyLocations(userLat: number, userLng: number, maxDistance: number = 50): MapLocation[] {
+  return allMapLocations
+    .map(loc => ({
+      ...loc,
+      distance: calculateDistance(userLat, userLng, loc.lat, loc.lng)
+    }))
+    .filter(loc => loc.distance <= maxDistance)
+    .sort((a, b) => a.distance - b.distance);
+}
+
+// Función para encontrar la ciudad más cercana
+export function findNearestCity(userLat: number, userLng: number): keyof typeof cities {
+  let nearestCity: keyof typeof cities = 'bogota';
+  let minDistance = Infinity;
+
+  for (const [key, city] of Object.entries(cities)) {
+    const distance = calculateDistance(userLat, userLng, city.lat, city.lng);
+    if (distance < minDistance) {
+      minDistance = distance;
+      nearestCity = key as keyof typeof cities;
+    }
+  }
+
+  return nearestCity;
+}
