@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 export interface RolePricingData {
   role: 'escuelas' | 'entrenadores' | 'atletas' | 'marcas' | 'federaciones' | 'proveedores' | 'servicios';
@@ -149,8 +150,34 @@ function formatPrice(price: number): string {
 
 export function RolePricingCard({ data, onCTA, className = '' }: RolePricingCardProps) {
   const [isAnnual, setIsAnnual] = useState(false);
+  const { trackBillingToggle, trackPlanClick, trackPricingView } = useAnalytics();
   
   const displayPrice = isAnnual ? data.annualPrice : data.monthlyPrice;
+
+  // Track section view on mount
+  useEffect(() => {
+    trackPricingView(data.role);
+  }, [data.role]);
+
+  const handleToggle = () => {
+    const newIsAnnual = !isAnnual;
+    trackBillingToggle({
+      role: data.role,
+      from: isAnnual ? 'annual' : 'monthly',
+      to: newIsAnnual ? 'annual' : 'monthly',
+    });
+    setIsAnnual(newIsAnnual);
+  };
+
+  const handleCTAClick = () => {
+    trackPlanClick({
+      role: data.role,
+      plan_name: data.title,
+      billing_period: isAnnual ? 'annual' : 'monthly',
+      price: displayPrice,
+    });
+    onCTA();
+  };
   
   return (
     <motion.div
@@ -172,7 +199,7 @@ export function RolePricingCard({ data, onCTA, className = '' }: RolePricingCard
           Mensual
         </span>
         <button
-          onClick={() => setIsAnnual(!isAnnual)}
+          onClick={handleToggle}
           className="relative w-14 h-7 bg-muted rounded-full transition-colors hover:bg-sport-primary/20"
           aria-label="Toggle billing period"
         >
@@ -237,7 +264,7 @@ export function RolePricingCard({ data, onCTA, className = '' }: RolePricingCard
       
       {/* CTA Button */}
       <Button
-        onClick={onCTA}
+        onClick={handleCTAClick}
         className="w-full bg-sport-primary hover:bg-sport-primary/90 text-white py-6 text-lg font-bold rounded-xl"
       >
         {data.ctaText || 'Comenzar ahora'}
