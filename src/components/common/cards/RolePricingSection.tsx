@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Zap, Star, Crown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 export interface RolePlan {
   name: string;
@@ -395,6 +396,33 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
 
 export function RolePricingSection({ config, onCTA }: RolePricingSectionProps) {
   const [isAnnual, setIsAnnual] = useState(false);
+  const { trackBillingToggle, trackPlanClick, trackPricingView } = useAnalytics();
+
+  // Track section view on mount
+  useEffect(() => {
+    trackPricingView(config.role);
+  }, [config.role]);
+
+  const handleToggle = () => {
+    const newIsAnnual = !isAnnual;
+    trackBillingToggle({
+      role: config.role,
+      from: isAnnual ? 'annual' : 'monthly',
+      to: newIsAnnual ? 'annual' : 'monthly',
+    });
+    setIsAnnual(newIsAnnual);
+  };
+
+  const handlePlanClick = (plan: RolePlan) => {
+    const displayPrice = isAnnual ? plan.annualPrice : plan.monthlyPrice;
+    trackPlanClick({
+      role: config.role,
+      plan_name: plan.name,
+      billing_period: isAnnual ? 'annual' : 'monthly',
+      price: displayPrice,
+    });
+    onCTA(plan.name);
+  };
   
   return (
     <section className="py-16 md:py-20">
@@ -413,7 +441,7 @@ export function RolePricingSection({ config, onCTA }: RolePricingSectionProps) {
               Mensual
             </span>
             <button
-              onClick={() => setIsAnnual(!isAnnual)}
+              onClick={handleToggle}
               className="relative w-14 h-7 bg-muted rounded-full transition-colors hover:bg-sport-primary/20"
               aria-label="Toggle billing period"
             >
@@ -511,7 +539,7 @@ export function RolePricingSection({ config, onCTA }: RolePricingSectionProps) {
                 
                 {/* CTA */}
                 <Button
-                  onClick={() => onCTA(plan.name)}
+                  onClick={() => handlePlanClick(plan)}
                   className={`w-full py-5 font-bold rounded-xl transition-all hover:scale-[1.02] ${
                     plan.popular
                       ? 'bg-sport-primary hover:bg-sport-primary/90 text-white'
