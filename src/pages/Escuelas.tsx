@@ -27,6 +27,7 @@ import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { DemoRequestModal } from "@/components/modals/DemoRequestModal";
 import { motion } from "framer-motion";
+import { RolePricingCard, rolePricingContent } from "@/components/common/cards";
 
 const painPoints = [
   {
@@ -111,55 +112,6 @@ const testimonials = [
   }
 ];
 
-const plans = [
-  {
-    name: "Starter",
-    price: "$99.000",
-    period: "/mes",
-    description: "Para academias pequeñas",
-    features: [
-      "Hasta 50 estudiantes",
-      "Gestión de asistencia",
-      "Cobros manuales",
-      "1 instructor",
-      "Soporte por email"
-    ],
-    highlighted: false,
-    cta: "Empezar Gratis"
-  },
-  {
-    name: "Profesional",
-    price: "$299.000",
-    period: "/mes",
-    description: "La opción más popular",
-    features: [
-      "Hasta 200 estudiantes",
-      "Cobros automáticos",
-      "App para padres",
-      "5 instructores",
-      "Analytics avanzados",
-      "Soporte prioritario"
-    ],
-    highlighted: true,
-    cta: "Probar 14 días Gratis"
-  },
-  {
-    name: "Enterprise",
-    price: "Personalizado",
-    period: "",
-    description: "Para grandes instituciones",
-    features: [
-      "Estudiantes ilimitados",
-      "Funciones premium",
-      "Múltiples sedes",
-      "Instructores ilimitados",
-      "Integración API",
-      "Soporte 24/7 dedicado"
-    ],
-    highlighted: false,
-    cta: "Contactar Ventas"
-  }
-];
 
 export default function Escuelas() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -395,57 +347,17 @@ export default function Escuelas() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-10">
               <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                Planes que crecen contigo
+                Plan para <span className="text-sport-primary">Escuelas</span>
               </h3>
-              <p className="text-sport-text-secondary">
-                Comienza gratis y escala cuando lo necesites
+              <p className="text-sport-text-secondary max-w-2xl mx-auto">
+                El software que paga su propia inversión desde el primer mes.
               </p>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {plans.map((plan, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <Card className={`h-full border-sport-border bg-sport-card ${plan.highlighted ? 'ring-2 ring-sport-primary shadow-lg shadow-sport-primary/10' : ''}`}>
-                    <CardHeader className="text-center pb-2">
-                      {plan.highlighted && (
-                        <Badge className="mb-2 bg-sport-primary text-white w-fit mx-auto">
-                          Más Popular
-                        </Badge>
-                      )}
-                      <CardTitle className="text-xl">{plan.name}</CardTitle>
-                      <CardDescription>{plan.description}</CardDescription>
-                      <div className="pt-4">
-                        <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                        <span className="text-sport-text-secondary">{plan.period}</span>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="pt-4">
-                      <ul className="space-y-3 mb-6">
-                        {plan.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-center gap-3">
-                            <CheckCircle2 className="w-5 h-5 text-sport-success flex-shrink-0" />
-                            <span className="text-sm text-sport-text-secondary">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <Button 
-                        variant={plan.highlighted ? "default" : "outline"} 
-                        className={`w-full ${plan.highlighted ? 'bg-sport-primary hover:bg-sport-primary/90' : ''}`}
-                        onClick={openModal}
-                      >
-                        {plan.cta}
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+            <div className="max-w-lg mx-auto">
+              <RolePricingCard 
+                data={rolePricingContent.escuelas} 
+                onCTA={openModal} 
+              />
             </div>
           </div>
         </section>

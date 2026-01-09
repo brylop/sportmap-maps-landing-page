@@ -10,11 +10,10 @@ import { SEO } from "@/components/SEO";
 import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { DemoRequestModal } from "@/components/modals/DemoRequestModal";
-import { PlansSection } from "@/components/sections/Pricing/PlansSection";
+import { RolePricingCard, rolePricingContent } from "@/components/common/cards";
 
 export default function Deportistas() {
   const [isDemoOpen, setIsDemoOpen] = useState(false);
-  const selectedClient = "atletas";
   return (
     <div className="min-h-screen bg-sport-background text-sport-text-primary">
       <SEO 
@@ -201,8 +200,23 @@ export default function Deportistas() {
           </div>
         </section>
 
-        {/* Plans Section */}
-        <PlansSection selectedClient={selectedClient} />
+        {/* Pricing Section */}
+        <section className="mb-12">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+              Plan para <span className="bg-gradient-to-r from-sport-primary to-sport-accent bg-clip-text text-transparent">Atletas</span>
+            </h3>
+            <p className="text-sport-text-secondary max-w-2xl mx-auto">
+              Accede a todo el ecosistema deportivo con beneficios exclusivos.
+            </p>
+          </div>
+          <div className="max-w-lg mx-auto">
+            <RolePricingCard 
+              data={rolePricingContent.atletas} 
+              onCTA={() => setIsDemoOpen(true)} 
+            />
+          </div>
+        </section>
 
         {/* CTA Section */}
         <section className="text-center bg-sport-card rounded-3xl p-8 border border-sport-border">
