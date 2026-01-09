@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { DemoRequestModal } from "@/components/modals/DemoRequestModal";
+import { RolePricingCard, rolePricingContent } from "@/components/common/cards";
 
 const Federaciones = () => {
   const [isDemoOpen, setIsDemoOpen] = useState(false);
@@ -194,6 +195,26 @@ const Federaciones = () => {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Plan para <span className="text-sport-primary">Federaciones</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              La inversión que transforma la gestión deportiva de tu federación.
+            </p>
+          </div>
+          <div className="max-w-lg mx-auto">
+            <RolePricingCard 
+              data={rolePricingContent.federaciones} 
+              onCTA={() => setIsDemoOpen(true)} 
+            />
           </div>
         </div>
       </section>
