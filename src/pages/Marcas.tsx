@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { MarcasRegistroModal } from "@/components/modals/MarcasRegistroModal";
-import { RolePricingCard, rolePricingContent } from "@/components/common/cards";
+import { RolePricingSection, rolePricingConfigs } from "@/components/common/cards";
 
 export default function Marcas() {
   const [isRegistroOpen, setIsRegistroOpen] = useState(false);
@@ -125,22 +125,10 @@ export default function Marcas() {
         </section>
 
         {/* Pricing Section */}
-        <section className="mb-12">
-          <div className="text-center mb-10">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Plan para <span className="bg-gradient-to-r from-sport-primary to-sport-accent bg-clip-text text-transparent">Marcas</span>
-            </h3>
-            <p className="text-sport-text-secondary max-w-2xl mx-auto">
-              Conecta tu marca con atletas y academias de alto rendimiento.
-            </p>
-          </div>
-          <div className="max-w-lg mx-auto">
-            <RolePricingCard 
-              data={rolePricingContent.marcas} 
-              onCTA={() => setIsRegistroOpen(true)} 
-            />
-          </div>
-        </section>
+        <RolePricingSection 
+          config={rolePricingConfigs.marcas} 
+          onCTA={() => setIsRegistroOpen(true)} 
+        />
 
         <section className="text-center bg-sport-card rounded-3xl p-8 border border-sport-border mt-12">
           <h3 className="text-2xl font-bold mb-4">¿Listo para vender?</h3>
