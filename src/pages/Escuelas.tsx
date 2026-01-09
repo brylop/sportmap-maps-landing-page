@@ -27,7 +27,7 @@ import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { DemoRequestModal } from "@/components/modals/DemoRequestModal";
 import { motion } from "framer-motion";
-import { RolePricingCard, rolePricingContent } from "@/components/common/cards";
+import { RolePricingSection, rolePricingConfigs } from "@/components/common/cards";
 
 const painPoints = [
   {
@@ -343,24 +343,10 @@ export default function Escuelas() {
         </section>
 
         {/* Pricing Section */}
-        <section className="py-12 md:py-16 bg-sport-surface/30">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-10">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                Plan para <span className="text-sport-primary">Escuelas</span>
-              </h3>
-              <p className="text-sport-text-secondary max-w-2xl mx-auto">
-                El software que paga su propia inversión desde el primer mes.
-              </p>
-            </div>
-            <div className="max-w-lg mx-auto">
-              <RolePricingCard 
-                data={rolePricingContent.escuelas} 
-                onCTA={openModal} 
-              />
-            </div>
-          </div>
-        </section>
+        <RolePricingSection 
+          config={rolePricingConfigs.escuelas} 
+          onCTA={openModal} 
+        />
 
         {/* Final CTA Section */}
         <section className="py-16 md:py-20 container mx-auto px-4">

@@ -13,7 +13,7 @@ import {
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { DemoRequestModal } from "@/components/modals/DemoRequestModal";
-import { RolePricingCard, rolePricingContent } from "@/components/common/cards";
+import { RolePricingSection, rolePricingConfigs } from "@/components/common/cards";
 
 const Entrenadores = () => {
   const [isDemoOpen, setIsDemoOpen] = useState(false);
@@ -175,24 +175,10 @@ const Entrenadores = () => {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Plan para <span className="text-sport-primary">Entrenadores</span>
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Invierte en tu carrera profesional y escala tu negocio.
-            </p>
-          </div>
-          <div className="max-w-lg mx-auto">
-            <RolePricingCard 
-              data={rolePricingContent.entrenadores} 
-              onCTA={() => setIsDemoOpen(true)} 
-            />
-          </div>
-        </div>
-      </section>
+      <RolePricingSection 
+        config={rolePricingConfigs.entrenadores} 
+        onCTA={() => setIsDemoOpen(true)} 
+      />
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-sport-primary/10 to-sport-accent/10">
