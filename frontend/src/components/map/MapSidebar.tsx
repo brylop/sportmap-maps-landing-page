@@ -3,7 +3,7 @@ import { MapLocation, SportRoute } from '@/data/mapData';
 import { 
   X, Star, MapPin, Phone, DollarSign, Calendar, 
   GraduationCap, Users, Mountain, Bike, PersonStanding,
-  Clock, TrendingUp, ArrowRight
+  Clock, TrendingUp, ArrowRight, CalendarDays, Ticket
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -23,6 +23,7 @@ export function MapSidebar({ selectedLocation, selectedRoute, onClose, onRegiste
       case 'academy': return GraduationCap;
       case 'court': return MapPin;
       case 'trainer': return Users;
+      case 'event': return CalendarDays;
       case 'running': return PersonStanding;
       case 'cycling': return Bike;
       case 'hiking': return Mountain;
@@ -35,10 +36,22 @@ export function MapSidebar({ selectedLocation, selectedRoute, onClose, onRegiste
       case 'academy': return 'Academia';
       case 'court': return 'Cancha';
       case 'trainer': return 'Entrenador';
+      case 'event': return 'Evento';
       case 'running': return 'Running';
       case 'cycling': return 'Ciclismo';
       case 'hiking': return 'Senderismo';
       default: return type;
+    }
+  };
+
+  const getEventTypeLabel = (eventType?: string) => {
+    switch (eventType) {
+      case 'torneo': return '🏆 Torneo';
+      case 'festival': return '🎉 Festival';
+      case 'showcase': return '✨ Showcase';
+      case 'clase': return '📚 Clase Abierta';
+      case 'campeonato': return '🥇 Campeonato';
+      default: return '📅 Evento';
     }
   };
 
@@ -91,12 +104,60 @@ export function MapSidebar({ selectedLocation, selectedRoute, onClose, onRegiste
               </div>
 
               {/* Sport Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sport-primary/10 text-sport-primary text-sm font-medium mb-4">
-                {selectedLocation.sport}
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sport-primary/10 text-sport-primary text-sm font-medium">
+                  {selectedLocation.sport}
+                </span>
+                {selectedLocation.type === 'event' && selectedLocation.eventType && (
+                  <span className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-rose-100 text-rose-600 dark:bg-rose-900/30 dark:text-rose-400 text-sm font-medium">
+                    {getEventTypeLabel(selectedLocation.eventType)}
+                  </span>
+                )}
               </div>
 
-              {/* Rating */}
-              {selectedLocation.rating && (
+              {/* Event Date & Spots */}
+              {selectedLocation.type === 'event' && selectedLocation.eventDate && (
+                <div className="p-4 rounded-xl bg-gradient-to-br from-rose-50 to-orange-50 dark:from-rose-900/20 dark:to-orange-900/20 border border-rose-200/50 dark:border-rose-800/30 mb-4">
+                  <div className="flex items-center gap-3 mb-3">
+                    <CalendarDays className="w-5 h-5 text-rose-500" />
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">
+                        {new Date(selectedLocation.eventDate).toLocaleDateString('es-CO', { 
+                          weekday: 'long', 
+                          day: 'numeric', 
+                          month: 'long',
+                          year: 'numeric'
+                        })}
+                      </p>
+                      <p className="text-xs text-sport-text-secondary">
+                        Hora: {selectedLocation.eventTime}
+                      </p>
+                    </div>
+                  </div>
+                  {selectedLocation.spotsAvailable !== undefined && selectedLocation.spots !== undefined && (
+                    <div className="flex items-center gap-3">
+                      <Ticket className="w-5 h-5 text-orange-500" />
+                      <div>
+                        <p className="text-sm font-semibold text-foreground">
+                          {selectedLocation.spotsAvailable} cupos disponibles
+                        </p>
+                        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-1">
+                          <div 
+                            className="bg-gradient-to-r from-rose-500 to-orange-500 h-2 rounded-full transition-all"
+                            style={{ width: `${(selectedLocation.spotsAvailable / selectedLocation.spots) * 100}%` }}
+                          />
+                        </div>
+                        <p className="text-xs text-sport-text-muted mt-1">
+                          de {selectedLocation.spots} cupos totales
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Rating - only for non-events */}
+              {selectedLocation.rating && selectedLocation.type !== 'event' && (
                 <div className="flex items-center gap-2 mb-4">
                   <div className="flex items-center gap-1">
                     {[...Array(5)].map((_, i) => (
@@ -149,21 +210,43 @@ export function MapSidebar({ selectedLocation, selectedRoute, onClose, onRegiste
 
               {/* CTA Buttons */}
               <div className="space-y-3">
-                <Button 
-                  className="w-full bg-sport-primary hover:bg-sport-primary/90"
-                  onClick={() => window.open(`tel:${selectedLocation.phone}`, '_blank')}
-                >
-                  <Phone className="w-4 h-4 mr-2" />
-                  Contactar
-                </Button>
-                <Button 
-                  variant="outline" 
-                  className="w-full border-sport-primary text-sport-primary hover:bg-sport-primary/10"
-                  onClick={onRegister}
-                >
-                  <Calendar className="w-4 h-4 mr-2" />
-                  Reservar / Inscribirse
-                </Button>
+                {selectedLocation.type === 'event' ? (
+                  <>
+                    <Button 
+                      className="w-full bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white"
+                      onClick={onRegister}
+                    >
+                      <Ticket className="w-4 h-4 mr-2" />
+                      Inscribirse al Evento
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      className="w-full border-rose-300 text-rose-600 hover:bg-rose-50 dark:border-rose-700 dark:text-rose-400 dark:hover:bg-rose-900/20"
+                      onClick={() => window.open(`tel:${selectedLocation.phone}`, '_blank')}
+                    >
+                      <Phone className="w-4 h-4 mr-2" />
+                      Más Información
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Button 
+                      className="w-full bg-sport-primary hover:bg-sport-primary/90"
+                      onClick={() => window.open(`tel:${selectedLocation.phone}`, '_blank')}
+                    >
+                      <Phone className="w-4 h-4 mr-2" />
+                      Contactar
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      className="w-full border-sport-primary text-sport-primary hover:bg-sport-primary/10"
+                      onClick={onRegister}
+                    >
+                      <Calendar className="w-4 h-4 mr-2" />
+                      Reservar / Inscribirse
+                    </Button>
+                  </>
+                )}
               </div>
             </div>
           )}

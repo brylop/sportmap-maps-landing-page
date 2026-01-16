@@ -3,7 +3,7 @@
 export interface MapLocation {
   id: string;
   name: string;
-  type: 'academy' | 'court' | 'trainer' | 'route';
+  type: 'academy' | 'court' | 'trainer' | 'route' | 'event';
   sport: string;
   lat: number;
   lng: number;
@@ -14,6 +14,12 @@ export interface MapLocation {
   phone?: string;
   price?: string;
   image?: string;
+  // Campos específicos para eventos
+  eventDate?: string;
+  eventTime?: string;
+  spots?: number;
+  spotsAvailable?: number;
+  eventType?: 'torneo' | 'festival' | 'showcase' | 'clase' | 'campeonato';
 }
 
 export interface SportRoute {
@@ -802,11 +808,238 @@ export const sportRoutes: SportRoute[] = [
   }
 ];
 
+// Eventos deportivos demo
+export const events: MapLocation[] = [
+  // Bogotá
+  {
+    id: 'event-1',
+    name: 'Copa Cheer Colombia 2026',
+    type: 'event',
+    sport: 'Cheerleading',
+    lat: 4.6576,
+    lng: -74.0934,
+    city: 'Bogotá',
+    description: 'Festival nacional de cheerleading con más de 50 equipos participantes',
+    address: 'Coliseo El Salitre, Parque Simón Bolívar',
+    phone: '+57 310 555 1234',
+    price: '$45.000 inscripción',
+    eventDate: '2026-02-15',
+    eventTime: '08:00',
+    spots: 500,
+    spotsAvailable: 127,
+    eventType: 'festival'
+  },
+  {
+    id: 'event-2',
+    name: 'Torneo Interclubes Natación',
+    type: 'event',
+    sport: 'Natación',
+    lat: 4.6097,
+    lng: -74.0657,
+    city: 'Bogotá',
+    description: 'Competencia de natación para categorías infantil y juvenil',
+    address: 'Piscina Olímpica Centro Internacional',
+    phone: '+57 318 901 2345',
+    price: '$35.000 por nadador',
+    eventDate: '2026-02-22',
+    eventTime: '07:00',
+    spots: 200,
+    spotsAvailable: 45,
+    eventType: 'torneo'
+  },
+  {
+    id: 'event-3',
+    name: 'Showcase Gimnasia Artística',
+    type: 'event',
+    sport: 'Gimnasia',
+    lat: 4.6865,
+    lng: -74.0468,
+    city: 'Bogotá',
+    description: 'Exhibición de fin de año con presentaciones de todos los niveles',
+    address: 'Club El Nogal, Usaquén',
+    phone: '+57 315 678 9012',
+    price: 'Entrada libre',
+    eventDate: '2026-03-01',
+    eventTime: '15:00',
+    spots: 300,
+    spotsAvailable: 189,
+    eventType: 'showcase'
+  },
+  // Medellín
+  {
+    id: 'event-4',
+    name: 'Festival de Baile Urbano',
+    type: 'event',
+    sport: 'Baile',
+    lat: 6.2442,
+    lng: -75.5812,
+    city: 'Medellín',
+    description: 'Competencia de hip-hop, breakdance y danzas urbanas',
+    address: 'Unidad Deportiva Atanasio Girardot',
+    phone: '+57 311 234 5678',
+    price: '$30.000 por grupo',
+    eventDate: '2026-02-28',
+    eventTime: '10:00',
+    spots: 150,
+    spotsAvailable: 67,
+    eventType: 'campeonato'
+  },
+  {
+    id: 'event-5',
+    name: 'Copa Fútbol Base Antioquia',
+    type: 'event',
+    sport: 'Fútbol',
+    lat: 6.2567,
+    lng: -75.5905,
+    city: 'Medellín',
+    description: 'Torneo regional de fútbol categorías sub-10 a sub-15',
+    address: 'Estadio Atanasio Girardot',
+    phone: '+57 304 567 8901',
+    price: '$150.000 por equipo',
+    eventDate: '2026-03-08',
+    eventTime: '08:00',
+    spots: 32,
+    spotsAvailable: 8,
+    eventType: 'torneo'
+  },
+  // Cali
+  {
+    id: 'event-6',
+    name: 'Mundial de Salsa Deportiva',
+    type: 'event',
+    sport: 'Salsa',
+    lat: 3.4372,
+    lng: -76.5225,
+    city: 'Cali',
+    description: 'Competencia internacional de salsa con parejas de 15 países',
+    address: 'Teatro Jorge Isaacs',
+    phone: '+57 319 012 3456',
+    price: '$80.000 inscripción',
+    eventDate: '2026-03-15',
+    eventTime: '18:00',
+    spots: 100,
+    spotsAvailable: 23,
+    eventType: 'campeonato'
+  },
+  {
+    id: 'event-7',
+    name: 'Clase Abierta Patinaje Artístico',
+    type: 'event',
+    sport: 'Patinaje',
+    lat: 3.4186,
+    lng: -76.5227,
+    city: 'Cali',
+    description: 'Clase gratuita para principiantes con patines incluidos',
+    address: 'Patinodromo Panamericano',
+    phone: '+57 316 789 0123',
+    price: 'Gratis',
+    eventDate: '2026-02-08',
+    eventTime: '09:00',
+    spots: 50,
+    spotsAvailable: 12,
+    eventType: 'clase'
+  },
+  // Barranquilla
+  {
+    id: 'event-8',
+    name: 'Torneo Voleibol Playa Caribe',
+    type: 'event',
+    sport: 'Voleibol',
+    lat: 10.9812,
+    lng: -74.8012,
+    city: 'Barranquilla',
+    description: 'Torneo mixto de voleibol de playa categoría abierta',
+    address: 'Playa Puerto Colombia',
+    phone: '+57 302 333 4455',
+    price: '$60.000 por pareja',
+    eventDate: '2026-02-20',
+    eventTime: '07:00',
+    spots: 64,
+    spotsAvailable: 18,
+    eventType: 'torneo'
+  },
+  {
+    id: 'event-9',
+    name: 'Festival de Artes Marciales',
+    type: 'event',
+    sport: 'Artes Marciales',
+    lat: 10.9639,
+    lng: -74.7964,
+    city: 'Barranquilla',
+    description: 'Exhibición y competencia de taekwondo, karate y judo',
+    address: 'Coliseo Cubierto Humberto Perea',
+    phone: '+57 301 222 3344',
+    price: '$25.000 inscripción',
+    eventDate: '2026-03-05',
+    eventTime: '09:00',
+    spots: 200,
+    spotsAvailable: 89,
+    eventType: 'festival'
+  },
+  // Bucaramanga
+  {
+    id: 'event-10',
+    name: 'Campeonato Patinaje Velocidad',
+    type: 'event',
+    sport: 'Patinaje',
+    lat: 7.1156,
+    lng: -73.1089,
+    city: 'Bucaramanga',
+    description: 'Competencia departamental de patinaje de velocidad',
+    address: 'Patinodromo Parque del Agua',
+    phone: '+57 316 555 6677',
+    price: '$40.000 por patinador',
+    eventDate: '2026-02-25',
+    eventTime: '08:00',
+    spots: 120,
+    spotsAvailable: 34,
+    eventType: 'campeonato'
+  },
+  // Cartagena
+  {
+    id: 'event-11',
+    name: 'Regata Náutica del Caribe',
+    type: 'event',
+    sport: 'Vela',
+    lat: 10.4023,
+    lng: -75.5512,
+    city: 'Cartagena',
+    description: 'Regata internacional con embarcaciones de vela ligera',
+    address: 'Club Náutico de Cartagena',
+    phone: '+57 302 999 0011',
+    price: '$200.000 por embarcación',
+    eventDate: '2026-03-20',
+    eventTime: '06:00',
+    spots: 40,
+    spotsAvailable: 15,
+    eventType: 'torneo'
+  },
+  {
+    id: 'event-12',
+    name: 'Showcase Boxeo Juvenil',
+    type: 'event',
+    sport: 'Boxeo',
+    lat: 10.3978,
+    lng: -75.4912,
+    city: 'Cartagena',
+    description: 'Velada de boxeo amateur con promesas del deporte',
+    address: 'Coliseo de Combate, Getsemaní',
+    phone: '+57 301 888 9900',
+    price: '$20.000 entrada',
+    eventDate: '2026-02-14',
+    eventTime: '19:00',
+    spots: 400,
+    spotsAvailable: 156,
+    eventType: 'showcase'
+  }
+];
+
 // Combinar todos los puntos del mapa
 export const allMapLocations: MapLocation[] = [
   ...academies,
   ...courts,
-  ...trainers
+  ...trainers,
+  ...events
 ];
 
 // Estadísticas para mostrar
@@ -815,6 +1048,7 @@ export const mapStats = {
   courts: courts.length,
   trainers: trainers.length,
   routes: sportRoutes.length,
+  events: events.length,
   cities: Object.keys(cities).length
 };
 
