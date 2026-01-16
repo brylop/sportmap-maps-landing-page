@@ -31,6 +31,7 @@ const createCustomIcon = (type: string, color: string) => {
     court: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7m0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5"/></svg>`,
     trainer: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>`,
     route: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M13.5 5.5c1.09 0 2-.92 2-2s-.91-2-2-2-2 .92-2 2 .91 2 2 2M9.89 19.38l1-4.38L13 17v6h2v-7.5l-2.11-2 .61-3A7.35 7.35 0 0 0 19 13v-2c-1.91 0-3.5-.74-4.55-1.95L13 7.5c-.3-.36-.78-.56-1.28-.5-.5.05-.93.28-1.2.63L8 11h.01L6 12l1 2 2.5-1.6-.36 3.8L6.5 21l1.5.77z"/></svg>`,
+    event: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg>`,
     user: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="8"/></svg>`
   };
 
@@ -65,6 +66,7 @@ const getTypeColor = (type: string): string => {
     case 'court': return '#FB9F1E';
     case 'trainer': return '#6366f1';
     case 'route': return '#ec4899';
+    case 'event': return '#f43f5e'; // Rose/red for events
     default: return '#248223';
   }
 };
@@ -112,7 +114,7 @@ function MapController({
 export function InteractiveMap({ 
   onLocationSelect, 
   onRouteSelect,
-  selectedFilters = ['academy', 'court', 'trainer', 'route'],
+  selectedFilters = ['academy', 'court', 'trainer', 'route', 'event'],
   searchQuery = '',
   userLocation,
   onUserLocationChange
@@ -271,7 +273,23 @@ export function InteractiveMap({
                 <p className="text-xs text-gray-500">{location.city}</p>
                 <p className="text-xs text-gray-600">{location.sport}</p>
                 <p className="text-xs mt-1">{location.description}</p>
-                {location.rating && (
+                {location.type === 'event' && location.eventDate && (
+                  <div className="mt-2 p-2 bg-rose-50 rounded-lg">
+                    <p className="text-xs font-semibold text-rose-600">
+                      📅 {new Date(location.eventDate).toLocaleDateString('es-CO', { 
+                        weekday: 'short', 
+                        day: 'numeric', 
+                        month: 'short' 
+                      })} - {location.eventTime}
+                    </p>
+                    {location.spotsAvailable !== undefined && location.spots !== undefined && (
+                      <p className="text-xs text-rose-500 mt-1">
+                        🎟️ {location.spotsAvailable}/{location.spots} cupos disponibles
+                      </p>
+                    )}
+                  </div>
+                )}
+                {location.rating && location.type !== 'event' && (
                   <div className="flex items-center gap-1 mt-2">
                     <span className="text-yellow-500">★</span>
                     <span className="text-xs font-semibold">{location.rating}</span>
@@ -351,6 +369,10 @@ export function InteractiveMap({
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-[#6366f1]"></div>
             <span className="text-xs text-muted-foreground">Entrenadores</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-[#f43f5e]"></div>
+            <span className="text-xs text-muted-foreground">Eventos</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-4 h-0.5 bg-[#ef4444]"></div>

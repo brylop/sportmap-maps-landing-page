@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { Search, Filter, MapPin, GraduationCap, Users, Route, Navigation, Loader2 } from 'lucide-react';
+import { Search, Filter, MapPin, GraduationCap, Users, Route, Navigation, Loader2, CalendarDays } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { InteractiveMap } from './InteractiveMap';
@@ -24,11 +24,12 @@ const filterOptions = [
   { id: 'court', label: 'Canchas', icon: MapPin, count: mapStats.courts },
   { id: 'trainer', label: 'Entrenadores', icon: Users, count: mapStats.trainers },
   { id: 'route', label: 'Rutas', icon: Route, count: mapStats.routes },
+  { id: 'event', label: 'Eventos', icon: CalendarDays, count: mapStats.events },
 ];
 
 export function MapHeroSection({ onScrollToFeatures }: MapHeroSectionProps) {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedFilters, setSelectedFilters] = useState<string[]>(['academy', 'court', 'trainer', 'route']);
+  const [selectedFilters, setSelectedFilters] = useState<string[]>(['academy', 'court', 'trainer', 'route', 'event']);
   const [selectedLocation, setSelectedLocation] = useState<MapLocation | null>(null);
   const [selectedRoute, setSelectedRoute] = useState<SportRoute | null>(null);
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
@@ -105,8 +106,8 @@ export function MapHeroSection({ onScrollToFeatures }: MapHeroSectionProps) {
               🗺️ El <span className="text-sport-primary">Mapa Vivo</span> del Deporte en Colombia
             </h1>
             <p className="text-xs text-sport-text-muted mt-1">
-              {mapStats.cities} ciudades • {mapStats.academies} academias • {mapStats.routes} rutas
-            </p>
+108:               {mapStats.cities} ciudades • {mapStats.academies} academias • {mapStats.events} eventos • {mapStats.routes} rutas
+109:             </p>
           </div>
 
           {/* Search Row */}
@@ -195,6 +196,11 @@ export function MapHeroSection({ onScrollToFeatures }: MapHeroSectionProps) {
               <div className="text-center">
                 <span className="text-xl md:text-2xl font-bold text-sport-primary">{mapStats.academies}+</span>
                 <p className="text-xs text-sport-text-muted">Academias</p>
+              </div>
+              <div className="w-px h-8 bg-sport-border hidden md:block" />
+              <div className="text-center">
+                <span className="text-xl md:text-2xl font-bold text-rose-500">{mapStats.events}+</span>
+                <p className="text-xs text-sport-text-muted">Eventos</p>
               </div>
               <div className="w-px h-8 bg-sport-border hidden md:block" />
               <div className="text-center">
