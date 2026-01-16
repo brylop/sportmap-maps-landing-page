@@ -391,6 +391,58 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         icon: 'enterprise'
       }
     ]
+  },
+  eventos: {
+    role: 'eventos',
+    emoji: '🎪',
+    title: 'Organizadores de Eventos',
+    headline: 'Organiza eventos deportivos sin caos. Link único, inscripciones automáticas, sin comisión.',
+    plans: [
+      {
+        name: 'Evento Pequeño',
+        monthlyPrice: 25000,
+        annualPrice: 25000,
+        benefits: [
+          'Página pública del evento',
+          'Link único compartible',
+          'Inscripciones automáticas',
+          'Pin en el mapa SportMaps'
+        ],
+        ctaText: 'Crear Evento',
+        icon: 'basic'
+      },
+      {
+        name: 'Evento Mediano',
+        monthlyPrice: 79000,
+        annualPrice: 129000,
+        annualBilled: 129000,
+        savings: 0,
+        benefits: [
+          'Todo en Pequeño',
+          'Más inscritos permitidos',
+          'Categorías simples',
+          'Validación de pagos',
+          'Soporte estándar'
+        ],
+        ctaText: 'Crear Evento Pro',
+        popular: true,
+        icon: 'pro'
+      },
+      {
+        name: 'Evento Grande',
+        monthlyPrice: 299000,
+        annualPrice: 299000,
+        benefits: [
+          'Todo en Mediano',
+          'Alto volumen de inscritos',
+          'Prioridad en mapa',
+          'Soporte prioritario',
+          'Configuración personalizada'
+        ],
+        ctaText: 'Contactar Ventas',
+        icon: 'enterprise'
+      }
+    ]
   }
 };
 

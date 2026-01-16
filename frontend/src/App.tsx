@@ -19,6 +19,17 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
 import NotFound from "./pages/NotFound";
 import Planes from "./pages/Planes";
+import Eventos from "./pages/Eventos";
+import Escuelas from "./pages/Escuelas";
+import Entrenadores from "./pages/Entrenadores";
+import Deportistas from "./pages/Deportistas";
+import Marcas from "./pages/Marcas";
+import Proveedores from "./pages/Proveedores";
+import Servicios from "./pages/Servicios";
+import Federaciones from "./pages/Federaciones";
+import Bienestar from "./pages/Bienestar";
+import Equipamiento from "./pages/Equipamiento";
+import Partners from "./pages/Partners";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +52,17 @@ const App = () => (
             <Route path="/privacidad" element={<PrivacyPolicy />} />
             <Route path="/terminos" element={<TermsConditions />} />
             <Route path="/planes" element={<Planes />} />
+            <Route path="/eventos" element={<Eventos />} />
+            <Route path="/escuelas" element={<Escuelas />} />
+            <Route path="/entrenadores" element={<Entrenadores />} />
+            <Route path="/deportistas" element={<Deportistas />} />
+            <Route path="/marcas" element={<Marcas />} />
+            <Route path="/proveedores" element={<Proveedores />} />
+            <Route path="/servicios" element={<Servicios />} />
+            <Route path="/federaciones" element={<Federaciones />} />
+            <Route path="/bienestar" element={<Bienestar />} />
+            <Route path="/equipamiento" element={<Equipamiento />} />
+            <Route path="/partners" element={<Partners />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
