@@ -55,7 +55,7 @@ const roles = [
     icon: Calendar,
     description: "Sin caos, sin mensajes",
     path: "/eventos",
-    color: "from-sport-error to-sport-error/80",
+    color: "from-rose-500 to-rose-600",
     cta: "Crear Evento"
   },
   {
