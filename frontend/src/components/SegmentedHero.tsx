@@ -49,6 +49,15 @@ const roles = [
     cta: "Buscar"
   },
   {
+    id: "eventos",
+    label: "Organizar Eventos",
+    icon: Calendar,
+    description: "Sin caos, sin mensajes",
+    path: "/eventos",
+    color: "from-sport-error to-sport-error/80",
+    cta: "Crear Evento"
+  },
+  {
     id: "marcas",
     label: "Patrocinar Atletas",
     icon: Handshake,
