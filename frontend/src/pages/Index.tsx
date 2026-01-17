@@ -191,6 +191,65 @@ const howItWorks = [
   }
 ];
 
+const sportmapsRoles = [
+  {
+    id: "escuelas",
+    label: "Gestionar Academia",
+    icon: GraduationCap,
+    description: "Software completo para escuelas",
+    path: "/escuelas",
+    color: "from-sport-primary to-sport-primary/80"
+  },
+  {
+    id: "entrenadores",
+    label: "Entrenar Clientes",
+    icon: Dumbbell,
+    description: "Consigue más clientes",
+    path: "/entrenadores",
+    color: "from-sport-accent to-sport-accent/80"
+  },
+  {
+    id: "deportistas",
+    label: "Encontrar Entrenador",
+    icon: Users,
+    description: "Busca el coach ideal",
+    path: "/deportistas",
+    color: "from-sport-info to-sport-info/80"
+  },
+  {
+    id: "eventos",
+    label: "Organizar Eventos",
+    icon: Calendar,
+    description: "Sin caos, sin mensajes",
+    path: "/eventos",
+    color: "from-rose-500 to-rose-600"
+  },
+  {
+    id: "marcas",
+    label: "Patrocinar Atletas",
+    icon: Handshake,
+    description: "IA que conecta marcas",
+    path: "/marcas",
+    color: "from-sport-highlight to-sport-highlight/80"
+  },
+  {
+    id: "proveedores",
+    label: "Vender Productos",
+    icon: ShoppingBag,
+    description: "Catálogo B2B deportivo",
+    path: "/proveedores",
+    color: "from-sport-success to-sport-success/80"
+  },
+  {
+    id: "federaciones",
+    label: "Gestionar Federación",
+    icon: Building2,
+    description: "Datos y afiliados",
+    path: "/federaciones",
+    color: "from-sport-warning to-sport-warning/80"
+  }
+];
+
 export default function Index() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
