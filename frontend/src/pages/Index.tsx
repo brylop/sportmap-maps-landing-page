@@ -380,57 +380,6 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Roles Section - ¿Qué quieres hacer en SportMaps? */}
-        <section className="py-12 md:py-16 border-b border-sport-border/50">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-8"
-            >
-              <Badge className="mb-4 bg-sport-primary/10 text-sport-primary border-sport-primary/30">
-                <Zap className="w-3 h-3 mr-1" />
-                Ecosistema Deportivo
-              </Badge>
-              <h3 className="text-2xl md:text-3xl font-bold mb-3">
-                ¿Qué quieres hacer en <span className="text-sport-primary">SportMaps</span>?
-              </h3>
-              <p className="text-sport-text-secondary max-w-2xl mx-auto">
-                Una plataforma, múltiples soluciones para el ecosistema deportivo colombiano
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4 max-w-6xl mx-auto">
-              {sportmapsRoles.map((role, index) => (
-                <motion.div
-                  key={role.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                >
-                  <Link
-                    to={role.path}
-                    className="group flex flex-col items-center p-4 rounded-2xl bg-sport-card border border-sport-border hover:border-sport-primary/50 hover:shadow-lg hover:shadow-sport-primary/10 transition-all duration-300 h-full"
-                  >
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${role.color} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
-                      <role.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <span className="text-sm font-medium text-foreground text-center leading-tight">
-                      {role.label}
-                    </span>
-                    <span className="text-xs text-sport-text-secondary mt-1 text-center hidden md:block">
-                      {role.description}
-                    </span>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Pain Points Section */}
         <section id="problemas" className="bg-sport-surface/50 py-16 md:py-20">
           <div className="container mx-auto px-4">
