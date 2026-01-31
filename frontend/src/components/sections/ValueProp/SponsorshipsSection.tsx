@@ -1,58 +1,61 @@
 import { motion } from 'framer-motion';
-import { Upload, Brain, FileText, Wallet } from 'lucide-react';
+import { Sparkles, Zap, CheckCircle, TrendingUp } from 'lucide-react';
 import { StepCard, StepData } from '@/components/common';
 
 const steps: StepData[] = [
   {
-    icon: Upload,
+    icon: Sparkles,
     step: '1',
-    title: 'Publica necesidad',
-    description: '"Uniformes para 50 niños"',
+    title: 'Publica tu necesidad',
+    description: 'En segundos',
   },
   {
-    icon: Brain,
+    icon: Zap,
     step: '2',
-    title: 'IA matchea',
-    description: 'Adidas (afinidad 92%)',
+    title: 'IA encuentra el match',
+    description: 'Automático y preciso',
   },
   {
-    icon: FileText,
+    icon: CheckCircle,
     step: '3',
-    title: 'Smart contract',
-    description: '$8M COP → Escrow → Verificación → Liberado',
+    title: 'Acuerdo seguro',
+    description: 'Protección total',
   },
   {
-    icon: Wallet,
+    icon: TrendingUp,
     step: '4',
-    title: 'Tú recibes',
-    description: '$7.44M (93%) | SportMaps: $560k (7%)',
+    title: 'Recibes el patrocinio',
+    description: 'Creces sin esfuerzo',
   },
 ];
 
 export function SponsorshipsSection() {
   return (
-    <section className="py-16 md:py-24 px-4">
-      <div className="container mx-auto">
+    <section className="py-16 md:py-24 px-4 relative overflow-hidden">
+      {/* Background gradient effect */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-sport-primary/5 to-transparent pointer-events-none" />
+
+      <div className="container mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-sport-text-primary mb-4">
-            Patrocinios Inteligentes: Ingresos Nuevos
+          <h2 className="text-3xl md:text-5xl font-bold text-sport-text-primary mb-4 bg-gradient-to-r from-sport-primary to-sport-accent bg-clip-text text-transparent">
+            Tu academia genera ingresos mientras duermes
           </h2>
-          <p className="text-lg text-sport-text-secondary max-w-2xl mx-auto">
-            El primer SaaS que genera ingresos, no solo costos.
+          <p className="text-lg md:text-xl text-sport-text-secondary max-w-2xl mx-auto font-light">
+            Patrocinios automáticos. Cero esfuerzo. Puro crecimiento.
           </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((item, index) => (
-            <StepCard 
-              key={item.step} 
-              data={item} 
-              index={index} 
+            <StepCard
+              key={item.step}
+              data={item}
+              index={index}
               isLast={index === steps.length - 1}
             />
           ))}
