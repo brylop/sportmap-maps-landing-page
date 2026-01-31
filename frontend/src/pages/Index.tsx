@@ -8,8 +8,6 @@ import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { SEO } from "@/components/SEO";
 import { TestimonialsSection } from "@/components/sections/Testimonials";
-import { PlansSection } from "@/components/sections/Pricing";
-import { ComparisonSection } from "@/components/sections/Pricing";
 import { SponsorshipsSection } from "@/components/sections/ValueProp";
 import { CTAFinalSection } from "@/components/sections/CTA";
 
@@ -26,12 +24,7 @@ export default function Index() {
     featuresRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const scrollToPlans = () => {
-    const plansSection = document.getElementById('plans-section');
-    if (plansSection) {
-      plansSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+
 
   const handleSectionClick = (sectionId: string) => {
     const section = document.getElementById(sectionId);
@@ -42,14 +35,14 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <SEO 
+      <SEO
         title="SportMaps | El Mapa Vivo del Deporte en Colombia"
         description="Conecta, gestiona y monetiza tu presencia deportiva. Academias, entrenadores, eventos, rutas y más en una sola plataforma. El ecosistema deportivo #1 de Colombia."
         url="https://sportmaps.co"
         canonical="https://sportmaps.co"
         keywords="mapa deportivo colombia, academias deportivas, entrenadores personales, eventos deportivos, rutas ciclismo running, escuelas deportivas"
       />
-      
+
       <TechHeader onSectionClick={handleSectionClick} />
 
       <main className="pt-16">
@@ -64,25 +57,14 @@ export default function Index() {
         {/* Ecosystem Features - Un Ecosistema para Todos */}
         <div ref={featuresRef} id="ecosistema">
           <AnimatedSection direction="up" delay={0.2}>
-            <InteractiveFeatures 
-              onPricingClick={scrollToPlans}
+            <InteractiveFeatures
               selectedClient={selectedClient}
               setSelectedClient={setSelectedClient}
             />
           </AnimatedSection>
         </div>
 
-        {/* Plans Section */}
-        <AnimatedSection direction="up" delay={0.1}>
-          <div id="plans-section">
-            <PlansSection selectedClient={selectedClient} />
-          </div>
-        </AnimatedSection>
 
-        {/* Comparison Table */}
-        <AnimatedSection direction="fade" delay={0.1}>
-          <ComparisonSection />
-        </AnimatedSection>
 
         {/* Sponsorships / Tienda */}
         <AnimatedSection direction="fade" delay={0.1}>
@@ -96,9 +78,9 @@ export default function Index() {
 
         {/* Final CTA */}
         <AnimatedSection direction="up" delay={0.1}>
-          <CTAFinalSection 
-            onStartClick={() => {}} 
-            onDemoClick={() => {}} 
+          <CTAFinalSection
+            onStartClick={() => { }}
+            onDemoClick={() => { }}
           />
         </AnimatedSection>
       </main>
