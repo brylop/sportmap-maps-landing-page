@@ -7,51 +7,52 @@ export function SportMapsFooter() {
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          
+
           {/* Logo & Description */}
           <div className="lg:col-span-1">
-            <Link to="/" className="text-xl font-bold text-foreground">
-              Sport<span className="text-sport-primary">Maps</span>
+            <Link to="/" className="flex items-center gap-2 text-xl font-bold text-foreground">
+              <img src="/logo.jpg" alt="SportMaps Logo" className="w-8 h-8 object-contain rounded-lg" />
+              <span>Sport<span className="text-sport-primary">Maps</span></span>
             </Link>
             <p className="text-muted-foreground text-sm mt-3">
               El ecosistema deportivo más completo de Latinoamérica. Conectamos atletas, escuelas, entrenadores y profesionales del bienestar.
             </p>
             {/* Social Media */}
             <div className="flex items-center gap-4 mt-4">
-              <a 
-                href="https://x.com/spoort_maps" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-muted-foreground hover:text-sport-primary transition-colors" 
+              <a
+                href="https://x.com/spoort_maps"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-sport-primary transition-colors"
                 aria-label="Twitter/X"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </a>
-              <a 
-                href="https://www.instagram.com/spoortmaps/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-muted-foreground hover:text-sport-primary transition-colors" 
+              <a
+                href="https://www.instagram.com/spoortmaps/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-sport-primary transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a 
-                href="https://www.facebook.com/profile.php?id=61583784419106" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-muted-foreground hover:text-sport-primary transition-colors" 
+              <a
+                href="https://www.facebook.com/profile.php?id=61583784419106"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-sport-primary transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
               </a>
-              <a 
-                href="https://www.linkedin.com/company/spoortmaps" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-muted-foreground hover:text-sport-primary transition-colors" 
+              <a
+                href="https://www.linkedin.com/company/spoortmaps"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-sport-primary transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
@@ -149,10 +150,10 @@ export function SportMapsFooter() {
                 </a>
               </li>
               <li>
-                <a 
-                  href="https://wa.me/573128463555" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://wa.me/573128463555"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2 text-muted-foreground hover:text-sport-primary transition-colors"
                 >
                   <MessageCircle className="w-4 h-4" />
@@ -162,7 +163,7 @@ export function SportMapsFooter() {
             </ul>
           </div>
         </div>
-        
+
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 border-t border-sport-border">
           <p className="text-xs text-muted-foreground">

@@ -19,13 +19,11 @@ export function Header({ onSectionClick, activeSection }: HeaderProps) {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div 
+          <div
             onClick={() => onSectionClick("inicio")}
             className="flex items-center space-x-2 cursor-pointer"
           >
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">S</span>
-            </div>
+            <img src="/logo.jpg" alt="SportMaps Logo" className="w-8 h-8 object-contain rounded-lg" />
             <span className="text-xl font-bold text-sport-text">SportMaps</span>
           </div>
 
@@ -35,11 +33,10 @@ export function Header({ onSectionClick, activeSection }: HeaderProps) {
               <button
                 key={item.id}
                 onClick={() => onSectionClick(item.id)}
-                className={`text-sm font-medium transition-colors hover:text-sport-primary ${
-                  activeSection === item.id 
-                    ? 'text-sport-primary' 
+                className={`text-sm font-medium transition-colors hover:text-sport-primary ${activeSection === item.id
+                    ? 'text-sport-primary'
                     : 'text-sport-text/80'
-                }`}
+                  }`}
               >
                 {item.label}
               </button>

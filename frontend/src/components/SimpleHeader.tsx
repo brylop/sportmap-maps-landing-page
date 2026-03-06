@@ -11,9 +11,7 @@ export function SimpleHeader() {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="relative">
-              <div className="w-10 h-10 bg-gradient-tech-primary rounded-xl flex items-center justify-center shadow-glow-primary group-hover:shadow-glow-secondary transition-all duration-300">
-                <span className="text-white font-bold text-lg">SM</span>
-              </div>
+              <img src="/logo.jpg" alt="SportMaps Logo" className="w-10 h-10 object-contain rounded-xl bg-white p-0.5 shadow-glow-primary group-hover:shadow-glow-secondary transition-all duration-300" />
             </div>
             <div className="hidden sm:block">
               <span className="text-xl font-bold bg-gradient-tech-primary bg-clip-text text-transparent">

@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { 
-  Home, 
-  Globe, 
-  School, 
-  Store, 
-  Pill, 
-  Heart, 
-  TrendingUp, 
-  Users, 
+import {
+  Home,
+  Globe,
+  School,
+  Store,
+  Pill,
+  Heart,
+  TrendingUp,
+  Users,
   Info,
   Menu,
   X,
@@ -53,7 +53,7 @@ export function SportMapsSidebar({ onSectionClick, activeSection }: SidebarProps
       </button>
 
       {/* Sidebar */}
-      <aside 
+      <aside
         className={cn(
           "fixed left-0 top-0 h-screen w-72 bg-gradient-primary text-white p-6 z-40 transition-transform duration-300 overflow-y-auto",
           "lg:translate-x-0",
@@ -62,7 +62,7 @@ export function SportMapsSidebar({ onSectionClick, activeSection }: SidebarProps
       >
         {/* Header */}
         <div className="flex items-center gap-3 mb-8 pb-4 border-b border-white/25">
-          <MapPin className="w-6 h-6" />
+          <img src="/logo.jpg" alt="SportMaps Logo" className="w-8 h-8 object-contain rounded-lg bg-white p-0.5" />
           <h2 className="text-xl font-bold">SportMaps</h2>
         </div>
 
@@ -96,7 +96,7 @@ export function SportMapsSidebar({ onSectionClick, activeSection }: SidebarProps
 
       {/* Overlay */}
       {isOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/50 z-30 lg:hidden"
           onClick={() => setIsOpen(false)}
         />
