@@ -21,16 +21,16 @@ const heroPlans = [
   {
     name: 'Escuelas',
     icon: School,
-    monthlyPrice: 89000,
-    annualPrice: 71200,
+    monthlyPrice: 149000,
+    annualPrice: 119000,
     features: ['Recaudo Automático', 'Vitrina en el Mapa', 'App para Padres'],
     popular: true,
   },
   {
     name: 'Entrenadores',
     icon: Dumbbell,
-    monthlyPrice: 29000,
-    annualPrice: 23200,
+    monthlyPrice: 39000,
+    annualPrice: 31200,
     features: ['Agenda Inteligente', 'Cobros Adelantados', 'Perfil Verificado'],
     popular: false,
   },
@@ -38,7 +38,7 @@ const heroPlans = [
 
 export function PricingHeroSection({ onPlanClick }: PricingHeroSectionProps) {
   const [isAnnual, setIsAnnual] = useState(false);
-  
+
   return (
     <section className="py-16 md:py-24 px-4">
       <div className="container mx-auto text-center">
@@ -50,7 +50,7 @@ export function PricingHeroSection({ onPlanClick }: PricingHeroSectionProps) {
         >
           La Gestión Deportiva que No Te Cobra por Crecer
         </motion.h2>
-        
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -59,7 +59,7 @@ export function PricingHeroSection({ onPlanClick }: PricingHeroSectionProps) {
           className="text-lg md:text-xl text-sport-text-secondary mb-8 max-w-3xl mx-auto"
         >
           Mindbody: $500/mes reales. ClassPass: pierde 60% margen.{' '}
-          <strong className="text-sport-primary">SportMaps: desde {formatPrice(23200)}/mes, todo incluido.</strong>
+          <strong className="text-sport-primary">SportMaps: desde {formatPrice(31200)}/mes, todo incluido.</strong>
         </motion.p>
 
         {/* Toggle */}
@@ -91,7 +91,7 @@ export function PricingHeroSection({ onPlanClick }: PricingHeroSectionProps) {
         <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {heroPlans.map((plan, index) => {
             const displayPrice = isAnnual ? plan.annualPrice : plan.monthlyPrice;
-            
+
             return (
               <motion.div
                 key={plan.name}
@@ -99,11 +99,10 @@ export function PricingHeroSection({ onPlanClick }: PricingHeroSectionProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15 }}
-                className={`relative p-6 rounded-2xl border ${
-                  plan.popular
+                className={`relative p-6 rounded-2xl border ${plan.popular
                     ? 'bg-gradient-to-br from-sport-primary/10 to-sport-accent/10 border-sport-primary/30'
                     : 'bg-sport-card border-sport-border'
-                }`}
+                  }`}
               >
                 {plan.popular && (
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-sport-primary text-white text-xs font-semibold rounded-full">

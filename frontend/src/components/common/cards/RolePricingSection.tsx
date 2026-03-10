@@ -69,10 +69,10 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
       },
       {
         name: 'Profesional',
-        monthlyPrice: 89000,
-        annualPrice: 71200,
-        annualBilled: 854400,
-        savings: 213600,
+        monthlyPrice: 149000,
+        annualPrice: 119000,
+        annualBilled: 1428000,
+        savings: 360000,
         benefits: [
           'Recaudo Automático: Reduce mora 30%',
           'Vitrina 24/7 en el mapa',
@@ -85,15 +85,18 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
       },
       {
         name: 'Enterprise',
-        monthlyPrice: 'A medida',
-        annualPrice: 'A medida',
+        monthlyPrice: 349000,
+        annualPrice: 279200,
+        annualBilled: 3350400,
+        savings: 837600,
         benefits: [
           'Todo en Profesional',
+          'Más de 50 atletas',
           'Múltiples sedes',
           'API e integraciones',
           'Gerente de cuenta dedicado'
         ],
-        ctaText: 'Contactar Ventas',
+        ctaText: 'Comenzar 14 días gratis',
         icon: 'enterprise'
       }
     ]
@@ -118,10 +121,10 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
       },
       {
         name: 'Pro',
-        monthlyPrice: 29000,
-        annualPrice: 23200,
-        annualBilled: 278400,
-        savings: 69600,
+        monthlyPrice: 39000,
+        annualPrice: 31200,
+        annualBilled: 374400,
+        savings: 93600,
         benefits: [
           'Agenda Inteligente sin cruces',
           'Cobra por Adelantado online',
@@ -134,15 +137,18 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
       },
       {
         name: 'Top Trainer',
-        monthlyPrice: 'A medida',
-        annualPrice: 'A medida',
+        monthlyPrice: 79000,
+        annualPrice: 63200,
+        annualBilled: 758400,
+        savings: 189600,
         benefits: [
           'Todo en Pro',
+          'Más de 30 atletas activos',
           'Web personal con tu marca',
           'Marketing y ads incluidos',
           'Soporte legal y seguros'
         ],
-        ctaText: 'Contactar Ventas',
+        ctaText: 'Comenzar 14 días gratis',
         icon: 'enterprise'
       }
     ]
@@ -167,10 +173,10 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
       },
       {
         name: 'Premium',
-        monthlyPrice: 9900,
-        annualPrice: 7900,
-        annualBilled: 94800,
-        savings: 24000,
+        monthlyPrice: 14900,
+        annualPrice: 11900,
+        annualBilled: 142800,
+        savings: 36000,
         benefits: [
           'Todo en un Mapa ilimitado',
           'Beneficios Club SportMaps',
@@ -216,10 +222,10 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
       },
       {
         name: 'Marketplace',
-        monthlyPrice: 499000,
-        annualPrice: 399200,
-        annualBilled: 4790400,
-        savings: 1197600,
+        monthlyPrice: 599000,
+        annualPrice: 479200,
+        annualBilled: 5750400,
+        savings: 1437600,
         benefits: [
           'SponsorMatch IA incluido',
           'Publicidad Geolocalizada',
@@ -232,15 +238,18 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
       },
       {
         name: 'Sponsor Elite',
-        monthlyPrice: 'A medida',
-        annualPrice: 'A medida',
+        monthlyPrice: 1490000,
+        annualPrice: 1192000,
+        annualBilled: 14304000,
+        savings: 3576000,
         benefits: [
           'Todo en Marketplace',
+          'Campañas de patrocinio a atletas y academias',
           'Campañas custom',
           'Banner principal',
           'Eventos exclusivos'
         ],
-        ctaText: 'Contactar Ventas',
+        ctaText: 'Comenzar 14 días gratis',
         icon: 'enterprise'
       }
     ]
@@ -281,11 +290,14 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
       },
       {
         name: 'Nacional',
-        monthlyPrice: 'A medida',
-        annualPrice: 'A medida',
+        monthlyPrice: 4900000,
+        annualPrice: 3920000,
+        annualBilled: 47040000,
+        savings: 11760000,
         benefits: [
-          'Todo en Pro',
-          'Multi-región',
+          'Todo en Federación Pro',
+          'Múltiples ligas y regiones',
+          'Gestión de datos en tiempo real',
           'API gobierno',
           'Soporte 24/7 dedicado'
         ],
