@@ -1,7 +1,6 @@
-import { Check, Zap, Star, Shield, User, Briefcase, Building2, Dumbbell, Heart, Truck, Sparkles, Flag } from "lucide-react";
+import { Check, Zap, Star, Shield, User, Briefcase, Building2, Dumbbell, Heart, Truck, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { PlansComparisonTable } from "./PlansComparisonTable";
 
 interface PlansSectionProps {
   selectedClient: string;
@@ -11,7 +10,6 @@ interface PlansSectionProps {
 export function PlansSection({ selectedClient, onPlanSelect }: PlansSectionProps) {
   const [isAnnual, setIsAnnual] = useState(true);
   const whatsappNumber = "573128463555"; 
-// ... (rest of the code unchanged until the return)
 
   const handlePlanSelect = (planName: string) => {
     if (onPlanSelect) {
@@ -29,6 +27,11 @@ export function PlansSection({ selectedClient, onPlanSelect }: PlansSectionProps
       { name: "Premium", price: isAnnual ? "$29k" : "$39k", period: "/mes", features: ["Todo en Atleta ID", "Estadísticas avanzadas", "Descuentos en marcas", "Video highlights", "Soporte prioritario"], cta: "Ser Premium", popular: false, icon: Star },
       { name: "Pro Career", price: "A medida", period: "", features: ["Todo en Premium", "Visibilidad scouts", "Agente digital", "Asesoría legal", "Conexión patrocinadores"], cta: "Cotizar", popular: false, icon: Shield }
     ],
+    escuelas: [
+      { name: "Start", price: "Gratis", period: "", features: ["Gestión matrículas", "Asistencia Coach App", "Onboarding guiado", "Integración Staff"], cta: "Empezar Gratis", popular: false, icon: Zap },
+      { name: "Escuela Pro", price: isAnnual ? "$79k" : "$99k", period: "/mes", features: ["Portal interactivo Padres", "Pagos integrados Wompi", "Recordatorios WhatsApp", "Reserva de clases"], cta: "Ser Pro", popular: true, icon: Star },
+      { name: "Elite Club", price: "A medida", period: "", features: ["Roles avanzados (Sedes)", "Multi-sede integral", "Reportes operativos", "Migración datos VIP"], cta: "Cotizar", popular: false, icon: Shield }
+    ],
     entrenadores: [
       { name: "Coach Básico", price: "Gratis", period: "", features: ["Perfil verificado", "Recibir mensajes", "Hasta 5 clientes", "Directorio público"], cta: "Crear Perfil", popular: false, icon: Zap },
       { name: "Coach Pro", price: isAnnual ? "$49k" : "$69k", period: "/mes", features: ["Todo en Básico", "Agenda online", "Pagos integrados", "Rutinas digitales", "Clientes ilimitados"], cta: "Ser Pro", popular: true, icon: Dumbbell },
@@ -44,103 +47,10 @@ export function PlansSection({ selectedClient, onPlanSelect }: PlansSectionProps
       { name: "Marketplace", price: isAnnual ? "$89k" : "$109k", period: "/mes", features: ["Todo en Partner", "Venta productos", "Pasarela pagos", "Logística envíos", "Analytics ventas"], cta: "Vender", popular: true, icon: Star },
       { name: "Sponsor", price: "A medida", period: "", features: ["Todo en Marketplace", "Ads segmentados", "Patrocinio eventos", "Banner principal", "Campañas custom"], cta: "Cotizar", popular: false, icon: Shield }
     ],
-    escuelas: [
-      { 
-        name: "Academia Start", 
-        price: isAnnual ? "$49k" : "$59k", 
-        period: "/mes", 
-        features: [
-          "Hasta 50 alumnos activos*", 
-          "Administración de estudiantes", 
-          "Control de asistencia", 
-          "Carnetización digital", 
-          "Documento de vinculación",
-          "Administración de planes",
-          "Informes de operación"
-        ], 
-        cta: "Activar Plan", 
-        popular: false, 
-        icon: User 
-      },
-      { 
-        name: "Academia Pro", 
-        price: isAnnual ? "$89k" : "$119k", 
-        period: "/mes", 
-        features: [
-          "Hasta 150 alumnos activos*", 
-          "Soporte multi-sede",
-          "Todo en Academia Start",
-          "Pagos online (PRONTO)", 
-          "Tienda uniformes (PRONTO)", 
-          "App padres y alumnos (PRONTO)"
-        ], 
-        cta: "Activar Plan", 
-        popular: true, 
-        icon: Star 
-      },
-      { 
-        name: "Academia Elite", 
-        price: isAnnual ? "$149k" : "$199k", 
-        period: "/mes", 
-        features: [
-          "Hasta 300 alumnos activos*", 
-          "Soporte multi-academia",
-          "Todo en Academia Pro",
-          "API integraciones", 
-          "Marca blanca básica", 
-          "Gerente dedicado"
-        ], 
-        cta: "Activar Plan", 
-        popular: false, 
-        icon: Building2 
-      }
-    ],
     federaciones: [
-      { 
-        name: "Liga Local", 
-        price: isAnnual ? "$99k" : "$129k", 
-        period: "/mes", 
-        features: [
-          "Gestión de hasta 20 clubes", 
-          "Calendario de torneos digital", 
-          "Rankings y estadísticas", 
-          "Inscripciones online", 
-          "Soporte básico"
-        ], 
-        cta: "Registrar Liga", 
-        popular: false, 
-        icon: Flag 
-      },
-      { 
-        name: "Federación Regional", 
-        price: isAnnual ? "$249k" : "$299k", 
-        period: "/mes", 
-        features: [
-          "Ligas y clubes ilimitados", 
-          "Carnetización oficial nacional", 
-          "Módulo de arbitraje", 
-          "Gestión de licencias", 
-          "App móvil oficial"
-        ], 
-        cta: "Activar Federación", 
-        popular: true, 
-        icon: Shield 
-      },
-      { 
-        name: "Nacional / Gov", 
-        price: "A medida", 
-        period: "", 
-        features: [
-          "Control de censo nacional", 
-          "Multi-región y delegaciones", 
-          "API gubernamental", 
-          "Integraciones custom", 
-          "Soporte 24/7 dedicado"
-        ], 
-        cta: "Cotizar Proyecto", 
-        popular: false, 
-        icon: Building2 
-      }
+      { name: "Liga", price: "Gratis", period: "", features: ["Gestión básica clubes", "Calendario torneos", "Rankings locales", "Soporte básico"], cta: "Registrar Liga", popular: false, icon: Zap },
+      { name: "Federación Pro", price: isAnnual ? "$149k" : "$189k", period: "/mes", features: ["Torneos online", "Ligas y clubes ilimitados", "Carnetización nacional", "Módulo de arbitraje"], cta: "Ser Pro", popular: true, icon: Building2 },
+      { name: "Nacional", price: "A medida", period: "", features: ["Control censo", "Delegaciones multi-región", "API gobierno", "Soporte dedicado 24/7"], cta: "Cotizar", popular: false, icon: Shield }
     ],
     proveedores: [
       { name: "Proveedor", price: "Gratis", period: "", features: ["Perfil empresa", "Listado directorio", "Recibir solicitudes", "Contacto directo"], cta: "Registrar Empresa", popular: false, icon: Zap },
@@ -251,8 +161,6 @@ export function PlansSection({ selectedClient, onPlanSelect }: PlansSectionProps
             </div>
           ))}
         </div>
-
-        <PlansComparisonTable selectedClient={selectedClient} />
       </div>
     </section>
   );
