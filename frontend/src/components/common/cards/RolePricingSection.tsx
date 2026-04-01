@@ -60,6 +60,7 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         monthlyPrice: 'Gratis',
         annualPrice: 'Gratis',
         benefits: [
+          'Hasta 50 alumnos activos',
           'Gestión de matrículas e inscripciones',
           'App para Entrenadores (Asistencia)',
           'Onboarding guiado paso a paso',
@@ -75,6 +76,7 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         annualBilled: 854400,
         savings: 213600,
         benefits: [
+          'Hasta 150 alumnos activos',
           'Portal interactivo para Padres',
           'Pagos integrados (Wompi o Transferencia)',
           'Recordatorios automáticos (WhatsApp/Email)',
@@ -89,10 +91,10 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         monthlyPrice: 'A medida',
         annualPrice: 'A medida',
         benefits: [
+          'Alumnos ilimitados',
           'Roles avanzados (Admin de sede)',
           'Gestión Multi-sede integral',
           'Reportes financieros y operativos',
-          'Alumnos ilimitados',
           'Migración de datos y soporte VIP'
         ],
         ctaText: 'Contactar Ventas',

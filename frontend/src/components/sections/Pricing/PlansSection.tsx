@@ -28,9 +28,9 @@ export function PlansSection({ selectedClient, onPlanSelect }: PlansSectionProps
       { name: "Pro Career", price: "A medida", period: "", features: ["Todo en Premium", "Visibilidad scouts", "Agente digital", "Asesoría legal", "Conexión patrocinadores"], cta: "Cotizar", popular: false, icon: Shield }
     ],
     escuelas: [
-      { name: "Start", price: "Gratis", period: "", features: ["Gestión matrículas", "Asistencia Coach App", "Onboarding guiado", "Integración Staff"], cta: "Empezar Gratis", popular: false, icon: Zap },
-      { name: "Escuela Pro", price: isAnnual ? "$79k" : "$99k", period: "/mes", features: ["Portal interactivo Padres", "Pagos integrados Wompi", "Recordatorios WhatsApp", "Reserva de clases"], cta: "Ser Pro", popular: true, icon: Star },
-      { name: "Elite Club", price: "A medida", period: "", features: ["Roles avanzados (Sedes)", "Multi-sede integral", "Reportes operativos", "Migración datos VIP"], cta: "Cotizar", popular: false, icon: Shield }
+      { name: "Start", price: "Gratis", period: "", features: ["Hasta 50 alumnos", "Gestión matrículas", "Asistencia Coach App", "Onboarding guiado", "Integración Staff"], cta: "Empezar Gratis", popular: false, icon: Zap },
+      { name: "Escuela Pro", price: isAnnual ? "$79k" : "$99k", period: "/mes", features: ["Hasta 150 alumnos", "Portal interactivo Padres", "Pagos integrados Wompi", "Recordatorios WhatsApp", "Reserva de clases"], cta: "Ser Pro", popular: true, icon: Star },
+      { name: "Elite Club", price: "A medida", period: "", features: ["Alumnos ilimitados", "Roles avanzados (Sedes)", "Multi-sede integral", "Reportes operativos", "Migración datos VIP"], cta: "Cotizar", popular: false, icon: Shield }
     ],
     entrenadores: [
       { name: "Coach Básico", price: "Gratis", period: "", features: ["Perfil verificado", "Recibir mensajes", "Hasta 5 clientes", "Directorio público"], cta: "Crear Perfil", popular: false, icon: Zap },
