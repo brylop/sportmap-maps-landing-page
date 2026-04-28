@@ -20,10 +20,16 @@ export function TechHeader({ onSectionClick, activeSection = "" }: TechHeaderPro
 
   const isHomePage = location.pathname === "/";
 
-  const navItems = [
-    { id: "ecosistema", label: "Soluciones", icon: <Users className="w-4 h-4" /> },
-    { id: "precios", label: "Precios y Planes", icon: <CreditCard className="w-4 h-4" /> },
-    { id: "tienda", label: "Marketplace", icon: <Store className="w-4 h-4" /> },
+  const navItems: Array<{
+    id: string;
+    label: string;
+    icon: JSX.Element;
+    /** Ruta absoluta o hash anchor del home (ej: "/planes" | "/#mapa") */
+    to: string;
+  }> = [
+    { id: "ecosistema", label: "Soluciones", icon: <Users className="w-4 h-4" />, to: "/#ecosistema" },
+    { id: "planes", label: "Precios y Planes", icon: <CreditCard className="w-4 h-4" />, to: "/planes" },
+    { id: "mapa", label: "Marketplace", icon: <Store className="w-4 h-4" />, to: "/#mapa" },
   ];
 
   useEffect(() => {
@@ -34,13 +40,16 @@ export function TechHeader({ onSectionClick, activeSection = "" }: TechHeaderPro
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (sectionId: string) => {
+  const handleNavClick = (item: typeof navItems[number]) => {
     setIsMobileMenuOpen(false);
-    if (isHomePage && onSectionClick) {
-      onSectionClick(sectionId);
-    } else {
-      navigate(`/#${sectionId}`);
+
+    // Hash al home (#mapa, #ecosistema): si ya estamos en home, scroll directo
+    if (item.to.startsWith("/#") && isHomePage && onSectionClick) {
+      onSectionClick(item.id);
+      return;
     }
+
+    navigate(item.to);
   };
 
   const handleLogoClick = () => {
@@ -53,11 +62,7 @@ export function TechHeader({ onSectionClick, activeSection = "" }: TechHeaderPro
 
   const handleStartFree = () => {
     setIsMobileMenuOpen(false);
-    if (isHomePage && onSectionClick) {
-      onSectionClick("precios");
-    } else {
-      navigate("/#precios");
-    }
+    window.location.href = "https://app.sportmaps.co/";
   };
 
   return (
@@ -91,7 +96,7 @@ export function TechHeader({ onSectionClick, activeSection = "" }: TechHeaderPro
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => handleNavClick(item.id)}
+                  onClick={() => handleNavClick(item)}
                   className={`group flex items-center space-x-2 text-sm font-medium transition-all duration-300 relative ${activeSection === item.id
                       ? 'text-sport-primary'
                       : 'text-sport-text-secondary hover:text-sport-primary'
@@ -162,7 +167,7 @@ export function TechHeader({ onSectionClick, activeSection = "" }: TechHeaderPro
                 {navItems.map((item) => (
                   <button
                     key={item.id}
-                    onClick={() => handleNavClick(item.id)}
+                    onClick={() => handleNavClick(item)}
                     className={`w-full flex items-center space-x-3 p-3 rounded-lg text-left transition-all ${activeSection === item.id
                         ? 'bg-sport-primary/10 text-sport-primary font-semibold'
                         : 'text-sport-text-secondary hover:bg-sport-surface'

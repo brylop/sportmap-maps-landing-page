@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { TechHeader } from "@/components/TechHeader";
 import { SegmentedHero } from "@/components/SegmentedHero";
 import { MapHeroSection } from "@/components/map/MapHeroSection";
@@ -15,6 +16,17 @@ export default function Index() {
   const mapRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
   const [selectedClient, setSelectedClient] = useState("escuelas");
+  const location = useLocation();
+
+  // Scroll a la sección si llegamos con hash (/#mapa, /#ecosistema)
+  useEffect(() => {
+    if (!location.hash) return;
+    const id = location.hash.slice(1);
+    const t = setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+    return () => clearTimeout(t);
+  }, [location.hash, location.key]);
 
   const scrollToMap = () => {
     mapRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -23,8 +35,6 @@ export default function Index() {
   const scrollToFeatures = () => {
     featuresRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
-
-
 
   const handleSectionClick = (sectionId: string) => {
     const section = document.getElementById(sectionId);
