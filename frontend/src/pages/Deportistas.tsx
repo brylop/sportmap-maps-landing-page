@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -23,8 +22,14 @@ import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { DemoRequestModal } from "@/components/modals/DemoRequestModal";
 import { motion } from "framer-motion";
+
+const APP_URL = "https://app.sportmaps.co/";
+
+function goToApp(role?: "athlete" | "parent") {
+  const url = role ? `${APP_URL}?role=${role}` : APP_URL;
+  window.location.href = url;
+}
 
 const atletaBenefits = [
   "Historial deportivo digital portable",
@@ -72,8 +77,6 @@ const ecosystemFeatures = [
 ];
 
 export default function Deportistas() {
-  const [isDemoOpen, setIsDemoOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-sport-background text-sport-text-primary">
       <SEO
@@ -130,7 +133,7 @@ export default function Deportistas() {
               <Button
                 size="lg"
                 className="bg-sport-primary hover:bg-sport-primary/90 text-white px-8 py-6 text-lg font-bold rounded-full"
-                onClick={() => setIsDemoOpen(true)}
+                onClick={() => goToApp("athlete")}
               >
                 <User className="w-5 h-5 mr-2" />
                 Crear Atleta ID gratis
@@ -139,7 +142,7 @@ export default function Deportistas() {
                 size="lg"
                 variant="outline"
                 className="border-sport-primary text-sport-primary hover:bg-sport-primary hover:text-white px-8 py-6 text-lg rounded-full"
-                onClick={() => setIsDemoOpen(true)}
+                onClick={() => goToApp("parent")}
               >
                 <Users className="w-5 h-5 mr-2" />
                 Soy Padre/Tutor
@@ -168,7 +171,7 @@ export default function Deportistas() {
               description="Historial portable, perfil verificado, eventos cercanos y descuentos en marcas aliadas."
               benefits={atletaBenefits}
               ctaText="Crear Atleta ID gratis"
-              onCTA={() => setIsDemoOpen(true)}
+              onCTA={() => goToApp("athlete")}
             />
             <FreeForeverCard
               icon={Users}
@@ -177,7 +180,7 @@ export default function Deportistas() {
               description="Mira el progreso de tu hijo, paga matrícula y comunícate con su coach desde una sola app."
               benefits={padreBenefits}
               ctaText="Crear cuenta de Padre"
-              onCTA={() => setIsDemoOpen(true)}
+              onCTA={() => goToApp("parent")}
             />
           </div>
         </section>
@@ -249,7 +252,7 @@ export default function Deportistas() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                onClick={() => setIsDemoOpen(true)}
+                onClick={() => goToApp("athlete")}
                 className="bg-sport-success hover:bg-sport-success/90 text-white px-8 py-6 text-lg font-bold rounded-full"
               >
                 <CheckCircle2 className="w-5 h-5 mr-2" />
@@ -258,7 +261,7 @@ export default function Deportistas() {
               <Button
                 size="lg"
                 variant="outline"
-                onClick={() => setIsDemoOpen(true)}
+                onClick={() => goToApp()}
                 className="px-8 py-6 text-lg rounded-full"
               >
                 Ya tengo cuenta
@@ -271,11 +274,6 @@ export default function Deportistas() {
 
       <SportMapsFooter />
       <WhatsAppButton />
-      <DemoRequestModal
-        isOpen={isDemoOpen}
-        onClose={() => setIsDemoOpen(false)}
-        source="deportistas"
-      />
     </div>
   );
 }
