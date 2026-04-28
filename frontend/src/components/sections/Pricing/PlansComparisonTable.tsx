@@ -18,37 +18,37 @@ export function PlansComparisonTable({ selectedClient }: PlansComparisonTablePro
   if (!isAcademy && !isFederation) return null;
 
   const academyFeatures: FeatureRow[] = [
-    { name: "Alumnos Activos", tiers: ["Hasta 50", "Hasta 150", "Hasta 300"] },
+    { name: "Alumnos Activos", tiers: ["Hasta 50", "Hasta 300", "Hasta 800"] },
     { name: "Admin de Estudiantes", tiers: [true, true, true] },
     { name: "Control de Asistencia", tiers: [true, true, true] },
-    { name: "Carnetización Digital", tiers: [true, true, true] },
-    { name: "Doc. de Vinculación", tiers: [true, true, true] },
-    { name: "Informes de Operación", tiers: [true, true, true] },
-    { name: "Soporte Multi-sede", tiers: [false, true, true] },
-    { name: "Soporte Multi-academia", tiers: [false, false, true] },
-    { name: "Pagos Online", tiers: ["Pronto", "Pronto", "Pronto"] },
-    { name: "App para Padres", tiers: ["Pronto", "Pronto", "Pronto"] },
+    { name: "App para Padres", tiers: ["Básica", true, true] },
+    { name: "Pagos Online (Wompi)", tiers: [true, true, true] },
+    { name: "WhatsApp AI (cobranza + recordatorios)", tiers: [false, "500/mes", "4.000/mes"] },
+    { name: "Reportes financieros", tiers: ["Esenciales", true, true] },
+    { name: "Multi-sede", tiers: [false, false, true] },
+    { name: "API e integraciones", tiers: [false, false, true] },
+    { name: "Migración de datos VIP", tiers: [false, false, true] },
     { name: "Gerente de Cuenta", tiers: [false, false, true] },
-    { name: "API Access", tiers: [false, false, "Opcional"] },
+    { name: "Soporte", tiers: ["WhatsApp", "Prioritario", "Dedicado"] },
   ];
 
   const federationFeatures: FeatureRow[] = [
-    { name: "Gestión de Clubes", tiers: ["Hasta 20", "Ilimitados", "Ilimitados"] },
-    { name: "Calendario de Torneos", tiers: [true, true, true] },
-    { name: "Rankings Digitales", tiers: [true, true, true] },
-    { name: "Licencias Oficiales", tiers: [false, true, true] },
-    { name: "Módulo de Arbitraje", tiers: [false, true, true] },
-    { name: "App Móvil Oficial", tiers: [false, true, true] },
+    { name: "Gestión de Clubes", tiers: ["—", "Hasta 30", "Ilimitados"] },
+    { name: "Torneos online", tiers: [false, true, true] },
+    { name: "Carnetización nacional", tiers: [false, true, true] },
+    { name: "Módulo de arbitraje", tiers: [false, true, true] },
+    { name: "WhatsApp AI", tiers: [false, "1.000/mes", "Ilimitado"] },
     { name: "Censo Nacional", tiers: [false, false, true] },
     { name: "Multi-región", tiers: [false, false, true] },
-    { name: "API Gubernamental", tiers: [false, false, true] },
-    { name: "Soporte 24/7", tiers: [false, true, true] },
+    { name: "API gubernamental", tiers: [false, false, true] },
+    { name: "Soporte 24/7", tiers: [false, false, true] },
+    { name: "SLA institucional", tiers: [false, false, true] },
   ];
 
   const features = isAcademy ? academyFeatures : federationFeatures;
-  const tierNames = isAcademy 
-    ? ["Start", "Pro", "Elite"] 
-    : ["Liga", "Federación", "Nacional"];
+  const tierNames = isAcademy
+    ? ["Start", "Pro", "Elite"]
+    : ["Demo", "Federación Pro", "Nacional"];
 
   return (
     <div className="mt-20 max-w-5xl mx-auto px-4">

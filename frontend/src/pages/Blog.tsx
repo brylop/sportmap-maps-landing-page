@@ -5,23 +5,48 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Clock, ArrowRight, Bookmark, TrendingUp,
-  Cpu, Users, Trophy
+import {
+  Clock, ArrowRight, Bookmark,
+  Cpu, Users, Trophy, BarChart3, MessageSquare,
+  DollarSign, Target
 } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Blog = () => {
   const featuredPost = {
-    title: "El Futuro de la Tecnología Deportiva en Latinoamérica",
-    excerpt: "Exploramos las tendencias que están transformando la industria del deporte y cómo las organizaciones pueden prepararse para el cambio.",
-    category: "Tendencias",
-    readTime: "8 min",
-    date: "28 Dic 2025",
+    title: "Caso de éxito: cómo Academia Champions redujo no-shows del 30% al 8%",
+    excerpt: "El experimento que cambió la operación de una academia de 180 alumnos: WhatsApp AI, recordatorios automáticos y cobranza en línea. Los números, el setup y los aprendizajes.",
+    category: "Casos de éxito",
+    readTime: "9 min",
+    date: "24 Abr 2026",
     image: "bg-gradient-to-br from-sport-primary to-sport-accent"
   };
 
   const posts = [
+    {
+      title: "Por qué subimos los precios y qué significa para tu academia",
+      excerpt: "Transparencia total sobre el cambio a pricing v3.0: qué se mantiene gratis, qué se incluye en cada tier y por qué 13% de descuento anual es más sostenible que 20%.",
+      category: "Producto",
+      readTime: "6 min",
+      date: "22 Abr 2026",
+      icon: DollarSign
+    },
+    {
+      title: "SportMaps vs Clupik: comparativa completa para academias en Colombia",
+      excerpt: "Lado a lado: precio, app de marca propia, cobranza, integraciones y soporte local. Una guía honesta para decidir antes de firmar.",
+      category: "Comparativas",
+      readTime: "10 min",
+      date: "18 Abr 2026",
+      icon: BarChart3
+    },
+    {
+      title: "Cómo funciona la cobranza por WhatsApp con IA en SportMaps",
+      excerpt: "Desde el primer recordatorio hasta el comprobante de pago: el flujo completo del WhatsApp AI que reduce mora 30% sin contratar más administrativos.",
+      category: "Tecnología",
+      readTime: "7 min",
+      date: "15 Abr 2026",
+      icon: MessageSquare
+    },
     {
       title: "5 Claves para Digitalizar tu Escuela Deportiva",
       excerpt: "Guía práctica para implementar tecnología en tu academia y mejorar la experiencia de estudiantes y padres.",
@@ -52,15 +77,17 @@ const Blog = () => {
       category: "Análisis",
       readTime: "4 min",
       date: "15 Dic 2025",
-      icon: TrendingUp
+      icon: Target
     }
   ];
 
   const categories = [
     "Todos",
-    "Tendencias",
-    "Guías",
+    "Casos de éxito",
+    "Producto",
+    "Comparativas",
     "Tecnología",
+    "Guías",
     "Organización",
     "Análisis"
   ];

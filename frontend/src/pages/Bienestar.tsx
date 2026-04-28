@@ -8,11 +8,10 @@ import { SEO } from "@/components/SEO";
 import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { DemoRequestModal } from "@/components/modals/DemoRequestModal";
-import { PlansSection } from "@/components/sections/Pricing/PlansSection";
+import { RolePricingSection, rolePricingConfigs } from "@/components/common/cards";
 
 export default function Bienestar() {
   const [isDemoOpen, setIsDemoOpen] = useState(false);
-  const selectedClient = "default";
   return (
     <div className="min-h-screen bg-sport-background text-sport-text-primary">
       <SEO 
@@ -297,7 +296,10 @@ export default function Bienestar() {
         </section>
 
         {/* Plans Section */}
-        <PlansSection selectedClient={selectedClient} />
+        <RolePricingSection
+          config={rolePricingConfigs.bienestar}
+          onCTA={() => setIsDemoOpen(true)}
+        />
 
         {/* CTA Section */}
         <section className="text-center bg-sport-card rounded-3xl p-8 border border-sport-border">
