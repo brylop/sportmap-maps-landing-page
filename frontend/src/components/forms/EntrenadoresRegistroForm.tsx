@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { fallbackToWhatsapp } from "@/lib/whatsappFallback";
 
 const entrenadoresSchema = z.object({
   fullName: z.string().min(2, "Nombre completo requerido").max(100),
@@ -59,9 +60,22 @@ export function EntrenadoresRegistroForm({ onSuccess, planSelected }: Entrenador
       onSuccess?.();
     } catch (error: any) {
       console.error('Error submitting form:', error);
-      toast.error("Error al enviar", {
-        description: "Por favor intenta nuevamente.",
+      toast.message("Te conectamos por WhatsApp", {
+        description: "El servidor no respondió. Te enviamos a WhatsApp con tus datos.",
       });
+      fallbackToWhatsapp("Entrenador", {
+        Nombre: data.fullName,
+        Email: data.email,
+        Teléfono: data.phone,
+        Especialidad: data.specialty,
+        Experiencia: `${data.experienceYears} años`,
+        Ciudad: data.city,
+        Certificaciones: data.certifications || undefined,
+        Descripción: data.description || undefined,
+        Plan: planSelected,
+      });
+      reset();
+      onSuccess?.();
     } finally {
       setIsSubmitting(false);
     }

@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Send, User, Mail, MessageSquare, HelpCircle } from "lucide-react";
 import { contactSchema, isHoneypotValid } from "@/lib/validation";
+import { fallbackToWhatsapp } from "@/lib/whatsappFallback";
 
 interface ContactFormProps {
   onClose?: () => void;
@@ -81,11 +82,18 @@ export function ContactForm({ onClose }: ContactFormProps) {
 
       if (error) {
         toast({
-          title: "Error",
-          description: "Hubo un problema al enviar tu mensaje. Inténtalo de nuevo.",
-          variant: "destructive",
+          title: "Te conectamos por WhatsApp",
+          description: "El servidor no respondió. Te enviamos a WhatsApp con tus datos.",
+        });
+        fallbackToWhatsapp("Contacto", {
+          Nombre: formData.name.trim(),
+          Email: formData.email.trim(),
+          Asunto: formData.subject.trim(),
+          Categoría: formData.category,
+          Mensaje: formData.message.trim(),
         });
         setIsLoading(false);
+        onClose?.();
         return;
       }
 

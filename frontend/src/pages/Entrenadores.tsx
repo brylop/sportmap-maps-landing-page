@@ -90,11 +90,19 @@ const Entrenadores = () => {
               maximizar el potencial de sus atletas.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-sport-primary hover:bg-sport-primary/90">
+              <Button
+                size="lg"
+                className="bg-sport-primary hover:bg-sport-primary/90"
+                onClick={() => setIsDemoOpen(true)}
+              >
                 Comenzar Prueba Gratis
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-              <Button size="lg" variant="outline">
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => setIsDemoOpen(true)}
+              >
                 Ver Demo
               </Button>
             </div>

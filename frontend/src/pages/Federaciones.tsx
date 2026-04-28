@@ -87,11 +87,21 @@ const Federaciones = () => {
               el ecosistema deportivo de tu región.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-sport-primary hover:bg-sport-primary/90">
+              <Button
+                size="lg"
+                className="bg-sport-primary hover:bg-sport-primary/90"
+                onClick={() => setIsDemoOpen(true)}
+              >
                 Solicitar Demo
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-              <Button size="lg" variant="outline">
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => {
+                  document.getElementById('federaciones-features')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 Conocer Más
               </Button>
             </div>
@@ -121,7 +131,7 @@ const Federaciones = () => {
       </section>
 
       {/* Features Grid */}
-      <section className="py-20">
+      <section id="federaciones-features" className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">

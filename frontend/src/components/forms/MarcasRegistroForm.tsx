@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { FormSuccessAnimation } from "./FormSuccessAnimation";
+import { fallbackToWhatsapp } from "@/lib/whatsappFallback";
 
 const marcasSchema = z.object({
   brandName: z.string()
@@ -72,9 +73,21 @@ export function MarcasRegistroForm({ onSuccess, planSelected }: MarcasRegistroFo
       reset();
     } catch (error: any) {
       console.error('Error submitting form:', error);
-      toast.error("Error al enviar", {
-        description: error.message || "Por favor intenta nuevamente.",
+      toast.message("Te conectamos por WhatsApp", {
+        description: "El servidor no respondió. Te enviamos a WhatsApp con tus datos.",
       });
+      fallbackToWhatsapp("Marca", {
+        Marca: data.brandName.trim(),
+        Contacto: data.contactName.trim(),
+        Email: data.email.trim().toLowerCase(),
+        Teléfono: data.phone.trim(),
+        Categoría: data.category,
+        Web: data.website?.trim() || undefined,
+        Descripción: data.description?.trim() || undefined,
+        Plan: planSelected,
+      });
+      reset();
+      onSuccess?.();
     } finally {
       setIsSubmitting(false);
     }

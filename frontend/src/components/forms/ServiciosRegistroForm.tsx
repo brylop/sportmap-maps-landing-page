@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { FormSuccessAnimation } from "./FormSuccessAnimation";
+import { fallbackToWhatsapp } from "@/lib/whatsappFallback";
 
 const serviciosSchema = z.object({
   serviceName: z.string()
@@ -78,9 +79,22 @@ export function ServiciosRegistroForm({ onSuccess, planSelected }: ServiciosRegi
       reset();
     } catch (error: any) {
       console.error('Error submitting form:', error);
-      toast.error("Error al enviar", {
-        description: error.message || "Por favor intenta nuevamente.",
+      toast.message("Te conectamos por WhatsApp", {
+        description: "El servidor no respondió. Te enviamos a WhatsApp con tus datos.",
       });
+      fallbackToWhatsapp("Servicio Profesional", {
+        Servicio: data.serviceName.trim(),
+        Profesional: data.contactName.trim(),
+        Email: data.email.trim().toLowerCase(),
+        Teléfono: data.phone.trim(),
+        Tipo: data.serviceType,
+        Experiencia: `${data.experienceYears} años`,
+        Ciudad: data.city.trim(),
+        Certificaciones: data.certifications?.trim() || undefined,
+        Descripción: data.description?.trim() || undefined,
+        Plan: planSelected,
+      });
+      reset();
     } finally {
       setIsSubmitting(false);
     }

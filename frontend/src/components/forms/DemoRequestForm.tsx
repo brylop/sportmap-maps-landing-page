@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Loader2, Rocket } from "lucide-react";
+import { fallbackToWhatsapp } from "@/lib/whatsappFallback";
 
 const demoSchema = z.object({
   fullName: z.string().trim().min(1, "El nombre es requerido").max(100),
@@ -69,9 +70,20 @@ ${data.message ? `\nMensaje adicional: ${data.message}` : ''}
       onSuccess?.();
     } catch (error) {
       console.error('Error submitting demo request:', error);
-      toast.error("Error al enviar", {
-        description: "Por favor intenta nuevamente."
+      toast.message("Te conectamos por WhatsApp", {
+        description: "El servidor no respondió. Te enviamos a WhatsApp con tus datos."
       });
+      fallbackToWhatsapp(`Demo (${source})`, {
+        Nombre: data.fullName,
+        Email: data.email,
+        Teléfono: data.phone,
+        Tipo: data.organizationType,
+        Organización: data.organizationName,
+        Usuarios: data.studentCount,
+        Mensaje: data.message,
+      });
+      reset();
+      onSuccess?.();
     } finally {
       setIsSubmitting(false);
     }
