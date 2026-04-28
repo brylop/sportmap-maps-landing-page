@@ -12,12 +12,12 @@ interface SEOProps {
 }
 
 const defaultSEO = {
-  title: 'SportMaps - Mapas Deportivos y Rutas Interactivas',
-  description: 'Descubre, crea y comparte rutas deportivas. La mejor plataforma de mapas para ciclismo, running, senderismo y más. Conectamos atletas, escuelas deportivas y profesionales del deporte.',
+  title: 'SportMaps | Software de Gestión Deportiva en Colombia',
+  description: 'Software todo-en-uno para escuelas, entrenadores y federaciones deportivas. Agenda online, pagos integrados, gestión de alumnos y app para padres. Empieza gratis.',
   image: '/logo.jpg',
   url: 'https://sportmaps.co',
   type: 'website' as const,
-  keywords: 'mapas deportivos, rutas ciclismo, rutas running, senderismo, escuelas deportivas, entrenadores, nutrición deportiva, bienestar atletas',
+  keywords: 'software gestión deportiva, sistema gestión escuelas deportivas Colombia, software academias deportivas, CRM entrenadores, agenda online deportiva, plataforma gestión clubes, software federaciones deportivas, gestión deportiva online',
   author: 'SportMaps',
 };
 
