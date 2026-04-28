@@ -144,9 +144,9 @@ export function SportMapsFooter() {
             <h3 className="font-semibold text-foreground">Contacto</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="mailto:spoortmaps@gmail.com" className="flex items-center gap-2 text-muted-foreground hover:text-sport-primary transition-colors">
+                <a href="mailto:contacto@sportmaps.co" className="flex items-center gap-2 text-muted-foreground hover:text-sport-primary transition-colors">
                   <Mail className="w-4 h-4" />
-                  spoortmaps@gmail.com
+                  contacto@sportmaps.co
                 </a>
               </li>
               <li>
