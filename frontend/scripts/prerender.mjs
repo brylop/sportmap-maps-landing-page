@@ -2,7 +2,6 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { resolve, join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { preview } from 'vite';
-import puppeteer from 'puppeteer';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(__dirname, '..');
@@ -12,6 +11,29 @@ const sitemapPath = resolve(projectRoot, 'public/sitemap.xml');
 const SITE_DOMAIN = 'https://sportmaps.co';
 const PREVIEW_PORT = 4173;
 const PAGE_TIMEOUT_MS = 45000;
+const isCI = !!process.env.VERCEL || !!process.env.CI;
+
+async function launchBrowser() {
+  if (isCI) {
+    const [{ default: chromium }, { default: puppeteer }] = await Promise.all([
+      import('@sparticuz/chromium'),
+      import('puppeteer-core'),
+    ]);
+    console.log('🌐 Using @sparticuz/chromium (CI/Vercel mode)');
+    return puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+    });
+  }
+  const { default: puppeteer } = await import('puppeteer');
+  console.log('🌐 Using puppeteer (local mode)');
+  return puppeteer.launch({
+    headless: 'new',
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
+  });
+}
 
 async function getRoutesFromSitemap() {
   const xml = await readFile(sitemapPath, 'utf-8');
@@ -69,10 +91,7 @@ async function main() {
   console.log(`Found ${routes.length} routes in sitemap.xml`);
 
   const server = await startPreviewServer();
-  const browser = await puppeteer.launch({
-    headless: 'new',
-    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
-  });
+  const browser = await launchBrowser();
 
   console.log('\n📄 Prerendering routes:');
   let failed = 0;
