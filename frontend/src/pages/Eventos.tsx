@@ -29,7 +29,6 @@ import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { DemoRequestModal } from "@/components/modals/DemoRequestModal";
 import { motion } from "framer-motion";
-import { RolePricingSection, rolePricingConfigs } from "@/components/common/cards";
 
 const painPoints = [
   {
@@ -441,12 +440,6 @@ export default function Eventos() {
             ))}
           </div>
         </section>
-
-        {/* Pricing Section */}
-        <RolePricingSection 
-          config={rolePricingConfigs.eventos} 
-          onCTA={openModal} 
-        />
 
         {/* Final CTA Section */}
         <section className="py-16 md:py-20 container mx-auto px-4">

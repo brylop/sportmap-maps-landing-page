@@ -90,6 +90,11 @@ export function SportMapsFooter() {
                 </Link>
               </li>
               <li>
+                <Link to="/organizadores" className="text-muted-foreground hover:text-sport-primary transition-colors">
+                  Organizadores Pro
+                </Link>
+              </li>
+              <li>
                 <Link to="/bienestar" className="text-muted-foreground hover:text-sport-primary transition-colors">
                   Bienestar Deportivo
                 </Link>

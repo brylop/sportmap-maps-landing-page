@@ -20,6 +20,7 @@ import TermsConditions from "./pages/TermsConditions";
 import NotFound from "./pages/NotFound";
 import Planes from "./pages/Planes";
 import Eventos from "./pages/Eventos";
+import Organizadores from "./pages/Organizadores";
 import Escuelas from "./pages/Escuelas";
 import Entrenadores from "./pages/Entrenadores";
 import Deportistas from "./pages/Deportistas";
@@ -53,6 +54,7 @@ const App = () => (
             <Route path="/terminos" element={<TermsConditions />} />
             <Route path="/planes" element={<Planes />} />
             <Route path="/eventos" element={<Eventos />} />
+            <Route path="/organizadores" element={<Organizadores />} />
             <Route path="/escuelas" element={<Escuelas />} />
             <Route path="/entrenadores" element={<Entrenadores />} />
             <Route path="/deportistas" element={<Deportistas />} />

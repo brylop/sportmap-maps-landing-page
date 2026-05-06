@@ -11,7 +11,8 @@ import {
   Handshake,
   MapPin,
   Route,
-  Calendar
+  Calendar,
+  Trophy
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
@@ -57,6 +58,15 @@ const roles = [
     path: "/eventos",
     color: "from-rose-500 to-rose-600",
     cta: "Crear"
+  },
+  {
+    id: "organizadores",
+    label: "Organizar como pro",
+    icon: Trophy,
+    description: "Inscripciones, abonos y boletería",
+    path: "/organizadores",
+    color: "from-violet-500 to-violet-600",
+    cta: "Operar"
   },
   {
     id: "marcas",
@@ -204,7 +214,7 @@ export function SegmentedHero({ onScrollToMap }: SegmentedHeroProps) {
             </h2>
 
             {/* Role Buttons Grid - Enhanced Visual Appeal */}
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 md:gap-4">
               {roles.map((role, index) => (
                 <motion.button
                   key={role.id}
