@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { 
+import {
   School, User, Dumbbell, Briefcase, Flag, Package, Activity,
+  Trophy, Calendar,
   CheckCircle2, ArrowRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,8 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
     { id: "atletas", label: "Atletas", icon: User, color: "text-sport-primary", bg: "bg-sport-primary/10", activeColor: "border-sport-primary" },
     { id: "marcas", label: "Marcas", icon: Briefcase, color: "text-sport-accent", bg: "bg-sport-accent/10", activeColor: "border-sport-accent" },
     { id: "federaciones", label: "Ligas/Fed.", icon: Flag, color: "text-sport-primary", bg: "bg-sport-primary/10", activeColor: "border-sport-primary" },
+    { id: "organizadores", label: "Organizadores", icon: Trophy, color: "text-sport-accent", bg: "bg-sport-accent/10", activeColor: "border-sport-accent" },
+    { id: "eventos", label: "Eventos", icon: Calendar, color: "text-sport-primary", bg: "bg-sport-primary/10", activeColor: "border-sport-primary" },
     { id: "proveedores", label: "Proveedores", icon: Package, color: "text-sport-accent", bg: "bg-sport-accent/10", activeColor: "border-sport-accent" },
     { id: "servicios", label: "Servicios", icon: Activity, color: "text-sport-primary", bg: "bg-sport-primary/10", activeColor: "border-sport-primary" },
   ];
@@ -78,6 +81,29 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
         "Sistematización de Torneos y Rankings",
         "Comunicación oficial masiva y segura",
         "Reportes de impacto para entes públicos"
+      ]
+    },
+    organizadores: {
+      title: "Operación de Eventos sin Excel",
+      desc: "Coordina inscripciones con escuelas, recibe documentos, valida pagos y abonos, vende boletería con QR y distribuye tu evento dentro y fuera de la plataforma.",
+      benefits: [
+        "Inscripciones colectivas: cada escuela inscribe a sus atletas",
+        "Recepción y validación de documentos por inscrito",
+        "Pagos completos y abonos parciales con saldos en vivo",
+        "Pasarela Wompi + transferencia/efectivo en una sola conciliación",
+        "Boletería con QR y check-in en la puerta",
+        "Distribución: página pública + pin en mapa + link compartible"
+      ]
+    },
+    eventos: {
+      title: "Eventos Puntuales sin Caos",
+      desc: "Crea un evento en 1 minuto, comparte un link único, recibe inscripciones automáticas y aparece en el mapa de SportMaps. Sin comisión.",
+      benefits: [
+        "Página pública profesional por evento",
+        "Link único para WhatsApp, Instagram y email",
+        "Inscripciones automáticas sin Excel",
+        "Validación de pagos sin comisión de plataforma",
+        "Pin en el mapa SportMaps 24/7"
       ]
     },
     proveedores: {
