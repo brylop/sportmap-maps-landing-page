@@ -23,6 +23,7 @@ import {
   RolePricingSection,
   rolePricingConfigs,
 } from "@/components/common/cards/RolePricingSection";
+import { CombosSection } from "@/components/sections/Pricing/CombosSection";
 import { DeportistasRegistroModal } from "@/components/modals/DeportistasRegistroModal";
 import { EscuelasRegistroModal } from "@/components/modals/EscuelasRegistroModal";
 import { BienestarRegistroModal } from "@/components/modals/BienestarRegistroModal";
@@ -139,6 +140,9 @@ const Planes = () => {
             onCTA={handlePlanClick}
           />
         )}
+
+        {/* Combos multi-rol (siempre visibles, independiente de la categoría) */}
+        <CombosSection />
 
         {/* Custom Plan CTA */}
         <section className="container mx-auto px-4 mt-20">
