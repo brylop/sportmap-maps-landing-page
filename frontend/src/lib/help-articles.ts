@@ -817,6 +817,470 @@ export const helpArticles: HelpArticle[] = [
     related: ["tomar-asistencia-coach", "reportes-financieros-asistencia"],
   },
   {
+    slug: "planes-entrenamiento",
+    categoryId: "operacion-diaria",
+    title: "Crear planes de entrenamiento para tus equipos",
+    excerpt:
+      "Diseña planes de entrenamiento por equipo con objetivos, ciclos y ejercicios. Los coaches lo ven en su dashboard.",
+    readTime: "4 min",
+    targetRole: ["coach", "school"],
+    body: [
+      {
+        type: "p",
+        content:
+          "Los planes de entrenamiento te permiten estructurar la temporada por equipo: objetivos por mes, ciclos de carga, evaluaciones programadas. Los coaches lo ven en su dashboard y los atletas pueden consultar las rutinas asignadas.",
+      },
+      { type: "h2", content: "Crear un plan nuevo" },
+      {
+        type: "callout",
+        variant: "info",
+        content: "Menú: Entrenamiento → Planes",
+      },
+      {
+        type: "ol",
+        items: [
+          "Selecciona el equipo desde el dropdown superior",
+          "Haz clic en 'Nuevo plan'",
+          "Completa: nombre del plan, periodo (ej: 'Pre-temporada Abril-Mayo')",
+          "Define objetivos del ciclo (técnico, físico, táctico)",
+          "Agrega sesiones por semana con ejercicios específicos",
+          "Guardar — el plan queda visible para el coach del equipo y para los atletas inscritos",
+        ],
+      },
+      { type: "h2", content: "Qué incluir en cada plan" },
+      {
+        type: "ul",
+        items: [
+          "Objetivos medibles (ej: '80% de pases acertados', 'Resistencia 30 min')",
+          "Frecuencia: cuántas sesiones por semana",
+          "Carga de entrenamiento: alta / media / baja por sesión",
+          "Evaluaciones intermedias (cada 4-6 semanas)",
+          "Notas sobre lesiones o restricciones individuales",
+        ],
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        content:
+          "Si tu academia tiene varios equipos con metodología similar, copia un plan existente y ajusta solo lo específico — ahorra 30 minutos por equipo.",
+      },
+      { type: "h2", content: "Eliminar o modificar un plan" },
+      {
+        type: "p",
+        content:
+          "Desde la lista de planes, cada uno tiene su botón de editar y eliminar. Eliminar un plan no borra los registros de asistencia ni evaluaciones asociadas — solo el plan en sí.",
+      },
+      {
+        type: "cta",
+        title: "Evaluá el progreso de cada jugador",
+        description: "Las evaluaciones cierran el ciclo de entrenamiento.",
+        href: "/ayuda/evaluaciones-jugadores",
+        label: "Ver guía de evaluaciones",
+      },
+    ],
+    related: ["evaluaciones-jugadores", "tomar-asistencia-coach"],
+  },
+  {
+    slug: "evaluaciones-jugadores",
+    categoryId: "operacion-diaria",
+    title: "Evaluar a jugadores: habilidades, progreso y comentarios",
+    excerpt:
+      "Registra evaluaciones técnicas, físicas y tácticas de cada jugador con escala 0-100 y comentarios. Los padres lo ven en su app.",
+    readTime: "3 min",
+    targetRole: ["coach"],
+    body: [
+      {
+        type: "p",
+        content:
+          "Las evaluaciones de SportMaps son simples a propósito: el coach define una habilidad, le pone un puntaje 0-100 con slider y agrega comentarios cortos. El padre lo ve en el progreso del hijo. Sin formularios kilométricos.",
+      },
+      { type: "h2", content: "Crear una evaluación" },
+      {
+        type: "callout",
+        variant: "info",
+        content: "Menú: Evaluaciones (en panel de coach)",
+      },
+      {
+        type: "ol",
+        items: [
+          "Selecciona el equipo del jugador",
+          "Selecciona el jugador específico",
+          "Ingresa el nombre de la habilidad (ej: 'Pase corto', 'Resistencia aeróbica', 'Lectura de juego')",
+          "Mueve el slider entre 0 y 100 para indicar el nivel actual",
+          "Agrega comentarios opcionales (qué notaste, qué trabajar)",
+          "Haz clic en 'Guardar'",
+        ],
+      },
+      { type: "h2", content: "Buenas prácticas" },
+      {
+        type: "ul",
+        items: [
+          "Usa lenguaje claro: 'Pase corto' es mejor que 'Habilidad técnica 1'",
+          "Evalúa al menos 3 habilidades por jugador cada 4-6 semanas",
+          "Sé constructivo en comentarios — los padres los leen",
+          "Marca evaluaciones consistentes en el tiempo (mismo nombre de habilidad) para que el padre vea progreso real",
+        ],
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        content:
+          "Las evaluaciones aparecen en orden cronológico inverso en el perfil del jugador. Si calificas 'Resistencia aeróbica' con 60 hoy y con 75 en 8 semanas, el padre ve esa mejora claramente.",
+      },
+      { type: "h2", content: "Quién ve las evaluaciones" },
+      {
+        type: "table",
+        headers: ["Rol", "Qué ve"],
+        rows: [
+          ["Coach que la creó", "Todo, editar/eliminar"],
+          ["Otros coaches del equipo", "Solo lectura"],
+          ["Director / admin", "Todo, exportable"],
+          ["Padre", "Solo las evaluaciones de su(s) hijo(s)"],
+          ["Atleta mayor de edad", "Sus propias evaluaciones"],
+        ],
+      },
+    ],
+    related: ["planes-entrenamiento", "reportes-coach"],
+  },
+  {
+    slug: "certificados-digitales",
+    categoryId: "gestion-alumnos",
+    title: "Generar certificados digitales (constancias)",
+    excerpt:
+      "Constancia de estudio, conducta, médica o de pago — con firma digital, plantillas personalizables y opción de cobrar por la emisión.",
+    readTime: "5 min",
+    targetRole: ["school"],
+    body: [
+      {
+        type: "p",
+        content:
+          "Las certificaciones digitales reemplazan los típicos PDF que arma el administrativo a mano cada vez que un padre lo pide. Configurás la plantilla una vez, y desde ahí los emites con un clic o el padre las solicita y paga directamente.",
+      },
+      { type: "h2", content: "Tipos de certificado disponibles" },
+      {
+        type: "table",
+        headers: ["Tipo", "Uso típico"],
+        rows: [
+          ["Constancia de estudio", "Para colegios, becas, descuentos"],
+          ["Constancia de conducta", "Comportamiento y compromiso del atleta"],
+          ["Constancia médica", "Aptitud física para competencia"],
+          ["Constancia de pago", "Soporte de pagos al día"],
+          ["Constancia de federación", "Aval ante ligas o federaciones"],
+          ["Personalizada", "Cualquier otro caso (custom)"],
+        ],
+      },
+      { type: "h2", content: "Configurar una plantilla" },
+      {
+        type: "callout",
+        variant: "info",
+        content: "Menú: Certificados → Plantillas → 'Nueva plantilla'",
+      },
+      {
+        type: "ol",
+        items: [
+          "Nombre interno de la plantilla (ej: 'Constancia estudio 2026')",
+          "Tipo (estudio / conducta / médica / pago / federación / personalizada)",
+          "Título visible en el documento (ej: 'CONSTANCIA')",
+          "Cuerpo del texto con variables auto-completadas",
+          "Datos de firma: nombre, cargo, imagen de firma (opcional)",
+          "Texto del pie de página (opcional, ej: dirección de la escuela)",
+        ],
+      },
+      { type: "h2", content: "Variables disponibles" },
+      {
+        type: "table",
+        headers: ["Variable", "Se reemplaza por"],
+        rows: [
+          ["{{atleta.nombre}}", "Nombre completo del deportista"],
+          ["{{atleta.tipo_doc}}", "Tipo de documento (CC, TI, etc.)"],
+          ["{{atleta.documento}}", "Número de documento"],
+          ["{{equipo}}", "Equipo al que pertenece"],
+          ["{{sede}}", "Sede de la escuela"],
+          ["{{escuela.nombre}}", "Nombre de tu academia"],
+          ["{{inscripcion.vence}}", "Fecha de vencimiento de la inscripción"],
+          ["{{fecha_actual}}", "Fecha de emisión del certificado"],
+        ],
+      },
+      { type: "h2", content: "Cobrar por la emisión (opcional)" },
+      {
+        type: "p",
+        content:
+          "Si activás 'Requiere pago' en la plantilla, los padres pueden solicitar el certificado desde su app y el sistema les cobra automáticamente (vía Wompi). Útil para constancias administrativas que ya cobrás manualmente. Define monto y moneda.",
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        content:
+          "Activá 'Plantilla por defecto' en la más usada de cada tipo. Cuando emitís un certificado nuevo, esa aparece preseleccionada.",
+      },
+      { type: "h2", content: "Verificación pública" },
+      {
+        type: "p",
+        content:
+          "Cada certificado emitido tiene un código de verificación pública. Quien lo reciba (colegio, federación) puede verificarlo en sportmaps.co/verificar sin tener cuenta. Esto previene falsificaciones.",
+      },
+    ],
+    related: ["configurar-sedes-equipos"],
+  },
+  {
+    slug: "wellness-citas-pacientes",
+    categoryId: "operacion-diaria",
+    title: "Wellness: agenda de citas y gestión de pacientes",
+    excerpt:
+      "Si tu academia incluye fisio, nutrición o psicología deportiva, gestiona citas, estados y pacientes en una sola vista.",
+    readTime: "4 min",
+    targetRole: ["school"],
+    body: [
+      {
+        type: "p",
+        content:
+          "El módulo Wellness está pensado para academias con fisio o psicólogo deportivo interno (combo Academia Salud Deportiva). También sirve para centros de bienestar standalone.",
+      },
+      { type: "h2", content: "Vista de agenda" },
+      {
+        type: "callout",
+        variant: "info",
+        content: "Menú: Wellness → Agenda",
+      },
+      {
+        type: "p",
+        content:
+          "La vista principal muestra citas de hoy y mañana en tarjetas separadas. Cada cita tiene su estado, hora, paciente y profesional asignado.",
+      },
+      { type: "h2", content: "Estados de una cita" },
+      {
+        type: "table",
+        headers: ["Estado", "Significa"],
+        rows: [
+          ["Pendiente", "Reservada pero el paciente aún no confirma"],
+          ["Confirmada", "Paciente confirmó asistencia"],
+          ["Completada", "Cita realizada"],
+          ["Cancelada", "Cancelada por paciente o profesional"],
+        ],
+      },
+      { type: "h2", content: "Crear una cita manualmente" },
+      {
+        type: "ol",
+        items: [
+          "Botón 'Nueva cita' en la parte superior",
+          "Selecciona paciente (o créalo si es nuevo)",
+          "Profesional asignado y especialidad",
+          "Fecha y hora (el sistema valida disponibilidad)",
+          "Tipo de consulta (primera vez, seguimiento, urgencia)",
+          "Notas internas (opcional, no las ve el paciente)",
+        ],
+      },
+      { type: "h2", content: "Citas que el paciente reserva solo" },
+      {
+        type: "p",
+        content:
+          "Si activás 'Reservas online' en el plan Wellness Pro, el paciente puede reservar desde la app sin que tengas que hacer nada. Configurá disponibilidad por profesional desde Menú: Wellness → Configuración → Horarios.",
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        content:
+          "WhatsApp AI puede confirmar citas automáticamente 24h antes. Activalo en Configuración → WhatsApp AI → módulos → 'Confirmaciones Wellness'. Reduce no-shows ~40%.",
+      },
+    ],
+    related: ["calendario-reservas"],
+  },
+  {
+    slug: "tienda-inventario-productos",
+    categoryId: "gestion-alumnos",
+    title: "Tienda: gestión de productos e inventario",
+    excerpt:
+      "Si vendés uniformes, accesorios o merchandising, controla stock, productos y alertas de bajo inventario desde un solo panel.",
+    readTime: "4 min",
+    targetRole: ["school"],
+    body: [
+      {
+        type: "p",
+        content:
+          "El módulo Tienda funciona como un mini-marketplace integrado: productos, stock, pedidos y conciliación con Wompi. Activado en el combo Academia + Tienda o como módulo independiente con Marketplace Pro.",
+      },
+      { type: "h2", content: "Vista de inventario" },
+      {
+        type: "callout",
+        variant: "info",
+        content: "Menú: Tienda → Inventario",
+      },
+      {
+        type: "p",
+        content:
+          "El panel muestra 4 indicadores clave: Total Productos, Productos con Stock Bajo, Valor Total de Inventario y Productos sin Stock.",
+      },
+      { type: "h2", content: "Agregar un producto" },
+      {
+        type: "callout",
+        variant: "info",
+        content: "Menú: Tienda → Productos → 'Nuevo producto'",
+      },
+      {
+        type: "ol",
+        items: [
+          "Nombre y descripción del producto",
+          "Foto (recomendado mínimo 600×600px)",
+          "Categoría (Uniforme / Accesorio / Equipamiento / Otros)",
+          "Variantes (tallas, colores) — opcional",
+          "Precio en COP",
+          "Stock inicial",
+          "Umbral de stock bajo (ej: si stock < 20 te alerta)",
+        ],
+      },
+      { type: "h2", content: "Alerta de stock bajo" },
+      {
+        type: "p",
+        content:
+          "Cualquier producto con stock por debajo del umbral configurado aparece destacado en rojo en el panel de Inventario. Útil para reabastecer antes de quedar en cero. Por defecto el umbral es 20 unidades.",
+      },
+      { type: "h2", content: "Gestión de pedidos" },
+      {
+        type: "callout",
+        variant: "info",
+        content: "Menú: Tienda → Pedidos",
+      },
+      {
+        type: "p",
+        content:
+          "Cada pedido (de padre o atleta) genera una orden con estado: Pendiente → Pago Confirmado → En preparación → Listo para retiro → Entregado. Marca el estado manualmente o automatiza con WhatsApp AI.",
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        content:
+          "Si las tallas son críticas (uniformes para temporada), agregá la talla como variante separada. Si el padre selecciona M y no hay stock, no puede completar la compra — evita errores de despacho.",
+      },
+    ],
+    related: ["configurar-wompi-pagos-online"],
+  },
+  {
+    slug: "reportes-coach",
+    categoryId: "operacion-diaria",
+    title: "Reportes para coaches: asistencia, evaluaciones y resultados",
+    excerpt:
+      "Cada coach tiene un panel con métricas de sus equipos: asistencia, rendimiento, resultados de partidos y uniformes pendientes.",
+    readTime: "4 min",
+    targetRole: ["coach"],
+    body: [
+      {
+        type: "p",
+        content:
+          "Mientras el director ve métricas de toda la academia, cada coach ve solo lo de SUS equipos. El panel está armado para responder en 30 segundos a las preguntas frecuentes: '¿cómo va el equipo este mes?', '¿quién tiene problemas de asistencia?', '¿qué pasó en el último partido?'.",
+      },
+      { type: "h2", content: "Pestañas del panel" },
+      {
+        type: "callout",
+        variant: "info",
+        content: "Menú: Reportes (en panel de coach)",
+      },
+      {
+        type: "table",
+        headers: ["Pestaña", "Contenido"],
+        rows: [
+          ["General", "Métricas resumen del equipo seleccionado"],
+          ["Asistencia", "Porcentajes por sesión, ranking de asistencia individual"],
+          ["Evaluaciones", "Progreso de cada jugador, comparativa vs equipo"],
+          ["Partidos", "Resultados, goles, asistencias, tarjetas"],
+          ["Uniformes", "Quién tiene/no tiene cada prenda"],
+        ],
+      },
+      { type: "h2", content: "Filtros disponibles" },
+      {
+        type: "ul",
+        items: [
+          "Por equipo (si manejas varios)",
+          "Por rango de fechas (último mes, semestre, año)",
+          "Por jugador específico (drill-down)",
+        ],
+      },
+      { type: "h2", content: "Exportar reportes" },
+      {
+        type: "p",
+        content:
+          "Cualquier pestaña tiene botón 'Descargar' que exporta a Excel/PDF. Útil cuando el director te pide un resumen escrito, o para reuniones con padres.",
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        content:
+          "Las flechas verticales (↑↓-) al lado de cada métrica indican tendencia vs período anterior. Si la asistencia baja consecutivamente 2 semanas, vale la pena hablar con el equipo antes de que se vuelva un patrón.",
+      },
+    ],
+    related: ["evaluaciones-jugadores", "tomar-asistencia-coach"],
+  },
+  {
+    slug: "encuestas-asistencia",
+    categoryId: "operacion-diaria",
+    title: "Encuestas de asistencia: confirmar quién va a la próxima sesión",
+    excerpt:
+      "Manda un link a tu equipo, los padres confirman si su hijo va o no, ves la lista consolidada. Cero grupos de WhatsApp.",
+    readTime: "3 min",
+    targetRole: ["school", "coach"],
+    body: [
+      {
+        type: "p",
+        content:
+          "Las encuestas reemplazan los típicos '¿quién va al partido del sábado?' por WhatsApp donde 30 padres responden desordenado. Generás un link único, lo compartís por WhatsApp, los padres confirman con un clic, y ves los confirmados en vivo.",
+      },
+      { type: "h2", content: "Crear una encuesta" },
+      {
+        type: "callout",
+        variant: "info",
+        content: "Menú: Encuestas → 'Nueva encuesta'",
+      },
+      {
+        type: "ol",
+        items: [
+          "Nombre de la encuesta (ej: 'Partido vs Cóndores - Sábado 12 May')",
+          "Selecciona equipo o lista de atletas",
+          "Define las sesiones (puede ser una sola fecha o varias)",
+          "Fecha de cierre (después no se pueden confirmar más)",
+          "Crear",
+        ],
+      },
+      { type: "h2", content: "Compartir el link" },
+      {
+        type: "p",
+        content:
+          "Cuando se crea, aparece un botón 'Compartir'. Copia el link y pegalo en el grupo de WhatsApp del equipo. Cada padre hace clic, ve solo a su(s) hijo(s), confirma o declina.",
+      },
+      {
+        type: "callout",
+        variant: "info",
+        content:
+          "El link es público (cualquiera con el link puede ver y confirmar). Es por diseño — no obliga al padre a tener cuenta SportMaps para responder.",
+      },
+      { type: "h2", content: "Ver resultados" },
+      {
+        type: "callout",
+        variant: "info",
+        content: "Menú: Encuestas → click en cualquier encuesta",
+      },
+      {
+        type: "p",
+        content:
+          "Verás los confirmados de cada sesión, con nombre del atleta y avatar del padre que confirmó. Conteo total al inicio.",
+      },
+      { type: "h2", content: "Acciones del admin" },
+      {
+        type: "ul",
+        items: [
+          "'Cerrar encuesta' — bloquea más confirmaciones",
+          "'Agregar manualmente' — útil si un padre confirma por WhatsApp directo y querés que aparezca en la lista",
+          "'Eliminar confirmación' — si un padre canceló después",
+        ],
+      },
+      {
+        type: "callout",
+        variant: "tip",
+        content:
+          "Para eventos grandes (torneos, festivales), creá la encuesta 1-2 semanas antes con fecha de cierre 48h antes del evento. Te da tiempo a planificar logística (canchas, transporte, refrigerios) con la lista confirmada.",
+      },
+    ],
+    related: ["calendario-reservas", "tomar-asistencia-coach"],
+  },
+  {
     slug: "reportes-financieros-asistencia",
     categoryId: "operacion-diaria",
     title: "Reportes financieros y de asistencia",
