@@ -31,6 +31,9 @@ import Federaciones from "./pages/Federaciones";
 import Bienestar from "./pages/Bienestar";
 import Equipamiento from "./pages/Equipamiento";
 import Partners from "./pages/Partners";
+import BlogPost from "./pages/BlogPost";
+import Comparar from "./pages/Comparar";
+import Calculadora from "./pages/Calculadora";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +49,9 @@ const App = () => (
             <Route path="/sobre-nosotros" element={<SobreNosotros />} />
             <Route path="/casos-exito" element={<CasosExito />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/comparar/:competidor" element={<Comparar />} />
+            <Route path="/calculadora" element={<Calculadora />} />
             <Route path="/ayuda" element={<CentroAyuda />} />
             <Route path="/tratamiento-datos" element={<TratamientoDatos />} />
             <Route path="/auth" element={<Auth />} />
