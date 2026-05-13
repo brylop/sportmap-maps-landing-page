@@ -155,3 +155,70 @@ export function buildComboWhatsAppMessage(combo: Combo): string {
   ];
   return lines.join("\n");
 }
+
+// ============================================================================
+// Wizard / ComboFinder helpers (Fase 3)
+// ============================================================================
+
+export interface WizardContext {
+  /** Etiqueta humana del rol (ej. "Escuela / Academia deportiva") */
+  roleLabel: string;
+  /** Etiqueta humana de la necesidad (ej. "Vender uniformes / productos") */
+  needLabel: string;
+  /** Etiqueta humana del tamaño (ej. "50 - 300 alumnos") */
+  sizeLabel: string;
+}
+
+/**
+ * Versión enriquecida del WhatsApp message que incluye las respuestas
+ * del wizard de 3 pasos. Reemplaza los campos "___" de la versión
+ * estática por las respuestas reales del usuario.
+ */
+export function buildComboWhatsAppMessageWithContext(
+  combo: Combo,
+  ctx: WizardContext
+): string {
+  const utmSource = getUtmSource();
+  const lines = [
+    "Hola SportMaps! 👋",
+    "",
+    `Quiero info del COMBO: ${combo.name}`,
+    "",
+    "📋 Mis datos:",
+    `• Tipo: ${ctx.roleLabel}`,
+    `• Necesidad: ${ctx.needLabel}`,
+    `• Tamaño aproximado: ${ctx.sizeLabel}`,
+    `• Módulos: ${combo.modules.join(" + ")}`,
+    `• Precio referencial: ${formatPriceCOP(combo.comboPrice)}/mes (valor normal ${formatPriceCOP(
+      combo.normalPrice
+    )})`,
+    utmSource ? `• ¿Cómo nos conociste?: ${utmSource}` : null,
+    "",
+    "¿Cómo seguimos?",
+  ].filter((l): l is string => l !== null);
+  return lines.join("\n");
+}
+
+/**
+ * Mensaje WhatsApp para recomendación de plan individual (no combo).
+ */
+export function buildIndividualPlanWhatsAppMessage(
+  planName: string,
+  ctx: WizardContext
+): string {
+  const utmSource = getUtmSource();
+  const lines = [
+    "Hola SportMaps! 👋",
+    "",
+    `Quiero info del plan: ${planName}`,
+    "",
+    "📋 Mis datos:",
+    `• Tipo: ${ctx.roleLabel}`,
+    `• Necesidad: ${ctx.needLabel}`,
+    `• Tamaño aproximado: ${ctx.sizeLabel}`,
+    utmSource ? `• ¿Cómo nos conociste?: ${utmSource}` : null,
+    "",
+    "¿Cómo seguimos?",
+  ].filter((l): l is string => l !== null);
+  return lines.join("\n");
+}

@@ -24,6 +24,7 @@ import {
   rolePricingConfigs,
 } from "@/components/common/cards/RolePricingSection";
 import { CombosSection } from "@/components/sections/Pricing/CombosSection";
+import { ComboFinder } from "@/components/sections/Pricing/ComboFinder";
 import { DeportistasRegistroModal } from "@/components/modals/DeportistasRegistroModal";
 import { EscuelasRegistroModal } from "@/components/modals/EscuelasRegistroModal";
 import { BienestarRegistroModal } from "@/components/modals/BienestarRegistroModal";
@@ -141,7 +142,10 @@ const Planes = () => {
           />
         )}
 
-        {/* Combos multi-rol (siempre visibles, independiente de la categoría) */}
+        {/* Wizard guiado: ¿No sabes cuál combo? — Te ayudamos en 3 preguntas */}
+        <ComboFinder />
+
+        {/* Combos multi-rol (catálogo estático, siempre visible) */}
         <CombosSection />
 
         {/* Custom Plan CTA */}
