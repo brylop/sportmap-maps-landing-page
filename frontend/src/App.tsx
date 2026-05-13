@@ -34,6 +34,7 @@ import Partners from "./pages/Partners";
 import BlogPost from "./pages/BlogPost";
 import Comparar from "./pages/Comparar";
 import Calculadora from "./pages/Calculadora";
+import HelpArticle from "./pages/HelpArticle";
 
 const queryClient = new QueryClient();
 
@@ -53,6 +54,7 @@ const App = () => (
             <Route path="/comparar/:competidor" element={<Comparar />} />
             <Route path="/calculadora" element={<Calculadora />} />
             <Route path="/ayuda" element={<CentroAyuda />} />
+            <Route path="/ayuda/:slug" element={<HelpArticle />} />
             <Route path="/tratamiento-datos" element={<TratamientoDatos />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/admin" element={<Admin />} />
