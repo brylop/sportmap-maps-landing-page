@@ -65,13 +65,28 @@ export interface UpgradeRequestPayload {
 // Helpers
 // ============================================================
 
+/**
+ * Detecta el BFF correcto segun el entorno desde donde viene el usuario.
+ *
+ * El admin app (dev.sportmaps.co o app.sportmaps.co) pasa su URL en el
+ * query param `return`. Si esa URL apunta a un host dev, usamos el BFF
+ * dev. Si no, prod. Asi un mismo landing puede servir ambos entornos
+ * sin romper el cross-domain auth.
+ */
 function resolveBffUrl(): string {
     const configured = (import.meta as any).env?.VITE_BFF_URL;
     if (configured) return configured;
+
+    if (typeof window !== 'undefined') {
+        const params = new URLSearchParams(window.location.search);
+        const returnUrl = params.get('return') || '';
+        // Si el return apunta a un admin de dev, usamos el BFF dev
+        if (returnUrl.includes('dev.sportmaps.co') || returnUrl.includes('localhost')) {
+            return 'https://sportmaps-bff-dev.onrender.com';
+        }
+    }
     return 'https://sportmaps-bff.onrender.com';
 }
-
-const BFF_URL = resolveBffUrl();
 
 // ============================================================
 // Hook
