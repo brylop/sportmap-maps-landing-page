@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Sparkles, MessageSquare } from "lucide-react";
+import { Check, Sparkles, MessageSquare, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -8,6 +9,8 @@ import {
   formatPriceCOP,
   type Combo,
 } from "@/lib/combos";
+import { useUpgradeContext } from "@/hooks/useUpgradeContext";
+import { useToast } from "@/hooks/use-toast";
 
 const SALES_WHATSAPP = "573128463555";
 
@@ -51,9 +54,54 @@ export function CombosSection() {
 }
 
 function ComboCard({ combo, index }: { combo: Combo; index: number }) {
+  const upgradeCtx = useUpgradeContext();
+  const { toast } = useToast();
+  const [submitting, setSubmitting] = useState(false);
   const monthlySavings = combo.normalPrice - combo.comboPrice;
   const annualSavings = monthlySavings * 12;
   const isFeatured = combo.badge === "MÁS POPULAR";
+
+  /**
+   * Si el usuario viene autenticado desde admin app (hasContext),
+   * el click crea un upgrade_request con metadata del combo y el
+   * super_admin lo procesa manualmente. Si no, abre WhatsApp legacy.
+   */
+  const handleClick = async () => {
+    if (!upgradeCtx.hasContext) {
+      openWhatsApp(combo);
+      return;
+    }
+
+    setSubmitting(true);
+    const comboNotes = [
+      `COMBO: ${combo.name}`,
+      `Módulos: ${combo.modules.join(" + ")}`,
+      `Precio combo: ${formatPriceCOP(combo.comboPrice)}/mes`,
+      `Precio normal: ${formatPriceCOP(combo.normalPrice)}/mes`,
+      `Ahorra: ${formatPriceCOP(monthlySavings)}/mes`,
+    ].join(" | ");
+
+    const result = await upgradeCtx.createUpgradeRequest({
+      request_type: "contact_sales",
+      notes: comboNotes,
+    });
+    setSubmitting(false);
+
+    if (result.ok) {
+      toast({
+        title: "¡Solicitud de combo enviada!",
+        description: `Recibimos tu interés en "${combo.name}". Te contactamos pronto.`,
+      });
+      setTimeout(() => upgradeCtx.goBackToApp(), 2000);
+    } else {
+      // Fallback: si el BFF falla, mandamos por WhatsApp para no perder lead
+      openWhatsApp(combo);
+      toast({
+        title: "Te conectamos por WhatsApp",
+        description: "El servidor no respondió, te llevamos al equipo directo.",
+      });
+    }
+  };
 
   return (
     <motion.div
@@ -121,15 +169,25 @@ function ComboCard({ combo, index }: { combo: Combo; index: number }) {
       <div className="flex-1" />
 
       <Button
-        onClick={() => openWhatsApp(combo)}
+        onClick={handleClick}
+        disabled={submitting}
         className={`w-full mt-5 py-5 font-bold rounded-xl transition-all hover:scale-[1.02] ${
           isFeatured
             ? "bg-sport-primary hover:bg-sport-primary/90 text-white"
             : "bg-muted hover:bg-muted/80 text-foreground"
         }`}
       >
-        <MessageSquare className="w-4 h-4 mr-2" />
-        Quiero este combo
+        {submitting ? (
+          <>
+            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+            Enviando...
+          </>
+        ) : (
+          <>
+            <MessageSquare className="w-4 h-4 mr-2" />
+            {upgradeCtx.hasContext ? "Solicitar este combo" : "Quiero este combo"}
+          </>
+        )}
       </Button>
     </motion.div>
   );

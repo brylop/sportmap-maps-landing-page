@@ -113,12 +113,16 @@ const Planes = () => {
   /**
    * Click en un plan dentro de RolePricingSection.
    *
-   * 3 caminos según contexto:
-   *   1. Usuario autenticado + viene de admin app (hasContext)
-   *      → POST al BFF /upgrade-requests + toast confirmando.
-   *      Super_admin recibe notificación, procesa manualmente.
-   *   2. Organizadores → siempre abrir ContactEquipoModal (no hay precios públicos)
-   *   3. Anónimo o sin school_id → flow legacy de registro
+   * Flow:
+   *   1. Organizadores → siempre ContactEquipoModal (cotización a medida)
+   *   2. Visitante anónimo (sin sesión) → modal de registro legacy
+   *      (captura lead vía Edge Function, no llega al super_admin)
+   *   3. Usuario autenticado vía deep-link (hasContext=true):
+   *      a. Si es escuela y mapeamos el plan → POST como 'plan_upgrade'
+   *         con plan_code canónico (queda procesable por RPC)
+   *      b. Si es otro rol o no mapeamos → POST como 'contact_sales'
+   *         con metadata.role + metadata.plan_name + metadata.price.
+   *         Super_admin lo procesa manualmente con la info.
    */
   const handlePlanClick = async (planName: string) => {
     if (selectedCategory === "organizadores") {
@@ -126,48 +130,45 @@ const Planes = () => {
       return;
     }
 
-    // Camino autenticado: crear upgrade request al BFF
-    if (upgradeCtx.hasContext && selectedCategory === "escuelas") {
-      const planCode = PLAN_NAME_TO_CODE[planName];
-      if (!planCode) {
-        toast({
-          title: "Plan no reconocido",
-          description: `No pudimos identificar el plan "${planName}".`,
-          variant: "destructive",
-        });
-        return;
-      }
-
-      setSubmitting(true);
-      const result = await upgradeCtx.createUpgradeRequest({
-        request_type:
-          planCode === upgradeCtx.deepLink.currentPlan
-            ? "contact_sales"
-            : "plan_upgrade",
-        requested_plan_code: planCode,
-      });
-      setSubmitting(false);
-
-      if (result.ok) {
-        toast({
-          title: "¡Solicitud enviada!",
-          description:
-            "Recibimos tu solicitud. Nuestro equipo te contactará por WhatsApp pronto.",
-        });
-        // Espera 2s y vuelve al admin app
-        setTimeout(() => upgradeCtx.goBackToApp(), 2000);
-      } else {
-        toast({
-          title: "No pudimos enviar tu solicitud",
-          description: result.error || "Intenta de nuevo en un momento.",
-          variant: "destructive",
-        });
-      }
+    // Visitante anónimo: flow legacy de registro
+    if (!upgradeCtx.hasContext) {
+      setModalState({ type: selectedCategory, plan: planName });
       return;
     }
 
-    // Camino anónimo: flow legacy de registro
-    setModalState({ type: selectedCategory, plan: planName });
+    // Autenticado: TODOS los roles van al BFF
+    setSubmitting(true);
+
+    // Para escuelas tenemos mapping a plan_code canónico
+    const planCode =
+      selectedCategory === "escuelas" ? PLAN_NAME_TO_CODE[planName] : null;
+
+    const result = await upgradeCtx.createUpgradeRequest({
+      // Si es escuela con plan_code reconocido → plan_upgrade
+      // Si es otro rol o nombre no mapeado → contact_sales con info en notas
+      request_type:
+        planCode && planCode !== upgradeCtx.deepLink.currentPlan
+          ? "plan_upgrade"
+          : "contact_sales",
+      requested_plan_code: planCode || undefined,
+      notes: `Rol: ${selectedCategory} · Plan solicitado: ${planName}`,
+    });
+    setSubmitting(false);
+
+    if (result.ok) {
+      toast({
+        title: "¡Solicitud enviada!",
+        description:
+          "Recibimos tu solicitud. Nuestro equipo te contactará por WhatsApp pronto.",
+      });
+      setTimeout(() => upgradeCtx.goBackToApp(), 2000);
+    } else {
+      toast({
+        title: "No pudimos enviar tu solicitud",
+        description: result.error || "Intenta de nuevo en un momento.",
+        variant: "destructive",
+      });
+    }
   };
 
   const closeModal = () => {
