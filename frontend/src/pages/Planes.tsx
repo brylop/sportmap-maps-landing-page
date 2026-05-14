@@ -49,8 +49,17 @@ type CategoryType =
   | "servicios"
   | "organizadores";
 
-// Mapea label de plan visible → plan_code interno del schema
+// Mapea label de plan visible → plan_code interno del schema.
+// Incluye TANTO los nombres reales de la landing (Escuela Start/Pro/Elite/Custom)
+// COMO los nombres canonicos de saas-plans.ts (Starter/Crecimiento/Profesional/Elite/Enterprise).
+// TODO: reconciliar ambas configs en un solo source of truth.
 const PLAN_NAME_TO_CODE: Record<string, TierCode> = {
+  // Nombres reales en RolePricingSection (landing)
+  "Escuela Start": "starter",
+  "Escuela Pro": "crecimiento",
+  "Escuela Elite": "elite",
+  "Custom": "enterprise",
+  // Nombres canonicos en saas-plans.ts (admin app)
   "Starter": "starter",
   "Crecimiento": "crecimiento",
   "Profesional": "profesional",
