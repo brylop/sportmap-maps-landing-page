@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useUpgradeContext } from "@/hooks/useUpgradeContext";
+import { useToast } from "@/hooks/use-toast";
+import { ACADEMY_TIERS, ADDONS, type TierCode, type AddonKey } from "@/config/saas-plans";
 import { TechHeader } from "@/components/TechHeader";
 import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -46,7 +49,18 @@ type CategoryType =
   | "servicios"
   | "organizadores";
 
+// Mapea label de plan visible → plan_code interno del schema
+const PLAN_NAME_TO_CODE: Record<string, TierCode> = {
+  "Starter": "starter",
+  "Crecimiento": "crecimiento",
+  "Profesional": "profesional",
+  "Elite": "elite",
+  "Enterprise": "enterprise",
+};
+
 const Planes = () => {
+  const upgradeCtx = useUpgradeContext();
+  const { toast } = useToast();
   const [selectedCategory, setSelectedCategory] =
     useState<CategoryType>("escuelas");
   const [modalState, setModalState] = useState<{
@@ -54,6 +68,26 @@ const Planes = () => {
     plan: string;
   }>({ type: null, plan: "" });
   const [isContactEquipoOpen, setIsContactEquipoOpen] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
+  // Si el deep-link trae role, auto-seleccionamos esa categoría
+  useEffect(() => {
+    if (upgradeCtx.deepLink.role) {
+      const roleMap: Record<string, CategoryType> = {
+        escuela: "escuelas",
+        entrenador: "entrenadores",
+        atleta: "deportistas",
+        bienestar: "bienestar",
+        marca: "marcas",
+        federacion: "federaciones",
+        proveedor: "proveedores",
+        servicio: "servicios",
+        organizador: "organizadores",
+      };
+      const matched = roleMap[upgradeCtx.deepLink.role];
+      if (matched) setSelectedCategory(matched);
+    }
+  }, [upgradeCtx.deepLink.role]);
 
   const categories = [
     { id: "deportistas" as const, label: "Deportistas", icon: User },
@@ -67,11 +101,63 @@ const Planes = () => {
     { id: "proveedores" as const, label: "Proveedores", icon: Truck },
   ];
 
-  const handlePlanClick = (planName: string) => {
+  /**
+   * Click en un plan dentro de RolePricingSection.
+   *
+   * 3 caminos según contexto:
+   *   1. Usuario autenticado + viene de admin app (hasContext)
+   *      → POST al BFF /upgrade-requests + toast confirmando.
+   *      Super_admin recibe notificación, procesa manualmente.
+   *   2. Organizadores → siempre abrir ContactEquipoModal (no hay precios públicos)
+   *   3. Anónimo o sin school_id → flow legacy de registro
+   */
+  const handlePlanClick = async (planName: string) => {
     if (selectedCategory === "organizadores") {
       setIsContactEquipoOpen(true);
       return;
     }
+
+    // Camino autenticado: crear upgrade request al BFF
+    if (upgradeCtx.hasContext && selectedCategory === "escuelas") {
+      const planCode = PLAN_NAME_TO_CODE[planName];
+      if (!planCode) {
+        toast({
+          title: "Plan no reconocido",
+          description: `No pudimos identificar el plan "${planName}".`,
+          variant: "destructive",
+        });
+        return;
+      }
+
+      setSubmitting(true);
+      const result = await upgradeCtx.createUpgradeRequest({
+        request_type:
+          planCode === upgradeCtx.deepLink.currentPlan
+            ? "contact_sales"
+            : "plan_upgrade",
+        requested_plan_code: planCode,
+      });
+      setSubmitting(false);
+
+      if (result.ok) {
+        toast({
+          title: "¡Solicitud enviada!",
+          description:
+            "Recibimos tu solicitud. Nuestro equipo te contactará por WhatsApp pronto.",
+        });
+        // Espera 2s y vuelve al admin app
+        setTimeout(() => upgradeCtx.goBackToApp(), 2000);
+      } else {
+        toast({
+          title: "No pudimos enviar tu solicitud",
+          description: result.error || "Intenta de nuevo en un momento.",
+          variant: "destructive",
+        });
+      }
+      return;
+    }
+
+    // Camino anónimo: flow legacy de registro
     setModalState({ type: selectedCategory, plan: planName });
   };
 
@@ -84,6 +170,37 @@ const Planes = () => {
       <TechHeader onSectionClick={() => {}} activeSection="planes" />
 
       <main className="pt-24 pb-16">
+        {/* ── Banner de contexto (solo si viene de admin app autenticado) ── */}
+        {upgradeCtx.hasContext && upgradeCtx.deepLink.currentPlan && (
+          <section className="container mx-auto px-4 mb-6">
+            <div className="rounded-xl border border-sport-primary/30 bg-gradient-to-r from-sport-primary/10 to-sport-accent/10 p-4 flex items-center justify-between gap-4 flex-wrap">
+              <div className="flex items-center gap-3">
+                <Sparkles className="w-5 h-5 text-sport-primary flex-shrink-0" />
+                <div>
+                  <p className="font-semibold text-sm">
+                    Tu plan actual:{" "}
+                    <span className="text-sport-primary">
+                      {ACADEMY_TIERS[upgradeCtx.deepLink.currentPlan]?.name || upgradeCtx.deepLink.currentPlan}
+                    </span>
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    {upgradeCtx.session?.email
+                      ? `Conectado como ${upgradeCtx.session.email}`
+                      : "Selecciona el plan al que quieres pasar y te contactamos para activarlo."}
+                  </p>
+                </div>
+              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => upgradeCtx.goBackToApp()}
+              >
+                Volver al admin
+              </Button>
+            </div>
+          </section>
+        )}
+
         {/* Hero */}
         <section className="container mx-auto px-4 text-center mb-12">
           <motion.h1
