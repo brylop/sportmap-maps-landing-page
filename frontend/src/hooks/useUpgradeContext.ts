@@ -160,13 +160,15 @@ export function useUpgradeContext() {
         const { data: { subscription } } = supabase.auth.onAuthStateChange(
             (_event, newSession) => {
                 if (!mounted) return;
+                // Solo sobrescribe sesion si Supabase tiene una REAL.
+                // Si no, NO wipeamos — puede que hayamos seteado sesion
+                // desde el inlineToken (URL hash) y Supabase no la conoce
+                // porque vive en otro dominio.
                 if (newSession?.user) {
                     setSession({
                         userId: newSession.user.id,
                         email: newSession.user.email ?? null,
                     });
-                } else {
-                    setSession(null);
                 }
             }
         );
@@ -270,10 +272,13 @@ export function useUpgradeContext() {
     return {
         deepLink,
         session,
-        isAuthenticated: !!session,
+        isAuthenticated: !!session || !!inlineToken,
         sessionLoaded,
-        /** True si la visita viene de admin app autenticada (mostrar contexto) */
-        hasContext: !!deepLink.schoolId && !!session,
+        /**
+         * True si la visita viene de admin app autenticada (mostrar contexto).
+         * Considera tanto session (Supabase local) como inlineToken (de URL hash).
+         */
+        hasContext: !!deepLink.schoolId && (!!session || !!inlineToken),
         createUpgradeRequest,
         goBackToApp,
     };
