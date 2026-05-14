@@ -84,6 +84,13 @@ export function useUpgradeContext() {
         email: string | null;
     } | null>(null);
     const [sessionLoaded, setSessionLoaded] = useState(false);
+    /**
+     * Token inline pasado por URL hash (#t=...) desde admin app.
+     * Permite autenticar BFF requests sin compartir cookies/localStorage
+     * entre dominios. Se usa en createUpgradeRequest como Bearer.
+     * Memo en memoria — se limpia del URL al leerlo (replaceState).
+     */
+    const [inlineToken, setInlineToken] = useState<string | null>(null);
 
     // ── 1. Leer query params ──────────────────────────────────────
     const deepLink = useMemo<UpgradeDeepLinkContext>(() => {
@@ -103,6 +110,37 @@ export function useUpgradeContext() {
             action: actionRaw || (current || schoolId ? 'select_plan' : 'view'),
         };
     }, [searchParams]);
+
+    // ── 1b. Leer token inline del hash (#t=...) y limpiar URL ─────
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+        const hash = window.location.hash;
+        if (hash.startsWith('#t=') || hash.startsWith('#') && hash.includes('t=')) {
+            const m = hash.match(/[#&]t=([^&]+)/);
+            if (m && m[1]) {
+                const token = decodeURIComponent(m[1]);
+                setInlineToken(token);
+                // Decodifica el JWT para extraer userId/email sin contactar Supabase
+                try {
+                    const payload = JSON.parse(atob(token.split('.')[1] || ''));
+                    if (payload?.sub) {
+                        setSession({
+                            userId: payload.sub,
+                            email: payload.email ?? null,
+                        });
+                    }
+                } catch {
+                    // JWT mal formado, ignoramos
+                }
+                // Limpia el hash del URL para no exponer el token
+                window.history.replaceState(
+                    null,
+                    '',
+                    window.location.pathname + window.location.search
+                );
+            }
+        }
+    }, []);
 
     // ── 2. Verificar sesión Supabase ──────────────────────────────
     useEffect(() => {
@@ -161,9 +199,14 @@ export function useUpgradeContext() {
             }
 
             try {
-                // Obtenemos el JWT actual de Supabase para autenticar al BFF
-                const { data: { session: supaSession } } = await supabase.auth.getSession();
-                const token = supaSession?.access_token;
+                // Prioridad de token:
+                //   1. inlineToken (vino por hash desde admin app)
+                //   2. Sesión activa de Supabase en este dominio (si la hay)
+                let token = inlineToken;
+                if (!token) {
+                    const { data: { session: supaSession } } = await supabase.auth.getSession();
+                    token = supaSession?.access_token ?? null;
+                }
 
                 if (!token) {
                     return {
@@ -209,7 +252,7 @@ export function useUpgradeContext() {
                 };
             }
         },
-        [session, deepLink.schoolId]
+        [session, deepLink.schoolId, inlineToken]
     );
 
     // ── 4. URL de retorno al admin app ────────────────────────────
