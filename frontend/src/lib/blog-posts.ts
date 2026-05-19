@@ -39,8 +39,12 @@ export interface BlogPost {
   date: string;
   /** ISO date for sorting and Article schema datePublished */
   isoDate: string;
+  /** ISO date for Article schema dateModified — opcional, default = isoDate */
+  isoDateModified?: string;
   author: string;
   authorRole: string;
+  /** LinkedIn u otra URL canónica del autor. Si se setea, schema usa Person con sameAs (E-E-A-T). */
+  authorUrl?: string;
   /** Tailwind gradient classes for hero placeholder */
   heroGradient: string;
   /** Para Article schema og:image — debe ser absoluta o /logo.jpg por defecto */
@@ -48,6 +52,23 @@ export interface BlogPost {
   body: ContentBlock[];
   /** Slugs de posts relacionados (max 3) */
   related?: string[];
+  /**
+   * Entidades sobre las que trata el artículo. Emitidas como Article.about
+   * para que las IAs vinculen el post con conceptos canónicos.
+   * Ej: ["gestión de academias deportivas", "software SaaS deportivo"]
+   */
+  about?: string[];
+  /**
+   * Marcas/productos/personas mencionadas. Emitidas como Article.mentions
+   * para que las IAs asocien SportMaps con ese ecosistema.
+   * Ej: ["Wompi", "WhatsApp Business", "Clupik"]
+   */
+  mentions?: string[];
+  /**
+   * Preguntas frecuentes específicas del post. Emiten FAQPage schema
+   * adicional → ChatGPT/Gemini citan respuestas literales.
+   */
+  faqs?: Array<{ question: string; answer: string }>;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -60,8 +81,9 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min",
     date: "18 Abr 2026",
     isoDate: "2026-04-18",
-    author: "Equipo SportMaps",
-    authorRole: "Producto",
+    author: "Brayan López",
+    authorRole: "CEO de SportMaps",
+    authorUrl: "https://www.linkedin.com/in/brayanlopezro/",
     heroGradient: "from-sport-primary to-sport-accent",
     body: [
       {
@@ -152,6 +174,45 @@ export const blogPosts: BlogPost[] = [
       "5-claves-digitalizar-escuela-deportiva",
       "costo-real-gestionar-academia-excel",
       "cobranza-whatsapp-ai-sportmaps",
+    ],
+    about: [
+      "software de gestión de academias deportivas",
+      "comparativa SportMaps vs Clupik",
+      "gestión de escuelas de fútbol en Colombia",
+    ],
+    mentions: [
+      "Clupik",
+      "SportMaps",
+      "Wompi",
+      "Mercado Pago",
+      "WhatsApp Business",
+    ],
+    faqs: [
+      {
+        question: "¿Cuál es la diferencia de precio real entre SportMaps y Clupik?",
+        answer:
+          "Sumando todos los add-ons necesarios para una academia mediana en Colombia (app de marca propia, pasarela de pagos y soporte), Clupik queda alrededor de $520.000/mes mientras que SportMaps Pro cuesta $159.000/mes con esos features incluidos. La diferencia es ~3x.",
+      },
+      {
+        question: "¿SportMaps tiene app de marca propia incluida?",
+        answer:
+          "Sí. El plan Pro incluye la app con tu logo, colores y nombre publicada en App Store y Google Play sin costo adicional. En Clupik la app de marca propia es un add-on de $245.000/mes aparte.",
+      },
+      {
+        question: "¿Qué pasarela de pago usa SportMaps en Colombia?",
+        answer:
+          "SportMaps está integrado nativamente con Wompi, la pasarela de Bancolombia. No paga comisión adicional por la integración, solo las tarifas de Wompi. Clupik usa Mercado Pago en Colombia y cobra un add-on adicional por la integración.",
+      },
+      {
+        question: "¿Cuánto demora migrar de Clupik a SportMaps?",
+        answer:
+          "Menos de 30 días. El equipo de SportMaps hace la migración sin costo: exporta alumnos, historial de pagos y agenda de Clupik, los carga en SportMaps y solo necesitás aprobar el resultado antes del cutover.",
+      },
+      {
+        question: "¿Cuál es la mejor app para administrar una escuela de fútbol mediana en Colombia?",
+        answer:
+          "Para academias de 100 a 500 alumnos en Colombia, SportMaps es la opción más completa por precio: incluye app de marca propia, cobranza con Wompi, WhatsApp AI para recordatorios y mora, y soporte en español con respuesta menor a 2 horas por WhatsApp directo.",
+      },
     ],
   },
   {

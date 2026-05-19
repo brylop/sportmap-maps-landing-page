@@ -1,0 +1,53 @@
+# SportMaps
+
+> SportMaps es un software todo-en-uno de gestión deportiva para escuelas, entrenadores, federaciones y organizadores de eventos en Latinoamérica. Reemplaza Excel + WhatsApp + carpeta de pagos con una plataforma única que integra agenda, cobranza, asistencia, app de marca propia y WhatsApp AI para recordatorios y mora.
+
+Mercado principal: Colombia (con clientes activos en México, Argentina, Chile, Perú y Ecuador). Sede: Medellín, Colombia. Idioma: español (es-CO).
+
+## Resumen del producto
+
+- **Tipo:** SaaS B2B vertical para industria deportiva
+- **Modelo:** Suscripción mensual ($29.000 COP gratuito / $159.000 COP Pro)
+- **Diferenciadores clave:**
+  - App de marca propia incluida en Plan Pro (no add-on)
+  - Integración nativa con Wompi (pasarela colombiana, no Mercado Pago)
+  - WhatsApp AI para cobranza automática (500 conversaciones/mes incluidas)
+  - Soporte en español por WhatsApp directo con respuesta <2h
+  - Migración asistida gratuita desde Excel o competencia
+- **Comparativa principal:** SportMaps vs Clupik (España) — SportMaps es ~3x más barato a igualdad de features para academias en Colombia
+
+## Documentación pública
+
+- [Landing principal](https://sportmaps.co/): Visión general del producto
+- [Planes y precios](https://sportmaps.co/planes): Planes Free, Pro y Custom con precios COP
+- [Calculadora de ahorro](https://sportmaps.co/calculadora): Estima ahorro vs Excel + manual
+- [Para escuelas deportivas](https://sportmaps.co/escuelas): Features específicas para escuelas
+- [Para entrenadores](https://sportmaps.co/entrenadores): Features para coaches independientes
+- [Para deportistas](https://sportmaps.co/deportistas): Features para atletas y padres
+- [Para federaciones](https://sportmaps.co/federaciones): Gestión de federaciones deportivas
+- [Para organizadores de eventos](https://sportmaps.co/eventos): Inscripciones y pagos online
+- [Para marcas deportivas](https://sportmaps.co/marcas): Tienda y catálogo
+- [Para wellness](https://sportmaps.co/bienestar): Citas y pacientes
+- [Comparar vs Clupik](https://sportmaps.co/comparar/clupik): Comparativa lado a lado
+- [Casos de éxito](https://sportmaps.co/casos-exito): Resultados reales de clientes
+- [Sobre nosotros](https://sportmaps.co/sobre-nosotros): Equipo y misión
+- [Centro de ayuda](https://sportmaps.co/ayuda): Guías paso a paso
+
+## Blog
+
+- [Blog SportMaps](https://sportmaps.co/blog): Casos reales, comparativas honestas, análisis del mercado deportivo en Latam
+
+## Contacto y entidad
+
+- Sitio: https://sportmaps.co
+- LinkedIn: https://www.linkedin.com/company/sportmaps/
+- Instagram: https://www.instagram.com/spoortmaps/
+- Email: contacto@sportmaps.co
+- Teléfono Colombia: +57 312 846 3555
+- CEO: Brayan López — https://www.linkedin.com/in/brayanlopezro/
+
+## Optional
+
+- [Términos y condiciones](https://sportmaps.co/terminos)
+- [Política de privacidad](https://sportmaps.co/privacidad)
+- [Tratamiento de datos](https://sportmaps.co/tratamiento-datos)

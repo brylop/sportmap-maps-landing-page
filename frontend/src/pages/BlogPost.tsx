@@ -39,26 +39,61 @@ export default function BlogPost() {
   const canonical = `${SITE_URL}/blog/${post.slug}`;
   const related = getRelatedPosts(post.related);
 
-  // Article JSON-LD schema (E-E-A-T + rich snippets)
+  // wordCount aproximado para que las IAs entiendan profundidad del contenido
+  const wordCount = post.body.reduce((acc, b) => {
+    if (b.type === "p" || b.type === "h2" || b.type === "h3" || b.type === "quote") {
+      return acc + b.content.split(/\s+/).length;
+    }
+    if (b.type === "ul" || b.type === "ol") {
+      return acc + b.items.join(" ").split(/\s+/).length;
+    }
+    if (b.type === "callout") return acc + b.content.split(/\s+/).length;
+    if (b.type === "table") return acc + b.rows.flat().join(" ").split(/\s+/).length;
+    return acc;
+  }, 0);
+
+  // Author: Person con sameAs si hay authorUrl (E-E-A-T), Organization si no
+  const authorEntity = post.authorUrl
+    ? {
+        "@type": "Person",
+        name: post.author,
+        jobTitle: post.authorRole,
+        worksFor: { "@type": "Organization", name: "SportMaps", url: SITE_URL },
+        sameAs: [post.authorUrl],
+      }
+    : {
+        "@type": "Organization",
+        name: post.author || "SportMaps",
+        url: SITE_URL,
+      };
+
+  // about y mentions: las IAs los usan para vincular el post con entidades canónicas
+  const aboutEntities = post.about?.map((name) => ({ "@type": "Thing", name }));
+  const mentionEntities = post.mentions?.map((name) => ({ "@type": "Thing", name }));
+
+  // Article JSON-LD schema (E-E-A-T + rich snippets + AEO)
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.excerpt,
     datePublished: post.isoDate,
-    dateModified: post.isoDate,
-    author: {
-      "@type": "Organization",
-      name: "SportMaps",
-      url: SITE_URL,
-    },
+    dateModified: post.isoDateModified ?? post.isoDate,
+    inLanguage: "es-CO",
+    author: authorEntity,
     publisher: {
       "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
       name: "SportMaps",
+      url: SITE_URL,
       logo: {
         "@type": "ImageObject",
         url: `${SITE_URL}/logo.jpg`,
       },
+      sameAs: [
+        "https://www.linkedin.com/company/sportmaps/",
+        "https://www.instagram.com/spoortmaps/",
+      ],
     },
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -66,7 +101,32 @@ export default function BlogPost() {
     },
     image: post.image ?? `${SITE_URL}/logo.jpg`,
     articleSection: post.category,
+    wordCount,
+    // Habilita citas en asistentes de voz y respuestas cortas (ChatGPT/Gemini)
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "[data-speakable]"],
+    },
+    ...(aboutEntities && aboutEntities.length > 0 && { about: aboutEntities }),
+    ...(mentionEntities && mentionEntities.length > 0 && { mentions: mentionEntities }),
   };
+
+  // FAQPage schema: solo si el post define preguntas frecuentes
+  const faqSchema =
+    post.faqs && post.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: post.faqs.map((f) => ({
+            "@type": "Question",
+            name: f.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: f.answer,
+            },
+          })),
+        }
+      : null;
 
   // BreadcrumbList schema
   const breadcrumbSchema = {
@@ -107,6 +167,9 @@ export default function BlogPost() {
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        {faqSchema && (
+          <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        )}
       </Helmet>
 
       <TechHeader onSectionClick={() => {}} activeSection="blog" />
@@ -135,10 +198,18 @@ export default function BlogPost() {
             <Badge className="mb-4 bg-sport-primary/10 text-sport-primary border-sport-primary/30">
               {post.category}
             </Badge>
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+            <h1
+              className="text-3xl md:text-5xl font-bold mb-6 leading-tight"
+              data-speakable="true"
+            >
               {post.title}
             </h1>
-            <p className="text-lg text-muted-foreground mb-6">{post.excerpt}</p>
+            <p
+              className="text-lg text-muted-foreground mb-6"
+              data-speakable="true"
+            >
+              {post.excerpt}
+            </p>
             <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
               <span className="flex items-center gap-1.5">
                 <UserIcon className="w-4 h-4" />
@@ -168,6 +239,30 @@ export default function BlogPost() {
               <ContentBlockRenderer key={i} block={block} />
             ))}
           </div>
+
+          {/* FAQ visible — refuerza el FAQPage schema y mejora AEO */}
+          {post.faqs && post.faqs.length > 0 && (
+            <section className="mt-16 pt-10 border-t border-border">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+                Preguntas frecuentes
+              </h2>
+              <dl className="space-y-6">
+                {post.faqs.map((f, i) => (
+                  <div key={i}>
+                    <dt
+                      className="text-lg font-semibold text-foreground mb-2"
+                      data-speakable="true"
+                    >
+                      {f.question}
+                    </dt>
+                    <dd className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                      {f.answer}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          )}
         </article>
 
         {/* Related posts */}
@@ -288,8 +383,13 @@ function ContentBlockRenderer({ block }: { block: ContentBlock }) {
         },
       };
       const { icon: Icon, color } = variantConfig[block.variant];
+      // Los callouts "tip" suelen ser TL;DR → marcamos como speakable
+      const speakable = block.variant === "tip";
       return (
-        <div className={`my-6 rounded-xl border p-5 flex gap-3 ${color}`}>
+        <div
+          className={`my-6 rounded-xl border p-5 flex gap-3 ${color}`}
+          {...(speakable && { "data-speakable": "true" })}
+        >
           <Icon className="w-5 h-5 shrink-0 mt-0.5" />
           <p className="text-base leading-relaxed">{block.content}</p>
         </div>

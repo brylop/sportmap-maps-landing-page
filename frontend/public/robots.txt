@@ -36,3 +36,9 @@ Disallow: /admin
 
 # Sitemap location
 Sitemap: https://sportmaps.co/sitemap.xml
+
+# LLM index — para ChatGPT, Claude, Gemini, Perplexity
+# Estándar emergente: https://llmstxt.org
+# llms.txt = índice canónico del sitio
+# llms-full.txt = contenido expandido con FAQs y comparativas
+# Estos archivos son leídos por modelos de lenguaje para responder preguntas sobre SportMaps
