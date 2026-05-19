@@ -16,7 +16,7 @@ const SITE_URL = 'https://sportmaps.co';
 const defaultSEO = {
   title: 'SportMaps | Software de Gestión Deportiva en Colombia',
   description: 'Software todo-en-uno para escuelas, entrenadores y federaciones deportivas. Agenda online, pagos integrados, gestión de alumnos y app para padres. Empieza gratis.',
-  image: '/logo.jpg',
+  image: 'https://app.sportmaps.co/sportmaps-logo.png',
   url: SITE_URL,
   type: 'website' as const,
   keywords: 'software gestión deportiva, sistema gestión escuelas deportivas Colombia, software academias deportivas, CRM entrenadores, agenda online deportiva, plataforma gestión clubes, software federaciones deportivas, gestión deportiva online',
@@ -28,6 +28,7 @@ const defaultSEO = {
  * Sirve como entidad canónica para que las IAs (ChatGPT, Gemini, Perplexity)
  * vinculen "SportMaps" con sus perfiles oficiales en redes y dominios.
  * sameAs es la propiedad clave para AEO: confirma identidad cross-platform.
+ * address + contactPoint cierran los warnings de Local Business auto-detect.
  */
 const organizationSchema = {
   '@context': 'https://schema.org',
@@ -38,14 +39,38 @@ const organizationSchema = {
   url: SITE_URL,
   logo: {
     '@type': 'ImageObject',
-    url: `${SITE_URL}/logo.jpg`,
-    width: 512,
-    height: 512,
+    url: 'https://app.sportmaps.co/sportmaps-logo.png',
+    contentUrl: 'https://app.sportmaps.co/sportmaps-logo.png',
   },
+  image: 'https://app.sportmaps.co/sportmaps-logo.png',
   description: 'Software todo-en-uno para escuelas, entrenadores y federaciones deportivas en Latinoamérica.',
   foundingDate: '2024',
+  founder: {
+    '@type': 'Person',
+    name: 'Brayan López',
+    jobTitle: 'CEO',
+    sameAs: ['https://www.linkedin.com/in/brayanlopezro/'],
+  },
+  email: 'contacto@sportmaps.co',
+  telephone: '+573128463555',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Medellín',
+    addressRegion: 'Antioquia',
+    addressCountry: 'CO',
+  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      telephone: '+573128463555',
+      email: 'contacto@sportmaps.co',
+      areaServed: ['CO', 'MX', 'AR', 'CL', 'PE', 'EC'],
+      availableLanguage: ['Spanish', 'es-CO'],
+    },
+  ],
   areaServed: ['CO', 'MX', 'AR', 'CL', 'PE', 'EC'],
-  inLanguage: 'es-CO',
+  knowsLanguage: ['es-CO', 'es'],
   sameAs: [
     'https://www.linkedin.com/company/sportmaps/',
     'https://www.instagram.com/spoortmaps/',

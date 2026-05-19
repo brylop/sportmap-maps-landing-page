@@ -88,7 +88,7 @@ export default function BlogPost() {
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/logo.jpg`,
+        url: "https://app.sportmaps.co/sportmaps-logo.png",
       },
       sameAs: [
         "https://www.linkedin.com/company/sportmaps/",
@@ -99,7 +99,7 @@ export default function BlogPost() {
       "@type": "WebPage",
       "@id": canonical,
     },
-    image: post.image ?? `${SITE_URL}/logo.jpg`,
+    image: post.image ?? "https://app.sportmaps.co/sportmaps-logo.png",
     articleSection: post.category,
     wordCount,
     // Habilita citas en asistentes de voz y respuestas cortas (ChatGPT/Gemini)

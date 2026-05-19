@@ -25,9 +25,10 @@
   <meta property="og:title" content="SportMaps | Software de Gestión Deportiva en Colombia" />
   <meta property="og:description"
     content="Software todo-en-uno para escuelas, entrenadores y federaciones deportivas. Agenda online, pagos integrados, gestión de alumnos y app para padres." />
-  <meta property="og:image" content="/logo.jpg" />
+  <meta property="og:image" content="https://app.sportmaps.co/sportmaps-logo.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="SportMaps - Software de gestión deportiva" />
   <meta property="og:site_name" content="SportMaps" />
   <meta property="og:locale" content="es_CO" />
 
@@ -37,7 +38,7 @@
   <meta name="twitter:title" content="SportMaps | Software de Gestión Deportiva" />
   <meta name="twitter:description"
     content="Software todo-en-uno para escuelas, entrenadores y federaciones deportivas. Agenda, pagos y gestión de alumnos en un solo lugar." />
-  <meta name="twitter:image" content="/logo.jpg" />
+  <meta name="twitter:image" content="https://app.sportmaps.co/sportmaps-logo.png" />
 
   <!-- Geo Tags for Local SEO -->
   <meta name="geo.region" content="CO" />
@@ -60,34 +61,70 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
 
-  <!-- Structured Data (JSON-LD) -->
+  <!-- Structured Data (JSON-LD) — SoftwareApplication canónica -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
+      "@id": "https://sportmaps.co/#software",
       "name": "SportMaps",
-      "description": "Software de gestión deportiva todo-en-uno para escuelas, entrenadores y federaciones. Agenda online, pagos integrados, gestión de alumnos y app para padres.",
+      "alternateName": "SportMaps Colombia",
+      "description": "Software SaaS todo-en-uno de gestión deportiva para escuelas, entrenadores, federaciones y organizadores de eventos en Latinoamérica. Integra agenda online, cobranza con Wompi, asistencia con QR, app de marca propia y WhatsApp AI para recordatorios y mora.",
       "url": "https://sportmaps.co",
+      "image": "https://app.sportmaps.co/sportmaps-logo.png",
+      "screenshot": "https://app.sportmaps.co/sportmaps-logo.png",
       "applicationCategory": "BusinessApplication",
       "applicationSubCategory": "Sports Management Software",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "COP",
-        "description": "Plan gratuito disponible. Planes pagos desde $29.000 COP/mes."
-      },
-      "author": {
-        "@type": "Organization",
-        "name": "SportMaps",
-        "url": "https://sportmaps.co",
-        "email": "contacto@sportmaps.co",
-        "telephone": "+573128463555",
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "CO"
+      "operatingSystem": "Web, iOS, Android",
+      "inLanguage": "es-CO",
+      "datePublished": "2024-01-01",
+      "softwareVersion": "2026.5",
+      "featureList": [
+        "Gestión de alumnos con fichas médicas y carnets digitales",
+        "Agenda online con confirmación automática",
+        "Cobranza integrada con Wompi (Bancolombia)",
+        "Asistencia con check-in QR",
+        "App de marca propia publicada en App Store y Google Play",
+        "WhatsApp AI para recordatorios, confirmaciones y cobranza de mora",
+        "Dashboard con churn, mora, asistencia, NPS y LTV/CAC",
+        "Migración asistida gratuita desde Excel o competencia",
+        "Soporte en español por WhatsApp directo con respuesta menor a 2 horas"
+      ],
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Plan Free",
+          "price": "0",
+          "priceCurrency": "COP",
+          "description": "Gratis hasta 30 alumnos. Sin app de marca propia.",
+          "category": "Free"
+        },
+        {
+          "@type": "Offer",
+          "name": "Plan Pro",
+          "price": "159000",
+          "priceCurrency": "COP",
+          "description": "Plan completo para academias de 30 a 500 alumnos. Incluye app de marca propia, Wompi y WhatsApp AI.",
+          "category": "Subscription",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "159000",
+            "priceCurrency": "COP",
+            "unitText": "MONTH"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Plan Custom",
+          "description": "Cotización para federaciones y operaciones con más de 500 alumnos.",
+          "priceCurrency": "COP",
+          "category": "Custom"
         }
-      }
+      ],
+      "publisher": {
+        "@id": "https://sportmaps.co/#organization"
+      },
+      "areaServed": ["CO", "MX", "AR", "CL", "PE", "EC"]
     }
     </script>
   <!-- Google Tag Manager -->
