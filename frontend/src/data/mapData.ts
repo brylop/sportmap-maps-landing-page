@@ -1040,12 +1040,16 @@ import { idrdAvaladas2026 } from './mapData.idrd';
 // Clubes deportivos de deportebogota.com (scrape via WP REST + perfiles)
 // Para regenerar: python scripts/scrape_deportebogota.py
 import { deportebogotaClubs } from './mapData.deportebogota';
+// Entidades oficiales Mindeporte: Institutos Dept/Mun + Federaciones + Asociaciones
+// Para regenerar: python scripts/import_entidades_deportivas.py
+import { entidadesDeportivasOficiales } from './mapData.entidades';
 
 // Combinar todos los puntos del mapa
 export const allMapLocations: MapLocation[] = [
   ...academies,
-  ...idrdAvaladas2026,    // 70 escuelas IDRD avaladas 2026
-  ...deportebogotaClubs,  // 22 clubes geocodificados deportebogota.com
+  ...idrdAvaladas2026,                  // 70 escuelas IDRD avaladas 2026
+  ...deportebogotaClubs,                // 22 clubes geocodificados deportebogota.com
+  ...entidadesDeportivasOficiales,      // 147 entidades oficiales (Institutos + Federaciones + Asociaciones)
   ...courts,
   ...trainers,
   ...events
@@ -1053,7 +1057,7 @@ export const allMapLocations: MapLocation[] = [
 
 // Estadísticas para mostrar
 export const mapStats = {
-  academies: academies.length + idrdAvaladas2026.length + deportebogotaClubs.length,
+  academies: academies.length + idrdAvaladas2026.length + deportebogotaClubs.length + entidadesDeportivasOficiales.length,
   courts: courts.length,
   trainers: trainers.length,
   routes: sportRoutes.length,
