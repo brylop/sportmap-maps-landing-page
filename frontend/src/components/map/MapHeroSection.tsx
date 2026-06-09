@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { Search, Filter, MapPin, GraduationCap, Users, Route, Navigation, Loader2, CalendarDays, Building2, Award, Handshake, Trophy } from 'lucide-react';
+import { Search, Filter, MapPin, GraduationCap, Users, Route, Navigation, Loader2, CalendarDays, Building2, Award, Handshake, Trophy, Dumbbell } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { InteractiveMap } from './InteractiveMap';
@@ -25,6 +25,7 @@ const filterOptions = [
   { id: 'institute',   label: 'Institutos',   icon: Building2,     count: mapStats.institutes },
   { id: 'federation',  label: 'Federaciones', icon: Award,         count: mapStats.federations },
   { id: 'association', label: 'Asociaciones', icon: Handshake,     count: mapStats.associations },
+  { id: 'facility',    label: 'Instalaciones', icon: Dumbbell,     count: mapStats.facilities || 0 },
   { id: 'court',       label: 'Canchas',      icon: MapPin,        count: mapStats.courts },
   { id: 'trainer',     label: 'Entrenadores', icon: Users,         count: mapStats.trainers },
   { id: 'route',       label: 'Rutas',        icon: Route,         count: mapStats.routes },
@@ -34,7 +35,7 @@ const filterOptions = [
 export function MapHeroSection({ onScrollToFeatures }: MapHeroSectionProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedFilters, setSelectedFilters] = useState<string[]>([
-    'academy', 'club', 'institute', 'federation', 'association',
+    'academy', 'club', 'institute', 'federation', 'association', 'facility',
     'court', 'trainer', 'route', 'event',
   ]);
   const [selectedLocation, setSelectedLocation] = useState<MapLocation | null>(null);

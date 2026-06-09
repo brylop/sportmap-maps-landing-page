@@ -10,7 +10,8 @@ export interface MapLocation {
   // - 'institute':  instituto departamental/municipal de deporte (gobierno)
   // - 'federation': federación deportiva colombiana (gobierno)
   // - 'association': asociación recreativa (gobierno)
-  entityType?: 'academy' | 'club' | 'institute' | 'federation' | 'association';
+  // - 'facility':   cancha/piscina/gimnasio (OpenStreetMap), info-only
+  entityType?: 'academy' | 'club' | 'institute' | 'federation' | 'association' | 'facility';
   sport: string;
   lat: number;
   lng: number;
@@ -1068,6 +1069,8 @@ const _institutos     = entidadesDeportivasOficiales.filter((e) => e.entityType 
 const _federaciones   = entidadesDeportivasOficiales.filter((e) => e.entityType === 'federation').length;
 const _asociaciones   = entidadesDeportivasOficiales.filter((e) => e.entityType === 'association').length;
 const _clubes         = deportebogotaClubs.length;
+// Facilities (OSM) — se llenará cuando se genere mapData.osm.ts desde scrape_osm_colombia.py
+const _facilities     = 0;
 
 export const mapStats = {
   academies: academies.length + idrdAvaladas2026.length,
@@ -1075,6 +1078,7 @@ export const mapStats = {
   institutes: _institutos,
   federations: _federaciones,
   associations: _asociaciones,
+  facilities: _facilities,
   courts: courts.length,
   trainers: trainers.length,
   routes: sportRoutes.length,

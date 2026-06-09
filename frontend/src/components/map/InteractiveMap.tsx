@@ -37,7 +37,8 @@ const createCustomIcon = (type: string, color: string) => {
     club:        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M12 6l3 5h-6l3-5zm-3 7h6l-3 5-3-5z" fill="white"/></svg>`,
     institute:   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M12 2L2 9h2v9h4v-6h8v6h4V9h2L12 2zm-2 14H8V12h2v4zm6 0h-2V12h2v4z"/></svg>`,
     federation:  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg>`,
-    association: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M16 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8zM8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 10c-4 0-6 2-6 4v2h12v-2c0-2-2-4-6-4zm8 0c-1 0-2 .2-2.8.5C14.4 15.4 15 16.6 15 18v2h7v-2c0-2-2-4-6-4z"/></svg>`
+    association: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M16 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8zM8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 10c-4 0-6 2-6 4v2h12v-2c0-2-2-4-6-4zm8 0c-1 0-2 .2-2.8.5C14.4 15.4 15 16.6 15 18v2h7v-2c0-2-2-4-6-4z"/></svg>`,
+    facility:    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M3 12h18v2H3zm0-6h18v2H3zm0 12h18v2H3z"/><circle cx="12" cy="11" r="3" fill="white"/></svg>`
   };
 
   return L.divIcon({
@@ -74,6 +75,7 @@ const getTypeColor = (type: string): string => {
     case 'institute':   return '#8b5cf6'; // violeta — institutos gubernamentales
     case 'federation':  return '#f59e0b'; // ambar — federaciones nacionales
     case 'association': return '#ef4444'; // rojo — asociaciones recreativas
+    case 'facility':    return '#64748b'; // gris azulado — instalaciones (canchas/piscinas/gimnasios OSM)
     case 'court':       return '#FB9F1E';
     case 'trainer':     return '#6366f1';
     case 'route':       return '#ec4899';
