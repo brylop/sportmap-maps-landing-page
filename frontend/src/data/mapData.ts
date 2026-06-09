@@ -1034,9 +1034,14 @@ export const events: MapLocation[] = [
   }
 ];
 
+// Escuelas reales avaladas por el IDRD Bogotá (auto-generado desde Excel oficial)
+// Para regenerar: python scripts/import_idrd_schools.py (desde demo/sportmaps-demo)
+import { idrdAvaladas2026 } from './mapData.idrd';
+
 // Combinar todos los puntos del mapa
 export const allMapLocations: MapLocation[] = [
   ...academies,
+  ...idrdAvaladas2026,  // 70 escuelas IDRD avaladas 2026
   ...courts,
   ...trainers,
   ...events
@@ -1044,7 +1049,7 @@ export const allMapLocations: MapLocation[] = [
 
 // Estadísticas para mostrar
 export const mapStats = {
-  academies: academies.length,
+  academies: academies.length + idrdAvaladas2026.length,
   courts: courts.length,
   trainers: trainers.length,
   routes: sportRoutes.length,
