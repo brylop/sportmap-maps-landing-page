@@ -32,7 +32,12 @@ const createCustomIcon = (type: string, color: string) => {
     trainer: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg>`,
     route: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M13.5 5.5c1.09 0 2-.92 2-2s-.91-2-2-2-2 .92-2 2 .91 2 2 2M9.89 19.38l1-4.38L13 17v6h2v-7.5l-2.11-2 .61-3A7.35 7.35 0 0 0 19 13v-2c-1.91 0-3.5-.74-4.55-1.95L13 7.5c-.3-.36-.78-.56-1.28-.5-.5.05-.93.28-1.2.63L8 11h.01L6 12l1 2 2.5-1.6-.36 3.8L6.5 21l1.5.77z"/></svg>`,
     event: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg>`,
-    user: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="8"/></svg>`
+    user: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="8"/></svg>`,
+    // Tipos de entidades gubernamentales (NO son escuelas)
+    club:        `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M12 6l3 5h-6l3-5zm-3 7h6l-3 5-3-5z" fill="white"/></svg>`,
+    institute:   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M12 2L2 9h2v9h4v-6h8v6h4V9h2L12 2zm-2 14H8V12h2v4zm6 0h-2V12h2v4z"/></svg>`,
+    federation:  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg>`,
+    association: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}" stroke="white" stroke-width="1"><path d="M16 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8zM8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 10c-4 0-6 2-6 4v2h12v-2c0-2-2-4-6-4zm8 0c-1 0-2 .2-2.8.5C14.4 15.4 15 16.6 15 18v2h7v-2c0-2-2-4-6-4z"/></svg>`
   };
 
   return L.divIcon({
@@ -59,16 +64,27 @@ const createUserIcon = () => {
   });
 };
 
-// Get color based on type
+// Get color based on type/entityType.
+// Si una location tiene entityType (club/institute/federation/association)
+// usamos un color especifico que la separa visualmente de las escuelas reales.
 const getTypeColor = (type: string): string => {
   switch (type) {
-    case 'academy': return '#248223';
-    case 'court': return '#FB9F1E';
-    case 'trainer': return '#6366f1';
-    case 'route': return '#ec4899';
-    case 'event': return '#f43f5e'; // Rose/red for events
-    default: return '#248223';
+    case 'academy':     return '#248223'; // verde SportMaps — escuelas reales
+    case 'club':        return '#0ea5e9'; // celeste — clubes deportivos barriales
+    case 'institute':   return '#8b5cf6'; // violeta — institutos gubernamentales
+    case 'federation':  return '#f59e0b'; // ambar — federaciones nacionales
+    case 'association': return '#ef4444'; // rojo — asociaciones recreativas
+    case 'court':       return '#FB9F1E';
+    case 'trainer':     return '#6366f1';
+    case 'route':       return '#ec4899';
+    case 'event':       return '#f43f5e';
+    default:            return '#248223';
   }
+};
+
+// Tipo efectivo para filtros y colores: entityType prevalece sobre type.
+const effectiveType = (loc: { type: string; entityType?: string }): string => {
+  return (loc.entityType && loc.entityType !== 'academy') ? loc.entityType : loc.type;
 };
 
 // Route color based on type
@@ -180,10 +196,13 @@ export function InteractiveMap({
     );
   }, [onUserLocationChange]);
 
-  // Filter locations based on selected filters and search
+  // Filter locations based on selected filters and search.
+  // Usamos effectiveType para que entityType='institute' filtre como 'institute'
+  // y no como 'academy'.
   const filteredLocations = allMapLocations.filter(loc => {
-    const matchesFilter = selectedFilters.includes(loc.type);
-    const matchesSearch = searchQuery === '' || 
+    const t = effectiveType(loc);
+    const matchesFilter = selectedFilters.includes(t);
+    const matchesSearch = searchQuery === '' ||
       loc.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       loc.sport.toLowerCase().includes(searchQuery.toLowerCase()) ||
       loc.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -262,7 +281,7 @@ export function InteractiveMap({
           <Marker
             key={location.id}
             position={[location.lat, location.lng]}
-            icon={createCustomIcon(location.type, getTypeColor(location.type))}
+            icon={createCustomIcon(effectiveType(location), getTypeColor(effectiveType(location)))}
             eventHandlers={{
               click: () => handleLocationClick(location)
             }}

@@ -4,6 +4,13 @@ export interface MapLocation {
   id: string;
   name: string;
   type: 'academy' | 'court' | 'trainer' | 'route' | 'event';
+  // Subcategoría dentro de "academy" para filtros: escuelas vs entes gubernamentales.
+  // - 'academy' (default si no se setea): escuelas SaaS reales
+  // - 'club':       club deportivo barrial (deportebogota.com)
+  // - 'institute':  instituto departamental/municipal de deporte (gobierno)
+  // - 'federation': federación deportiva colombiana (gobierno)
+  // - 'association': asociación recreativa (gobierno)
+  entityType?: 'academy' | 'club' | 'institute' | 'federation' | 'association';
   sport: string;
   lat: number;
   lng: number;
@@ -1055,14 +1062,24 @@ export const allMapLocations: MapLocation[] = [
   ...events
 ];
 
-// Estadísticas para mostrar
+// Estadísticas separadas por tipo (escuelas reales vs entes gubernamentales).
+// `academies` ahora solo cuenta escuelas reales (sin entidades gov, sin clubes).
+const _institutos     = entidadesDeportivasOficiales.filter((e) => e.entityType === 'institute').length;
+const _federaciones   = entidadesDeportivasOficiales.filter((e) => e.entityType === 'federation').length;
+const _asociaciones   = entidadesDeportivasOficiales.filter((e) => e.entityType === 'association').length;
+const _clubes         = deportebogotaClubs.length;
+
 export const mapStats = {
-  academies: academies.length + idrdAvaladas2026.length + deportebogotaClubs.length + entidadesDeportivasOficiales.length,
+  academies: academies.length + idrdAvaladas2026.length,
+  clubs: _clubes,
+  institutes: _institutos,
+  federations: _federaciones,
+  associations: _asociaciones,
   courts: courts.length,
   trainers: trainers.length,
   routes: sportRoutes.length,
   events: events.length,
-  cities: Object.keys(cities).length
+  cities: Object.keys(cities).length,
 };
 
 // Centro del mapa (Colombia vista general)

@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { Search, Filter, MapPin, GraduationCap, Users, Route, Navigation, Loader2, CalendarDays } from 'lucide-react';
+import { Search, Filter, MapPin, GraduationCap, Users, Route, Navigation, Loader2, CalendarDays, Building2, Award, Handshake, Trophy } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { InteractiveMap } from './InteractiveMap';
@@ -20,16 +20,23 @@ interface MapHeroSectionProps {
 }
 
 const filterOptions = [
-  { id: 'academy', label: 'Academias', icon: GraduationCap, count: mapStats.academies },
-  { id: 'court', label: 'Canchas', icon: MapPin, count: mapStats.courts },
-  { id: 'trainer', label: 'Entrenadores', icon: Users, count: mapStats.trainers },
-  { id: 'route', label: 'Rutas', icon: Route, count: mapStats.routes },
-  { id: 'event', label: 'Eventos', icon: CalendarDays, count: mapStats.events },
+  { id: 'academy',     label: 'Escuelas',     icon: GraduationCap, count: mapStats.academies },
+  { id: 'club',        label: 'Clubes',       icon: Trophy,        count: mapStats.clubs },
+  { id: 'institute',   label: 'Institutos',   icon: Building2,     count: mapStats.institutes },
+  { id: 'federation',  label: 'Federaciones', icon: Award,         count: mapStats.federations },
+  { id: 'association', label: 'Asociaciones', icon: Handshake,     count: mapStats.associations },
+  { id: 'court',       label: 'Canchas',      icon: MapPin,        count: mapStats.courts },
+  { id: 'trainer',     label: 'Entrenadores', icon: Users,         count: mapStats.trainers },
+  { id: 'route',       label: 'Rutas',        icon: Route,         count: mapStats.routes },
+  { id: 'event',       label: 'Eventos',      icon: CalendarDays,  count: mapStats.events },
 ];
 
 export function MapHeroSection({ onScrollToFeatures }: MapHeroSectionProps) {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedFilters, setSelectedFilters] = useState<string[]>(['academy', 'court', 'trainer', 'route', 'event']);
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([
+    'academy', 'club', 'institute', 'federation', 'association',
+    'court', 'trainer', 'route', 'event',
+  ]);
   const [selectedLocation, setSelectedLocation] = useState<MapLocation | null>(null);
   const [selectedRoute, setSelectedRoute] = useState<SportRoute | null>(null);
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);

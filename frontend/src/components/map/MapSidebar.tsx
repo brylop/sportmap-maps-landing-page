@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { MapLocation, SportRoute } from '@/data/mapData';
-import { 
-  X, Star, MapPin, Phone, DollarSign, Calendar, 
+import {
+  X, Star, MapPin, Phone, DollarSign, Calendar,
   GraduationCap, Users, Mountain, Bike, PersonStanding,
-  Clock, TrendingUp, ArrowRight, CalendarDays, Ticket
+  Clock, TrendingUp, ArrowRight, CalendarDays, Ticket,
+  Building2, Award, Handshake, Trophy,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -18,29 +19,44 @@ interface MapSidebarProps {
 export function MapSidebar({ selectedLocation, selectedRoute, onClose, onRegister }: MapSidebarProps) {
   const isOpen = selectedLocation !== null || selectedRoute !== null;
 
+  // Mismo helper que InteractiveMap: entityType prevalece sobre type para
+  // mostrar correctamente "Instituto", "Federacion", etc.
+  const _effectiveType = (loc: { type: string; entityType?: string } | null): string => {
+    if (!loc) return '';
+    return (loc.entityType && loc.entityType !== 'academy') ? loc.entityType : loc.type;
+  };
+
   const getTypeIcon = (type: string) => {
     switch (type) {
-      case 'academy': return GraduationCap;
-      case 'court': return MapPin;
-      case 'trainer': return Users;
-      case 'event': return CalendarDays;
-      case 'running': return PersonStanding;
-      case 'cycling': return Bike;
-      case 'hiking': return Mountain;
-      default: return MapPin;
+      case 'academy':     return GraduationCap;
+      case 'club':        return Trophy;
+      case 'institute':   return Building2;
+      case 'federation':  return Award;
+      case 'association': return Handshake;
+      case 'court':       return MapPin;
+      case 'trainer':     return Users;
+      case 'event':       return CalendarDays;
+      case 'running':     return PersonStanding;
+      case 'cycling':     return Bike;
+      case 'hiking':      return Mountain;
+      default:            return MapPin;
     }
   };
 
   const getTypeLabel = (type: string) => {
     switch (type) {
-      case 'academy': return 'Academia';
-      case 'court': return 'Cancha';
-      case 'trainer': return 'Entrenador';
-      case 'event': return 'Evento';
-      case 'running': return 'Running';
-      case 'cycling': return 'Ciclismo';
-      case 'hiking': return 'Senderismo';
-      default: return type;
+      case 'academy':     return 'Escuela';
+      case 'club':        return 'Club deportivo';
+      case 'institute':   return 'Instituto de deporte';
+      case 'federation':  return 'Federación deportiva';
+      case 'association': return 'Asociación recreativa';
+      case 'court':       return 'Cancha';
+      case 'trainer':     return 'Entrenador';
+      case 'event':       return 'Evento';
+      case 'running':     return 'Running';
+      case 'cycling':     return 'Ciclismo';
+      case 'hiking':      return 'Senderismo';
+      default:            return type;
     }
   };
 
@@ -89,13 +105,13 @@ export function MapSidebar({ selectedLocation, selectedRoute, onClose, onRegiste
               <div className="flex items-start gap-4 mb-6">
                 <div className="p-3 rounded-xl bg-sport-primary/10">
                   {(() => {
-                    const Icon = getTypeIcon(selectedLocation.type);
+                    const Icon = getTypeIcon(_effectiveType(selectedLocation));
                     return <Icon className="w-6 h-6 text-sport-primary" />;
                   })()}
                 </div>
                 <div className="flex-1">
                   <span className="text-xs font-medium text-sport-accent uppercase tracking-wide">
-                    {getTypeLabel(selectedLocation.type)}
+                    {getTypeLabel(_effectiveType(selectedLocation))}
                   </span>
                   <h3 className="text-xl font-bold text-foreground mt-1">
                     {selectedLocation.name}
