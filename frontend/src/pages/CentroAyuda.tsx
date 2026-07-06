@@ -281,11 +281,11 @@ const CentroAyuda = () => {
             <SupportCard
               icon={Phone}
               title="WhatsApp"
-              description="+57 312 846 3555"
+              description="+57 320 268 3539"
               cta="Contactar"
               onClick={() =>
                 window.open(
-                  "https://wa.me/573128463555?text=" +
+                  "https://wa.me/573202683539?text=" +
                     encodeURIComponent(
                       "Hola, vengo del Centro de Ayuda y necesito asistencia"
                     ),

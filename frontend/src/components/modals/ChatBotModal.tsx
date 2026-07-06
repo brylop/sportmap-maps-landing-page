@@ -242,7 +242,7 @@ export function ChatBotModal({ isOpen, onClose }: ChatBotModalProps) {
           <p className="text-xs text-center text-muted-foreground mt-2">
             ¿Necesitas ayuda más específica?{" "}
             <a
-              href="https://wa.me/573128463555?text=Hola,%20necesito%20ayuda%20con%20SportMaps"
+              href="https://wa.me/573202683539?text=Hola,%20necesito%20ayuda%20con%20SportMaps"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sport-primary hover:underline"

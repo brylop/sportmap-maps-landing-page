@@ -2330,7 +2330,7 @@ export const helpFAQs: HelpFAQ[] = [
   {
     question: "¿Cómo contacto soporte técnico?",
     answer:
-      "WhatsApp directo a +57 312 846 3555 (lunes-viernes 8am-6pm Colombia). Email a contacto@sportmaps.co. El equipo responde en menos de 2 horas en horario hábil.",
+      "WhatsApp directo a +57 320 268 3539 (lunes-viernes 8am-6pm Colombia). Email a contacto@sportmaps.co. El equipo responde en menos de 2 horas en horario hábil.",
   },
 ];
 

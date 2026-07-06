@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 import { ContactModal } from "./modals/ContactModal";
+import { DemoRequestModal } from "./modals/DemoRequestModal";
 import { Menu, X, Zap, MessageSquare, CreditCard, Users, Store } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -15,6 +16,7 @@ export function TechHeader({ onSectionClick, activeSection = "" }: TechHeaderPro
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -62,7 +64,7 @@ export function TechHeader({ onSectionClick, activeSection = "" }: TechHeaderPro
 
   const handleStartFree = () => {
     setIsMobileMenuOpen(false);
-    window.location.href = "https://app.sportmaps.co/";
+    setIsDemoModalOpen(true);
   };
 
   return (
@@ -194,6 +196,12 @@ export function TechHeader({ onSectionClick, activeSection = "" }: TechHeaderPro
       <ContactModal
         isOpen={isContactModalOpen}
         onClose={() => setIsContactModalOpen(false)}
+      />
+
+      <DemoRequestModal
+        isOpen={isDemoModalOpen}
+        onClose={() => setIsDemoModalOpen(false)}
+        source="header_empezar_gratis"
       />
     </>
   );

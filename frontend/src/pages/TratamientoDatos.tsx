@@ -166,7 +166,7 @@ const TratamientoDatos = () => {
                     <p className="font-medium text-foreground mb-2">SportMaps Technology S.A.S.</p>
                     <p>Bogotá D.C., Colombia</p>
                     <p>Email: datos@sportmaps.co</p>
-                    <p>Teléfono: +57 312 846 3555</p>
+                    <p>Teléfono: +57 320 268 3539</p>
                   </div>
                   <div>
                     <p className="font-medium text-foreground mb-2">Oficial de Protección de Datos</p>
@@ -223,7 +223,7 @@ const TratamientoDatos = () => {
               Contactar por Email
             </a>
             <a 
-              href="https://wa.me/573128463555" 
+              href="https://wa.me/573202683539" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 border border-border rounded-lg hover:bg-muted transition-colors"

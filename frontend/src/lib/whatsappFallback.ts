@@ -6,7 +6,7 @@
  * deploy desactualizado o CORS — pero el flujo comercial sigue funcionando.
  */
 
-export const SALES_WHATSAPP = '573128463555';
+export const SALES_WHATSAPP = '573202683539';
 
 export type LeadField = string | number | null | undefined;
 

@@ -26,7 +26,7 @@ const pageMessages: Record<string, string> = {
 
 export function WhatsAppButton() {
   const location = useLocation();
-  const phoneNumber = '573128463555';
+  const phoneNumber = '573202683539';
   
   const getMessage = () => {
     const path = location.pathname;

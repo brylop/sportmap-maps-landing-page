@@ -165,9 +165,9 @@ export function SEOFooter() {
                 <Mail className="w-4 h-4" />
                 spoortmaps@gmail.com
               </a>
-              <a href="https://wa.me/573128463555" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-sport-primary transition-colors">
+              <a href="https://wa.me/573202683539" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-sport-primary transition-colors">
                 <MessageCircle className="w-4 h-4" />
-                +57 312 846 3555
+                +57 320 268 3539
               </a>
             </div>
             
@@ -178,7 +178,7 @@ export function SEOFooter() {
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </a>
-              <a href="https://www.instagram.com/spoortmaps/" target="_blank" rel="noopener noreferrer" className="text-sport-text-muted hover:text-sport-primary transition-colors" aria-label="Instagram">
+              <a href="https://www.instagram.com/sportmaps_app/" target="_blank" rel="noopener noreferrer" className="text-sport-text-muted hover:text-sport-primary transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
               <a href="https://www.facebook.com/profile.php?id=61583784419106" target="_blank" rel="noopener noreferrer" className="text-sport-text-muted hover:text-sport-primary transition-colors" aria-label="Facebook">

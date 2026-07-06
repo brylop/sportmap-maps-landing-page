@@ -186,7 +186,7 @@ export default function TermsConditions() {
                   <div className="mt-4 p-4 bg-sport-background rounded-lg">
                     <p><strong>Para consultas legales:</strong></p>
                     <p>Email: spoortmaps@gmail.com</p>
-                    <p>WhatsApp: +57 312 846 3555</p>
+                    <p>WhatsApp: +57 320 268 3539</p>
                     <p className="mt-2 text-sm">
                       Jurisdicción: República de Colombia. Cualquier disputa será resuelta 
                       ante los tribunales competentes de la ciudad de Bogotá D.C.

@@ -92,7 +92,7 @@ export default function BlogPost() {
       },
       sameAs: [
         "https://www.linkedin.com/company/sportmaps/",
-        "https://www.instagram.com/spoortmaps/",
+        "https://www.instagram.com/sportmaps_app/",
       ],
     },
     mainEntityOfPage: {

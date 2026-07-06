@@ -19,7 +19,7 @@ import {
   type WizardContext,
 } from "@/lib/combos";
 
-const SALES_WHATSAPP = "573128463555";
+const SALES_WHATSAPP = "573202683539";
 
 // ============================================================================
 // Wizard data

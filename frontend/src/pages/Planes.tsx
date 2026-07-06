@@ -442,7 +442,7 @@ Quiero cotización de Organizadores Pro.
 ¿Cómo seguimos?`;
 
 function OrganizadoresQuoteCard({ onContact }: { onContact: () => void }) {
-  const SALES_WHATSAPP = "573128463555";
+  const SALES_WHATSAPP = "573202683539";
 
   const handleWhatsApp = () => {
     const url = `https://wa.me/${SALES_WHATSAPP}?text=${encodeURIComponent(

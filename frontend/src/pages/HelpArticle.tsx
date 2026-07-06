@@ -27,7 +27,7 @@ import {
 import type { ContentBlock } from "@/lib/blog-posts";
 
 const SITE_URL = "https://sportmaps.co";
-const SALES_WHATSAPP = "573128463555";
+const SALES_WHATSAPP = "573202683539";
 
 export default function HelpArticle() {
   const { slug } = useParams<{ slug: string }>();

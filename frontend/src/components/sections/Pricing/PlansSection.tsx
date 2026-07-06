@@ -6,7 +6,7 @@ import {
   rolePricingConfigs,
 } from '@/components/common/cards/RolePricingSection';
 
-const SALES_WHATSAPP = '573128463555';
+const SALES_WHATSAPP = '573202683539';
 
 interface PlansSectionProps {
   selectedClient: string;

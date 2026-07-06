@@ -52,7 +52,7 @@ const organizationSchema = {
     sameAs: ['https://www.linkedin.com/in/brayanlopezro/'],
   },
   email: 'contacto@sportmaps.co',
-  telephone: '+573128463555',
+  telephone: '+573202683539',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Medellín',
@@ -63,7 +63,7 @@ const organizationSchema = {
     {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      telephone: '+573128463555',
+      telephone: '+573202683539',
       email: 'contacto@sportmaps.co',
       areaServed: ['CO', 'MX', 'AR', 'CL', 'PE', 'EC'],
       availableLanguage: ['Spanish', 'es-CO'],
@@ -73,7 +73,7 @@ const organizationSchema = {
   knowsLanguage: ['es-CO', 'es'],
   sameAs: [
     'https://www.linkedin.com/company/sportmaps/',
-    'https://www.instagram.com/spoortmaps/',
+    'https://www.instagram.com/sportmaps_app/',
   ],
 };
 

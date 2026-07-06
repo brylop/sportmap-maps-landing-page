@@ -31,7 +31,7 @@ export function SportMapsFooter() {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/spoortmaps/"
+                href="https://www.instagram.com/sportmaps_app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-sport-primary transition-colors"
@@ -49,7 +49,7 @@ export function SportMapsFooter() {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="https://www.linkedin.com/company/spoortmaps"
+                href="https://www.linkedin.com/company/sportmaps"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-sport-primary transition-colors"
@@ -156,13 +156,13 @@ export function SportMapsFooter() {
               </li>
               <li>
                 <a
-                  href="https://wa.me/573128463555"
+                  href="https://wa.me/573202683539"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-muted-foreground hover:text-sport-primary transition-colors"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  +57 312 846 3555
+                  +57 320 268 3539
                 </a>
               </li>
             </ul>
