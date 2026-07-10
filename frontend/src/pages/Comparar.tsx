@@ -259,7 +259,7 @@ export default function Comparar() {
             </div>
             <div className="mt-6 flex items-center justify-center gap-2 text-sport-success font-semibold">
               <TrendingDown className="w-5 h-5" />
-              <span>Ahorras +70% vs {comp.competitorName} a igualdad de features</span>
+              <span>{comp.costExample.savingsHighlight}</span>
             </div>
           </div>
         </section>

@@ -22,6 +22,8 @@ interface SegmentedHeroProps {
   onScrollToMap: () => void;
 }
 
+const APP_SIGNUP_URL = "https://app.sportmaps.co/auth";
+
 const roles = [
   {
     id: "escuelas",
@@ -130,75 +132,77 @@ export function SegmentedHero({ onScrollToMap }: SegmentedHeroProps) {
             <Zap className="w-4 h-4 text-sport-accent" />
           </motion.div>
 
-          {/* Main Title - Aspirational & Concise */}
+          {/* Main Title - Ecosystem positioning */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight"
           >
-            <span className="text-foreground">Tu academia, </span>
+            <span className="text-foreground">El sistema operativo del </span>
             <span className="bg-gradient-to-r from-sport-primary to-sport-accent bg-clip-text text-transparent">
-              imparable
+              deporte en Colombia
             </span>
           </motion.h1>
 
-          {/* Subtitle - Minimal & Emotional */}
+          {/* Subtitle - What it actually does */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-sport-text-secondary max-w-2xl mx-auto font-light"
+            className="text-lg md:text-2xl text-sport-text-secondary max-w-3xl mx-auto font-light"
           >
-            Crece mientras duermes
+            Gestiona y cobra en tu academia, conéctate con familias, marcas y torneos.
+            Una sola plataforma para todo el ecosistema deportivo.
           </motion.p>
 
-          {/* Visual Pulse Indicator - Replace Stats */}
+          {/* Ecosystem actors - who the platform connects */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-center items-center gap-3 py-4"
+            className="flex flex-wrap justify-center items-center gap-2 md:gap-3 py-4"
           >
-            <div className="flex items-center gap-2">
-              <div className="relative">
-                <div className="w-3 h-3 rounded-full bg-sport-primary animate-pulse" />
-                <div className="absolute inset-0 w-3 h-3 rounded-full bg-sport-primary animate-ping opacity-75" />
-              </div>
-              <span className="text-sm text-sport-text-secondary font-medium">
-                Comunidad en vivo
+            {["Academias", "Entrenadores", "Familias", "Marcas"].map((actor, i) => (
+              <span
+                key={actor}
+                className="inline-flex items-center gap-2 glass-effect px-4 py-1.5 rounded-full border border-sport-border text-sm font-medium text-sport-text-secondary"
+              >
+                <span
+                  className="w-2 h-2 rounded-full bg-gradient-to-r from-sport-primary to-sport-accent"
+                  style={{ animationDelay: `${i * 0.3}s` }}
+                />
+                {actor}
               </span>
-            </div>
-            <div className="hidden sm:block w-1 h-1 rounded-full bg-sport-border" />
-            <div className="flex items-center gap-2">
-              <div className="relative">
-                <div className="w-3 h-3 rounded-full bg-sport-accent animate-pulse" style={{ animationDelay: '0.5s' }} />
-                <div className="absolute inset-0 w-3 h-3 rounded-full bg-sport-accent animate-ping opacity-75" style={{ animationDelay: '0.5s' }} />
-              </div>
-              <span className="text-sm text-sport-text-secondary font-medium">
-                Creciendo cada día
-              </span>
-            </div>
+            ))}
           </motion.div>
 
-          {/* Explore CTA - More Aspirational */}
+          {/* Primary + secondary CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="pt-2"
+            className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3"
           >
             <Button
-              onClick={onScrollToMap}
+              onClick={() => { window.location.href = APP_SIGNUP_URL; }}
               size="lg"
               className="bg-gradient-to-r from-sport-primary to-sport-accent hover:shadow-glow-accent text-white px-10 py-7 text-lg font-bold rounded-full group relative overflow-hidden transition-all duration-300 hover:scale-105"
             >
               <span className="relative z-10 flex items-center">
                 <Rocket className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                Descubre tu Futuro
-                <ArrowDown className="w-5 h-5 ml-2 group-hover:translate-y-1 transition-transform duration-300" />
+                Empieza gratis
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-sport-accent to-sport-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </Button>
+            <Button
+              onClick={onScrollToMap}
+              size="lg"
+              variant="ghost"
+              className="px-8 py-7 text-lg font-semibold rounded-full text-sport-text-secondary hover:text-sport-primary group"
+            >
+              Explora el mapa
+              <ArrowDown className="w-5 h-5 ml-2 group-hover:translate-y-1 transition-transform duration-300" />
             </Button>
           </motion.div>
 

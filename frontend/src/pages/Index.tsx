@@ -46,8 +46,8 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="SportMaps | El Mapa Vivo del Deporte en Colombia"
-        description="Conecta, gestiona y monetiza tu presencia deportiva. Academias, entrenadores, eventos, rutas y más en una sola plataforma. El ecosistema deportivo #1 de Colombia."
+        title="SportMaps | El sistema operativo del deporte en Colombia"
+        description="Gestiona y cobra en tu academia, conéctate con familias, marcas y torneos. Pagos recurrentes, asistencia y facturación electrónica en una sola plataforma. El ecosistema deportivo #1 de Colombia."
         url="https://sportmaps.co"
         canonical="https://sportmaps.co"
         keywords="mapa deportivo colombia, academias deportivas, entrenadores personales, eventos deportivos, rutas ciclismo running, escuelas deportivas"
