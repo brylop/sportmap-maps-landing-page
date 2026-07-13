@@ -170,6 +170,21 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         icon: 'basic',
       },
       {
+        name: 'Escuela Crecimiento',
+        monthlyPrice: 99000,
+        annualPrice: 89000,
+        benefits: [
+          'Hasta 120 alumnos',
+          'Todo lo de Start',
+          'Asistencia con QR + reportes',
+          'Historial médico y roles secundarios',
+          'Marketplace y certificados',
+          'Soporte por WhatsApp',
+        ],
+        ctaText: 'Empezar Crecimiento',
+        icon: 'basic',
+      },
+      {
         name: 'Escuela Pro',
         monthlyPrice: 159000,
         annualPrice: 139000,
