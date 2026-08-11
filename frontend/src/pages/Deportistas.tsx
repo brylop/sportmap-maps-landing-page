@@ -24,7 +24,7 @@ import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { motion } from "framer-motion";
 
-const APP_URL = "https://app.sportmaps.co/";
+const APP_URL = "https://stg.sportmaps.co/login";
 
 function goToApp(role?: "athlete" | "parent") {
   const url = role ? `${APP_URL}?role=${role}` : APP_URL;

@@ -14,7 +14,7 @@
  *
  * Source of truth de URLs:
  *   - VITE_BFF_URL     → BFF (default: https://sportmaps-bff.onrender.com)
- *   - VITE_APP_URL     → admin app (default: https://app.sportmaps.co)
+ *   - VITE_APP_URL     → admin app (default: https://stg.sportmaps.co)
  */
 
 import { useEffect, useState, useMemo, useCallback } from 'react';
@@ -279,7 +279,7 @@ export function useUpgradeContext() {
         } else {
             const appUrl =
                 (import.meta as any).env?.VITE_APP_URL ||
-                'https://app.sportmaps.co';
+                'https://stg.sportmaps.co';
             window.location.href = `${appUrl}/mi-plan`;
         }
     }, [deepLink.returnTo]);

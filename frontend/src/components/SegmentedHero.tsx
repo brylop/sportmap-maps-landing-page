@@ -22,7 +22,7 @@ interface SegmentedHeroProps {
   onScrollToMap: () => void;
 }
 
-const APP_SIGNUP_URL = "https://app.sportmaps.co/auth";
+const APP_SIGNUP_URL = "https://stg.sportmaps.co/login";
 
 const roles = [
   {
