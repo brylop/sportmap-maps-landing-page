@@ -37,6 +37,7 @@ import { FederacionesRegistroModal } from "@/components/modals/FederacionesRegis
 import { ProveedoresRegistroModal } from "@/components/modals/ProveedoresRegistroModal";
 import { ServiciosRegistroModal } from "@/components/modals/ServiciosRegistroModal";
 import { ContactEquipoModal } from "@/components/modals/ContactEquipoModal";
+import { openWhatsappWithMessage } from "@/lib/whatsappFallback";
 
 type CategoryType =
   | "deportistas"
@@ -259,9 +260,7 @@ const Planes = () => {
             onRegister={() => setModalState({ type: "deportistas", plan: "Atleta ID" })}
           />
         ) : selectedCategory === "organizadores" ? (
-          <OrganizadoresQuoteCard
-            onContact={() => setIsContactEquipoOpen(true)}
-          />
+          <OrganizadoresQuoteCard />
         ) : (
           <RolePricingSection
             config={rolePricingConfigs[selectedCategory]}
@@ -441,14 +440,18 @@ Quiero cotización de Organizadores Pro.
 
 ¿Cómo seguimos?`;
 
-function OrganizadoresQuoteCard({ onContact }: { onContact: () => void }) {
-  const SALES_WHATSAPP = "573202683539";
+/** Mensaje corto para quien solo quiere hablar, sin armar la cotización. */
+const ORGANIZADORES_CHARLA_MESSAGE = `Hola SportMaps! 👋
 
+Soy organizador de eventos deportivos y quiero hablar con el equipo sobre el plan a medida.`;
+
+function OrganizadoresQuoteCard() {
   const handleWhatsApp = () => {
-    const url = `https://wa.me/${SALES_WHATSAPP}?text=${encodeURIComponent(
-      ORGANIZADORES_WHATSAPP_MESSAGE
-    )}`;
-    window.open(url, "_blank");
+    openWhatsappWithMessage(ORGANIZADORES_WHATSAPP_MESSAGE);
+  };
+
+  const handleCharla = () => {
+    openWhatsappWithMessage(ORGANIZADORES_CHARLA_MESSAGE);
   };
 
   const included = [
@@ -524,7 +527,7 @@ function OrganizadoresQuoteCard({ onContact }: { onContact: () => void }) {
               Solicitar cotización por WhatsApp
             </Button>
             <Button
-              onClick={onContact}
+              onClick={handleCharla}
               size="lg"
               variant="outline"
               className="flex-1 rounded-xl"

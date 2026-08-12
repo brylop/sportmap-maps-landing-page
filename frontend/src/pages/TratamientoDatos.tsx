@@ -5,6 +5,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Card, CardContent } from "@/components/ui/card";
 import { Shield, Database, Lock, Eye, FileText, Users } from "lucide-react";
 import { motion } from "framer-motion";
+import { salesWhatsappLink } from "@/lib/whatsappFallback";
 
 const TratamientoDatos = () => {
   const sections = [
@@ -223,8 +224,8 @@ const TratamientoDatos = () => {
               Contactar por Email
             </a>
             <a 
-              href="https://wa.me/573202683539" 
-              target="_blank" 
+              href={salesWhatsappLink()}
+              target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 border border-border rounded-lg hover:bg-muted transition-colors"
             >

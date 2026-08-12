@@ -21,6 +21,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { ChatBotModal } from "@/components/modals/ChatBotModal";
+import { openWhatsappWithMessage, SALES_PHONE_DISPLAY } from "@/lib/whatsappFallback";
 import {
   helpArticles,
   helpCategories,
@@ -281,15 +282,11 @@ const CentroAyuda = () => {
             <SupportCard
               icon={Phone}
               title="WhatsApp"
-              description="+57 320 268 3539"
+              description={SALES_PHONE_DISPLAY}
               cta="Contactar"
               onClick={() =>
-                window.open(
-                  "https://wa.me/573202683539?text=" +
-                    encodeURIComponent(
-                      "Hola, vengo del Centro de Ayuda y necesito asistencia"
-                    ),
-                  "_blank"
+                openWhatsappWithMessage(
+                  "Hola, vengo del Centro de Ayuda y necesito asistencia"
                 )
               }
             />

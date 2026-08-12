@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Instagram, Facebook, MessageCircle, Linkedin } from "lucide-react";
+import { salesWhatsappLink, SALES_PHONE_DISPLAY } from "@/lib/whatsappFallback";
 
 export function SportMapsFooter() {
   return (
@@ -156,13 +157,13 @@ export function SportMapsFooter() {
               </li>
               <li>
                 <a
-                  href="https://wa.me/573202683539"
+                  href={salesWhatsappLink()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-muted-foreground hover:text-sport-primary transition-colors"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  +57 320 268 3539
+                  {SALES_PHONE_DISPLAY}
                 </a>
               </li>
             </ul>

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Bot, Send, User, Loader2, X, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { salesWhatsappLink } from "@/lib/whatsappFallback";
 
 interface Message {
   role: "user" | "assistant";
@@ -242,7 +243,7 @@ export function ChatBotModal({ isOpen, onClose }: ChatBotModalProps) {
           <p className="text-xs text-center text-muted-foreground mt-2">
             ¿Necesitas ayuda más específica?{" "}
             <a
-              href="https://wa.me/573202683539?text=Hola,%20necesito%20ayuda%20con%20SportMaps"
+              href={salesWhatsappLink("Hola, necesito ayuda con SportMaps")}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sport-primary hover:underline"

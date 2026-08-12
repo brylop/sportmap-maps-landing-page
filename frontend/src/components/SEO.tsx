@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { SALES_WHATSAPP } from '@/lib/whatsappFallback';
 
 interface SEOProps {
   title?: string;
@@ -63,7 +64,7 @@ const organizationSchema = {
     {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      telephone: '+573202683539',
+      telephone: `+${SALES_WHATSAPP}`,
       email: 'contacto@sportmaps.co',
       areaServed: ['CO', 'MX', 'AR', 'CL', 'PE', 'EC'],
       availableLanguage: ['Spanish', 'es-CO'],

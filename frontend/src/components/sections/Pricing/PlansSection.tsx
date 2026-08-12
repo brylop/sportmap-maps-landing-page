@@ -6,7 +6,7 @@ import {
   rolePricingConfigs,
 } from '@/components/common/cards/RolePricingSection';
 
-const SALES_WHATSAPP = '573202683539';
+import { SALES_WHATSAPP } from '@/lib/whatsappFallback';
 
 interface PlansSectionProps {
   selectedClient: string;

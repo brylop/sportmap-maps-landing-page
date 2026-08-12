@@ -14,7 +14,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useAnalytics } from '@/hooks/useAnalytics';
 
-const SALES_WHATSAPP = '573202683539';
+import { SALES_WHATSAPP } from '@/lib/whatsappFallback';
 
 export type PriceValue = number | 'Gratis' | 'A medida';
 

@@ -12,7 +12,7 @@ import {
 import { useUpgradeContext } from "@/hooks/useUpgradeContext";
 import { useToast } from "@/hooks/use-toast";
 
-const SALES_WHATSAPP = "573202683539";
+import { SALES_WHATSAPP } from "@/lib/whatsappFallback";
 
 function openWhatsApp(combo: Combo) {
   const msg = buildComboWhatsAppMessage(combo);

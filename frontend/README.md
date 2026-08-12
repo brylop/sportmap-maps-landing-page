@@ -303,7 +303,7 @@ El proyecto está configurado para despliegue automático en Vercel con:
 |-------|--------|
 | 📧 Email | spoortmaps@gmail.com |
 | 🌐 Web | [sportmaps.co](https://sportmaps.co) |
-| 📱 WhatsApp | +57 312 846 355 |
+| 📱 WhatsApp | +57 320 268 3539 |
 | 🐦 Twitter | [@spoort_maps](https://twitter.com/spoort_maps) |
 | 📸 Instagram | [@spoortmaps](https://instagram.com/spoortmaps) |
 

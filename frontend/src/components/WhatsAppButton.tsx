@@ -1,6 +1,7 @@
 import { MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
+import { salesWhatsappLink } from '@/lib/whatsappFallback';
 
 const pageMessages: Record<string, string> = {
   '/': 'Hola, me interesa conocer más sobre SportMaps',
@@ -26,14 +27,13 @@ const pageMessages: Record<string, string> = {
 
 export function WhatsAppButton() {
   const location = useLocation();
-  const phoneNumber = '573202683539';
-  
+
   const getMessage = () => {
     const path = location.pathname;
     return pageMessages[path] || pageMessages['/'];
   };
-  
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(getMessage())}`;
+
+  const whatsappUrl = salesWhatsappLink(getMessage());
 
   return (
     <motion.a

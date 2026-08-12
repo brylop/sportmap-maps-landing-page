@@ -8,7 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Send, User, Mail, MessageSquare, HelpCircle } from "lucide-react";
 import { contactSchema, isHoneypotValid } from "@/lib/validation";
-import { fallbackToWhatsapp } from "@/lib/whatsappFallback";
+import { fallbackToWhatsapp, salesWhatsappLink, SALES_PHONE_DISPLAY } from "@/lib/whatsappFallback";
 
 interface ContactFormProps {
   onClose?: () => void;
@@ -302,7 +302,7 @@ export function ContactForm({ onClose }: ContactFormProps) {
         <h3 className="font-semibold text-sport-text-primary mb-2">Otras formas de contacto</h3>
         <div className="space-y-2 text-sm text-sport-text-muted">
           <p>📧 Email: <a href="mailto:spoortmaps@gmail.com" className="hover:text-sport-primary">spoortmaps@gmail.com</a></p>
-          <p>📱 WhatsApp: <a href="https://wa.me/573202683539" target="_blank" rel="noopener noreferrer" className="hover:text-sport-primary">+57 320 268 3539</a></p>
+          <p>📱 WhatsApp: <a href={salesWhatsappLink()} target="_blank" rel="noopener noreferrer" className="hover:text-sport-primary">{SALES_PHONE_DISPLAY}</a></p>
           <p>🌐 Síguenos: <a href="https://www.instagram.com/sportmaps_app/" target="_blank" rel="noopener noreferrer" className="hover:text-sport-primary">Instagram</a> · <a href="https://x.com/spoort_maps" target="_blank" rel="noopener noreferrer" className="hover:text-sport-primary">X</a> · <a href="https://www.facebook.com/profile.php?id=61583784419106" target="_blank" rel="noopener noreferrer" className="hover:text-sport-primary">Facebook</a></p>
         </div>
       </div>

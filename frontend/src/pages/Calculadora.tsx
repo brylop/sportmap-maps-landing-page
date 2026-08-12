@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-const SALES_WHATSAPP = "573202683539";
+import { SALES_WHATSAPP } from "@/lib/whatsappFallback";
 
 // ============================================================================
 // Constantes de cálculo (defendibles, basadas en mercado Colombia 2026)

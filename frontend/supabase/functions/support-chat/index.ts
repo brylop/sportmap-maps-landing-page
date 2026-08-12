@@ -43,7 +43,7 @@ PLANES:
 - Hay planes Enterprise/Personalizados para organizaciones grandes
 
 CONTACTO:
-- WhatsApp: +57 312 846 3555
+- WhatsApp: +57 320 268 3539
 - Email: contacto@sportmaps.co
 - Sitio web: sportmaps.co
 

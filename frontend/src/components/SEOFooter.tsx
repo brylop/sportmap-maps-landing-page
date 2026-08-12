@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Users, Dumbbell, Heart, School, Mail, Phone, Instagram, Facebook, MessageCircle } from 'lucide-react';
+import { salesWhatsappLink, SALES_PHONE_DISPLAY } from '@/lib/whatsappFallback';
 
 export function SEOFooter() {
   return (
@@ -165,9 +166,9 @@ export function SEOFooter() {
                 <Mail className="w-4 h-4" />
                 spoortmaps@gmail.com
               </a>
-              <a href="https://wa.me/573202683539" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-sport-primary transition-colors">
+              <a href={salesWhatsappLink()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-sport-primary transition-colors">
                 <MessageCircle className="w-4 h-4" />
-                +57 320 268 3539
+                {SALES_PHONE_DISPLAY}
               </a>
             </div>
             
