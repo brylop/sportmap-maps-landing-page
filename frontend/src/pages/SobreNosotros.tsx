@@ -49,6 +49,8 @@ const SobreNosotros = () => {
         title="Sobre Nosotros | SportMaps - Conoce Nuestra Historia"
         description="Conoce la historia de SportMaps, nuestra misión de transformar el ecosistema deportivo latinoamericano y el equipo detrás de la plataforma."
         keywords="sobre sportmaps, equipo sportmaps, historia sportmaps, startup deportiva, tecnología deportiva colombia"
+        url="https://sportmaps.co/sobre-nosotros"
+        canonical="https://sportmaps.co/sobre-nosotros"
       />
       <TechHeader onSectionClick={() => {}} activeSection="" />
       

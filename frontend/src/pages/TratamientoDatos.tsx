@@ -61,6 +61,8 @@ const TratamientoDatos = () => {
         title="Tratamiento de Datos | SportMaps - Política de Datos Personales"
         description="Conoce cómo SportMaps recopila, procesa y protege tus datos personales de acuerdo con la Ley 1581 de 2012 de Colombia."
         keywords="tratamiento datos personales, política datos, protección datos colombia, ley 1581, privacidad sportmaps"
+        url="https://sportmaps.co/tratamiento-datos"
+        canonical="https://sportmaps.co/tratamiento-datos"
       />
       <TechHeader onSectionClick={() => {}} activeSection="" />
       

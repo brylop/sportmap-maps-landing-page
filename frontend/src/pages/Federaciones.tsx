@@ -62,6 +62,8 @@ const Federaciones = () => {
         title="Federaciones y Ligas | SportMaps - Plataforma para Organizaciones Deportivas"
         description="Software integral para federaciones y ligas deportivas. Gestiona clubes, organiza torneos, registra atletas y digitaliza toda tu operación con SportMaps."
         keywords="federaciones deportivas, ligas deportivas, gestión de torneos, software federaciones, organización deportiva"
+        url="https://sportmaps.co/federaciones"
+        canonical="https://sportmaps.co/federaciones"
       />
       <TechHeader onSectionClick={() => {}} activeSection="" />
       

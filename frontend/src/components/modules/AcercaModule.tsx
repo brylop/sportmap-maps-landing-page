@@ -87,10 +87,12 @@ export function AcercaModule() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="relative"
           >
-            <img 
-              className="w-full rounded-2xl shadow-hover" 
-              src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1170&auto=format&fit=crop" 
+            <img
+              className="w-full rounded-2xl shadow-hover"
+              src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1170&auto=format&fit=crop"
               alt="Equipo SportMaps"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-sport-background/80 to-transparent rounded-2xl" />
           </motion.div>

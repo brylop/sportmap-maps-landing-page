@@ -82,7 +82,7 @@ export function TiendaModule() {
           {categories.map((category) => (
             <motion.div key={category.name} whileHover={{ y: -8, scale: 1.03 }} className="group relative overflow-hidden rounded-2xl cursor-pointer border border-white/10">
               <div className="aspect-[4/3] relative">
-                <img src={category.image} alt={category.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <img src={category.image} alt={category.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" decoding="async" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <category.icon className="w-6 h-6 text-sport-accent mb-2" />

@@ -77,6 +77,8 @@ const CasosExito = () => {
         title="Casos de Éxito | SportMaps - Historias de Transformación Deportiva"
         description="Conoce las historias de éxito de escuelas, federaciones y entrenadores que transformaron su gestión deportiva con SportMaps."
         keywords="casos de éxito sportmaps, testimonios deportivos, transformación digital deporte, historias de éxito"
+        url="https://sportmaps.co/casos-exito"
+        canonical="https://sportmaps.co/casos-exito"
       />
       <TechHeader onSectionClick={() => {}} activeSection="" />
       

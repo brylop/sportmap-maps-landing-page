@@ -65,6 +65,8 @@ const Entrenadores = () => {
         title="Entrenadores Pro | SportMaps - Herramientas para Entrenadores Deportivos"
         description="Plataforma profesional para entrenadores deportivos. Gestiona atletas, planifica entrenamientos y analiza el rendimiento de tus deportistas con SportMaps."
         keywords="entrenadores deportivos, gestión de atletas, planificación entrenamientos, software entrenadores, app para coaches"
+        url="https://sportmaps.co/entrenadores"
+        canonical="https://sportmaps.co/entrenadores"
       />
       <TechHeader onSectionClick={() => {}} activeSection="" />
       

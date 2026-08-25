@@ -31,6 +31,88 @@ Allow: /
 User-agent: Pinterest
 Allow: /
 
+# ── AI / LLM crawlers ────────────────────────────────────────────────────
+# Permiso explícito a los bots que alimentan respuestas de asistentes de IA
+# y motores de respuesta (AEO). Sin esto, varios bloquean por default en
+# muchos sitios o no tienen certeza de que el contenido es citable.
+
+# OpenAI — entrenamiento (GPTBot), navegación en vivo para respuestas
+# (ChatGPT-User) y el buscador de ChatGPT (OAI-SearchBot)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic — Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google — Gemini / AI Overviews (Googlebot ya permitido arriba cubre Search)
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft Copilot (Bingbot ya permitido arriba cubre Bing + Copilot)
+User-agent: msnbot
+Allow: /
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: meta-externalfetcher
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# ByteDance / TikTok
+User-agent: Bytespider
+Allow: /
+
+# Amazon (Alexa+ / Rufus)
+User-agent: Amazonbot
+Allow: /
+
+# Common Crawl — dataset base de entrenamiento de múltiples LLMs
+User-agent: CCBot
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Diffbot (usado por varios agregadores de IA)
+User-agent: Diffbot
+Allow: /
+
 # Disallow admin and auth pages from indexing
 Disallow: /admin
 
@@ -40,5 +122,6 @@ Sitemap: https://sportmaps.co/sitemap.xml
 # LLM index — para ChatGPT, Claude, Gemini, Perplexity
 # Estándar emergente: https://llmstxt.org
 # llms.txt = índice canónico del sitio
-# llms-full.txt = contenido expandido con FAQs y comparativas
+# llms-full.txt = contenido expandido con comparativas y casos de uso
+# llms-faq.txt = banco de preguntas y respuestas directas, listas para citar
 # Estos archivos son leídos por modelos de lenguaje para responder preguntas sobre SportMaps

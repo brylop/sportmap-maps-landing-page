@@ -85,6 +85,8 @@ const Partners = () => {
         title="Programa de Partners | SportMaps - Únete a Nuestro Ecosistema"
         description="Únete al programa de partners de SportMaps. Gana comisiones, accede a recursos exclusivos y crece tu negocio con la plataforma deportiva líder."
         keywords="partners sportmaps, programa afiliados, revendedor sportmaps, ganar dinero deportes, negocio deportivo"
+        url="https://sportmaps.co/partners"
+        canonical="https://sportmaps.co/partners"
       />
       <TechHeader onSectionClick={() => {}} activeSection="" />
       

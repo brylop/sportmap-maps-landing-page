@@ -192,10 +192,12 @@ export function BienestarModule() {
               className="group relative overflow-hidden rounded-2xl cursor-pointer"
             >
               <div className="aspect-[4/3] relative">
-                <img 
-                  src={specialty.image} 
+                <img
+                  src={specialty.image}
                   alt={specialty.name}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
