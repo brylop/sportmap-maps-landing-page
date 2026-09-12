@@ -24,6 +24,7 @@ const TratamientoDatos = lazy(() => import("./pages/TratamientoDatos"));
 const Auth = lazy(() => import("./pages/Auth"));
 const Admin = lazy(() => import("./pages/Admin"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+import RedireccionPolitica from "./pages/RedireccionPolitica";
 const TermsConditions = lazy(() => import("./pages/TermsConditions"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Planes = lazy(() => import("./pages/Planes"));
@@ -64,10 +65,10 @@ const App = () => (
               <Route path="/calculadora" element={<Calculadora />} />
               <Route path="/ayuda" element={<CentroAyuda />} />
               <Route path="/ayuda/:slug" element={<HelpArticle />} />
-              <Route path="/tratamiento-datos" element={<TratamientoDatos />} />
+              <Route path="/tratamiento-datos" element={<RedireccionPolitica />} />
               <Route path="/auth" element={<Auth />} />
               <Route path="/admin" element={<Admin />} />
-              <Route path="/privacidad" element={<PrivacyPolicy />} />
+              <Route path="/privacidad" element={<RedireccionPolitica />} />
               <Route path="/terminos" element={<TermsConditions />} />
               <Route path="/planes" element={<Planes />} />
               <Route path="/eventos" element={<Eventos />} />
