@@ -900,28 +900,6 @@ function AddOnsSection({ role }: { role: string }) {
               Los add-ons se suman al plan que ya tienes activo. Activación en menos de 24 h.
             </p>
 
-            {/* Quien cobra que. Sin esto, "500 conversaciones" se lee como si
-                incluyera el WhatsApp, y la escuela se lleva una sorpresa cuando
-                Meta le pasa su propio cobro. Meta factura la entrega del mensaje
-                directamente a la escuela; SportMaps cobra el asistente. */}
-            <div className="mt-6 rounded-xl border border-border bg-muted/30 p-5 max-w-3xl mx-auto">
-              <p className="text-sm font-semibold text-foreground mb-2">
-                Qué cobra SportMaps y qué cobra Meta
-              </p>
-              <p className="text-sm text-muted-foreground">
-                <strong className="text-foreground">SportMaps cobra el asistente</strong>: leer los
-                comprobantes que envían las familias, extraer el monto y la referencia, cruzarlos
-                contra el cobro correspondiente y responder por ti. Eso es lo que miden las
-                conversaciones con IA de cada plan.
-              </p>
-              <p className="text-sm text-muted-foreground mt-2">
-                <strong className="text-foreground">El envío de los mensajes lo factura Meta</strong>,
-                directamente a tu escuela y no a través nuestro. WhatsApp incluye 1.000 mensajes de
-                servicio gratis al mes por número; si te pasas, Meta cobra el excedente a la tarjeta
-                que registras al conectar tu número — en Colombia, alrededor de $3 por mensaje.
-                Podrás ver tu consumo en vivo desde la plataforma.
-              </p>
-            </div>
             <div className="text-center mt-3">
               <Button
                 variant="outline"
@@ -938,6 +916,28 @@ function AddOnsSection({ role }: { role: string }) {
           </motion.div>
         )}
       </AnimatePresence>
+      {/* Quien cobra que. Sin esto, "500 conversaciones" se lee como si
+          incluyera el WhatsApp, y la escuela se lleva una sorpresa cuando
+          Meta le pasa su propio cobro. Meta factura la entrega del mensaje
+          directamente a la escuela; SportMaps cobra el asistente. */}
+      <div className="mt-6 rounded-xl border border-border bg-muted/30 p-5 max-w-3xl mx-auto">
+        <p className="text-sm font-semibold text-foreground mb-2">
+          Qué cobra SportMaps y qué cobra Meta
+        </p>
+        <p className="text-sm text-muted-foreground">
+          <strong className="text-foreground">SportMaps cobra el asistente</strong>: leer los
+          comprobantes que envían las familias, extraer el monto y la referencia, cruzarlos
+          contra el cobro correspondiente y responder por ti. Eso es lo que miden las
+          conversaciones con IA de cada plan.
+        </p>
+        <p className="text-sm text-muted-foreground mt-2">
+          <strong className="text-foreground">El envío de los mensajes lo factura Meta</strong>,
+          directamente a tu escuela y no a través nuestro. WhatsApp incluye 1.000 mensajes de
+          servicio gratis al mes por número; si te pasas, Meta cobra el excedente a la tarjeta
+          que registras al conectar tu número — en Colombia, alrededor de $3 por mensaje.
+          Podrás ver tu consumo en vivo desde la plataforma.
+        </p>
+      </div>
     </div>
   );
 }
