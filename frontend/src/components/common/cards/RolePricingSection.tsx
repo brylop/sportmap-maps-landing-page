@@ -127,9 +127,9 @@ const iconMap = {
 };
 
 const ADDONS = [
-  { name: 'Boost', extra: '+500 conversaciones', price: 39000 },
-  { name: 'Scale', extra: '+4.000 conversaciones', price: 79000 },
-  { name: 'Power', extra: '+15.000 conversaciones', price: 149000 },
+  { name: 'Boost', extra: '+500 conversaciones con IA', price: 39000 },
+  { name: 'Scale', extra: '+4.000 conversaciones con IA', price: 79000 },
+  { name: 'Power', extra: '+15.000 conversaciones con IA', price: 149000 },
 ];
 
 function openWhatsapp(message: string) {
@@ -190,7 +190,7 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         annualPrice: 139000,
         badge: 'MÁS ELEGIDO',
         anchor: 'Menos de lo que cobras por una matrícula al mes',
-        whatsappAi: '500 conversaciones AI/mes',
+        whatsappAi: '500 conversaciones con IA/mes',
         benefits: [
           'Hasta 300 alumnos',
           'Portal interactivo para padres',
@@ -209,7 +209,7 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         monthlyPrice: 349000,
         annualPrice: 299000,
         badge: 'ENTERPRISE',
-        whatsappAi: '4.000 conversaciones AI/mes',
+        whatsappAi: '4.000 conversaciones con IA/mes',
         benefits: [
           'Hasta 800 alumnos',
           'Multi-sede + roles avanzados',
@@ -274,7 +274,7 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         annualPrice: 79000,
         badge: 'RECOMENDADO',
         anchor: 'El costo de 2 sesiones, gestiona tus 50 clientes',
-        whatsappAi: '200 conversaciones AI/mes',
+        whatsappAi: '200 conversaciones con IA/mes',
         benefits: [
           'Hasta 50 clientes',
           'Agenda online y pagos integrados',
@@ -290,7 +290,7 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         name: 'Coach Elite',
         monthlyPrice: 199000,
         annualPrice: 169000,
-        whatsappAi: '1.000 conversaciones AI/mes',
+        whatsappAi: '1.000 conversaciones con IA/mes',
         benefits: [
           'Clientes ilimitados',
           'Web personal + marketing ads',
@@ -330,7 +330,7 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         annualPrice: 119000,
         badge: 'RECOMENDADO',
         anchor: 'Reemplaza Doctoralia + agenda + cobranza',
-        whatsappAi: '300 conversaciones AI/mes',
+        whatsappAi: '300 conversaciones con IA/mes',
         benefits: [
           'Profesional individual',
           'Agenda inteligente y telemedicina',
@@ -346,7 +346,7 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         name: 'Clínica',
         monthlyPrice: 379000,
         annualPrice: 319000,
-        whatsappAi: '1.500 conversaciones AI/mes',
+        whatsappAi: '1.500 conversaciones con IA/mes',
         benefits: [
           'Multi-profesional / multi-sede',
           'Integración HIS y facturación salud',
@@ -389,7 +389,7 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         annualPrice: 469000,
         badge: 'PROFESIONAL',
         anchor: 'Gestiona tu liga completa por menos que un torneo manual',
-        whatsappAi: '1.000 conversaciones AI/mes',
+        whatsappAi: '1.000 conversaciones con IA/mes',
         benefits: [
           'Hasta 30 clubes',
           'Torneos online y carnetización nacional',
@@ -554,7 +554,7 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         monthlyPrice: 109000,
         annualPrice: 89000,
         badge: 'RECOMENDADO',
-        whatsappAi: '200 conversaciones AI/mes',
+        whatsappAi: '200 conversaciones con IA/mes',
         benefits: [
           'Hasta 50 clientes',
           'Agenda online + pagos integrados',
@@ -570,7 +570,7 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         name: 'Agencia',
         monthlyPrice: 249000,
         annualPrice: 209000,
-        whatsappAi: '800 conversaciones AI/mes',
+        whatsappAi: '800 conversaciones con IA/mes',
         benefits: [
           'Múltiples profesionales',
           'Marca blanca',
@@ -618,7 +618,7 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         annualPrice: 209000,
         badge: 'MÁS ELEGIDO',
         anchor: 'Reemplaza Excel + ticketera externa + cobranza manual',
-        whatsappAi: '500 conversaciones AI/mes',
+        whatsappAi: '500 conversaciones con IA/mes',
         benefits: [
           'Eventos ilimitados',
           'Hasta 2.000 atletas por evento',
@@ -638,7 +638,7 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         monthlyPrice: 549000,
         annualPrice: 469000,
         badge: 'ENTERPRISE',
-        whatsappAi: '2.000 conversaciones AI/mes',
+        whatsappAi: '2.000 conversaciones con IA/mes',
         benefits: [
           'Atletas ilimitados',
           'Multi-coordinador + roles avanzados',
@@ -899,6 +899,29 @@ function AddOnsSection({ role }: { role: string }) {
             <p className="text-xs text-muted-foreground text-center mt-4">
               Los add-ons se suman al plan que ya tienes activo. Activación en menos de 24 h.
             </p>
+
+            {/* Quien cobra que. Sin esto, "500 conversaciones" se lee como si
+                incluyera el WhatsApp, y la escuela se lleva una sorpresa cuando
+                Meta le pasa su propio cobro. Meta factura la entrega del mensaje
+                directamente a la escuela; SportMaps cobra el asistente. */}
+            <div className="mt-6 rounded-xl border border-border bg-muted/30 p-5 max-w-3xl mx-auto">
+              <p className="text-sm font-semibold text-foreground mb-2">
+                Qué cobra SportMaps y qué cobra Meta
+              </p>
+              <p className="text-sm text-muted-foreground">
+                <strong className="text-foreground">SportMaps cobra el asistente</strong>: leer los
+                comprobantes que envían las familias, extraer el monto y la referencia, cruzarlos
+                contra el cobro correspondiente y responder por ti. Eso es lo que miden las
+                conversaciones con IA de cada plan.
+              </p>
+              <p className="text-sm text-muted-foreground mt-2">
+                <strong className="text-foreground">El envío de los mensajes lo factura Meta</strong>,
+                directamente a tu escuela y no a través nuestro. WhatsApp incluye 1.000 mensajes de
+                servicio gratis al mes por número; si te pasas, Meta cobra el excedente a la tarjeta
+                que registras al conectar tu número — en Colombia, alrededor de $3 por mensaje.
+                Podrás ver tu consumo en vivo desde la plataforma.
+              </p>
+            </div>
             <div className="text-center mt-3">
               <Button
                 variant="outline"
