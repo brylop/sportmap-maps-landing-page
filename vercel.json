@@ -10,6 +10,11 @@
       "permanent": false
     },
     {
+      "source": "/p/:token",
+      "destination": "https://app.sportmaps.co/p/:token",
+      "permanent": false
+    },
+    {
       "source": "/tratamiento-datos",
       "destination": "https://app.sportmaps.co/politica-de-privacidad",
       "permanent": false
