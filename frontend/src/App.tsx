@@ -30,6 +30,7 @@ const Planes = lazy(() => import("./pages/Planes"));
 const Eventos = lazy(() => import("./pages/Eventos"));
 const Organizadores = lazy(() => import("./pages/Organizadores"));
 const Escuelas = lazy(() => import("./pages/Escuelas"));
+const Canchas = lazy(() => import("./pages/Canchas"));
 const Entrenadores = lazy(() => import("./pages/Entrenadores"));
 const Deportistas = lazy(() => import("./pages/Deportistas"));
 const Marcas = lazy(() => import("./pages/Marcas"));
@@ -73,6 +74,7 @@ const App = () => (
               <Route path="/eventos" element={<Eventos />} />
               <Route path="/organizadores" element={<Organizadores />} />
               <Route path="/escuelas" element={<Escuelas />} />
+              <Route path="/canchas" element={<Canchas />} />
               <Route path="/entrenadores" element={<Entrenadores />} />
               <Route path="/deportistas" element={<Deportistas />} />
               <Route path="/marcas" element={<Marcas />} />

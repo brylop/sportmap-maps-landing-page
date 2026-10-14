@@ -198,6 +198,9 @@ export function SEOFooter() {
               <Link to="/escuelas" className="text-sport-text-muted hover:text-sport-primary transition-colors">
                 Escuelas
               </Link>
+              <Link to="/canchas" className="text-sport-text-muted hover:text-sport-primary transition-colors">
+                Canchas
+              </Link>
               <Link to="/bienestar" className="text-sport-text-muted hover:text-sport-primary transition-colors">
                 Bienestar
               </Link>

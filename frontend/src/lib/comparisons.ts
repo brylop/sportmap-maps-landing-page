@@ -1019,6 +1019,406 @@ export const comparisons: Comparison[] = [
     metaDescription:
       "SportMaps vs Driblin: comparación honesta. Driblin es fuerte en scouting y monetización de club; SportMaps es fuerte en cobranza recurrente, DIAN y categorías por edad.",
   },
+  // ── Canchas: Controla Cancha / Easycancha / Playtomic ─────────────────────
+  // Datos del competidor: SOLO los verificados en el benchmark del 14-oct-2026
+  // (repo de la app: docs/specs/reservas-canchas-plan-unificado-2026-10.md §10).
+  // SportMaps Canchas NO está en vivo: lanzamiento nov-2026 (piloto 6-nov,
+  // público 20-nov). Toda celda del lado SportMaps que describe el producto de
+  // canchas lleva "(lanzamiento nov-2026)". Lo que ya existe hoy (Wompi/MP,
+  // lectura de comprobantes con IA, bot oficial de WhatsApp, escuelas,
+  // torneos, tienda) se dice en presente.
+  {
+    slug: "controla-cancha",
+    competitorName: "Controla Cancha",
+    tagline:
+      "Controla Cancha es el producto de reservas de canchas de Controla.Club, ya en marcha en Colombia. SportMaps Canchas lanza en noviembre de 2026. Comparación honesta con los precios que ellos publican (verificado 14-oct-2026).",
+    tldr: {
+      chooseCompetitor:
+        "Si necesitas reservas por WhatsApp hoy mismo, te basta con cobrar por transferencia o efectivo y valoras que el jugador reserve con el mínimo de pasos, Controla Cancha ya está operando y SportMaps Canchas todavía no.",
+      chooseSportMaps:
+        "Si quieres cobrar en línea con Wompi o Mercado Pago, un bot sobre la API oficial de WhatsApp sin tope de reservas, y tener escuela, canchas, torneos y tienda en la misma cuenta, SportMaps Canchas (lanzamiento nov-2026) cuesta menos en cada tramo.",
+    },
+    features: [
+      {
+        feature: "Estado del producto",
+        competitor: "En marcha (términos del 11-oct-2026; una sede publicada en su directorio al 14-oct)",
+        sportmaps: "Lanzamiento nov-2026 (piloto con un club el 6-nov)",
+        sportmapsAdvantage: false,
+      },
+      {
+        feature: "Reserva sin cuenta por WhatsApp y web",
+        competitor: "Sí — con nombre y WhatsApp, sin código de verificación",
+        sportmaps: "Sí, con número verificado por código (lanzamiento nov-2026)",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Conexión de WhatsApp",
+        competitor: "Sesión tipo WhatsApp Web sobre el número de la sede (no la API oficial de Meta)",
+        sportmaps: "API oficial de WhatsApp Business (ya en uso hoy con escuelas)",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Cobro",
+        competitor: "Transferencia (foto del comprobante) o efectivo",
+        sportmaps: "Wompi / Mercado Pago en línea (hoy en escuelas) + transferencia leída con IA + efectivo",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Comprobante de transferencia leído con IA",
+        competitor: "Sí",
+        sportmaps: "Sí (ya funciona hoy para mensualidades de escuelas)",
+      },
+      {
+        feature: "Reservas atendidas por el bot con IA",
+        competitor: "Con tope por plan: 400/mes (Torneo) o 1.000/mes (Estadio)",
+        sportmaps: "Sin tope desde Canchas Pro (lanzamiento nov-2026)",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Pago dividido entre jugadores",
+        competitor: "No",
+        sportmaps: "Sí (lanzamiento nov-2026)",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Política de cancelación",
+        competitor: "Texto libre",
+        sportmaps: "Configurada en el sistema y visible antes de pagar (lanzamiento nov-2026)",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Reglas y precios socio vs. público",
+        competitor: "No",
+        sportmaps: "Sí (lanzamiento nov-2026)",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Garantía contra doble reserva simultánea",
+        competitor: "No documentada públicamente",
+        sportmaps: "La base de datos rechaza dos reservas en la misma cancha y hora (lanzamiento nov-2026)",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Canchas combinadas, festivos, lista de espera",
+        competitor: "Sí",
+        sportmaps: "Sí (lanzamiento nov-2026)",
+      },
+      {
+        feature: "Escuela, torneos y tienda",
+        competitor: "Academia en otro producto (Controla.Club)",
+        sportmaps: "En la misma cuenta (escuelas, torneos y tienda ya operan hoy)",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Comisión por reserva",
+        competitor: "Sin comisión",
+        sportmaps: "Sin comisión, ni al club ni al jugador",
+      },
+    ],
+    competitorWins: [
+      "Ya está operando: SportMaps Canchas lanza en noviembre de 2026",
+      "Muy poca fricción para el jugador: reserva con nombre y WhatsApp, sin cuenta",
+      "Estados del comprobante visibles para el jugador y botón «Dar más tiempo» para el staff",
+      "Canchas combinadas, festivos cobrados como domingo y lista de espera ya resueltos",
+      "Página de cada sede indexable en buscadores, con directorio por ciudad",
+    ],
+    sportmapsWins: [
+      "Cobro en línea con Wompi y Mercado Pago, con la plata directo al club (Controla Cancha solo transferencia o efectivo)",
+      "Bot sobre la API oficial de WhatsApp Business, sin riesgo de bloqueo del número por usar una sesión no oficial",
+      "Sin tope de reservas por WhatsApp desde Canchas Pro (Controla limita las reservas con IA por plan)",
+      "Más barato en cada tramo: $0 / $99.000 / $199.000 frente a $149.000 / $249.000 / $399.000",
+      "Escuela, canchas, torneos y tienda en una sola cuenta: precio de socio para alumnos y la cancha se bloquea con las clases",
+      "Pago dividido, reglas socio/público y política de cancelación en el sistema (lanzamiento nov-2026)",
+    ],
+    costExample: {
+      scenarioLabel:
+        "Cancha sintética con 4 canchas y bot de WhatsApp (precios publicados, verificado 14-oct-2026)",
+      rows: [
+        { concept: "Plan mensual", competitorCost: "$249.000 (Torneo, 3–5 canchas)", sportmapsCost: "$99.000 (Canchas Pro, hasta 5)" },
+        { concept: "Reservas atendidas con IA", competitorCost: "400 al mes", sportmapsCost: "Sin tope" },
+        { concept: "Cobro en línea (PSE, Nequi, tarjeta)", competitorCost: "No disponible", sportmapsCost: "Wompi / Mercado Pago" },
+        { concept: "Comisión por reserva", competitorCost: "Sin comisión", sportmapsCost: "Sin comisión" },
+        { concept: "Disponible hoy", competitorCost: "Sí", sportmapsCost: "No — lanzamiento nov-2026" },
+      ],
+      competitorTotal: "$2.988.000/año",
+      sportmapsTotal: "$1.188.000/año",
+      savingsHighlight:
+        "Con 3 a 5 canchas, Canchas Pro cuesta $150.000 menos al mes y no limita las reservas por WhatsApp. Los primeros 50 clubes tienen además 3 meses gratis. La diferencia: Controla Cancha ya opera y SportMaps Canchas lanza en noviembre de 2026.",
+    },
+    faqs: [
+      {
+        question: "¿Cuánto cuesta Controla Cancha?",
+        answer:
+          "Según su página (verificado 14-oct-2026): Partido $149.000/mes hasta 2 canchas con aprobación humana; Torneo $249.000/mes de 3 a 5 canchas con IA y 400 reservas con IA al mes; Estadio $399.000/mes desde 6 canchas, multisede y 1.000 reservas con IA. No cobra comisión por reserva.",
+      },
+      {
+        question: "¿Cuánto va a costar SportMaps Canchas?",
+        answer:
+          "Gratis hasta 2 canchas (sin bot), Canchas Pro $99.000/mes hasta 5 canchas con bot de WhatsApp sin tope, y Canchas Club $199.000/mes con canchas ilimitadas y multisede. Sin comisión por reserva. Lanza en noviembre de 2026 y los primeros 50 clubes tienen 3 meses de Canchas Pro gratis.",
+      },
+      {
+        question: "¿SportMaps Canchas ya está disponible?",
+        answer:
+          "No todavía. El piloto con un club arranca en noviembre de 2026 y el lanzamiento público es ese mismo mes. Controla Cancha sí está operando hoy. Puedes anotarte a la lista de los primeros 50 en sportmaps.co/canchas.",
+      },
+      {
+        question: "¿Qué diferencia hay en el WhatsApp de cada uno?",
+        answer:
+          "El bot de Controla Cancha usa una sesión tipo WhatsApp Web sobre el número de la sede, no la API oficial de Meta. SportMaps usa la API oficial de WhatsApp Business, que ya opera hoy con escuelas y que no expone el número a bloqueos por uso no oficial.",
+      },
+      {
+        question: "¿Controla Cancha y Controla.Club son lo mismo?",
+        answer:
+          "Son productos separados de la misma empresa: Controla.Club para gestión de clubes y gimnasios, y Controla Cancha solo para reservas. En SportMaps, la escuela y las canchas van en la misma cuenta. La comparación con Controla.Club está en sportmaps.co/comparar/controla-club.",
+      },
+    ],
+    metaDescription:
+      "SportMaps Canchas vs Controla Cancha: comparación honesta (verificado 14-oct-2026). Controla cobra $149k–$399k con tope de reservas IA; SportMaps Canchas $0–$199k sin tope y con Wompi. Lanza nov-2026.",
+  },
+
+  {
+    slug: "easycancha",
+    competitorName: "Easycancha",
+    tagline:
+      "Easycancha es un marketplace de canchas nacido en Chile, con Colombia como segundo mercado y una red fuerte en pádel. SportMaps Canchas lanza en noviembre de 2026 con otro modelo: tu cancha con tu marca y sin cuota al jugador. Comparación honesta (verificado 14-oct-2026).",
+    tldr: {
+      chooseCompetitor:
+        "Si tienes un club de pádel y lo que más te importa es que te encuentren jugadores que ya usan una app de reservas, la red de Easycancha es difícil de igualar y ya está operando.",
+      chooseSportMaps:
+        "Si tienes canchas sintéticas, un coliseo o una escuela, y quieres que tus jugadores reserven por WhatsApp con tu marca adelante, sin cuota de servicio al jugador y con la escuela en la misma cuenta, SportMaps Canchas (lanzamiento nov-2026) está pensado para eso.",
+    },
+    features: [
+      {
+        feature: "Estado del producto",
+        competitor: "En marcha; Colombia es su segundo mercado",
+        sportmaps: "Lanzamiento nov-2026",
+        sportmapsAdvantage: false,
+      },
+      {
+        feature: "Tipo de producto",
+        competitor: "Marketplace: el jugador reserva en la app de Easycancha",
+        sportmaps: "Software del club: reserva por WhatsApp y en la página de tu cancha, con tu marca (lanzamiento nov-2026)",
+      },
+      {
+        feature: "Red de jugadores en pádel",
+        competitor: "Dice estar en ~90 % de los clubes de pádel (Forbes, nov-2025)",
+        sportmaps: "Sin red propia de pádel todavía",
+        sportmapsAdvantage: false,
+      },
+      {
+        feature: "Cuota al jugador",
+        competitor: "Cuota de servicio por reserva (gratis con su suscripción Prime)",
+        sportmaps: "Ninguna",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Precio para el club",
+        competitor: "Mensualidad fija — monto no confirmado públicamente",
+        sportmaps: "Público: $0 / $99.000 / $199.000 al mes",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Reserva por WhatsApp",
+        competitor: "No confirmado",
+        sportmaps: "Sí, con bot sobre la API oficial de Meta (lanzamiento nov-2026)",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Transferencia leída con IA",
+        competitor: "No confirmado",
+        sportmaps: "Sí (ya funciona hoy en escuelas)",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Escuela deportiva en la misma cuenta",
+        competitor: "No",
+        sportmaps: "Sí (escuelas, torneos y tienda ya operan hoy)",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Partidos abiertos entre jugadores",
+        competitor: "Sí",
+        sportmaps: "No en el lanzamiento",
+        sportmapsAdvantage: false,
+      },
+    ],
+    competitorWins: [
+      "Red de pádel: dice estar en cerca del 90 % de los clubes de pádel (Forbes, nov-2025)",
+      "Ya opera en Colombia, su segundo mercado; SportMaps Canchas lanza en noviembre de 2026",
+      "Trae jugadores nuevos al club desde su propia app (efecto marketplace)",
+      "App muy bien calificada en App Store (4,9) y partidos abiertos entre jugadores",
+    ],
+    sportmapsWins: [
+      "Sin cuota de servicio al jugador: el precio que ve es el que paga",
+      "Tu marca adelante: el jugador reserva con tu club por WhatsApp, no en la app de un tercero",
+      "Precios públicos para el club, desde $0",
+      "Escuela, canchas, torneos y tienda en la misma cuenta: precio de socio para alumnos",
+      "Identidad del jugador por teléfono verificado, no por correo",
+    ],
+    costExample: {
+      scenarioLabel:
+        "Easycancha no publica el monto de su mensualidad al club — comparación por modelo de cobro (verificado 14-oct-2026)",
+      rows: [
+        { concept: "Mensualidad del club", competitorCost: "No confirmado", sportmapsCost: "$0 / $99.000 / $199.000" },
+        { concept: "Cuota al jugador por reserva", competitorCost: "Sí (gratis con Prime)", sportmapsCost: "No" },
+        { concept: "Comisión por reserva al club", competitorCost: "No confirmado", sportmapsCost: "No" },
+        { concept: "Disponible hoy", competitorCost: "Sí", sportmapsCost: "No — lanzamiento nov-2026" },
+      ],
+      competitorTotal: "Mensualidad no publicada + cuota al jugador",
+      sportmapsTotal: "Precio público, sin cuota al jugador",
+      savingsHighlight:
+        "No se puede comparar el monto porque Easycancha no publica su mensualidad al club. La diferencia de modelo sí es clara: en SportMaps el jugador no paga cuota de servicio.",
+    },
+    faqs: [
+      {
+        question: "¿Cuánto cuesta Easycancha para un club?",
+        answer:
+          "Cobra una mensualidad fija al club, pero el monto no está publicado (verificado 14-oct-2026). Al jugador le cobra una cuota de servicio por reserva, que es gratis si tiene su suscripción Prime.",
+      },
+      {
+        question: "¿Easycancha opera en Colombia?",
+        answer:
+          "Sí. Es una empresa chilena y Colombia es su segundo mercado. Según Forbes (nov-2025), dice estar en cerca del 90 % de los clubes de pádel.",
+      },
+      {
+        question: "¿SportMaps Canchas sirve para pádel?",
+        answer:
+          "Sí, pero arrancamos por fútbol sintético, coliseos y clubes que ya usan SportMaps. En pádel, Easycancha tiene una red muy fuerte; SportMaps Canchas lanza en noviembre de 2026 y entra al pádel después.",
+      },
+      {
+        question: "¿Cuál es la diferencia de fondo entre los dos?",
+        answer:
+          "Easycancha es un marketplace: el jugador reserva en su app y paga una cuota de servicio. SportMaps Canchas es el software de tu cancha: el jugador reserva por WhatsApp o en tu página, con tu marca y sin cuota.",
+      },
+    ],
+    metaDescription:
+      "SportMaps Canchas vs Easycancha: comparación honesta (verificado 14-oct-2026). Easycancha es marketplace con cuota al jugador y red fuerte en pádel; SportMaps Canchas, sin cuota y por WhatsApp. Lanza nov-2026.",
+  },
+
+  {
+    slug: "playtomic",
+    competitorName: "Playtomic",
+    tagline:
+      "Playtomic es el marketplace global de pádel, con app para jugadores y un Manager para clubes, y tiene clubes en Colombia. SportMaps Canchas lanza en noviembre de 2026 con un enfoque local: WhatsApp, pagos colombianos y sin cuota al jugador. Comparación honesta (verificado 14-oct-2026).",
+    tldr: {
+      chooseCompetitor:
+        "Si tu club es de pádel y quieres estar donde ya están millones de jugadores en el mundo, con partidos abiertos por nivel y un producto maduro, Playtomic es la referencia y ya está operando.",
+      chooseSportMaps:
+        "Si quieres que tus jugadores reserven por WhatsApp, paguen con PSE, Nequi o transferencia, sin cuota de servicio, y tener la escuela en la misma cuenta, SportMaps Canchas (lanzamiento nov-2026) está construido para Colombia.",
+    },
+    features: [
+      {
+        feature: "Estado del producto",
+        competitor: "Maduro, global",
+        sportmaps: "Lanzamiento nov-2026",
+        sportmapsAdvantage: false,
+      },
+      {
+        feature: "Base de jugadores",
+        competitor: "Marketplace global de pádel",
+        sportmaps: "Los jugadores de tu club, por WhatsApp",
+        sportmapsAdvantage: false,
+      },
+      {
+        feature: "Presencia en Colombia",
+        competitor: "Clubes en Cali y otras ciudades (cuántos: no confirmado)",
+        sportmaps: "SportMaps opera hoy en Colombia con escuelas; Canchas lanza nov-2026",
+      },
+      {
+        feature: "Cuota al jugador",
+        competitor: "Tarifa de servicio por reserva, no reembolsable",
+        sportmaps: "Ninguna",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Precio para el club",
+        competitor: "No publicado",
+        sportmaps: "Público: $0 / $99.000 / $199.000 al mes",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Pago dividido entre jugadores",
+        competitor: "Sí",
+        sportmaps: "Sí, adaptado a Colombia, sin tarjeta guardada (lanzamiento nov-2026)",
+      },
+      {
+        feature: "Partidos abiertos por nivel",
+        competitor: "Sí",
+        sportmaps: "No en el lanzamiento",
+        sportmapsAdvantage: false,
+      },
+      {
+        feature: "Reserva por WhatsApp",
+        competitor: "No confirmado",
+        sportmaps: "Sí, con bot sobre la API oficial de Meta (lanzamiento nov-2026)",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Transferencia leída con IA y PSE/Nequi",
+        competitor: "No confirmado",
+        sportmaps: "Sí (Wompi y lectura de comprobantes ya funcionan hoy en escuelas)",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Escuela deportiva en la misma cuenta",
+        competitor: "No",
+        sportmaps: "Sí (escuelas, torneos y tienda ya operan hoy)",
+        sportmapsAdvantage: true,
+      },
+    ],
+    competitorWins: [
+      "Base global de jugadores de pádel que ya usan la app: trae clientes nuevos al club",
+      "Producto maduro, con partidos abiertos por nivel y pago dividido ya en marcha",
+      "App muy bien calificada en tiendas (4,8–4,9)",
+      "Ya opera con clubes en Colombia; SportMaps Canchas lanza en noviembre de 2026",
+    ],
+    sportmapsWins: [
+      "Sin tarifa de servicio al jugador (en Playtomic es por reserva y no reembolsable)",
+      "Precios públicos para el club, desde $0",
+      "Reserva por WhatsApp, con tu marca adelante, sin que el jugador descargue otra app",
+      "Pagos colombianos: Wompi, PSE, Nequi y transferencia leída con IA",
+      "Un solo responsable de cara al jugador para cancelaciones y devoluciones, con la política visible antes de pagar",
+      "Escuela, canchas, torneos y tienda en la misma cuenta",
+    ],
+    costExample: {
+      scenarioLabel:
+        "Playtomic no publica el precio de sus planes para clubes — comparación por modelo de cobro (verificado 14-oct-2026)",
+      rows: [
+        { concept: "Plan del club", competitorCost: "No publicado", sportmapsCost: "$0 / $99.000 / $199.000" },
+        { concept: "Tarifa al jugador por reserva", competitorCost: "Sí, no reembolsable", sportmapsCost: "No" },
+        { concept: "Comisión por reserva al club", competitorCost: "No confirmado", sportmapsCost: "No" },
+        { concept: "Disponible hoy", competitorCost: "Sí", sportmapsCost: "No — lanzamiento nov-2026" },
+      ],
+      competitorTotal: "Plan no publicado + tarifa al jugador",
+      sportmapsTotal: "Precio público, sin cuota al jugador",
+      savingsHighlight:
+        "No se puede comparar el monto porque Playtomic no publica sus planes para clubes. Lo que sí cambia: en SportMaps el jugador no paga tarifa de servicio y el club sabe el precio antes de hablar con ventas.",
+    },
+    faqs: [
+      {
+        question: "¿Cuánto cuesta Playtomic para un club?",
+        answer:
+          "Los planes de Playtomic Manager para clubes no tienen precio publicado (verificado 14-oct-2026). Al jugador le cobra una tarifa de servicio por reserva, que no es reembolsable.",
+      },
+      {
+        question: "¿Playtomic funciona en Colombia?",
+        answer:
+          "Sí, hay clubes en Cali y otras ciudades que lo usan. Cuántos son no está confirmado públicamente.",
+      },
+      {
+        question: "¿Qué dicen los usuarios de Playtomic?",
+        answer:
+          "En las tiendas de apps tiene notas altas (4,8–4,9). En Trustpilot tiene 1,3 sobre 133 reseñas (consultado el 14-oct-2026), y la mayoría de las quejas son por reembolsos y soporte. Por eso en SportMaps Canchas la política de cancelación se muestra antes de pagar y hay un solo responsable de cara al jugador.",
+      },
+      {
+        question: "¿SportMaps Canchas ya está disponible?",
+        answer:
+          "No todavía: lanza en noviembre de 2026. Los primeros 50 clubes que se anoten en sportmaps.co/canchas tienen 3 meses de Canchas Pro gratis.",
+      },
+    ],
+    metaDescription:
+      "SportMaps Canchas vs Playtomic: comparación honesta (verificado 14-oct-2026). Playtomic: red global de pádel y tarifa al jugador; SportMaps Canchas: WhatsApp, PSE/Nequi y sin cuota. Lanza nov-2026.",
+  },
 ];
 
 export function getComparisonBySlug(slug: string): Comparison | undefined {

@@ -71,6 +71,11 @@ export function SportMapsFooter() {
                 </Link>
               </li>
               <li>
+                <Link to="/canchas" className="text-muted-foreground hover:text-sport-primary transition-colors">
+                  Reserva de Canchas (nov 2026)
+                </Link>
+              </li>
+              <li>
                 <Link to="/entrenadores" className="text-muted-foreground hover:text-sport-primary transition-colors">
                   Entrenadores Pro
                 </Link>

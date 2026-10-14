@@ -34,6 +34,7 @@ const STATIC_ROUTES = [
   { loc: '/', changefreq: 'weekly', priority: '1.0' },
   { loc: '/planes', changefreq: 'weekly', priority: '0.95' },
   { loc: '/escuelas', changefreq: 'weekly', priority: '0.9' },
+  { loc: '/canchas', changefreq: 'weekly', priority: '0.9' },
   { loc: '/entrenadores', changefreq: 'weekly', priority: '0.9' },
   { loc: '/deportistas', changefreq: 'weekly', priority: '0.9' },
   { loc: '/eventos', changefreq: 'weekly', priority: '0.9' },
@@ -56,7 +57,7 @@ const STATIC_ROUTES = [
 
 // La comparativa contra el rival explícito va con prioridad más alta que el
 // resto — mismo criterio que ya tenía el sitemap a mano.
-const COMPARISON_PRIORITY = { 'controla-club': '0.95' };
+const COMPARISON_PRIORITY = { 'controla-club': '0.95', 'controla-cancha': '0.95' };
 
 function escapeXml(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');

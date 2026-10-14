@@ -29,6 +29,8 @@ export default function Comparar() {
     return <NotFoundBlock onBack={() => navigate("/planes")} />;
   }
 
+  // Comparativas de SportMaps Canchas: el CTA va a /canchas, no a los planes de academia.
+  const esCanchas = ["controla-cancha", "easycancha", "playtomic"].includes(comp.slug);
   const canonical = `${SITE_URL}/comparar/${comp.slug}`;
   const title = `SportMaps vs ${comp.competitorName}: Comparativa Completa 2026`;
 
@@ -291,11 +293,14 @@ export default function Comparar() {
         <section className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto bg-gradient-to-br from-sport-primary/15 to-sport-accent/15 rounded-3xl p-8 md:p-12 text-center border border-sport-primary/30">
             <h2 className="text-3xl font-bold mb-4">
-              ¿Listo para migrar de {comp.competitorName}?
+              {esCanchas
+                ? "¿Quieres SportMaps Canchas para tu club?"
+                : `¿Listo para migrar de ${comp.competitorName}?`}
             </h2>
             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-              Migración asistida sin costo en menos de 30 días. Trial gratuito
-              en paralelo: si SportMaps no te convence, no migras.
+              {esCanchas
+                ? "Lanzamiento en noviembre de 2026. Los primeros 50 clubes tienen 3 meses de Canchas Pro gratis."
+                : "Migración asistida sin costo en menos de 30 días. Trial gratuito en paralelo: si SportMaps no te convence, no migras."}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
@@ -303,8 +308,8 @@ export default function Comparar() {
                 size="lg"
                 className="bg-sport-primary hover:bg-sport-primary/90 text-white rounded-xl"
               >
-                <Link to="/planes">
-                  Ver planes y precios
+                <Link to={esCanchas ? "/canchas" : "/planes"}>
+                  {esCanchas ? "Ver SportMaps Canchas" : "Ver planes y precios"}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
