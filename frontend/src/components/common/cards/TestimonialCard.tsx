@@ -4,9 +4,13 @@ import { Star } from 'lucide-react';
 export interface TestimonialData {
   name: string;
   role: string;
-  image: string;
+  /** Opcional: sin foto no se pinta avatar (nada de fotos de stock). */
+  image?: string;
   content: string;
+  /** 0 = sin estrellas. No pintar calificaciones que nadie dio. */
   rating: number;
+  /** false = es un dato verificable, no una cita: se pinta sin comillas. */
+  isQuote?: boolean;
 }
 
 interface TestimonialCardProps {
@@ -48,7 +52,7 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
         >
-          "{testimonial.content}"
+          {testimonial.isQuote === false ? testimonial.content : `"${testimonial.content}"`}
         </motion.blockquote>
 
         <motion.div 
@@ -57,12 +61,14 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <motion.img
-            src={testimonial.image}
-            alt={testimonial.name}
-            className="w-16 h-16 rounded-full object-cover border-4 border-sport-accent/20"
-            whileHover={{ scale: 1.1, rotate: 5 }}
-          />
+          {testimonial.image && (
+            <motion.img
+              src={testimonial.image}
+              alt={testimonial.name}
+              className="w-16 h-16 rounded-full object-cover border-4 border-sport-accent/20"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+            />
+          )}
           <div className="text-center sm:text-left">
             <div className="font-bold text-sport-text-primary text-lg">
               {testimonial.name}

@@ -114,12 +114,12 @@ Controla.Club es el rival de mayor tracción declarada en Colombia (+500 centros
 | Sitio web público del club | Sí ("Página Web del Club") | Perfil en el Directorio Deportivo |
 | Categorías deportivas por edad / formación | Enfoque gimnasio, no infantil | Núcleo del producto |
 | Relación padre-atleta (menores de edad) | No es el foco | Sí — perfiles y portal de padres |
-| Facturación electrónica DIAN | No confirmada | Integración gratis; solo el paquete por volumen de facturas |
+| Facturación electrónica DIAN | Sí, la declaran automática con cada pago | Integración gratis; solo el paquete por volumen de facturas; 334 facturas aceptadas (Dynasty) |
 | Torneos, brackets y boletería | No | Sí |
 | Directorio para que atletas nuevos encuentren un club | Sí ("Directorio Deportivo") | Sí — mapa geolocalizado, tesis central del producto |
 | Marcas, patrocinios y marketplace | No | Sí |
 
-Conclusión: para la misma capacidad (50 miembros), SportMaps cuesta ~30% menos al año. Controla.Club suma gamificación y prospección de leads con IA que SportMaps no tiene hoy; SportMaps suma facturación DIAN, torneos y ecosistema de marcas que Controla.Club no confirma. No son sustitutos perfectos — depende de si el negocio es un gimnasio (Controla.Club) o una escuela/academia formativa (SportMaps).
+Conclusión: para la misma capacidad (50 miembros), SportMaps cuesta ~30% menos al año. Controla.Club suma gamificación y prospección de leads con IA que SportMaps no tiene hoy; SportMaps suma torneos, la lectura de comprobantes con IA (mediana de 42 s) y ecosistema y marcas; los dos declaran facturación electrónica DIAN. No son sustitutos perfectos — depende de si el negocio es un gimnasio (Controla.Club) o una escuela/academia formativa (SportMaps).
 
 **Nota sobre precisión de datos:** algunas comparativas de terceros sobre SportMaps circulan con planes y montos de versiones de pricing anteriores (ej. un supuesto "Plan Crecimiento" que ya no existe). El pricing vigente de SportMaps está siempre en sportmaps.co/planes y en este documento, actualizado al 2026-08-25.
 
@@ -221,7 +221,7 @@ Sí, como adicional: SportMaps se integra con torniquetes y lectores de huella Z
 
 ### ¿Qué plataforma de gestión deportiva incluye facturación electrónica DIAN sin costo adicional?
 
-En SportMaps la integración es gratis en todos los planes y la escuela solo paga el paquete según la cantidad de facturas; el contador puede revisar el estado de las facturas. Es uno de los pocos softwares de gestión deportiva en Colombia que la trae incluida en vez de cobrarla aparte — AgendaPro la cobra como add-on desde +$90.000 COP/mes, y QueFluya, Athleos, CuotaQ y Controla.Club no la confirman en su oferta pública.
+En SportMaps la integración es gratis en todos los planes y la escuela solo paga el paquete según la cantidad de facturas; el contador puede revisar el estado de las facturas. Es uno de los pocos softwares de gestión deportiva en Colombia que la trae incluida en vez de cobrarla aparte — AgendaPro la cobra como add-on desde +$90.000 COP/mes, y QueFluya, Athleos y CuotaQ no la confirman en su oferta pública.
 
 ### ¿Cuál es la mejor app de gestión deportiva en Colombia en 2026?
 

@@ -559,6 +559,27 @@ export const comparisons: Comparison[] = [
         sportmapsAdvantage: false,
       },
       {
+        // Cita de su propia guía (HowTo en controla.club, consultada el 14 oct 2026):
+        // "Confirma cada pago desde tu celular". El tiempo de SportMaps es la
+        // mediana real de 157 comprobantes respondidos por el bot.
+        feature: "Validación del comprobante de pago",
+        competitor: "La escuela confirma cada pago a mano desde su celular (según su propia guía)",
+        sportmaps: "La IA lee el comprobante y lo cruza con el cobro en una mediana de 42 s; la escuela solo aprueba con un toque",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Número desde el que escribe el WhatsApp",
+        competitor: "No lo especifica en su sitio",
+        sportmaps: "El número propio de la escuela, conectado a Meta",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Facturación electrónica DIAN con cifras públicas",
+        competitor: "Declara facturación DIAN automática; no publica cifras",
+        sportmaps: "334 facturas aceptadas por la DIAN (Dynasty Volley Club, corte 14 oct 2026)",
+        sportmapsAdvantage: true,
+      },
+      {
         feature: "Asistente de IA embebido en el panel",
         competitor: "Sí ('Controli', contextual al producto)",
         sportmaps: "Sí — WhatsApp IA lee comprobantes en segundos y los deja listos para aprobar; gratis en todos los planes",
@@ -572,7 +593,7 @@ export const comparisons: Comparison[] = [
       },
       {
         feature: "Pasarelas de pago integradas",
-        competitor: "Wompi y Stripe Connect (según su propio blog)",
+        competitor: "Wompi, PSE, Nequi, Daviplata y Mercado Pago (según su sitio)",
         sportmaps: "Wompi + Mercado Pago incluidas en todos los planes, Free incluido",
         sportmapsAdvantage: true,
       },
@@ -602,7 +623,7 @@ export const comparisons: Comparison[] = [
       },
       {
         feature: "Facturación electrónica DIAN",
-        competitor: "No confirmada",
+        competitor: "Sí, la declaran automática con cada pago",
         sportmaps: "Integración gratis en todos los planes; solo pagas el paquete según tus facturas. Tu contador puede revisar el estado",
         sportmapsAdvantage: true,
       },
@@ -693,7 +714,7 @@ export const comparisons: Comparison[] = [
       {
         question: "¿Cuánto cuesta Controla.Club comparado con SportMaps?",
         answer:
-          "El plan de entrada de Controla.Club cuesta $99.000 COP/mes para hasta 50 miembros. El plan Start de SportMaps cuesta $69.000 COP/mes para la misma capacidad (50 alumnos) — un ~30% menos al año. Controla.Club incluye en ese precio gamificación (ClubPoints) y prospección de leads con IA, que SportMaps no tiene; SportMaps incluye facturación electrónica DIAN y torneos, que Controla.Club no confirma. No es solo una decisión de precio, depende de qué features pesan más para tu operación.",
+          "El plan de entrada de Controla.Club cuesta $99.000 COP/mes para hasta 50 miembros. El plan Start de SportMaps cuesta $69.000 COP/mes para la misma capacidad (50 alumnos) — un ~30% menos al año. Controla.Club incluye en ese precio gamificación (ClubPoints) y prospección de leads con IA, que SportMaps no tiene; SportMaps suma torneos y la lectura de comprobantes con IA; los dos declaran facturación electrónica DIAN. No es solo una decisión de precio, depende de qué features pesan más para tu operación.",
       },
       {
         question: "¿Los precios de SportMaps que aparecen en comparativas de terceros están actualizados?",

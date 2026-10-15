@@ -50,9 +50,9 @@ const STATIC_ROUTES = [
   { loc: '/sobre-nosotros', changefreq: 'monthly', priority: '0.7' },
   { loc: '/partners', changefreq: 'monthly', priority: '0.7' },
   { loc: '/ayuda', changefreq: 'monthly', priority: '0.8' },
-  { loc: '/privacidad', changefreq: 'yearly', priority: '0.4' },
   { loc: '/terminos', changefreq: 'yearly', priority: '0.4' },
-  { loc: '/tratamiento-datos', changefreq: 'yearly', priority: '0.4' },
+  // /privacidad y /tratamiento-datos NO van: vercel.json las redirige a
+  // app.sportmaps.co, y Google no quiere URLs que redirigen en el sitemap.
 ];
 
 // La comparativa contra el rival explícito va con prioridad más alta que el

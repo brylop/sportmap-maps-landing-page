@@ -4,35 +4,38 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { TestimonialCard, TestimonialData } from "@/components/common";
 
+// Clientes reales, nombrados con su permiso. Las cifras salen de la base de
+// producción (corte 14 oct 2026) y se pintan como dato, no como cita: antes
+// había cuatro testimonios inventados con fotos de stock.
 const testimonials: TestimonialData[] = [
   {
-    name: "María González",
-    role: "Directora Academia Fútbol Elite",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
-    content: "Mi academia creció un 300%. Ahora tengo tiempo para mi familia mientras SportMaps hace el trabajo pesado.",
-    rating: 5
+    name: "Dynasty Volley Club",
+    role: "Voleibol · Bogotá · en SportMaps desde julio de 2026",
+    content: "502 deportistas activos, $117,6 millones en mensualidades gestionadas, 455 comprobantes leídos por la IA de WhatsApp y 334 facturas aceptadas por la DIAN.",
+    rating: 0,
+    isQuote: false,
   },
   {
-    name: "Carlos Ruiz",
-    role: "Entrenador Personal · 6 años",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-    content: "Pasé de 5 clientes a 40 en 3 meses. SportMaps transformó mi vida y mi negocio por completo.",
-    rating: 5
+    name: "GYM RM",
+    role: "Control de acceso con torniquetes ZKTeco",
+    content: "12.181 entradas registradas en torniquete, con bloqueo automático para quien está en mora, y 315 pagos por $24,2 millones.",
+    rating: 0,
+    isQuote: false,
   },
   {
-    name: "Ana Martínez",
-    role: "Atleta Profesional · Ciclismo",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
-    content: "Encontré mi equipo perfecto y patrocinadores que creen en mí. Este es el futuro del deporte.",
-    rating: 5
+    name: "Club Deportivo Besser",
+    role: "Bogotá · en SportMaps desde septiembre de 2026",
+    content: "78 deportistas, 720 asistencias registradas e informe mensual de progreso que llega a cada familia.",
+    rating: 0,
+    isQuote: false,
   },
   {
-    name: "Roberto Silva",
-    role: "CEO Academia Multideportiva",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-    content: "Automatizamos todo. Ahora nos enfocamos en lo que importa: formar campeones y crecer.",
-    rating: 5
-  }
+    name: "Dreamers Gymnastics",
+    role: "Gimnasia · Bogotá",
+    content: "2.278 accesos con torniquete y banco de horas por niveles: cada familia ve cuántas clases le quedan.",
+    rating: 0,
+    isQuote: false,
+  },
 ];
 
 export function TestimonialsSection() {
@@ -65,10 +68,10 @@ export function TestimonialsSection() {
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-5xl font-bold text-sport-text-primary mb-4 bg-gradient-to-r from-sport-primary to-sport-accent bg-clip-text text-transparent">
-            Parte de la comunidad líder
+            Escuelas reales, cifras reales
           </h2>
           <p className="text-lg md:text-xl text-sport-text-secondary max-w-2xl mx-auto font-light">
-            Historias reales de transformación y éxito
+            Datos de la plataforma con corte al 14 de octubre de 2026, publicados con permiso de cada club
           </p>
         </div>
 

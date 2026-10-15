@@ -32,18 +32,18 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
       title: "Gestión Integral para Academias",
       desc: "Digitaliza tu escuela deportiva y elimina la cartera morosa. Gestión de alumnos, cobros y cronogramas en tiempo real.",
       benefits: [
-        "Ahorra hasta 10 horas semanales en admin",
+        "WhatsApp IA gratis: lee comprobantes en menos de un minuto",
         "Control total de asistencia con Carnet Digital",
         "Pagos recurrentes y control de mensualidades",
         "App exclusiva para padres e integrantes",
-        "Cumplimiento Ley Deportiva garantizado"
+        "Factura electrónica DIAN integrada"
       ]
     },
     entrenadores: {
       title: "Tu Negocio de Entrenamiento Pro",
       desc: "Deja de usar Excel y WhatsApp para tus clases. Profesionaliza tu marca personal y escala tus ingresos.",
       benefits: [
-        "Agenda de clases 20% más eficiente",
+        "Agenda de clases y reservas por enlace",
         "Recibe pagos automáticos sin fricción",
         "Control de progreso técnico y físico",
         "Perfil verificado en el Mapa Deportivo",
@@ -58,7 +58,7 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
         "Busca escuelas y canchas por ubicación",
         "Historial de estadísticas y competencias",
         "Pago de membresías desde la app",
-        "Seguro deportivo digital integrado"
+        "Informe mensual de progreso para la familia"
       ]
     },
     marcas: {
@@ -85,13 +85,13 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
     },
     organizadores: {
       title: "Operación de Eventos sin Excel",
-      desc: "Coordina inscripciones con escuelas, recibe documentos, valida pagos y abonos, vende boletería con QR y distribuye tu evento dentro y fuera de la plataforma.",
+      desc: "Coordina inscripciones con escuelas, recibe documentos, valida pagos y abonos, controla la entrada con QR y distribuye tu evento dentro y fuera de la plataforma.",
       benefits: [
         "Inscripciones colectivas: cada escuela inscribe a sus atletas",
         "Recepción y validación de documentos por inscrito",
         "Pagos completos y abonos parciales con saldos en vivo",
         "Wompi + Mercado Pago + transferencia/efectivo en una sola conciliación",
-        "Boletería con QR y check-in en la puerta",
+        "Check-in con QR de cada inscrito en la puerta",
         "Distribución: página pública + pin en mapa + link compartible"
       ]
     },
@@ -114,7 +114,7 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
         "Gestión de cotizaciones automática",
         "Logística y pagos integrados",
         "Catálogo digital segmentado",
-        "Visibilidad ante +1000 compradores"
+        "Visibilidad ante escuelas y clubes del mapa"
       ]
     },
     servicios: {
@@ -216,9 +216,8 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
                       <div className="flex items-center gap-2 px-4 py-2 bg-muted/50 rounded-full border border-border">
                         <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                         <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
-                          {selectedClient === 'escuelas' ? '+500 Alumnos Activos' : 
-                           selectedClient === 'federaciones' ? '+50 Ligas Vinculadas' : 
-                           '+1000 Usuarios'}
+                          {/* Cifra real de la plataforma (corte 14 oct 2026). */}
+                          {selectedClient === 'escuelas' ? 'Más de 1.100 deportistas activos' : 'Gratis para empezar'}
                         </span>
                       </div>
                     </div>
@@ -238,15 +237,15 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
                           </div>
                         </div>
                         <div className="px-2 py-1 bg-sport-primary/20 text-sport-primary text-[10px] font-black rounded-full border border-sport-primary/30 glow-primary uppercase tracking-tighter">
-                          Live Data
+                          Vista de ejemplo
                         </div>
                       </div>
                       
                       <div className="space-y-4">
                         <div className="bg-muted/30 rounded-xl border border-border p-4">
                            <div className="flex justify-between items-end mb-2">
-                             <span className="text-[10px] text-muted-foreground font-bold uppercase">Crecimiento Mensual</span>
-                             <span className="text-sport-primary font-bold text-sm">+24%</span>
+                             <span className="text-[10px] text-muted-foreground font-bold uppercase">Respuesta del bot a un comprobante (mediana real)</span>
+                             <span className="text-sport-primary font-bold text-sm">42 s</span>
                            </div>
                            <div className="h-1.5 w-full bg-muted rounded-full overflow-hidden">
                              <div className="h-full bg-sport-primary w-[75%] rounded-full shadow-[0_0_10px_rgba(var(--sport-primary),0.5)]"></div>

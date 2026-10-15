@@ -94,7 +94,7 @@ SportMaps. Controla.Club está construido para gimnasios y centros deportivos co
 
 ### ¿Controla.Club o SportMaps tiene mejor precio?
 
-Para la misma capacidad (50 miembros/alumnos), SportMaps es ~30% más barato al año ($828.000 COP vs $1.188.000 COP). Controla.Club incluye en su precio gamificación (ClubPoints) y prospección de leads con IA, que SportMaps no tiene; SportMaps incluye facturación DIAN y torneos, que Controla.Club no confirma.
+Para la misma capacidad (50 miembros/alumnos), SportMaps es ~30% más barato al año ($828.000 COP vs $1.188.000 COP). Controla.Club incluye en su precio gamificación (ClubPoints) y prospección de leads con IA, que SportMaps no tiene; SportMaps suma torneos y la lectura de comprobantes con IA (mediana de 42 s); los dos declaran facturación electrónica DIAN.
 
 ### ¿Cuál es más barata, SportMaps o Clupik?
 
