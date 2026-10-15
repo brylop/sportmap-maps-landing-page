@@ -34,8 +34,8 @@ const Partners = () => {
     },
     {
       icon: Shield,
-      title: "Soporte Dedicado",
-      description: "Gerente de cuenta exclusivo para ayudarte a crecer tu negocio con SportMaps."
+      title: "Acompañamiento Directo",
+      description: "Hablas directo con el equipo de SportMaps para resolver dudas y cerrar ventas."
     }
   ];
 
@@ -44,9 +44,9 @@ const Partners = () => {
       title: "Revendedor",
       description: "Vende SportMaps a tu red de contactos y gana comisiones por cada venta.",
       features: [
-        "Comisión del 20% recurrente",
+        "Comisión recurrente por cliente referido",
         "Material de ventas incluido",
-        "Dashboard de seguimiento",
+        "Seguimiento de tus referidos con nuestro equipo",
         "Sin inversión inicial"
       ]
     },
@@ -54,8 +54,8 @@ const Partners = () => {
       title: "Integrador",
       description: "Implementa y personaliza SportMaps para tus clientes empresariales.",
       features: [
-        "Acceso a API completa",
-        "Certificación técnica",
+        "Acompañamiento técnico de nuestro equipo",
+        "Capacitación en el producto",
         "Proyectos de implementación",
         "Margen en servicios"
       ]
@@ -65,25 +65,18 @@ const Partners = () => {
       description: "Promociona SportMaps en tu audiencia y gana por cada conversión.",
       features: [
         "Link de referido único",
-        "Tracking en tiempo real",
-        "Pagos mensuales",
-        "Materiales promocionales"
+        "Comisión por cada conversión",
+        "Materiales promocionales",
+        "Sin inversión inicial"
       ]
     }
-  ];
-
-  const stats = [
-    { value: "$500K+", label: "Pagado a Partners" },
-    { value: "100+", label: "Partners Activos" },
-    { value: "25%", label: "Comisión Promedio" },
-    { value: "30 días", label: "Ciclo de Pago" }
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <SEO 
         title="Programa de Partners | SportMaps - Únete a Nuestro Ecosistema"
-        description="Únete al programa de partners de SportMaps. Gana comisiones, accede a recursos exclusivos y crece tu negocio con la plataforma deportiva líder."
+        description="Únete al programa de partners de SportMaps. Gana comisiones, accede a recursos exclusivos y crece tu negocio con SportMaps, la plataforma para escuelas deportivas."
         keywords="partners sportmaps, programa afiliados, revendedor sportmaps, ganar dinero deportes, negocio deportivo"
         url="https://sportmaps.co/partners"
         canonical="https://sportmaps.co/partners"
@@ -120,27 +113,6 @@ const Partners = () => {
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-12 border-y border-border/50 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-3xl md:text-4xl font-bold text-sport-primary mb-2">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 

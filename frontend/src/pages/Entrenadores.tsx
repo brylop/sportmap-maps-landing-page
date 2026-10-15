@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
   Users, Calendar, TrendingUp, Trophy, 
-  ClipboardList, Video, BarChart3, Star,
+  ClipboardList, BookOpen, BarChart3, School, UserCheck,
   CheckCircle, ArrowRight
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -21,49 +21,49 @@ const Entrenadores = () => {
     {
       icon: Users,
       title: "Gestión de Atletas",
-      description: "Administra todos tus deportistas en un solo lugar con perfiles completos y seguimiento individual."
+      description: "Tus deportistas o clientes en un solo lugar, con su ficha y seguimiento individual."
     },
     {
       icon: Calendar,
       title: "Planificación de Entrenamientos",
-      description: "Crea y programa sesiones de entrenamiento personalizadas con calendario integrado."
+      description: "Crea y programa sesiones de entrenamiento con periodización por mesociclos."
     },
     {
       icon: TrendingUp,
-      title: "Análisis de Rendimiento",
-      description: "Métricas detalladas y reportes de progreso para optimizar el desarrollo de cada atleta."
+      title: "Reportes de Progreso",
+      description: "Reportes del entrenador, reporte post-entreno del equipo e informe mensual del atleta."
     },
     {
-      icon: Video,
-      title: "Biblioteca de Ejercicios",
-      description: "Accede a una amplia colección de ejercicios con videos demostrativos y guías técnicas."
+      icon: BookOpen,
+      title: "Catálogo de Ejercicios",
+      description: "Catálogo de ejercicios para armar rutinas y planes de sesión."
     },
     {
       icon: ClipboardList,
-      title: "Planes de Entrenamiento",
-      description: "Diseña programas de entrenamiento estructurados con periodización y objetivos claros."
+      title: "Asistencia con QR",
+      description: "Toma asistencia escaneando el QR del deportista o supervisando la lista del grupo."
     },
     {
       icon: BarChart3,
-      title: "Dashboard Profesional",
-      description: "Visualiza el progreso de tu grupo con estadísticas en tiempo real y KPIs relevantes."
+      title: "Pizarra Táctica",
+      description: "Jugadas, alineaciones y ejercicios en la pizarra táctica (fútbol hoy; más deportes en camino)."
     }
   ];
 
   const benefits = [
-    "Ahorra hasta 10 horas semanales en gestión administrativa",
-    "Mejora la comunicación con atletas y padres",
-    "Acceso desde cualquier dispositivo, en cualquier lugar",
-    "Reportes automáticos de rendimiento y asistencia",
-    "Integración con calendario y recordatorios",
-    "Soporte técnico especializado 24/7"
+    "Menos papeleo: asistencia, rutinas y reportes en un solo lugar",
+    "Acceso desde el celular o el computador",
+    "Reportes de asistencia y progreso por deportista",
+    "Calendario de sesiones de entrenamiento",
+    "Soporte por WhatsApp",
+    "WhatsApp IA para entrenadores: próximamente"
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <SEO 
         title="Entrenadores Pro | SportMaps - Herramientas para Entrenadores Deportivos"
-        description="Plataforma profesional para entrenadores deportivos. Gestiona atletas, planifica entrenamientos y analiza el rendimiento de tus deportistas con SportMaps."
+        description="Para entrenadores deportivos: gratis dentro del plan de tu academia, o Coach Pro a $59.000/mes si eres independiente. Sesiones, rutinas, asistencia y reportes."
         keywords="entrenadores deportivos, gestión de atletas, planificación entrenamientos, software entrenadores, app para coaches"
         url="https://sportmaps.co/entrenadores"
         canonical="https://sportmaps.co/entrenadores"
@@ -82,14 +82,14 @@ const Entrenadores = () => {
           >
             <div className="inline-flex items-center gap-2 bg-sport-primary/10 border border-sport-primary/20 rounded-full px-4 py-2 mb-6">
               <Trophy className="w-4 h-4 text-sport-primary" />
-              <span className="text-sm text-sport-primary font-medium">Para Entrenadores Profesionales</span>
+              <span className="text-sm text-sport-primary font-medium">Para entrenadores de escuela e independientes</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Lleva tu <span className="text-sport-primary">Coaching</span> al Siguiente Nivel
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Herramientas profesionales para entrenadores que buscan optimizar su trabajo y 
-              maximizar el potencial de sus atletas.
+              Si entrenas en una academia, vas gratis dentro del plan de tu escuela. Si eres 
+              independiente, Coach Pro cuesta $59.000/mes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -97,7 +97,7 @@ const Entrenadores = () => {
                 className="bg-sport-primary hover:bg-sport-primary/90"
                 onClick={() => setIsDemoOpen(true)}
               >
-                Comenzar Prueba Gratis
+                Solicitar demo
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
               <Button
@@ -112,6 +112,38 @@ const Entrenadores = () => {
         </div>
       </section>
 
+      {/* Dos caminos */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <Card className="h-full border-sport-primary/30">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 rounded-xl bg-sport-primary/10 flex items-center justify-center mb-4">
+                  <School className="w-6 h-6 text-sport-primary" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Entrenador de escuela</h3>
+                <p className="text-2xl font-bold text-sport-accent mb-2">Gratis</p>
+                <p className="text-muted-foreground">
+                  Gratis dentro del plan de tu academia. La escuela te invita y entras con tu rol de entrenador.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="h-full border-sport-accent/30">
+              <CardContent className="p-6">
+                <div className="w-12 h-12 rounded-xl bg-sport-accent/10 flex items-center justify-center mb-4">
+                  <UserCheck className="w-6 h-6 text-sport-accent" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Entrenador independiente</h3>
+                <p className="text-2xl font-bold text-sport-accent mb-2">Coach Pro · $59.000/mes</p>
+                <p className="text-muted-foreground">
+                  Tus clientes con ficha y progreso, rutinas, agenda de sesiones, cobros y perfil público.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Features Grid */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
@@ -120,7 +152,7 @@ const Entrenadores = () => {
               Todo lo que Necesitas para <span className="text-sport-primary">Entrenar Mejor</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Herramientas diseñadas específicamente para las necesidades de entrenadores deportivos profesionales.
+              Herramientas pensadas para el día a día del entrenador.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -153,7 +185,7 @@ const Entrenadores = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                ¿Por qué los <span className="text-sport-primary">Mejores Entrenadores</span> Eligen SportMaps?
+                ¿Por qué <span className="text-sport-primary">SportMaps</span> para entrenar?
               </h2>
               <div className="space-y-4">
                 {benefits.map((benefit, index) => (
@@ -174,9 +206,9 @@ const Entrenadores = () => {
             <div className="relative">
               <div className="aspect-video rounded-2xl bg-gradient-to-br from-sport-primary/20 to-sport-accent/20 flex items-center justify-center">
                 <div className="text-center p-8">
-                  <Star className="w-16 h-16 text-sport-primary mx-auto mb-4" />
-                  <p className="text-2xl font-bold">+500 Entrenadores</p>
-                  <p className="text-muted-foreground">Ya confían en SportMaps</p>
+                  <BarChart3 className="w-16 h-16 text-sport-primary mx-auto mb-4" />
+                  <p className="text-2xl font-bold">Sesiones, asistencia y reportes</p>
+                  <p className="text-muted-foreground">En la misma app que usa tu escuela</p>
                 </div>
               </div>
             </div>
@@ -194,18 +226,15 @@ const Entrenadores = () => {
       <section className="py-20 bg-gradient-to-r from-sport-primary/10 to-sport-accent/10">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Únete a la Comunidad de Entrenadores Pro
+            ¿Entrenas en una escuela o por tu cuenta?
           </h2>
           <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-            Comienza tu prueba gratuita de 14 días sin compromiso.
+            Escríbenos y te mostramos el camino que te sirve: gratis con tu academia o Coach Pro a $59.000/mes.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-sport-primary hover:bg-sport-primary/90" onClick={() => setIsDemoOpen(true)}>
-              Comenzar prueba gratuita
+              Solicitar demo
               <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-            <Button size="lg" variant="outline" onClick={() => setIsDemoOpen(true)}>
-              Solicitar demo personalizado
             </Button>
           </div>
         </div>

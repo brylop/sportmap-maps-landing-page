@@ -58,7 +58,7 @@ export function HowItWorksSection() {
                 "Programación automática de entrenamientos",
                 "Comunicación multi-canal con padres",
                 "Reportes de rendimiento en tiempo real",
-                "Certificaciones digitales blockchain",
+                "Certificados digitales verificables",
                 "Analytics predictivos de estudiantes"
               ],
               color: "sport-accent",

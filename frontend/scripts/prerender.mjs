@@ -62,6 +62,24 @@ async function prerenderRoute(browser, route) {
   try {
     await page.goto(url, { waitUntil: 'networkidle2', timeout: PAGE_TIMEOUT_MS });
     await page.evaluate(() => new Promise((resolve) => setTimeout(resolve, 500)));
+    // index.html trae canonical/description/og/twitter por defecto (los del
+    // home) y Helmet agrega los de la página con data-rh. Sin esto, cada HTML
+    // estático salía con DOS canonical — uno apuntando al home — y Google
+    // podía tratar toda página como duplicado del home.
+    await page.evaluate(() => {
+      const keyOf = (el) =>
+        el.tagName === 'LINK'
+          ? `link:${el.getAttribute('rel')}`
+          : `meta:${el.getAttribute('name') || el.getAttribute('property')}`;
+      const managed = new Set(
+        [...document.head.querySelectorAll('[data-rh]')].map(keyOf),
+      );
+      document.head
+        .querySelectorAll('link[rel="canonical"]:not([data-rh]), meta[name]:not([data-rh]), meta[property]:not([data-rh])')
+        .forEach((el) => {
+          if (managed.has(keyOf(el))) el.remove();
+        });
+    });
     const html = await page.content();
 
     const outputPath =

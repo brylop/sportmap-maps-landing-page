@@ -64,9 +64,9 @@ export const comparisons: Comparison[] = [
       "Si estás evaluando Clupik para tu academia en Colombia, esta es la comparación honesta con SportMaps. Precios reales, features lado a lado y dónde gana cada uno.",
     tldr: {
       chooseCompetitor:
-        "Si operás en España con Mercado Pago, ya tenés el equipo entrenado en Clupik y no necesitás WhatsApp AI, Clupik sigue siendo válido.",
+        "Si operas en España con Mercado Pago, ya tienes el equipo entrenado en Clupik y no necesitas WhatsApp IA, Clupik sigue siendo válido.",
       chooseSportMaps:
-        "Si operás en Colombia, querés Wompi integrado, app de marca propia incluida y WhatsApp AI para cobranza, SportMaps es ~3x más barato a igualdad de features.",
+        "Si operas en Colombia y quieres Wompi y Mercado Pago integrados, WhatsApp IA gratis para cobranza y soporte local, SportMaps cuesta cerca de la mitad sumando plan y pasarela. Si necesitas sí o sí una app nativa en las tiendas, Clupik la ofrece como add-on.",
     },
     features: [
       {
@@ -77,8 +77,8 @@ export const comparisons: Comparison[] = [
       },
       {
         feature: "App de marca propia",
-        competitor: "+$245.000/mes",
-        sportmaps: "Incluida",
+        competitor: "App nativa +$245.000/mes",
+        sportmaps: "App instalable (PWA) incluida; con logo de la escuela, adicional a cotizar",
         sportmapsAdvantage: true,
       },
       {
@@ -88,9 +88,9 @@ export const comparisons: Comparison[] = [
         sportmapsAdvantage: true,
       },
       {
-        feature: "WhatsApp AI para cobranza",
+        feature: "WhatsApp IA para cobranza",
         competitor: "No disponible",
-        sportmaps: "500 conversaciones/mes",
+        sportmaps: "Gratis en todos los planes (solo pagas a Meta si te excedes)",
         sportmapsAdvantage: true,
       },
       {
@@ -137,10 +137,9 @@ export const comparisons: Comparison[] = [
     ],
     sportmapsWins: [
       "Pricing 3x más bajo a igualdad real de features",
-      "WhatsApp AI: la única plataforma deportiva con IA conversacional en cobranza",
+      "WhatsApp IA gratis en todos los planes: lee comprobantes y los deja listos para aprobar",
       "Soporte en Colombia con respuesta <2h, no en otra zona horaria",
-      "Integraciones nativas con Wompi, ePayco y bancos colombianos",
-      "App de marca propia incluida (Clupik la cobra aparte como add-on)",
+      "Wompi y Mercado Pago integrados en todos los planes",
       "Migración asistida sin costo desde Clupik o Excel",
       "Ecosistema más amplio: mapa de eventos, marketplace de marcas, descuentos cruzados entre roles",
     ],
@@ -153,35 +152,30 @@ export const comparisons: Comparison[] = [
           sportmapsCost: "$1.908.000",
         },
         {
-          concept: "App marca propia",
-          competitorCost: "$2.940.000",
-          sportmapsCost: "Incluida",
-        },
-        {
           concept: "Pasarela pagos",
           competitorCost: "$900.000",
           sportmapsCost: "Incluida",
         },
         {
-          concept: "WhatsApp AI",
+          concept: "WhatsApp IA",
           competitorCost: "No disponible",
-          sportmapsCost: "Incluido (500 msg/mes)",
+          sportmapsCost: "Gratis en todos los planes",
         },
         {
           concept: "Integración contabilidad",
           competitorCost: "$600.000",
-          sportmapsCost: "API incluida",
+          sportmapsCost: "API de lectura incluida (Pro)",
         },
       ],
-      competitorTotal: "$6.840.000/año",
+      competitorTotal: "$3.900.000/año",
       sportmapsTotal: "$1.908.000/año",
-      savingsHighlight: "Ahorras +70% vs Clupik a igualdad de features",
+      savingsHighlight: "Ahorras cerca de la mitad vs Clupik (sin contar app nativa)",
     },
     faqs: [
       {
         question: "¿Puedo migrar de Clupik a SportMaps sin perder datos?",
         answer:
-          "Sí. El equipo de migración de SportMaps exporta alumnos, historial de pagos y agenda en menos de 30 días, sin costo. Vos solo aprobás el resultado antes de cortar el otro sistema.",
+          "Sí. El equipo de migración de SportMaps exporta alumnos, historial de pagos y agenda en menos de 30 días, sin costo. Tú solo apruebas el resultado antes de cortar el otro sistema.",
       },
       {
         question: "¿Por qué SportMaps cuesta menos siendo más completo?",
@@ -189,14 +183,14 @@ export const comparisons: Comparison[] = [
           "Tres razones: (1) infraestructura más moderna y eficiente; (2) construido en Latam para Latam, sin overhead de adaptación; (3) modelo de negocio diferente, con revenue de ecosistema (marketplace, sponsorships) que subsidia el SaaS.",
       },
       {
-        question: "¿Funciona WhatsApp AI con números de Colombia?",
+        question: "¿Funciona WhatsApp IA con números de Colombia?",
         answer:
           "Sí, está construido nativamente para WhatsApp Business API en Latam. Acepta números colombianos sin trámites adicionales.",
       },
       {
         question: "¿Y si mi academia ya está en Clupik hace años?",
         answer:
-          "Entendible. Te ofrecemos prueba 30 días sin compromiso, manteniendo Clupik activo en paralelo. Si SportMaps no te convence, no migrás. Si sí, hacemos la migración en otros 30 días y cancelás Clupik.",
+          "Entendible. Te ofrecemos prueba 30 días sin compromiso, manteniendo Clupik activo en paralelo. Si SportMaps no te convence, no migras. Si sí, hacemos la migración en otros 30 días y cancelas Clupik.",
       },
     ],
     metaDescription:
@@ -216,14 +210,14 @@ export const comparisons: Comparison[] = [
       chooseCompetitor:
         "Si solo necesitas cobrar mensualidades, marcar asistencia y llevar caja de UNA academia, sin facturación electrónica ni torneos, QueFluya es simple, barato y suficiente.",
       chooseSportMaps:
-        "Si quieres facturación electrónica DIAN incluida, torneos con inscripciones y boletería, conexión con marcas y un ecosistema que va más allá de tu academia, SportMaps cuesta lo mismo en la entrada y hace mucho más.",
+        "Si quieres facturación electrónica DIAN incluida, torneos con inscripción y cobro, conexión con marcas y un ecosistema que va más allá de tu academia, SportMaps cuesta lo mismo en la entrada y hace mucho más.",
     },
     features: [
       { feature: "Plan de entrada", competitor: "$69.000/mes", sportmaps: "$69.000/mes (Start)", sportmapsAdvantage: false },
       { feature: "Cobro de mensualidad recurrente", competitor: "Sí (renovación automática)", sportmaps: "Sí (Wompi + MercadoPago)", sportmapsAdvantage: false },
       { feature: "Asistencia digital", competitor: "Sí", sportmaps: "Sí", sportmapsAdvantage: false },
       { feature: "Facturación electrónica DIAN", competitor: "No incluida", sportmaps: "Incluida (multi-PAC)", sportmapsAdvantage: true },
-      { feature: "Torneos, inscripciones y boletería", competitor: "No", sportmaps: "Sí (con abonos y QR)", sportmapsAdvantage: true },
+      { feature: "Torneos con inscripción y cobro", competitor: "No", sportmaps: "Sí (liga o copa, goleadores y tabla pública)", sportmapsAdvantage: true },
       { feature: "Conexión con marcas / patrocinios", competitor: "No", sportmaps: "Marketplace + SponsorMatch", sportmapsAdvantage: true },
       { feature: "Ecosistema entre escuelas", competitor: "Cerrado a tu academia", sportmaps: "Mapa, eventos y descuentos cruzados", sportmapsAdvantage: true },
       { feature: "App del atleta / perfil portable", competitor: "Portal del alumno", sportmaps: "Perfil deportivo portable + gratis", sportmapsAdvantage: true },
@@ -237,7 +231,7 @@ export const comparisons: Comparison[] = [
     ],
     sportmapsWins: [
       "Facturación electrónica DIAN incluida — QueFluya no la trae; tocaría contratarla aparte (Alegra/Siigo)",
-      "Torneos y eventos con inscripciones, abonos y boletería QR",
+      "Torneos de liga o copa con inscripción y cobro, goleadores y tabla pública",
       "Conexión real con marcas: patrocinios y descuentos para tus familias",
       "Ecosistema abierto: tu academia aparece en el mapa deportivo, no aislada",
       "Cobro recurrente con pasarelas locales (Wompi + MercadoPago)",
@@ -249,7 +243,7 @@ export const comparisons: Comparison[] = [
       rows: [
         { concept: "Plan de gestión", competitorCost: "$89.000 (Pro)", sportmapsCost: "$159.000 (Pro)" },
         { concept: "Facturación electrónica DIAN", competitorCost: "Aparte: +$49.900 (Alegra)", sportmapsCost: "Incluida" },
-        { concept: "Torneos / boletería", competitorCost: "No disponible", sportmapsCost: "Incluido" },
+        { concept: "Torneos", competitorCost: "No disponible", sportmapsCost: "Incluido" },
         { concept: "Doble digitación (cobré aquí, facturo allá)", competitorCost: "Sí (horas/mes)", sportmapsCost: "No (factura automática)" },
       ],
       competitorTotal: "$138.900/mes + trabajo manual",
@@ -298,7 +292,7 @@ export const comparisons: Comparison[] = [
       { feature: "Facturación electrónica DIAN", competitor: "No confirmada", sportmaps: "Incluida (multi-PAC)", sportmapsAdvantage: true },
       { feature: "Cobranza responsable (Ley 2300/2023)", competitor: "Sí (bandera explícita)", sportmaps: "Sí (WhatsApp con límites)", sportmapsAdvantage: false },
       { feature: "Multi-sede", competitor: "Sí", sportmaps: "Sí", sportmapsAdvantage: false },
-      { feature: "Torneos / eventos / boletería", competitor: "No", sportmaps: "Sí", sportmapsAdvantage: true },
+      { feature: "Torneos (liga o copa, tabla pública)", competitor: "No", sportmaps: "Sí", sportmapsAdvantage: true },
       { feature: "Marcas / patrocinios / marketplace", competitor: "No", sportmaps: "Sí", sportmapsAdvantage: true },
       { feature: "Ecosistema y mapa deportivo", competitor: "No", sportmaps: "Sí", sportmapsAdvantage: true },
       { feature: "Tracción en Colombia", competitor: "+500 escuelas", sportmaps: "En crecimiento", sportmapsAdvantage: false },
@@ -311,7 +305,7 @@ export const comparisons: Comparison[] = [
     ],
     sportmapsWins: [
       "Facturación electrónica DIAN incluida (Athleos no la confirma en su oferta)",
-      "Torneos y eventos con inscripciones, abonos y boletería — no solo gestión de escuela",
+      "Torneos de liga o copa con inscripción y cobro — no solo gestión de escuela",
       "Conexión con marcas y patrocinios para tus atletas y familias",
       "Ecosistema abierto: mapa, descubrimiento y descuentos entre roles",
       "Modelo multi-actor (escuela, entrenador, padre, atleta, organizador, tienda) en una sola plataforma",
@@ -322,7 +316,7 @@ export const comparisons: Comparison[] = [
       rows: [
         { concept: "Gestión de escuela + cobros", competitorCost: "Sí", sportmapsCost: "Sí" },
         { concept: "Facturación electrónica DIAN", competitorCost: "No confirmada", sportmapsCost: "Incluida" },
-        { concept: "Torneos + boletería", competitorCost: "No", sportmapsCost: "Incluido" },
+        { concept: "Torneos", competitorCost: "No", sportmapsCost: "Incluido" },
         { concept: "Marcas / marketplace / ecosistema", competitorCost: "No", sportmapsCost: "Incluido" },
       ],
       competitorTotal: "Gestión de escuela",
@@ -334,7 +328,7 @@ export const comparisons: Comparison[] = [
       {
         question: "¿En qué se diferencia SportMaps de Athleos?",
         answer:
-          "Athleos es fuerte en el núcleo de gestión de escuela (matrícula, cobros, asistencia) y cumplimiento de cobranza. SportMaps cubre eso y suma facturación electrónica DIAN incluida, torneos con boletería, conexión con marcas y un ecosistema deportivo más amplio.",
+          "Athleos es fuerte en el núcleo de gestión de escuela (matrícula, cobros, asistencia) y cumplimiento de cobranza. SportMaps cubre eso y suma facturación electrónica DIAN incluida, torneos de liga o copa, conexión con marcas y un ecosistema deportivo más amplio.",
       },
       {
         question: "¿SportMaps también cumple la Ley 2300 de cobranza?",
@@ -369,7 +363,7 @@ export const comparisons: Comparison[] = [
       { feature: "Recordatorios de mora (WhatsApp)", competitor: "Sí", sportmaps: "Sí (con IA)", sportmapsAdvantage: true },
       { feature: "Facturación electrónica DIAN", competitor: "No confirmada", sportmaps: "Incluida", sportmapsAdvantage: true },
       { feature: "Asistencia por categoría/entrenamiento", competitor: "Limitada", sportmaps: "Sí (escuela formativa)", sportmapsAdvantage: true },
-      { feature: "Torneos, brackets y boletería", competitor: "No", sportmaps: "Sí", sportmapsAdvantage: true },
+      { feature: "Torneos: liga o copa, goleadores y tabla pública", competitor: "No", sportmaps: "Sí", sportmapsAdvantage: true },
       { feature: "Marcas / marketplace", competitor: "No", sportmaps: "Sí", sportmapsAdvantage: true },
     ],
     competitorWins: [
@@ -381,7 +375,7 @@ export const comparisons: Comparison[] = [
     sportmapsWins: [
       "Gestión de escuela formativa completa: categorías por edad, asistencia a entrenamiento, entrenadores",
       "Facturación electrónica DIAN incluida",
-      "Torneos con inscripciones, abonos y boletería QR",
+      "Torneos de liga o copa con inscripción y cobro, goleadores y tabla pública",
       "Conexión con marcas y ecosistema deportivo abierto",
       "Un solo sistema para cobrar Y operar, no solo cobrar",
     ],
@@ -391,7 +385,7 @@ export const comparisons: Comparison[] = [
         { concept: "Cobro de cuotas", competitorCost: "Sí", sportmapsCost: "Sí" },
         { concept: "Gestión deportiva (categorías/asistencia)", competitorCost: "Limitada", sportmapsCost: "Completa" },
         { concept: "Facturación DIAN", competitorCost: "No confirmada", sportmapsCost: "Incluida" },
-        { concept: "Torneos + boletería", competitorCost: "No", sportmapsCost: "Incluido" },
+        { concept: "Torneos", competitorCost: "No", sportmapsCost: "Incluido" },
       ],
       competitorTotal: "Cobro de cuotas",
       sportmapsTotal: "Cobro + operación deportiva + fiscal",
@@ -433,7 +427,7 @@ export const comparisons: Comparison[] = [
       { feature: "Facturación electrónica DIAN", competitor: "Add-on desde +$90.000/mes", sportmaps: "Incluida", sportmapsAdvantage: true },
       { feature: "Vertical deportivo (categorías, asistencia)", competitor: "Genérico, no deportivo", sportmaps: "Nativo deportivo", sportmapsAdvantage: true },
       { feature: "Cobro de mensualidad recurrente", competitor: "Pagos/POS genéricos", sportmaps: "Mensualidad deportiva recurrente", sportmapsAdvantage: true },
-      { feature: "Torneos, brackets y boletería", competitor: "No", sportmaps: "Sí", sportmapsAdvantage: true },
+      { feature: "Torneos: liga o copa, goleadores y tabla pública", competitor: "No", sportmaps: "Sí", sportmapsAdvantage: true },
       { feature: "Relación padre-atleta / menores", competitor: "No", sportmaps: "Sí", sportmapsAdvantage: true },
       { feature: "Marcas / patrocinios", competitor: "No", sportmaps: "Sí", sportmapsAdvantage: true },
       { feature: "POS físico / terminal", competitor: "Sí", sportmaps: "Enfoque digital", sportmapsAdvantage: false },
@@ -449,7 +443,7 @@ export const comparisons: Comparison[] = [
     sportmapsWins: [
       "Facturación DIAN incluida — no un add-on de +$90.000/mes",
       "Vertical deportivo real: categorías por edad, asistencia a entrenamiento, métricas",
-      "Torneos con inscripciones, abonos y boletería QR",
+      "Torneos de liga o copa con inscripción y cobro, goleadores y tabla pública",
       "Modelo padre-atleta pensado para menores de edad",
       "Conexión con marcas y ecosistema deportivo",
       "Sale más barato con todo lo deportivo + fiscal encendido",
@@ -519,7 +513,7 @@ export const comparisons: Comparison[] = [
       {
         feature: "Control de acceso físico (portería/torniquete)",
         competitor: "Sí — core del producto",
-        sportmaps: "Carnet QR digital, sin torniquete físico dedicado",
+        sportmaps: "Sí — torniquetes y lectores ZKTeco + carnet digital con QR (adicional)",
         sportmapsAdvantage: false,
       },
       {
@@ -543,7 +537,7 @@ export const comparisons: Comparison[] = [
       {
         feature: "Prospección de leads nuevos con IA por WhatsApp",
         competitor: "Sí (outbound, declara 5x tasa de respuesta)",
-        sportmaps: "No — WhatsApp AI está enfocado en cobranza y recordatorios, no en prospección",
+        sportmaps: "Sí, entrante: responde a quien escribe preguntando precios y agenda la clase de cortesía",
         sportmapsAdvantage: false,
       },
       {
@@ -567,14 +561,32 @@ export const comparisons: Comparison[] = [
       {
         feature: "Asistente de IA embebido en el panel",
         competitor: "Sí ('Controli', contextual al producto)",
-        sportmaps: "Sí (WhatsApp AI, enfocado en cobranza y recordatorios)",
-        sportmapsAdvantage: false,
+        sportmaps: "Sí — WhatsApp IA lee comprobantes en segundos y los deja listos para aprobar; gratis en todos los planes",
+        sportmapsAdvantage: true,
       },
       {
         feature: "Sitio web público del club con subdominio propio",
         competitor: "Sí ('Página Web del Club', lanzada recientemente)",
-        sportmaps: "Perfil en el Directorio Deportivo; sitio propio no incluido aún",
+        sportmaps: "Sí — página pública con 4 diseños y botón de inscripción; ayudamos a conectar tu dominio",
         sportmapsAdvantage: false,
+      },
+      {
+        feature: "Pasarelas de pago integradas",
+        competitor: "Wompi y Stripe Connect (según su propio blog)",
+        sportmaps: "Wompi + Mercado Pago incluidas en todos los planes, Free incluido",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Entrenadores y staff",
+        competitor: "Según plan",
+        sportmaps: "Ilimitados en todos los planes",
+        sportmapsAdvantage: true,
+      },
+      {
+        feature: "Pizarra táctica para entrenadores",
+        competitor: "No",
+        sportmaps: "Sí — hoy para fútbol (jugadas, alineaciones, ejercicios); más deportes en camino",
+        sportmapsAdvantage: true,
       },
       {
         feature: "Categorías deportivas por edad / formación",
@@ -591,13 +603,13 @@ export const comparisons: Comparison[] = [
       {
         feature: "Facturación electrónica DIAN",
         competitor: "No confirmada",
-        sportmaps: "Incluida (multi-PAC)",
+        sportmaps: "Integración gratis en todos los planes; solo pagas el paquete según tus facturas. Tu contador puede revisar el estado",
         sportmapsAdvantage: true,
       },
       {
-        feature: "Torneos, brackets y boletería",
+        feature: "Torneos: liga o copa, goleadores y tabla pública",
         competitor: "No",
-        sportmaps: "Sí, con inscripciones y abonos",
+        sportmaps: "Sí, con inscripción y cobro con comprobante",
         sportmapsAdvantage: true,
       },
       {
@@ -620,10 +632,9 @@ export const comparisons: Comparison[] = [
       },
     ],
     competitorWins: [
-      "Control de acceso físico maduro: pensado desde el día uno para portería/torniquete de gimnasio",
+      "Control de acceso físico como núcleo del producto desde el día uno (SportMaps lo ofrece como adicional con ZKTeco)",
       "Filtros de excepción de cobro ya resueltos — becas y 'acuerdo de pago' como etiquetas nativas, sin que salgan como mora",
-      "Sitio web público del club con subdominio propio ya lanzado como feature",
-      "Gamificación (ClubPoints) y prospección de leads nuevos por WhatsApp con IA — SportMaps no tiene ninguna de las dos",
+      "Gamificación (ClubPoints) y prospección saliente de leads por WhatsApp con IA — SportMaps atiende prospectos entrantes, pero no hace campañas salientes ni gamificación",
       "Comunidad/red social entre clubes ('Social Controla') y un LMS de contenido formativo — dos gaps reales que SportMaps no tiene",
       "Multi-moneda nativo, útil si ya opera en varios países a la vez",
       "Tracción declarada: +500 centros activos, presencia autodeclarada en Panamá, Ecuador y Perú además de Colombia",
@@ -631,8 +642,10 @@ export const comparisons: Comparison[] = [
     sportmapsWins: [
       "Construido para la escuela formativa, no el gimnasio: categorías por edad, entrenadores, asistencia a entrenamiento",
       "Relación padre-atleta pensada para menores de edad, con permisos y portal dedicado",
-      "Facturación electrónica DIAN incluida, sin add-on aparte",
-      "Torneos con inscripciones, abonos y boletería QR",
+      "Facturación electrónica DIAN con integración gratis: solo pagas el paquete de facturas, y tu contador revisa el estado",
+      "WhatsApp IA, Wompi y Mercado Pago incluidos en todos los planes, también en el gratis",
+      "Entrenadores y staff ilimitados, con pizarra táctica y planificación por mesociclos para los coaches",
+      "Torneos de liga o copa con inscripción y cobro, goleadores y tabla pública",
       "Ecosistema abierto: marcas, patrocinios y descuentos cruzados entre roles, no solo el club",
       "Multi-vertical real: la misma plataforma sirve a escuelas, entrenadores independientes, federaciones, organizadores de eventos y tiendas",
     ],
@@ -642,9 +655,9 @@ export const comparisons: Comparison[] = [
       rows: [
         { concept: "Plan mensual (hasta 50 miembros/alumnos)", competitorCost: "$99.000 COP", sportmapsCost: "$69.000 COP" },
         { concept: "Facturación electrónica DIAN", competitorCost: "No confirmada", sportmapsCost: "Incluida" },
-        { concept: "Torneos + boletería", competitorCost: "No", sportmapsCost: "Incluido" },
+        { concept: "Torneos", competitorCost: "No", sportmapsCost: "Incluido" },
         { concept: "Categorías por edad / escuela formativa", competitorCost: "Limitada (enfoque gimnasio)", sportmapsCost: "Completa" },
-        { concept: "Gamificación (ClubPoints) + prospección IA", competitorCost: "Incluida", sportmapsCost: "No disponible aún" },
+        { concept: "Gamificación (ClubPoints) + prospección IA saliente", competitorCost: "Incluida", sportmapsCost: "Solo prospectos entrantes" },
       ],
       competitorTotal: "$1.188.000 COP/año",
       sportmapsTotal: "$828.000 COP/año",
@@ -665,7 +678,7 @@ export const comparisons: Comparison[] = [
       {
         question: "¿Cuál tiene mejor control de acceso físico en portería?",
         answer:
-          "Siendo honestos, Controla.Club: nació para eso y es su fortaleza declarada. SportMaps resuelve el carnet digital QR, pero no un sistema de torniquete dedicado.",
+          "Controla.Club nació para eso y es su fortaleza declarada. SportMaps también lo resuelve como adicional: torniquetes y lectores ZKTeco con bloqueo por mora, más el carnet digital con QR.",
       },
       {
         question: "¿SportMaps tiene un directorio como el 'Directorio Deportivo' de Controla.Club?",
@@ -730,13 +743,13 @@ export const comparisons: Comparison[] = [
       {
         feature: "Gestión de competencias/torneos",
         competitor: "Sí",
-        sportmaps: "Sí, con inscripciones y boletería QR",
+        sportmaps: "Sí: liga o copa, inscripción con cobro y tabla pública",
         sportmapsAdvantage: false,
       },
       {
         feature: "Portal para acudientes",
         competitor: "Sí (portal web)",
-        sportmaps: "Sí — app de marca propia publicada en stores",
+        sportmaps: "App instalable (PWA); app nativa solo a medida",
         sportmapsAdvantage: true,
       },
       {
@@ -760,7 +773,6 @@ export const comparisons: Comparison[] = [
     sportmapsWins: [
       "WhatsApp con IA para cobranza en vez de solo correo — mejor tasa de apertura y respuesta en Colombia",
       "Facturación electrónica DIAN incluida",
-      "App de marca propia publicada en App Store y Google Play, no solo un portal web",
       "Marketplace de marcas y ecosistema de patrocinios",
       "Más capacidad de deportistas por un incremento pequeño de precio en el tramo comparable",
     ],
@@ -770,11 +782,11 @@ export const comparisons: Comparison[] = [
       rows: [
         { concept: "Plan mensual (≤200 deportistas)", competitorCost: "$150.000 COP", sportmapsCost: "$159.000 COP (hasta 300)" },
         { concept: "Facturación electrónica DIAN", competitorCost: "No confirmada", sportmapsCost: "Incluida" },
-        { concept: "WhatsApp AI cobranza", competitorCost: "No (solo correo)", sportmapsCost: "Incluido (500 msg/mes)" },
+        { concept: "WhatsApp IA cobranza", competitorCost: "No (solo correo)", sportmapsCost: "Gratis en todos los planes" },
         { concept: "Marcas / marketplace", competitorCost: "No", sportmapsCost: "Incluido" },
       ],
       competitorTotal: "$150.000 COP/mes, tope exacto en 200 deportistas",
-      sportmapsTotal: "$159.000 COP/mes, hasta 300 deportistas + DIAN + WhatsApp AI",
+      sportmapsTotal: "$159.000 COP/mes, hasta 300 deportistas + DIAN + WhatsApp IA",
       savingsHighlight:
         "Por $9.000 COP más al mes, SportMaps suma 100 cupos extra, facturación DIAN y cobranza por WhatsApp con IA que GOLAPP no tiene",
     },
@@ -796,7 +808,7 @@ export const comparisons: Comparison[] = [
       },
     ],
     metaDescription:
-      "SportMaps vs GOLAPP: comparación honesta para escuelas de fútbol en Colombia. GOLAPP es simple y económico en el tramo chico; SportMaps suma DIAN, WhatsApp AI y marketplace.",
+      "SportMaps vs GOLAPP: comparación honesta para escuelas de fútbol en Colombia. GOLAPP es simple y económico en el tramo chico; SportMaps suma DIAN, WhatsApp IA y marketplace.",
   },
 
   // ── DeporteApp ───────────────────────────────────────────────────────────
@@ -908,7 +920,7 @@ export const comparisons: Comparison[] = [
       },
     ],
     metaDescription:
-      "SportMaps vs DeporteApp: comparación honesta. DeporteApp no publica precios y no confirma DIAN; SportMaps sí, con WhatsApp AI y marketplace incluidos.",
+      "SportMaps vs DeporteApp: comparación honesta. DeporteApp no publica precios y no confirma DIAN; SportMaps sí, con WhatsApp IA y marketplace incluidos.",
   },
 
   // ── Driblin ───────────────────────────────────────────────────────────────
@@ -924,13 +936,13 @@ export const comparisons: Comparison[] = [
       chooseCompetitor:
         "Si tu prioridad es organizar competencias, conectar a tus jugadores con ojeadores y monetizar el club con rifas, tienda online y eventos digitales, Driblin está construido para exactamente eso.",
       chooseSportMaps:
-        "Si tu prioridad es el ciclo completo — cobro recurrente con Wompi, facturación electrónica DIAN, categorías por edad y torneos con boletería — SportMaps lo cubre todo en un solo lugar.",
+        "Si tu prioridad es el ciclo completo — cobro recurrente con Wompi, facturación electrónica DIAN, categorías por edad y torneos de liga o copa — SportMaps lo cubre todo en un solo lugar.",
     },
     features: [
       {
         feature: "Cobro recurrente de mensualidades",
         competitor: "No es el foco (self-management: tienda, rifas)",
-        sportmaps: "Sí, con Wompi + WhatsApp AI",
+        sportmaps: "Sí, con Wompi + WhatsApp IA",
         sportmapsAdvantage: true,
       },
       {
@@ -954,7 +966,7 @@ export const comparisons: Comparison[] = [
       {
         feature: "Gestión de competencias/torneos",
         competitor: "Sí (Competitions Manager)",
-        sportmaps: "Sí, con inscripciones y boletería QR",
+        sportmaps: "Sí: liga o copa, inscripción con cobro y tabla pública",
         sportmapsAdvantage: false,
       },
       {
@@ -985,7 +997,7 @@ export const comparisons: Comparison[] = [
     costExample: {
       scenarioLabel: "Driblin no publica precios — comparación por enfoque, no por número",
       rows: [
-        { concept: "Cobranza recurrente con pasarela de pago", competitorCost: "No es el foco", sportmapsCost: "Sí (Wompi + WhatsApp AI)" },
+        { concept: "Cobranza recurrente con pasarela de pago", competitorCost: "No es el foco", sportmapsCost: "Sí (Wompi + WhatsApp IA)" },
         { concept: "Facturación electrónica DIAN", competitorCost: "No confirmada", sportmapsCost: "Incluida" },
         { concept: "Scouting", competitorCost: "Sí", sportmapsCost: "No disponible" },
         { concept: "Monetización creativa (rifas/tienda/eventos)", competitorCost: "Sí", sportmapsCost: "Marketplace de marcas" },

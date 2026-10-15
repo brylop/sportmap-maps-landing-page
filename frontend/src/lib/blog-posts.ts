@@ -10,6 +10,20 @@
  * automáticamente.
  */
 
+import { cobrosPosts } from "./blog/cobros";
+import { whatsappIaPosts } from "./blog/whatsapp-ia";
+import { deportesPosts } from "./blog/deportes";
+import { ciudadesPosts } from "./blog/ciudades";
+import { familiasPosts } from "./blog/familias";
+import { operacionPosts } from "./blog/operacion";
+import { comparativasPosts } from "./blog/comparativas";
+import { comparativas2Posts } from "./blog/comparativas-2";
+import { deportes2Posts } from "./blog/deportes-2";
+import { ciudades2Posts } from "./blog/ciudades-2";
+import { guiasPosts } from "./blog/guias";
+import { datosPosts } from "./blog/datos";
+import { casosPosts } from "./blog/casos";
+
 export type BlogCategory =
   | "Casos de éxito"
   | "Producto"
@@ -17,7 +31,12 @@ export type BlogCategory =
   | "Tecnología"
   | "Guías"
   | "Organización"
-  | "Análisis";
+  | "Análisis"
+  | "Cobros y pagos"
+  | "WhatsApp IA"
+  | "Por deporte"
+  | "Por ciudad"
+  | "Para familias";
 
 export type ContentBlock =
   | { type: "p"; content: string }
@@ -71,12 +90,12 @@ export interface BlogPost {
   faqs?: Array<{ question: string; answer: string }>;
 }
 
-export const blogPosts: BlogPost[] = [
+const basePosts: BlogPost[] = [
   {
     slug: "sportmaps-vs-clupik-academias-colombia",
     title: "SportMaps vs Clupik: comparativa completa para academias en Colombia",
     excerpt:
-      "Lado a lado: precio, app de marca propia, cobranza, integraciones y soporte local. Una guía honesta para decidir antes de firmar.",
+      "Lado a lado: precio, pasarelas, cobranza con WhatsApp IA, app y soporte local. Una guía honesta para decidir antes de firmar.",
     category: "Comparativas",
     readTime: "10 min",
     date: "18 Abr 2026",
@@ -96,7 +115,7 @@ export const blogPosts: BlogPost[] = [
         type: "callout",
         variant: "tip",
         content:
-          "Si necesitas app de marca propia con costo bajo + cobranza integrada con Wompi + soporte en Colombia, SportMaps es ~3x más barato a igualdad de features. Si ya operás en España con Mercado Pago y no necesitás WhatsApp AI, Clupik sigue siendo válido — pero pagás por features que probablemente no uses.",
+          "Si necesitas cobranza integrada con Wompi y Mercado Pago, WhatsApp IA y soporte en Colombia, SportMaps cuesta cerca de la mitad que Clupik sumando plan y pasarela. Si necesitas sí o sí una app nativa en las tiendas, Clupik la ofrece como add-on; SportMaps funciona como app instalable desde el navegador.",
       },
       { type: "h2", content: "Comparativa lado a lado" },
       {
@@ -104,13 +123,13 @@ export const blogPosts: BlogPost[] = [
         headers: ["Feature", "Clupik", "SportMaps Pro"],
         rows: [
           ["Plan mensual base", "$200.000/mes", "$159.000/mes"],
-          ["App marca propia", "+$245.000/mes (add-on)", "Incluida"],
-          ["Pasarela de pagos", "Mercado Pago (+$75.000/mes)", "Wompi incluida"],
-          ["WhatsApp AI cobranza", "No disponible", "500 conversaciones/mes"],
-          ["Soporte", "Email · 24-48h", "WhatsApp directo · <2h"],
-          ["Integración contabilidad", "Add-on adicional", "API incluida"],
+          ["App de marca", "App nativa +$245.000/mes (add-on)", "App instalable (PWA) incluida"],
+          ["Pasarela de pagos", "Mercado Pago (+$75.000/mes)", "Wompi + Mercado Pago incluidas"],
+          ["WhatsApp IA cobranza", "No disponible", "Gratis en todos los planes"],
+          ["Soporte", "Email", "WhatsApp directo desde Colombia"],
+          ["Integración contabilidad", "Add-on adicional", "API de lectura (Pro)"],
           ["Migración desde Excel", "Manual", "Asistida sin costo"],
-          ["Costo total mes (todo)", "≈$520.000/mes", "$159.000/mes"],
+          ["Plan + pasarela al mes", "≈$275.000/mes", "$159.000/mes"],
         ],
       },
       { type: "h2", content: "Dónde gana Clupik" },
@@ -127,7 +146,7 @@ export const blogPosts: BlogPost[] = [
         type: "ul",
         items: [
           "Pricing 3x más bajo a igualdad de features (Wompi + app + integraciones)",
-          "WhatsApp AI: cobranza, recordatorios y agendamiento sin contratar más administrativos",
+          "WhatsApp IA: cobranza, recordatorios y agendamiento sin contratar más administrativos",
           "Soporte en Colombia con respuesta <2h (no en otra zona horaria)",
           "Equipo construido para Latam: integraciones con Wompi, ePayco, INDER",
           "Ecosistema más amplio: marketplace de marcas, mapa de eventos, descuentos cruzados",
@@ -159,7 +178,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Si ya estás en Clupik y quieres mover, el equipo de SportMaps hace la migración sin costo en menos de 30 días. Exportamos tus alumnos, historial de pagos y agenda — vos solo aprobás el resultado.",
+          "Si ya estás en Clupik y quieres mover, el equipo de SportMaps hace la migración sin costo en menos de 30 días. Exportamos tus alumnos, historial de pagos y agenda — tú solo apruebas el resultado.",
       },
       {
         type: "cta",
@@ -172,7 +191,7 @@ export const blogPosts: BlogPost[] = [
     ],
     related: [
       "5-claves-digitalizar-escuela-deportiva",
-      "costo-real-gestionar-academia-excel",
+      "excel-vs-software-escuela-deportiva",
       "cobranza-whatsapp-ai-sportmaps",
     ],
     about: [
@@ -191,12 +210,12 @@ export const blogPosts: BlogPost[] = [
       {
         question: "¿Cuál es la diferencia de precio real entre SportMaps y Clupik?",
         answer:
-          "Sumando todos los add-ons necesarios para una academia mediana en Colombia (app de marca propia, pasarela de pagos y soporte), Clupik queda alrededor de $520.000/mes mientras que SportMaps Pro cuesta $159.000/mes con esos features incluidos. La diferencia es ~3x.",
+          "Sumando plan base y pasarela de pagos, Clupik queda alrededor de $275.000/mes para una academia mediana en Colombia, mientras que SportMaps Pro cuesta $159.000/mes con Wompi, Mercado Pago y WhatsApp IA incluidos. Si además quieres la app nativa de Clupik, súmale su add-on de $245.000/mes.",
       },
       {
-        question: "¿SportMaps tiene app de marca propia incluida?",
+        question: "¿SportMaps tiene app de marca propia?",
         answer:
-          "Sí. El plan Pro incluye la app con tu logo, colores y nombre publicada en App Store y Google Play sin costo adicional. En Clupik la app de marca propia es un add-on de $245.000/mes aparte.",
+          "SportMaps funciona como app instalable (PWA): las familias la agregan al celular desde el navegador, sin pasar por las tiendas. Que aparezca con el logo de tu escuela es un adicional a cotizar. No hay app nativa publicada en App Store ni Google Play; en Clupik la app nativa es un add-on de $245.000/mes.",
       },
       {
         question: "¿Qué pasarela de pago usa SportMaps en Colombia?",
@@ -206,89 +225,13 @@ export const blogPosts: BlogPost[] = [
       {
         question: "¿Cuánto demora migrar de Clupik a SportMaps?",
         answer:
-          "Menos de 30 días. El equipo de SportMaps hace la migración sin costo: exporta alumnos, historial de pagos y agenda de Clupik, los carga en SportMaps y solo necesitás aprobar el resultado antes del cutover.",
+          "Menos de 30 días. El equipo de SportMaps hace la migración sin costo: exporta alumnos, historial de pagos y agenda de Clupik, los carga en SportMaps y solo necesitas aprobar el resultado antes del cutover.",
       },
       {
         question: "¿Cuál es la mejor app para administrar una escuela de fútbol mediana en Colombia?",
         answer:
-          "Para academias de 100 a 500 alumnos en Colombia, SportMaps es la opción más completa por precio: incluye app de marca propia, cobranza con Wompi, WhatsApp AI para recordatorios y mora, y soporte en español con respuesta menor a 2 horas por WhatsApp directo.",
+          "Para academias de 100 a 300 alumnos en Colombia, SportMaps Pro ($159.000/mes) es de las opciones más completas por precio: cobranza con Wompi y Mercado Pago, WhatsApp IA gratis que lee comprobantes y recuerda pagos, carnets digitales, entrenadores ilimitados y soporte en español por WhatsApp desde Colombia.",
       },
-    ],
-  },
-  {
-    slug: "academia-champions-redujo-no-shows",
-    title: "Caso de éxito: cómo Academia Champions redujo no-shows del 30% al 8%",
-    excerpt:
-      "El experimento que cambió la operación de una academia de 180 alumnos: WhatsApp AI, recordatorios automáticos y cobranza en línea. Los números, el setup y los aprendizajes.",
-    category: "Casos de éxito",
-    readTime: "9 min",
-    date: "24 Abr 2026",
-    isoDate: "2026-04-24",
-    author: "Equipo SportMaps",
-    authorRole: "Customer Success",
-    heroGradient: "from-sport-primary to-sport-accent",
-    body: [
-      {
-        type: "p",
-        content:
-          "Academia Champions es una escuela de fútbol base en Bogotá con 180 alumnos entre 7 y 17 años. En diciembre de 2025 tenían un problema clásico: 30% de los alumnos faltaba a las sesiones y 22% pagaba con 15+ días de atraso. Su Excel de cobranza pesaba 8MB y solo entendía el director.",
-      },
-      { type: "h2", content: "El problema en números" },
-      {
-        type: "table",
-        headers: ["Métrica", "Antes (Dic 2025)", "Después (Mar 2026)"],
-        rows: [
-          ["No-shows mensuales", "54 alumnos/mes", "14 alumnos/mes"],
-          ["Mora >15 días", "40 familias", "9 familias"],
-          ["Horas admin/semana", "12 h", "2.5 h"],
-          ["NPS familias", "32", "67"],
-        ],
-      },
-      { type: "h2", content: "Lo que cambió" },
-      {
-        type: "ol",
-        items: [
-          "Activaron WhatsApp AI para confirmar asistencia 24h antes de cada sesión",
-          "Migración del Excel a SportMaps Pro (3 días, sin pérdida de histórico)",
-          "Cobranza automática 5 días antes con link Wompi en el mismo mensaje",
-          "App para padres con check-in QR y notificación de inicio/fin de sesión",
-        ],
-      },
-      {
-        type: "quote",
-        content:
-          "Lo que más me sorprendió no fue el ahorro de horas administrativas. Fue que las familias empezaron a percibirnos como más profesionales. Subimos las mensualidades 15% en febrero y no perdimos un solo alumno.",
-        author: "Director de Academia Champions",
-      },
-      { type: "h2", content: "El setup específico que usaron" },
-      {
-        type: "ul",
-        items: [
-          "Plan: Escuela Pro ($159.000/mes anual)",
-          "WhatsApp AI: 500 conversaciones/mes incluidas",
-          "Integración Wompi para pagos",
-          "App de marca propia (incluida en el plan)",
-        ],
-      },
-      { type: "h2", content: "Lo que NO funcionó al principio" },
-      {
-        type: "p",
-        content:
-          "Honestidad: las primeras 2 semanas los padres no respondían al WhatsApp AI porque pensaban que era spam. Tuvieron que cambiar el mensaje inicial a algo más personal y avisar previamente por el grupo de WhatsApp del director. Lección: la tecnología necesita un onboarding humano.",
-      },
-      {
-        type: "cta",
-        title: "¿Tu academia tiene problemas similares?",
-        description:
-          "Hablemos. Te armamos un setup específico para tu tamaño y deporte.",
-        href: "/planes",
-        label: "Ver Escuela Pro",
-      },
-    ],
-    related: [
-      "cobranza-whatsapp-ai-sportmaps",
-      "sportmaps-vs-clupik-academias-colombia",
-      "5-claves-digitalizar-escuela-deportiva",
     ],
   },
   {
@@ -300,6 +243,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min",
     date: "22 Abr 2026",
     isoDate: "2026-04-22",
+    isoDateModified: "2026-10-14",
     author: "Equipo SportMaps",
     authorRole: "Producto",
     heroGradient: "from-sport-accent to-sport-primary",
@@ -309,13 +253,19 @@ export const blogPosts: BlogPost[] = [
         content:
           "En abril de 2026 ajustamos los precios de SportMaps. Sabemos que los cambios de pricing generan dudas, así que aquí va la explicación completa: qué cambia, por qué y qué pasa con tu cuenta actual.",
       },
+      {
+        type: "callout",
+        variant: "info",
+        content:
+          "Actualización 14 Oct 2026: desde hoy WhatsApp IA, las pasarelas Wompi y Mercado Pago, la integración de facturación electrónica y los entrenadores y staff ilimitados vienen incluidos en TODOS los planes, Free Start incluido. Con WhatsApp IA solo le pagas a Meta si te excedes de los mensajes gratis del mes.",
+      },
       { type: "h2", content: "Lo que cambió" },
       {
         type: "ul",
         items: [
           "Free Start: nuevo tier gratis hasta 20 alumnos (antes 10)",
-          "Escuela Pro: $159.000/mes (antes $99.000/mes) — incluye WhatsApp AI",
-          "Escuela Elite: $349.000/mes con 800 alumnos y 4.000 conversaciones AI",
+          "Escuela Pro: $159.000/mes (antes $99.000/mes) — incluye WhatsApp IA",
+          "Escuela Elite: $349.000/mes con 800 alumnos",
           "Descuento anual: 13% (antes 20%) para que el negocio sea sostenible largo plazo",
         ],
       },
@@ -323,23 +273,23 @@ export const blogPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Cuando lanzamos el pricing original, no incluíamos WhatsApp AI (lanzado en Q1 2026). Esa feature cambia la economía: lo que antes hacías a mano (cobranza, recordatorios, agendamiento) ahora lo hace IA. El valor que entregamos pasó de 'software de gestión' a 'asistente operativo 24/7'. El precio refleja eso.",
+          "Cuando lanzamos el pricing original, no incluíamos WhatsApp IA (lanzado en Q1 2026). Esa feature cambia la economía: lo que antes hacías a mano (cobranza, recordatorios, agendamiento) ahora lo hace IA. El valor que entregamos pasó de 'software de gestión' a 'asistente operativo 24/7'. El precio refleja eso.",
       },
       {
         type: "callout",
         variant: "info",
         content:
-          "Si ya eres cliente, tu precio se mantiene por 12 meses (grandfathering). Después renovás al pricing actual con 15% de descuento de fidelidad.",
+          "Si ya eres cliente, tu precio se mantiene por 12 meses (grandfathering). Después renuevas al pricing actual con 15% de descuento de fidelidad.",
       },
       { type: "h2", content: "Cuándo NO subir de tier todavía" },
       {
         type: "p",
         content:
-          "Si tu academia tiene menos de 50 alumnos y no manejás cobranza online, probablemente Free Start o Escuela Start ($69.000/mes) te sirven. No necesitás WhatsApp AI hasta que pasas las 100 horas/mes en operación.",
+          "Si tu academia tiene menos de 50 alumnos y no manejas cobranza online, probablemente Free Start o Escuela Start ($69.000/mes) te sirven. No necesitas WhatsApp IA hasta que pasas las 100 horas/mes en operación.",
       },
       {
         type: "cta",
-        title: "Compará tu plan actual con el nuevo",
+        title: "Compara tu plan actual con el nuevo",
         description: "En la página de planes ves el detalle de cada tier.",
         href: "/planes",
         label: "Ver planes",
@@ -351,7 +301,7 @@ export const blogPosts: BlogPost[] = [
     slug: "cobranza-whatsapp-ai-sportmaps",
     title: "Cómo funciona la cobranza por WhatsApp con IA en SportMaps",
     excerpt:
-      "Desde el primer recordatorio hasta el comprobante de pago: el flujo completo del WhatsApp AI que reduce mora 30% sin contratar más administrativos.",
+      "Desde el primer recordatorio hasta el comprobante de pago: el flujo completo del WhatsApp IA que reduce mora 30% sin contratar más administrativos.",
     category: "Tecnología",
     readTime: "7 min",
     date: "15 Abr 2026",
@@ -363,7 +313,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "WhatsApp AI es la feature que más conversaciones genera en demos. Aquí va el flujo técnico exacto, sin marketing speak.",
+          "WhatsApp IA es la feature que más conversaciones genera en demos. Aquí va el flujo técnico exacto, sin marketing speak.",
       },
       { type: "h2", content: "El flujo de cobranza en 4 pasos" },
       {
@@ -389,13 +339,13 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "cta",
-        title: "Ver WhatsApp AI en acción",
+        title: "Ver WhatsApp IA en acción",
         description: "Pide una demo y te mostramos el flujo con datos reales.",
         href: "/planes",
         label: "Solicitar demo",
       },
     ],
-    related: ["academia-champions-redujo-no-shows", "pricing-v3-academias"],
+    related: ["caso-dynasty-volley-club-cobros-whatsapp-ia-facturacion", "pricing-v3-academias"],
   },
   {
     slug: "5-claves-digitalizar-escuela-deportiva",
@@ -413,15 +363,15 @@ export const blogPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Digitalizar una escuela deportiva no es comprar un software. Es repensar cómo cobras, cómo te comunicas y cómo entregás valor. Estas son las 5 cosas que mueven la aguja.",
+          "Digitalizar una escuela deportiva no es comprar un software. Es repensar cómo cobras, cómo te comunicas y cómo entregas valor. Estas son las 5 cosas que mueven la aguja.",
       },
       { type: "h2", content: "1. Centraliza pagos en una sola pasarela" },
       {
         type: "p",
         content:
-          "Si tenés 4 padres pagando por transferencia y 6 por Nequi y 2 por efectivo, tu Excel es un infierno. Unificá en Wompi o similar: link único, conciliación automática.",
+          "Si tienes 4 padres pagando por transferencia y 6 por Nequi y 2 por efectivo, tu Excel es un infierno. Unifica en Wompi o similar: link único, conciliación automática.",
       },
-      { type: "h2", content: "2. Reemplazá el grupo de WhatsApp por una app" },
+      { type: "h2", content: "2. Reemplaza el grupo de WhatsApp por una app" },
       {
         type: "p",
         content:
@@ -437,13 +387,13 @@ export const blogPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Si solo mirás los números cuando 'algo se siente raro', ya perdiste 3 meses. Dashboards en tiempo real (asistencia, mora, NPS) son tu sistema de alerta temprana.",
+          "Si solo miras los números cuando 'algo se siente raro', ya perdiste 3 meses. Dashboards en tiempo real (asistencia, mora, NPS) son tu sistema de alerta temprana.",
       },
-      { type: "h2", content: "5. Empezá pequeño, escalá rápido" },
+      { type: "h2", content: "5. Empieza pequeño, escala rápido" },
       {
         type: "p",
         content:
-          "No digitalices todo en 30 días. Empezá con el dolor más grande (probablemente cobranza), gana la confianza del equipo, después vas con asistencia, después con app de padres. El cambio organizacional importa más que el software.",
+          "No digitalices todo en 30 días. Empieza con el dolor más grande (probablemente cobranza), gana la confianza del equipo, después vas con asistencia, después con app de padres. El cambio organizacional importa más que el software.",
       },
       {
         type: "cta",
@@ -453,7 +403,7 @@ export const blogPosts: BlogPost[] = [
         label: "Empezar gratis",
       },
     ],
-    related: ["academia-champions-redujo-no-shows", "costo-real-gestionar-academia-excel"],
+    related: ["caso-dynasty-volley-club-cobros-whatsapp-ia-facturacion", "excel-vs-software-escuela-deportiva"],
   },
   {
     slug: "ia-revolucionando-entrenamiento",
@@ -477,7 +427,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "ul",
         items: [
-          "Comunicación: WhatsApp AI para cobranza, recordatorios, FAQ",
+          "Comunicación: WhatsApp IA para cobranza, recordatorios, FAQ",
           "Planificación: rutinas adaptativas según asistencia y progreso",
           "Análisis: detectar atletas en riesgo de abandono antes de que se vayan",
           "Marketing: matching automático entre marcas y atletas según perfil",
@@ -494,7 +444,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "cta",
-        title: "Probá WhatsApp AI gratis",
+        title: "Prueba WhatsApp IA gratis",
         description: "El primer uso real de IA en tu operación: cobranza inteligente.",
         href: "/planes",
         label: "Ver planes",
@@ -564,7 +514,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Una academia bien gestionada tiene un dashboard que cabe en 5 números. Si necesitás más, perdiste foco.",
+          "Una academia bien gestionada tiene un dashboard que cabe en 5 números. Si necesitas más, perdiste foco.",
       },
       { type: "h2", content: "Los 5 KPIs que importan" },
       {
@@ -590,8 +540,30 @@ export const blogPosts: BlogPost[] = [
         label: "Pedir demo",
       },
     ],
-    related: ["academia-champions-redujo-no-shows"],
+    related: ["caso-dynasty-volley-club-cobros-whatsapp-ia-facturacion"],
   },
+];
+
+/**
+ * Los posts nuevos viven por cluster temático en src/lib/blog/*.ts para que
+ * agregar contenido no obligue a editar un archivo de miles de líneas.
+ * Orden: el listado del blog ordena por isoDate, no por este orden.
+ */
+export const blogPosts: BlogPost[] = [
+  ...basePosts,
+  ...cobrosPosts,
+  ...whatsappIaPosts,
+  ...deportesPosts,
+  ...ciudadesPosts,
+  ...familiasPosts,
+  ...operacionPosts,
+  ...comparativasPosts,
+  ...comparativas2Posts,
+  ...deportes2Posts,
+  ...ciudades2Posts,
+  ...guiasPosts,
+  ...datosPosts,
+  ...casosPosts,
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

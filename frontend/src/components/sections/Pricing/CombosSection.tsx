@@ -31,9 +31,8 @@ export function CombosSection() {
             <span className="text-sport-primary">varios módulos</span>?
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Combos pre-armados con descuento incluido. Pensados para los casos
-            de uso más comunes: academias con tienda, federaciones con torneos,
-            clínicas con servicios complementarios.
+            Combos pre-armados con los módulos que más se piden juntos:
+            academias con tienda, con torneos o con el fisio de la escuela.
           </p>
         </div>
 
@@ -78,8 +77,10 @@ function ComboCard({ combo, index }: { combo: Combo; index: number }) {
       `Módulos: ${combo.modules.join(" + ")}`,
       `Precio combo: ${formatPriceCOP(combo.comboPrice)}/mes`,
       `Precio normal: ${formatPriceCOP(combo.normalPrice)}/mes`,
-      `Ahorra: ${formatPriceCOP(monthlySavings)}/mes`,
-    ].join(" | ");
+      monthlySavings > 0 ? `Ahorra: ${formatPriceCOP(monthlySavings)}/mes` : null,
+    ]
+      .filter(Boolean)
+      .join(" | ");
 
     const result = await upgradeCtx.createUpgradeRequest({
       request_type: "contact_sales",
@@ -145,19 +146,23 @@ function ComboCard({ combo, index }: { combo: Combo; index: number }) {
       </div>
 
       <div className="mb-2">
-        <p className="text-sm text-muted-foreground line-through">
-          Valor normal {formatPriceCOP(combo.normalPrice)}/mes
-        </p>
+        {monthlySavings > 0 && (
+          <p className="text-sm text-muted-foreground line-through">
+            Valor normal {formatPriceCOP(combo.normalPrice)}/mes
+          </p>
+        )}
         <div className="flex items-baseline gap-1">
           <span className="text-3xl font-bold text-sport-accent">
             {formatPriceCOP(combo.comboPrice)}
           </span>
           <span className="text-muted-foreground">/mes</span>
         </div>
-        <p className="text-xs text-sport-success font-semibold mt-1">
-          ✨ Ahorras {formatPriceCOP(monthlySavings)}/mes ·{" "}
-          {formatPriceCOP(annualSavings)}/año
-        </p>
+        {monthlySavings > 0 && (
+          <p className="text-xs text-sport-success font-semibold mt-1">
+            ✨ Ahorras {formatPriceCOP(monthlySavings)}/mes ·{" "}
+            {formatPriceCOP(annualSavings)}/año
+          </p>
+        )}
       </div>
 
       {combo.anchor && (

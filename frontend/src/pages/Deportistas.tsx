@@ -24,7 +24,7 @@ import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { motion } from "framer-motion";
 
-const APP_URL = "https://stg.sportmaps.co/login";
+const APP_URL = "https://app.sportmaps.co/login";
 
 function goToApp(role?: "athlete" | "parent") {
   const url = role ? `${APP_URL}?role=${role}` : APP_URL;
@@ -32,11 +32,14 @@ function goToApp(role?: "athlete" | "parent") {
 }
 
 const atletaBenefits = [
-  "Historial deportivo digital portable",
-  "Inscripción a eventos sin fricción",
-  "Acceso a rutas y mapa SportMaps",
-  "Estadísticas avanzadas y video highlights",
-  "Descuentos en marcas aliadas",
+  "Tu perfil deportivo en la app de tu escuela",
+  "Asistencia, entrenamientos e informes de tu escuela",
+  "Calendario de prácticas y eventos",
+];
+
+const atletaComingSoon = [
+  "Historial deportivo portable entre escuelas",
+  "Video highlights",
   "Conexión con scouts y patrocinadores",
 ];
 
@@ -54,25 +57,27 @@ const ecosystemFeatures = [
     icon: MapIcon,
     title: "El mapa que conecta tu carrera",
     description:
-      "Encuentra escuelas, eventos, rutas y profesionales del bienestar cerca de ti con un solo perfil.",
+      "Encuentra escuelas, eventos y profesionales del bienestar cerca de ti con un solo perfil.",
+    soon: true,
   },
   {
     icon: Trophy,
-    title: "Inscríbete a eventos en 30 segundos",
+    title: "Torneos de tu escuela",
     description:
-      "Tu Atleta ID precarga datos médicos y deportivos. Sin formularios largos, sin Excel, sin caos.",
+      "Mira el fixture, los resultados y la tabla de los torneos en los que participa tu escuela.",
   },
   {
     icon: Activity,
     title: "Tu historial te sigue",
     description:
-      "Cambia de escuela, ciudad o disciplina. Tu progreso, certificados y logros viajan contigo.",
+      "Cambia de escuela, ciudad o disciplina y que tu progreso, certificados y logros viajen contigo.",
+    soon: true,
   },
   {
     icon: Heart,
     title: "Bienestar integrado",
     description:
-      "Conéctate con fisios, nutricionistas y profesionales de salud verificados en tu zona.",
+      "Si tu escuela trabaja con un fisio en SportMaps, ves tus citas y tu registro de lesiones con el consentimiento de tu acudiente.",
   },
 ];
 
@@ -81,7 +86,7 @@ export default function Deportistas() {
     <div className="min-h-screen bg-sport-background text-sport-text-primary">
       <SEO
         title="Atleta ID y App para Padres — Gratis siempre | SportMaps"
-        description="Crea tu Atleta ID gratis: perfil deportivo portable, inscripción a eventos, descuentos en marcas y conexión con escuelas. App de padres incluida."
+        description="Gratis siempre para deportistas y familias: tu perfil en la app de tu escuela, asistencia, calendario y pagos de la mensualidad. Historial portable, highlights y scouts: próximamente."
         url="https://sportmaps.co/deportistas"
         canonical="https://sportmaps.co/deportistas"
         keywords="atleta id, perfil deportivo, app padres, inscripción eventos deportivos, deportistas Colombia"
@@ -125,9 +130,8 @@ export default function Deportistas() {
               <span className="text-foreground"> en una sola app</span>
             </h2>
             <p className="text-lg md:text-xl text-sport-text-secondary mb-8 max-w-2xl mx-auto">
-              Crea tu Atleta ID y conéctate con escuelas, entrenadores, eventos y marcas en
-              todo el país. Y si eres padre, ve el progreso de tu hijo y paga su matrícula
-              desde el mismo lugar.
+              Crea tu Atleta ID y sigue tus entrenamientos con tu escuela. Y si eres padre, ve
+              el progreso de tu hijo y paga su matrícula desde el mismo lugar.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -168,8 +172,9 @@ export default function Deportistas() {
               icon={User}
               badge="Atleta ID"
               title="Tu pasaporte deportivo"
-              description="Historial portable, perfil verificado, eventos cercanos y descuentos en marcas aliadas."
+              description="Tu perfil deportivo con tu escuela. Historial portable, highlights y scouts llegan próximamente."
               benefits={atletaBenefits}
+              comingSoon={atletaComingSoon}
               ctaText="Crear Atleta ID gratis"
               onCTA={() => goToApp("athlete")}
             />
@@ -211,6 +216,9 @@ export default function Deportistas() {
                       <feature.icon className="w-6 h-6 text-sport-primary" />
                     </div>
                     <h4 className="text-lg font-bold mb-2">{feature.title}</h4>
+                    {feature.soon && (
+                      <Badge variant="secondary" className="mb-2">Próximamente</Badge>
+                    )}
                     <p className="text-sm text-muted-foreground">{feature.description}</p>
                   </CardContent>
                 </Card>
@@ -225,8 +233,8 @@ export default function Deportistas() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               {[
                 { icon: Shield, label: "Datos protegidos", value: "Habeas Data" },
-                { icon: Bell, label: "Notificaciones inteligentes", value: "WhatsApp + Push" },
-                { icon: Calendar, label: "Eventos sincronizados", value: "Google / Apple" },
+                { icon: Bell, label: "Notificaciones", value: "Push + correo" },
+                { icon: Calendar, label: "Prácticas y eventos", value: "Calendario" },
                 { icon: CreditCard, label: "Pagos seguros", value: "Wompi / PSE" },
               ].map((item) => (
                 <div key={item.label} className="flex flex-col items-center gap-2">
@@ -284,6 +292,7 @@ interface FreeForeverCardProps {
   title: string;
   description: string;
   benefits: string[];
+  comingSoon?: string[];
   ctaText: string;
   onCTA: () => void;
 }
@@ -294,6 +303,7 @@ function FreeForeverCard({
   title,
   description,
   benefits,
+  comingSoon,
   ctaText,
   onCTA,
 }: FreeForeverCardProps) {
@@ -323,6 +333,14 @@ function FreeForeverCard({
           <li key={b} className="flex items-start gap-2 text-sm text-muted-foreground">
             <CheckCircle2 className="w-4 h-4 text-sport-success shrink-0 mt-0.5" />
             {b}
+          </li>
+        ))}
+        {comingSoon?.map((b) => (
+          <li key={b} className="flex items-start gap-2 text-sm text-muted-foreground/70">
+            <Sparkles className="w-4 h-4 shrink-0 mt-0.5" />
+            <span>
+              {b} <Badge variant="secondary" className="ml-1 text-[10px]">Próximamente</Badge>
+            </span>
           </li>
         ))}
       </ul>

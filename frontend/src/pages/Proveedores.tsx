@@ -8,6 +8,15 @@ import { SEO } from "@/components/SEO";
 import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { ProveedoresRegistroModal } from "@/components/modals/ProveedoresRegistroModal";
 import { RolePricingSection, rolePricingConfigs } from "@/components/common/cards";
+import { salesWhatsappLink } from "@/lib/whatsappFallback";
+
+const SUPPLIER_PILOT_URL = salesWhatsappLink(
+  "Hola SportMaps, soy proveedor y quiero aparecer como proveedor recomendado para escuelas (piloto gratis por un mes)."
+);
+
+function openSupplierPilot() {
+  window.open(SUPPLIER_PILOT_URL, "_blank", "noopener,noreferrer");
+}
 
 export default function Proveedores() {
   const [isRegistroOpen, setIsRegistroOpen] = useState(false);
@@ -16,7 +25,7 @@ export default function Proveedores() {
     <div className="min-h-screen bg-sport-background text-sport-text-primary">
       <SEO 
         title="Proveedores - SportMaps Ecosistema Deportivo"
-        description="Conviértete en proveedor del ecosistema deportivo. Ofrece servicios de logística, equipamiento, mantenimiento y más a escuelas y atletas."
+        description="Proveedor recomendado para escuelas: aparece en el directorio de proveedores de SportMaps con tus datos de contacto. Piloto gratis por un mes."
         url="https://sportmaps.co/proveedores"
         canonical="https://sportmaps.co/proveedores"
         keywords="proveedores deportivos, servicios para escuelas, logística deportiva, equipamiento deportivo"
@@ -32,7 +41,7 @@ export default function Proveedores() {
           </Link>
           <div>
             <h1 className="text-2xl font-bold text-sport-primary">Proveedores</h1>
-            <p className="text-sm text-sport-text-secondary">Servicios para el ecosistema deportivo</p>
+            <p className="text-sm text-sport-text-secondary">Proveedor recomendado para escuelas</p>
           </div>
         </div>
       </header>
@@ -40,15 +49,15 @@ export default function Proveedores() {
       <main className="relative z-10 container mx-auto px-4 py-8">
         <section className="text-center mb-12">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-sport-primary to-sport-accent bg-clip-text text-transparent">
-            Proveedores del Ecosistema
+            Proveedor recomendado para escuelas
           </h2>
           <p className="text-xl text-sport-text-secondary max-w-3xl mx-auto mb-8">
-            Ofrece tus servicios a escuelas deportivas, atletas y organizaciones. Sé parte del ecosistema que mueve el deporte.
+            Aparece en el directorio de proveedores recomendados para las escuelas deportivas, con tus datos de contacto para que te escriban directo. Piloto gratis por un mes.
           </p>
         </section>
 
         <section className="mb-12">
-          <h3 className="text-2xl font-bold mb-6">Tipos de Proveedores</h3>
+          <h3 className="text-2xl font-bold mb-6">¿Qué tipo de proveedor eres?</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Card className="border-sport-border bg-sport-card hover:shadow-hover transition-all duration-300">
               <CardHeader>
@@ -114,17 +123,20 @@ export default function Proveedores() {
 
         {/* Pricing Section */}
         <RolePricingSection 
-          config={rolePricingConfigs.proveedores} 
-          onCTA={() => setIsRegistroOpen(true)} 
+          config={rolePricingConfigs.proveedores}
+          onCTA={openSupplierPilot}  
         />
 
         <section className="text-center bg-sport-card rounded-3xl p-8 border border-sport-border mt-12">
-          <h3 className="text-2xl font-bold mb-4">Conviértete en Proveedor</h3>
+          <h3 className="text-2xl font-bold mb-4">Sé proveedor recomendado</h3>
           <p className="text-sport-text-secondary mb-6 max-w-2xl mx-auto">
-            Accede a una red de escuelas, atletas y organizaciones que necesitan tus servicios
+            Escríbenos por WhatsApp para entrar al piloto, o déjanos los datos de tu empresa
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="default" onClick={() => setIsRegistroOpen(true)}>
+            <Button size="lg" variant="default" onClick={openSupplierPilot}>
+              Quiero el piloto
+            </Button>
+            <Button size="lg" variant="outline" onClick={() => setIsRegistroOpen(true)}>
               Registrar mi empresa
             </Button>
           </div>

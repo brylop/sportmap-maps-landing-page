@@ -4,6 +4,7 @@ import { useUpgradeContext } from "@/hooks/useUpgradeContext";
 import { useToast } from "@/hooks/use-toast";
 import { ACADEMY_TIERS, ADDONS, type TierCode, type AddonKey } from "@/config/saas-plans";
 import { TechHeader } from "@/components/TechHeader";
+import { SEO } from "@/components/SEO";
 import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
@@ -178,6 +179,12 @@ const Planes = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEO
+        title="Planes y precios para escuelas deportivas"
+        description="Desde $0 hasta 20 alumnos. WhatsApp IA, Wompi y Mercado Pago, facturación electrónica y entrenadores ilimitados incluidos en todos los planes. Precios en pesos colombianos."
+        url="https://sportmaps.co/planes"
+        canonical="https://sportmaps.co/planes"
+      />
       <TechHeader onSectionClick={() => {}} activeSection="planes" />
 
       <main className="pt-24 pb-16">
@@ -356,12 +363,12 @@ const Planes = () => {
 
 function DeportistasFreeCard({ onRegister }: { onRegister: () => void }) {
   const benefits = [
-    "Perfil deportivo verificado y portable",
-    "Mapa con escuelas y eventos cerca de ti",
-    "Inscripción directa a torneos y eventos",
-    "Conexión con entrenadores y profesionales de bienestar",
-    "Historial deportivo digital",
-    "Notificaciones por WhatsApp",
+    "Tu perfil deportivo en la app de tu escuela",
+    "Asistencia, entrenamientos e informes",
+    "Calendario de prácticas y eventos",
+    "Historial portable entre escuelas: próximamente",
+    "Video highlights: próximamente",
+    "Conexión con scouts: próximamente",
   ];
 
   return (
@@ -374,8 +381,8 @@ function DeportistasFreeCard({ onRegister }: { onRegister: () => void }) {
             <strong className="text-sport-success">Gratis para siempre</strong>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Encuentra escuelas certificadas, entrenadores expertos y eventos
-            cerca de ti. Sin costos, sin tarjeta de crédito, sin límites.
+            Tu perfil deportivo con tu escuela, sin costo y sin tarjeta de
+            crédito.
           </p>
         </div>
 
@@ -430,12 +437,11 @@ function DeportistasFreeCard({ onRegister }: { onRegister: () => void }) {
 
 const ORGANIZADORES_WHATSAPP_MESSAGE = `Hola SportMaps! 👋
 
-Quiero cotización de Organizadores Pro.
+Organizo torneos y quiero entrar a la lista de espera / piloto gratis de 1 mes para organizadores.
 
 📋 Mis datos:
-• Tipo: Organizador de eventos deportivos
-• Necesidad: Operación completa (inscripciones + pagos + boletería + check-in)
-• Tamaño aproximado: ___ eventos / año
+• Tipo: Organizador de torneos deportivos
+• Tamaño aproximado: ___ torneos / año
 • ¿Cuándo arranca el próximo?: ___
 
 ¿Cómo seguimos?`;
@@ -443,7 +449,7 @@ Quiero cotización de Organizadores Pro.
 /** Mensaje corto para quien solo quiere hablar, sin armar la cotización. */
 const ORGANIZADORES_CHARLA_MESSAGE = `Hola SportMaps! 👋
 
-Soy organizador de eventos deportivos y quiero hablar con el equipo sobre el plan a medida.`;
+Soy una escuela y quiero activar el adicional Torneos.`;
 
 function OrganizadoresQuoteCard() {
   const handleWhatsApp = () => {
@@ -455,14 +461,13 @@ function OrganizadoresQuoteCard() {
   };
 
   const included = [
-    "Coordinación con escuelas e inscripciones colectivas",
-    "Recepción de documentos (cédula, EPS, autorización)",
-    "Pasarela Wompi + transferencia/efectivo manual",
-    "Plan de abonos parciales con saldos en vivo",
-    "Boletería integrada con QR + check-in",
-    "Conciliación 1-click (pasarela + manual)",
-    "Distribución: link público + pin en mapa SportMaps",
-    "Calendario de circuito anual (multi-evento)",
+    "Inscripción de escuelas por enlace",
+    "Categorías y precios por fase",
+    "Cobro de inscripciones con comprobante",
+    "Fixture de liga o copa",
+    "Goleadores y tabla pública",
+    "Boletería con QR y check-in: próximamente",
+    "Plan por evento: próximamente",
   ];
 
   return (
@@ -473,12 +478,12 @@ function OrganizadoresQuoteCard() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Para{" "}
             <span className="text-sport-primary">Organizadores</span>:
-            cotización a medida
+            lista de espera
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Cada calendario es único. Te armamos una propuesta según el tamaño
-            de tus eventos, periodicidad y necesidades técnicas. Sin precio
-            fijo público — venta consultiva.
+            Hoy los torneos se crean desde una escuela con el adicional Torneos
+            ($49.000/mes). Si organizas por tu cuenta, únete a la lista de
+            espera o pide un piloto gratis de un mes.
           </p>
         </div>
 
@@ -487,12 +492,12 @@ function OrganizadoresQuoteCard() {
             <div className="flex-1">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sport-accent/15 text-sport-accent text-sm font-bold mb-4">
                 <Sparkles className="w-4 h-4" />
-                Enterprise · Cotización
+                Piloto · Lista de espera
               </div>
-              <h3 className="text-2xl font-bold mb-3">Organizadores Pro</h3>
+              <h3 className="text-2xl font-bold mb-3">Organizador independiente</h3>
               <p className="text-sm text-muted-foreground mb-6">
-                Reemplaza Excel + ticketera externa + cobranza manual. Todo
-                desde la app, sin papeleos, con conciliación automática.
+                Lo que hoy funciona en los torneos de escuela, abierto a
+                organizadores sin escuela durante el piloto.
               </p>
             </div>
             <div className="md:w-64 shrink-0 flex flex-col justify-center">
@@ -500,10 +505,10 @@ function OrganizadoresQuoteCard() {
                 Inversión
               </p>
               <p className="text-3xl font-bold text-sport-accent mb-1">
-                A medida
+                1 mes gratis
               </p>
               <p className="text-xs text-muted-foreground italic">
-                Según volumen y calendario
+                Piloto acompañado
               </p>
             </div>
           </div>
@@ -524,7 +529,7 @@ function OrganizadoresQuoteCard() {
               className="flex-1 bg-sport-success hover:bg-sport-success/90 text-white font-bold rounded-xl"
             >
               <MessageSquare className="w-4 h-4 mr-2" />
-              Solicitar cotización por WhatsApp
+              Unirme a la lista de espera
             </Button>
             <Button
               onClick={handleCharla}
@@ -532,7 +537,7 @@ function OrganizadoresQuoteCard() {
               variant="outline"
               className="flex-1 rounded-xl"
             >
-              Hablar con el equipo
+              Soy una escuela: activar Torneos
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </div>

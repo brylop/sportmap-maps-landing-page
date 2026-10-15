@@ -53,7 +53,7 @@ const ROLES: RoleOption[] = [
   { id: "escuela", label: "Escuela / Academia", emoji: "🏫" },
   { id: "entrenador", label: "Entrenador personal", emoji: "🏃" },
   { id: "federacion", label: "Federación / Liga", emoji: "🏆" },
-  { id: "bienestar", label: "Centro de bienestar / Clínica", emoji: "❤️" },
+  { id: "bienestar", label: "Fisio / profesional de bienestar", emoji: "❤️" },
   { id: "marca", label: "Marca deportiva", emoji: "🎽" },
   { id: "organizador", label: "Organizador de eventos", emoji: "🎪" },
 ];
@@ -71,7 +71,7 @@ const NEEDS_BY_ROLE: Record<string, NeedOption[]> = {
       label: "Organizar torneos y eventos propios",
       comboId: "escuela-eventos",
       rationale:
-        "Te recomendamos Escuela Eventos — es nuestro combo más popular.",
+        "Te recomendamos Escuela Eventos: Escuela Pro con el adicional Torneos.",
     },
     {
       id: "salud",
@@ -95,65 +95,54 @@ const NEEDS_BY_ROLE: Record<string, NeedOption[]> = {
   ],
   entrenador: [
     {
-      id: "productos",
-      label: "Vender programas, suplementos o merchandising",
-      comboId: "coach-tienda",
+      id: "escuela",
+      label: "Entreno en una escuela o academia",
+      individualPlan: "Entrenador de escuela (gratis con el plan de tu academia)",
       rationale:
-        "El combo Coach con Tienda Propia te suma marketplace y agenda en uno.",
+        "Si tu escuela usa SportMaps, entras gratis dentro de su plan.",
     },
     {
       id: "solo",
-      label: "Solo gestionar clientes (agenda, pagos, rutinas)",
-      individualPlan: "Coach Pro",
+      label: "Soy independiente: gestiono mis clientes (agenda, pagos, rutinas)",
+      individualPlan: "Coach Pro ($59.000/mes)",
       rationale:
-        "Coach Pro tiene todo lo que necesitas. Si después quieres vender, agregas Marketplace.",
+        "Coach Pro tiene clientes, rutinas, agenda de sesiones y cobros.",
     },
   ],
   federacion: [
     {
-      id: "eventos",
-      label: "Organizar torneos y circuito anual propios",
-      comboId: "federacion-completa",
+      id: "piloto",
+      label: "Organizar los torneos de mi liga",
+      individualPlan: "Piloto para ligas 2027 (un mes gratis)",
       rationale:
-        "El combo Federación Completa une gestión federativa + organización de eventos.",
-    },
-    {
-      id: "solo",
-      label: "Solo gestión de clubes y censo nacional",
-      individualPlan: "Federación Pro",
-      rationale: "Federación Pro cubre la operación. Eventos los agregas después.",
+        "Estamos abriendo un piloto para ligas: un mes gratis, acompañado por nuestro equipo.",
     },
   ],
   bienestar: [
     {
-      id: "servicios",
-      label: "Ofrecer servicios complementarios (nutrición, terapia, etc)",
-      comboId: "clinica-deportiva",
-      rationale: "El combo Clínica Deportiva integra ambos módulos.",
-    },
-    {
       id: "solo",
-      label: "Solo agenda y pacientes",
-      individualPlan: "Wellness Pro",
-      rationale: "Wellness Pro tiene agenda, telemedicina e historia clínica.",
+      label: "Agenda, pacientes e historia clínica",
+      individualPlan: "Wellness Pro ($59.000/mes)",
+      rationale:
+        "Wellness Pro tiene agenda, pacientes, historia clínica (Res. 1995) y consentimiento del acudiente.",
     },
   ],
   marca: [
     {
-      id: "vender",
-      label: "Vender productos en el ecosistema SportMaps",
-      individualPlan: "Marketplace Pro",
+      id: "aliada",
+      label: "Llegar a las familias de las escuelas",
+      individualPlan: "Programa de marcas aliadas (piloto gratis por un mes)",
       rationale:
-        "Marketplace Pro te conecta directo con 10.000+ atletas. No hay combo necesario para marcas.",
+        "Estamos armando el programa con las primeras marcas: piloto gratis por un mes.",
     },
   ],
   organizador: [
     {
-      id: "cotizar",
-      label: "Operación completa de eventos",
-      individualPlan: "Organizadores Pro (cotización)",
+      id: "piloto",
+      label: "Organizar torneos sin tener una escuela",
+      individualPlan: "Lista de espera / piloto gratis 1 mes",
       rationale:
-        "Organizadores es a medida — te damos cotización personalizada vía WhatsApp.",
+        "Hoy los torneos se crean desde una escuela con el adicional Torneos. Para organizadores independientes: lista de espera y piloto gratis de un mes.",
     },
   ],
 };
@@ -457,18 +446,22 @@ function RecommendationResult({
               </Badge>
             ))}
           </div>
-          <p className="text-sm text-muted-foreground line-through">
-            Valor normal {formatPriceCOP(combo.normalPrice)}/mes
-          </p>
+          {combo.normalPrice > combo.comboPrice && (
+            <p className="text-sm text-muted-foreground line-through">
+              Valor normal {formatPriceCOP(combo.normalPrice)}/mes
+            </p>
+          )}
           <div className="flex items-baseline gap-1 mb-1">
             <span className="text-3xl font-bold text-sport-accent">
               {formatPriceCOP(combo.comboPrice)}
             </span>
             <span className="text-muted-foreground">/mes</span>
           </div>
-          <p className="text-xs text-sport-success font-semibold">
-            ✨ Ahorras {formatPriceCOP(combo.normalPrice - combo.comboPrice)}/mes
-          </p>
+          {combo.normalPrice > combo.comboPrice && (
+            <p className="text-xs text-sport-success font-semibold">
+              ✨ Ahorras {formatPriceCOP(combo.normalPrice - combo.comboPrice)}/mes
+            </p>
+          )}
           {combo.anchor && (
             <p className="text-xs text-muted-foreground italic mt-3">
               💡 {combo.anchor}

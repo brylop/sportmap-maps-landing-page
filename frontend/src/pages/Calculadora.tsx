@@ -30,7 +30,7 @@ const SPORTMAPS_PRO_ANNUAL = SPORTMAPS_PRO_MONTHLY * 12;
 
 // Multiplicadores de mejora con SportMaps Pro (basados en casos reales)
 const COBRANZA_TIME_REDUCTION = 0.8; // 80% menos tiempo manual
-const MORA_REDUCTION = 0.65; // 65% menos mora con WhatsApp AI
+const MORA_REDUCTION = 0.65; // 65% menos mora con WhatsApp IA
 const NO_SHOW_REDUCTION = 0.7; // 70% menos no-shows con confirmaciones AI
 
 // ============================================================================
@@ -345,7 +345,7 @@ Acabo de usar la calculadora ROI y mis números son:
                   <strong className="text-foreground">
                     Reducción de tiempo cobranza:
                   </strong>{" "}
-                  80% (WhatsApp AI reemplaza el grueso del trabajo manual)
+                  80% (WhatsApp IA reemplaza el grueso del trabajo manual)
                 </li>
                 <li>
                   · <strong className="text-foreground">Reducción de mora:</strong>{" "}

@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { IncludedInAllPlans } from '@/components/sections/Pricing/IncludedInAllPlans';
 import {
   Check,
   Zap,
   Star,
   Crown,
   MessageCircle,
-  ChevronDown,
-  ChevronUp,
   Sparkles,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -31,7 +30,8 @@ export interface RolePlan {
   badge?: string | null;
   /** Frase ancla justo debajo del precio (solo en tier popular) */
   anchor?: string | null;
-  /** Conversaciones WhatsApp AI incluidas. Se pinta como benefit destacado. */
+  /** Conversaciones WhatsApp IA incluidas. Se pinta como benefit destacado.
+   *  undefined = texto por defecto (incluido); null = no se pinta el badge. */
   whatsappAi?: string | null;
   /** Reemplaza la card por una "Demo personalizada" que abre WhatsApp directo */
   isDemo?: boolean;
@@ -79,7 +79,9 @@ export interface RolePricingConfig {
   customTier?: CustomTier | null;
   /** Pricing transaccional (sin toggle anual) */
   oneTimePricing?: boolean;
-  /** Mostrar add-ons WhatsApp AI colapsables */
+  /** Oculta el toggle mensual/anual (precio mensual único, sin descuento anual) */
+  monthlyOnly?: boolean;
+  /** Mostrar el bloque «WhatsApp IA gratis / qué cobra Meta» */
   showAddOns?: boolean;
   /** Bloque comparativo vs competidor (Clupik) */
   comparison?: ClupikComparison | null;
@@ -126,11 +128,14 @@ const iconMap = {
   demo: MessageCircle,
 };
 
-const ADDONS = [
-  { name: 'Boost', extra: '+500 conversaciones con IA', price: 39000 },
-  { name: 'Scale', extra: '+4.000 conversaciones con IA', price: 79000 },
-  { name: 'Power', extra: '+15.000 conversaciones con IA', price: 149000 },
-];
+// Decisión 2026-10-14: WhatsApp IA va GRATIS en todos los planes. SportMaps no
+// cobra el asistente ni vende paquetes de conversaciones; lo único que puede
+// costar es la entrega del mensaje, que Meta factura directo a la escuela y solo
+// si pasa de los mensajes gratis del mes.
+const WHATSAPP_IA_INCLUIDO = 'WhatsApp IA incluido · sin costo';
+// Entrenadores y profesionales de bienestar: el canal de WhatsApp IA está atado
+// a la escuela; para ellos todavía no existe (2026-10-14).
+const WHATSAPP_IA_PROXIMAMENTE = 'WhatsApp IA · próximamente';
 
 function openWhatsapp(message: string) {
   const url = `https://wa.me/${SALES_WHATSAPP}?text=${encodeURIComponent(message)}`;
@@ -150,7 +155,7 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
     freeStart: {
       title: 'Empieza gratis con Free Start',
       description:
-        'Hasta 20 alumnos, gestión básica y onboarding guiado. Sin tarjeta de crédito.',
+        'Hasta 20 alumnos, cobros en línea con Wompi y Mercado Pago, y WhatsApp IA incluidos. Sin tarjeta de crédito.',
       ctaText: 'Crear cuenta gratis',
     },
     plans: [
@@ -161,7 +166,7 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         benefits: [
           'Hasta 50 alumnos',
           'Gestión de equipos y asistencia',
-          'Cobros: Wompi + transferencia manual',
+          'Pagos en línea: Wompi + Mercado Pago incluidos',
           'App para padres (consulta básica)',
           'Reportes financieros esenciales',
           'Soporte por WhatsApp',
@@ -176,6 +181,7 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         benefits: [
           'Hasta 120 alumnos',
           'Todo lo de Start',
+          'Pagos en línea: Wompi + Mercado Pago incluidos',
           'Asistencia con QR + reportes',
           'Historial médico y roles secundarios',
           'Marketplace y certificados',
@@ -190,12 +196,12 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         annualPrice: 139000,
         badge: 'MÁS ELEGIDO',
         anchor: 'Menos de lo que cobras por una matrícula al mes',
-        whatsappAi: '500 conversaciones con IA/mes',
+        whatsappAi: WHATSAPP_IA_INCLUIDO,
         benefits: [
           'Hasta 300 alumnos',
           'Portal interactivo para padres',
-          'WhatsApp AI: cobranza + recordatorios',
-          'Pagos: Wompi + transferencia manual',
+          'WhatsApp IA: cobranza + recordatorios',
+          'Pagos en línea: Wompi + Mercado Pago incluidos',
           'Control de ingresos y egresos',
           'Reportes financieros y operativos',
           'Soporte prioritario',
@@ -209,11 +215,12 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         monthlyPrice: 349000,
         annualPrice: 299000,
         badge: 'ENTERPRISE',
-        whatsappAi: '4.000 conversaciones con IA/mes',
+        whatsappAi: WHATSAPP_IA_INCLUIDO,
         benefits: [
           'Hasta 800 alumnos',
+          'Pagos en línea: Wompi + Mercado Pago incluidos',
           'Multi-sede + roles avanzados',
-          'WhatsApp AI a gran escala',
+          'WhatsApp IA a gran escala',
           'API e integraciones',
           'Migración de datos VIP',
           'Gerente de cuenta dedicado',
@@ -241,10 +248,10 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
     },
     showAddOns: true,
     comparison: {
-      title: 'Compará lado a lado',
+      title: 'Compara lado a lado',
       body:
-        'Lo mismo en Clupik te cuesta $520.000/mes ($200k plan + $245k app marca propia + $75k Mercado Pago). SportMaps Pro te incluye todo por $159.000/mes.',
-      competitorPrice: '$520.000/mes',
+        'En Clupik, plan base + Mercado Pago suman ≈$275.000/mes ($200k + $75k). SportMaps Pro cuesta $159.000/mes con Wompi, Mercado Pago y WhatsApp IA incluidos.',
+      competitorPrice: '≈$275.000/mes',
       ourPrice: '$159.000/mes',
     },
   },
@@ -253,225 +260,128 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
     emoji: '🏃',
     title: 'Entrenadores',
     headline:
-      'Convierte tu pasión en un negocio escalable con agenda y pagos en un solo lugar.',
+      'Dos caminos: si entrenas en una academia, vas gratis dentro del plan de tu escuela; si eres independiente, Coach Pro.',
+    monthlyOnly: true,
     plans: [
       {
-        name: 'Free Coach',
+        name: 'Entrenador de escuela',
         monthlyPrice: 'Gratis',
         annualPrice: 'Gratis',
+        whatsappAi: WHATSAPP_IA_PROXIMAMENTE,
+        anchor: 'Gratis dentro del plan de tu academia',
         benefits: [
-          'Perfil verificado',
-          'Recibir mensajes',
-          'Hasta 5 clientes',
-          'Directorio público',
+          'Sesiones y periodización por mesociclos',
+          'Asistencia con QR',
+          'Reportes del entrenador e informe mensual',
+          'Rutinas con catálogo de ejercicios',
+          'Pizarra táctica (fútbol hoy)',
         ],
-        ctaText: 'Crear Perfil',
+        ctaText: 'Quiero que mi escuela lo use',
         icon: 'basic',
       },
       {
         name: 'Coach Pro',
-        monthlyPrice: 99000,
-        annualPrice: 79000,
-        badge: 'RECOMENDADO',
-        anchor: 'El costo de 2 sesiones, gestiona tus 50 clientes',
-        whatsappAi: '200 conversaciones con IA/mes',
+        monthlyPrice: 59000,
+        annualPrice: 59000,
+        badge: 'ENTRENADOR INDEPENDIENTE',
+        whatsappAi: WHATSAPP_IA_PROXIMAMENTE,
         benefits: [
-          'Hasta 50 clientes',
-          'Agenda online y pagos integrados',
-          'Rutinas digitales',
-          'WhatsApp AI: agendamiento + recordatorios',
-          'Reportes de cartera',
+          'Clientes con ficha, metas, medidas y progreso',
+          'Rutinas con catálogo de ejercicios',
+          'Disponibilidad y agenda de sesiones',
+          'Planes y cobros a tus clientes',
+          'Perfil público de entrenador',
         ],
-        ctaText: 'Ser Pro',
+        ctaText: 'Ser Coach Pro',
         popular: true,
         icon: 'pro',
       },
-      {
-        name: 'Coach Elite',
-        monthlyPrice: 199000,
-        annualPrice: 169000,
-        whatsappAi: '1.000 conversaciones con IA/mes',
-        benefits: [
-          'Clientes ilimitados',
-          'Web personal + marketing ads',
-          'WhatsApp AI a gran escala',
-          'Analítica avanzada',
-          'Soporte prioritario',
-        ],
-        ctaText: 'Ser Elite',
-        icon: 'enterprise',
-      },
     ],
-    showAddOns: true,
+    showAddOns: false,
   },
   bienestar: {
     role: 'bienestar',
     emoji: '❤️',
     title: 'Bienestar',
     headline:
-      'Salud y prevención en un solo lugar. Conecta con atletas que buscan tu especialidad.',
+      'Para el fisio y los profesionales de salud de tu escuela: agenda, pacientes e historia clínica en un solo lugar.',
+    monthlyOnly: true,
     plans: [
       {
-        name: 'Free Wellness',
-        monthlyPrice: 'Gratis',
-        annualPrice: 'Gratis',
-        benefits: [
-          'Perfil profesional',
-          'Listado en mapa SportMaps',
-          'Recibir solicitudes',
-          'Hasta 5 pacientes/mes',
-        ],
-        ctaText: 'Registrarse',
-        icon: 'basic',
-      },
-      {
         name: 'Wellness Pro',
-        monthlyPrice: 149000,
-        annualPrice: 119000,
-        badge: 'RECOMENDADO',
-        anchor: 'Reemplaza Doctoralia + agenda + cobranza',
-        whatsappAi: '300 conversaciones con IA/mes',
+        monthlyPrice: 59000,
+        annualPrice: 59000,
+        badge: 'FISIO DE TU ESCUELA',
+        whatsappAi: WHATSAPP_IA_PROXIMAMENTE,
         benefits: [
-          'Profesional individual',
-          'Agenda inteligente y telemedicina',
-          'Historia clínica digital',
-          'WhatsApp AI: confirmaciones y citas',
-          'Pagos integrados',
+          'Agenda, disponibilidad y recordatorio de citas',
+          'Pacientes: deportistas de la escuela, hijos invitados por el acudiente o externos',
+          'Consentimiento del acudiente para menores (Ley 1581)',
+          'Historia clínica según la Resolución 1995',
+          'Registro de lesiones y vuelta al juego',
+          'Cobro de consultas dentro de la app: próximamente',
         ],
-        ctaText: 'Ser Pro',
+        ctaText: 'Ser Wellness Pro',
         popular: true,
         icon: 'pro',
       },
-      {
-        name: 'Clínica',
-        monthlyPrice: 379000,
-        annualPrice: 319000,
-        whatsappAi: '1.500 conversaciones con IA/mes',
-        benefits: [
-          'Multi-profesional / multi-sede',
-          'Integración HIS y facturación salud',
-          'WhatsApp AI a gran escala',
-          'Roles por especialidad',
-          'Soporte dedicado',
-        ],
-        ctaText: 'Ser Clínica',
-        icon: 'enterprise',
-      },
     ],
-    showAddOns: true,
+    showAddOns: false,
   },
   federaciones: {
     role: 'federaciones',
     emoji: '🏆',
     title: 'Federaciones',
     headline:
-      'El mapa estratégico del deporte nacional. Control, censo y analítica para federaciones.',
+      'Piloto para ligas 2027: arma tus torneos con SportMaps durante un mes, sin costo.',
+    monthlyOnly: true,
     plans: [
       {
-        name: 'Demo personalizada',
-        monthlyPrice: 'A medida',
-        annualPrice: 'A medida',
+        name: 'Piloto para ligas 2027',
+        monthlyPrice: 'Gratis',
+        annualPrice: 'Gratis',
+        priceFromLabel: 'Un mes gratis',
+        whatsappAi: null,
         benefits: [
-          'Hablamos directo por WhatsApp con Sebastián, Director Comercial.',
-          'Respuesta en menos de 2 horas en horario hábil.',
-          'Demo en vivo de 30 minutos sobre tus clubes y procesos.',
-          'Cotización con descuentos para liga / federación piloto.',
+          'Fixture de liga o copa, goleadores y tabla pública',
+          'Inscripción de escuelas por enlace, con categorías y precios',
+          'Cobro de inscripciones con comprobante',
+          'Acompañamiento directo del equipo de SportMaps',
         ],
-        ctaText: 'Contactar ahora',
+        ctaText: 'Quiero el piloto',
         icon: 'demo',
         isDemo: true,
         whatsappMessage:
-          'Hola Sebastián, soy de una federación / liga deportiva y quiero una demo personalizada de SportMaps.',
-      },
-      {
-        name: 'Federación Pro',
-        monthlyPrice: 549000,
-        annualPrice: 469000,
-        badge: 'PROFESIONAL',
-        anchor: 'Gestiona tu liga completa por menos que un torneo manual',
-        whatsappAi: '1.000 conversaciones con IA/mes',
-        benefits: [
-          'Hasta 30 clubes',
-          'Torneos online y carnetización nacional',
-          'Módulo de arbitraje',
-          'WhatsApp AI: comunicaciones masivas',
-          'Rankings digitales',
-        ],
-        ctaText: 'Ser Pro',
-        popular: true,
-        icon: 'pro',
-      },
-      {
-        name: 'Nacional',
-        monthlyPrice: 'A medida',
-        annualPrice: 'A medida',
-        priceFromLabel: 'Desde $1.200.000',
-        whatsappAi: 'WhatsApp AI ilimitado',
-        benefits: [
-          'Clubes ilimitados',
-          'Censo nacional y multi-región',
-          'API gobierno',
-          'Soporte dedicado 24/7',
-          'SLA institucional',
-        ],
-        ctaText: 'Cotizar',
-        icon: 'enterprise',
-        whatsappMessage:
-          'Hola SportMaps, soy de una federación nacional y quiero cotizar el plan Nacional.',
+          'Hola SportMaps, soy de una liga / federación y quiero el piloto para ligas 2027 (un mes gratis).',
       },
     ],
-    showAddOns: true,
+    showAddOns: false,
   },
   marcas: {
     role: 'marcas',
     emoji: '🎽',
     title: 'Marcas',
     headline:
-      'Publicidad con precisión quirúrgica. Conecta tu marca con el atleta ideal mediante IA.',
+      'Programa de marcas aliadas: lleva beneficios de tu marca a las familias de las escuelas que usan SportMaps.',
+    monthlyOnly: true,
     plans: [
       {
-        name: 'Partner',
+        name: 'Programa de marcas aliadas',
         monthlyPrice: 'Gratis',
         annualPrice: 'Gratis',
+        priceFromLabel: 'Piloto gratis por un mes',
+        whatsappAi: null,
         benefits: [
-          'Perfil de marca verificado',
-          'Listado en directorio',
-          'Página de productos',
-          'Contacto directo con atletas',
+          'Diseñamos el piloto contigo',
+          'Beneficios de tu marca para las familias de las escuelas',
+          'Reporte agregado, nunca datos de menores',
+          'Sin costo durante el primer mes',
         ],
-        ctaText: 'Registrar Marca',
-        icon: 'basic',
-      },
-      {
-        name: 'Marketplace Pro',
-        monthlyPrice: 199000,
-        annualPrice: 169000,
-        badge: 'MÁS ELEGIDO',
-        anchor: 'Llega a 10.000+ atletas conectados en SportMaps',
-        benefits: [
-          'Catálogo + sponsoring',
-          'Pasarela de pagos integrada',
-          'Logística de envíos',
-          'Analytics de ventas',
-          'Promoción cruzada en escuelas',
-        ],
-        ctaText: 'Vender',
-        popular: true,
-        icon: 'pro',
-      },
-      {
-        name: 'Sponsor Elite',
-        monthlyPrice: 549000,
-        annualPrice: 469000,
-        benefits: [
-          'Todo en Marketplace Pro',
-          'Categorías exclusivas',
-          'Ads segmentados con IA',
-          'Patrocinio de eventos',
-          'Banner principal + campañas custom',
-        ],
-        ctaText: 'Cotizar',
-        icon: 'enterprise',
+        ctaText: 'Quiero el piloto',
+        icon: 'demo',
+        isDemo: true,
+        whatsappMessage:
+          'Hola SportMaps, soy de una marca y quiero entrar al programa de marcas aliadas (piloto gratis por un mes).',
       },
     ],
     showAddOns: false,
@@ -481,50 +391,25 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
     emoji: '📦',
     title: 'Proveedores',
     headline:
-      'Tu inventario frente a los ojos de quienes realmente lo necesitan. Marketplace nicho.',
+      'Proveedor recomendado para escuelas: tu empresa en el directorio, con contacto directo.',
+    monthlyOnly: true,
     plans: [
       {
-        name: 'Free Proveedor',
+        name: 'Proveedor recomendado para escuelas',
         monthlyPrice: 'Gratis',
         annualPrice: 'Gratis',
+        priceFromLabel: 'Piloto gratis por un mes',
+        whatsappAi: null,
         benefits: [
-          'Perfil empresa',
-          'Listado directorio',
-          'Recibir solicitudes',
-          'Contacto directo',
+          'Tu empresa en el directorio de proveedores recomendados',
+          'Datos de contacto visibles para las escuelas',
+          'Sin costo durante el primer mes',
         ],
-        ctaText: 'Registrar Empresa',
-        icon: 'basic',
-      },
-      {
-        name: 'Proveedor Pro',
-        monthlyPrice: 149000,
-        annualPrice: 119000,
-        badge: 'RECOMENDADO',
-        benefits: [
-          'Tienda integrada',
-          'Catálogo de productos',
-          'Cotizaciones online',
-          'CRM básico',
-          'Clientes ilimitados',
-        ],
-        ctaText: 'Ser Pro',
-        popular: true,
-        icon: 'pro',
-      },
-      {
-        name: 'Enterprise',
-        monthlyPrice: 399000,
-        annualPrice: 339000,
-        benefits: [
-          'Multi-sede',
-          'API integraciones',
-          'Facturación electrónica',
-          'Soporte 24/7',
-          'Gerente de cuenta',
-        ],
-        ctaText: 'Cotizar',
-        icon: 'enterprise',
+        ctaText: 'Quiero el piloto',
+        icon: 'demo',
+        isDemo: true,
+        whatsappMessage:
+          'Hola SportMaps, soy proveedor y quiero aparecer como proveedor recomendado para escuelas (piloto gratis por un mes).',
       },
     ],
     showAddOns: false,
@@ -554,12 +439,12 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         monthlyPrice: 109000,
         annualPrice: 89000,
         badge: 'RECOMENDADO',
-        whatsappAi: '200 conversaciones con IA/mes',
+        whatsappAi: WHATSAPP_IA_INCLUIDO,
         benefits: [
           'Hasta 50 clientes',
           'Agenda online + pagos integrados',
           'Reportes',
-          'WhatsApp AI: confirmaciones y seguimiento',
+          'WhatsApp IA: confirmaciones y seguimiento',
           'Reseñas verificadas',
         ],
         ctaText: 'Ser Pro',
@@ -570,12 +455,12 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
         name: 'Agencia',
         monthlyPrice: 249000,
         annualPrice: 209000,
-        whatsappAi: '800 conversaciones con IA/mes',
+        whatsappAi: WHATSAPP_IA_INCLUIDO,
         benefits: [
           'Múltiples profesionales',
           'Marca blanca',
           'Integraciones',
-          'WhatsApp AI a gran escala',
+          'WhatsApp IA a gran escala',
           'Soporte dedicado',
         ],
         ctaText: 'Ser Agencia',
@@ -587,148 +472,92 @@ export const rolePricingConfigs: Record<string, RolePricingConfig> = {
   organizadores: {
     role: 'organizadores',
     emoji: '🏆',
-    title: 'Organizadores Pro',
+    title: 'Organizadores',
     headline:
-      'Operación completa de eventos: inscripciones con escuelas, documentos, abonos, pasarelas + manual y boletería con QR. Todo desde la app, sin Excel.',
-    freeStart: {
-      title: 'Empieza gratis con Organizador Free',
-      description:
-        '1 evento activo, hasta 50 atletas, pasarela básica y página pública. Sin tarjeta de crédito.',
-      ctaText: 'Crear cuenta gratis',
-    },
+      'Hoy los torneos se crean desde una escuela con el adicional Torneos. Si organizas por tu cuenta, únete a la lista de espera o pide el piloto.',
+    monthlyOnly: true,
     plans: [
       {
-        name: 'Organizador Start',
-        monthlyPrice: 129000,
-        annualPrice: 109000,
+        name: 'Adicional Torneos (escuelas)',
+        monthlyPrice: 49000,
+        annualPrice: 49000,
+        badge: 'DISPONIBLE HOY',
+        whatsappAi: null,
         benefits: [
-          'Hasta 3 eventos activos',
-          'Hasta 500 atletas por evento',
-          'Inscripciones individuales y por escuela',
-          'Recepción de documentos (cédula, EPS, autorización)',
-          'Pasarela Wompi + transferencia/efectivo manual',
-          'Soporte por WhatsApp',
+          'Inscripción de escuelas por enlace',
+          'Categorías y precios por fase',
+          'Cobro de inscripciones con comprobante',
+          'Fixture de liga o copa',
+          'Goleadores y tabla pública',
         ],
-        ctaText: 'Empezar Start',
-        icon: 'basic',
-      },
-      {
-        name: 'Organizador Pro',
-        monthlyPrice: 249000,
-        annualPrice: 209000,
-        badge: 'MÁS ELEGIDO',
-        anchor: 'Reemplaza Excel + ticketera externa + cobranza manual',
-        whatsappAi: '500 conversaciones con IA/mes',
-        benefits: [
-          'Eventos ilimitados',
-          'Hasta 2.000 atletas por evento',
-          'Inscripciones colectivas con escuelas',
-          'Plan de abonos parciales con saldos en vivo',
-          'Boletería integrada con QR + check-in',
-          'Conciliación 1-click (pasarela + manual)',
-          'Distribución: link público + mapa SportMaps',
-          'Soporte prioritario',
-        ],
-        ctaText: 'Ser Pro',
+        ctaText: 'Activarlo en mi escuela',
         popular: true,
         icon: 'pro',
       },
       {
-        name: 'Organizador Elite',
-        monthlyPrice: 549000,
-        annualPrice: 469000,
-        badge: 'ENTERPRISE',
-        whatsappAi: '2.000 conversaciones con IA/mes',
+        name: 'Organizador independiente',
+        monthlyPrice: 'Gratis',
+        annualPrice: 'Gratis',
+        priceFromLabel: 'Piloto gratis 1 mes',
+        whatsappAi: null,
         benefits: [
-          'Atletas ilimitados',
-          'Multi-coordinador + roles avanzados',
-          'Multi-escuela y multi-sede',
-          'Categorías y tarifas avanzadas',
-          'API e integraciones (contabilidad, CRM)',
-          'Branding del organizador en página pública',
-          'Gerente de cuenta dedicado',
+          'Lista de espera para organizadores sin escuela',
+          'Piloto acompañado de un mes, sin costo',
+          'Boletería con QR y check-in: próximamente',
+          'Plan por evento: próximamente',
         ],
-        ctaText: 'Ser Elite',
-        icon: 'enterprise',
+        ctaText: 'Unirme a la lista de espera',
+        icon: 'demo',
+        isDemo: true,
+        whatsappMessage:
+          'Hola SportMaps, organizo torneos y quiero entrar a la lista de espera / piloto gratis de 1 mes para organizadores.',
       },
     ],
-    customTier: {
-      name: 'Federación / Liga',
-      priceLabel: 'A medida',
-      description:
-        'Para federaciones, ligas o circuitos con calendario anual y +5 eventos simultáneos. Cotización a medida con migración VIP, integraciones y SLA dedicado.',
-      benefits: [
-        'Todo en Organizador Elite',
-        'Calendario de circuito anual',
-        'Multi-organizador / holding',
-        'SLA dedicado y onboarding white-glove',
-        'Integraciones a la medida',
-      ],
-      ctaText: 'Habla con ventas',
-      whatsappMessage:
-        'Hola SportMaps, soy de una federación/liga y necesito una cotización Custom para mi calendario de eventos.',
-      badge: 'CONTÁCTANOS',
-    },
-    showAddOns: true,
+    showAddOns: false,
   },
   eventos: {
     role: 'eventos',
     emoji: '🎪',
     title: 'Organizadores de Eventos',
     headline:
-      'Organiza eventos deportivos sin caos. Link único, inscripciones automáticas, sin comisión.',
-    oneTimePricing: true,
+      'Hoy los eventos y torneos se crean desde una escuela con el adicional Torneos. Para organizadores independientes: lista de espera y piloto gratis de un mes.',
+    monthlyOnly: true,
     plans: [
       {
-        name: 'Evento Pequeño',
-        monthlyPrice: 35000,
-        annualPrice: 35000,
+        name: 'Escuela con adicional Torneos',
+        monthlyPrice: 49000,
+        annualPrice: 49000,
+        badge: 'DISPONIBLE HOY',
+        whatsappAi: null,
         benefits: [
-          'Hasta 100 atletas',
-          'Página pública del evento',
-          'Link único compartible',
-          'Inscripciones automáticas',
-          'Pin en el mapa SportMaps',
+          'Inscripción de escuelas por enlace',
+          'Categorías y precios por fase',
+          'Cobro de inscripciones con comprobante',
+          'Fixture de liga o copa, goleadores y tabla pública',
         ],
-        ctaText: 'Crear Evento',
-        icon: 'basic',
-      },
-      {
-        name: 'Evento Mediano',
-        monthlyPrice: 99000,
-        annualPrice: 99000,
-        badge: 'MÁS ELEGIDO',
-        benefits: [
-          'Hasta 500 atletas',
-          'Categorías simples',
-          'Validación de pagos',
-          'Soporte estándar',
-          'Recordatorios por WhatsApp',
-        ],
-        ctaText: 'Crear Evento Pro',
+        ctaText: 'Activarlo en mi escuela',
         popular: true,
         icon: 'pro',
       },
       {
-        name: 'Evento Grande',
-        monthlyPrice: 349000,
-        annualPrice: 349000,
+        name: 'Organizador independiente',
+        monthlyPrice: 'Gratis',
+        annualPrice: 'Gratis',
+        priceFromLabel: 'Piloto gratis 1 mes',
+        whatsappAi: null,
         benefits: [
-          'Atletas ilimitados',
-          'Prioridad en mapa',
-          'Soporte prioritario',
-          'Configuración personalizada',
-          'Branding del organizador',
+          'Lista de espera para organizadores sin escuela',
+          'Piloto acompañado de un mes, sin costo',
+          'Plan por evento: próximamente',
+          'Boletería con QR y check-in: próximamente',
         ],
-        ctaText: 'Contactar Ventas',
-        icon: 'enterprise',
+        ctaText: 'Unirme a la lista de espera',
+        icon: 'demo',
+        isDemo: true,
+        whatsappMessage:
+          'Hola SportMaps, organizo eventos deportivos y quiero entrar a la lista de espera / piloto gratis de 1 mes para organizadores.',
       },
     ],
-    whatsappBundle: {
-      title: '¿Más eventos al año? Pregúntanos por bundle de 5 o 10 eventos',
-      message:
-        'Hola SportMaps, organizo varios eventos al año y quiero cotizar un bundle (5 o 10 eventos).',
-    },
     showAddOns: false,
   },
 };
@@ -850,92 +679,29 @@ function ComparisonBlock({ data }: { data: ClupikComparison }) {
   );
 }
 
-function AddOnsSection({ role }: { role: string }) {
-  const [open, setOpen] = useState(false);
+function AddOnsSection() {
   return (
-    <div className="max-w-4xl mx-auto mt-12">
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-center justify-between gap-3 px-5 py-4 rounded-xl border border-border bg-card hover:border-sport-primary/40 transition-colors"
-      >
-        <span className="flex items-center gap-3 text-left">
-          <MessageCircle className="w-5 h-5 text-sport-primary shrink-0" />
-          <span className="text-sm md:text-base font-semibold text-foreground">
-            ¿Necesitas más conversaciones IA? Add-ons disponibles
-          </span>
-        </span>
-        {open ? (
-          <ChevronUp className="w-5 h-5 text-muted-foreground" />
-        ) : (
-          <ChevronDown className="w-5 h-5 text-muted-foreground" />
-        )}
-      </button>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden"
-          >
-            <div className="grid sm:grid-cols-3 gap-4 mt-4">
-              {ADDONS.map((addon) => (
-                <div
-                  key={addon.name}
-                  className="rounded-xl border border-border bg-card p-5 hover:border-sport-primary/40 transition-colors"
-                >
-                  <p className="text-xs text-sport-primary font-bold uppercase tracking-wide mb-1">
-                    {addon.name}
-                  </p>
-                  <p className="text-sm text-muted-foreground mb-3">{addon.extra}</p>
-                  <p className="text-xl font-bold text-sport-accent">
-                    {formatPrice(addon.price)}{' '}
-                    <span className="text-sm text-muted-foreground font-normal">/mes</span>
-                  </p>
-                </div>
-              ))}
-            </div>
-            <p className="text-xs text-muted-foreground text-center mt-4">
-              Los add-ons se suman al plan que ya tienes activo. Activación en menos de 24 h.
-            </p>
-
-            <div className="text-center mt-3">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() =>
-                  openWhatsapp(
-                    `Hola SportMaps, quiero activar un add-on de WhatsApp AI para mi plan ${role}.`
-                  )
-                }
-              >
-                Activar add-on por WhatsApp
-              </Button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-      {/* Quien cobra que. Sin esto, "500 conversaciones" se lee como si
-          incluyera el WhatsApp, y la escuela se lleva una sorpresa cuando
-          Meta le pasa su propio cobro. Meta factura la entrega del mensaje
-          directamente a la escuela; SportMaps cobra el asistente. */}
-      <div className="mt-6 rounded-xl border border-border bg-muted/30 p-5 max-w-3xl mx-auto">
-        <p className="text-sm font-semibold text-foreground mb-2">
-          Qué cobra SportMaps y qué cobra Meta
+    <div className="max-w-3xl mx-auto mt-12">
+      {/* Quién cobra qué. SportMaps no cobra el asistente (gratis en todos los
+          planes); Meta factura la entrega del mensaje directamente a la escuela,
+          y solo si pasa de los mensajes gratis del mes. */}
+      <div className="rounded-xl border border-sport-success/30 bg-sport-success/5 p-5">
+        <p className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+          <MessageCircle className="w-4 h-4 text-sport-success" />
+          WhatsApp IA gratis en todos los planes
         </p>
         <p className="text-sm text-muted-foreground">
-          <strong className="text-foreground">SportMaps cobra el asistente</strong>: leer los
-          comprobantes que envían las familias, extraer el monto y la referencia, cruzarlos
-          contra el cobro correspondiente y responder por ti. Eso es lo que miden las
-          conversaciones con IA de cada plan.
+          <strong className="text-foreground">SportMaps no te cobra el asistente</strong>: leer
+          los comprobantes que envían las familias, extraer el monto y la referencia, cruzarlos
+          contra el cobro y responder por ti viene incluido en todos los planes, también en los
+          gratis. Sin paquetes ni cupos de conversaciones.
         </p>
         <p className="text-sm text-muted-foreground mt-2">
-          <strong className="text-foreground">El envío de los mensajes lo factura Meta</strong>,
-          directamente a tu escuela y no a través nuestro. WhatsApp incluye 1.000 mensajes de
-          servicio gratis al mes por número; si te pasas, Meta cobra el excedente a la tarjeta
-          que registras al conectar tu número — en Colombia, alrededor de $3 por mensaje.
-          Podrás ver tu consumo en vivo desde la plataforma.
+          <strong className="text-foreground">Solo pagas a Meta si te excedes</strong>, y se lo
+          pagas directo a Meta, no a través nuestro. WhatsApp incluye 1.000 mensajes de servicio
+          gratis al mes por número; si te pasas, Meta cobra el excedente a la tarjeta que
+          registras al conectar tu número — en Colombia, alrededor de $3 por mensaje. Ves tu
+          consumo en vivo desde la plataforma.
         </p>
       </div>
     </div>
@@ -1015,7 +781,7 @@ export function RolePricingSection({ config, onCTA }: RolePricingSectionProps) {
           <p className="text-muted-foreground max-w-2xl mx-auto mb-8">{config.headline}</p>
 
           {/* Toggle: hide for one-time pricing (Eventos) */}
-          {!oneTime && (
+          {!oneTime && !config.monthlyOnly && (
             <div className="flex items-center justify-center gap-3">
               <span
                 className={`text-sm font-medium transition-colors ${
@@ -1062,8 +828,23 @@ export function RolePricingSection({ config, onCTA }: RolePricingSectionProps) {
           />
         )}
 
+        {/* Lo que no cambia de plan a plan */}
+        {/* Entrenadores, bienestar y organizadores quedan fuera: hoy no tienen
+            WhatsApp IA ni cobro propio, así que la lista no les aplica. */}
+        {['escuelas', 'servicios'].includes(config.role) && (
+          <IncludedInAllPlans role={config.role} />
+        )}
+
         {/* Plans Grid */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div
+          className={`grid gap-6 mx-auto ${
+            config.plans.length === 1
+              ? 'max-w-md'
+              : config.plans.length === 2
+              ? 'md:grid-cols-2 max-w-4xl'
+              : 'md:grid-cols-3 max-w-6xl'
+          }`}
+        >
           {config.plans.map((plan, index) => {
             const Icon = iconMap[plan.icon];
             const displayPrice = isAnnual ? plan.annualPrice : plan.monthlyPrice;
@@ -1148,11 +929,12 @@ export function RolePricingSection({ config, onCTA }: RolePricingSectionProps) {
                   </p>
                 )}
 
-                {/* WhatsApp AI badge */}
-                {plan.whatsappAi && (
+                {/* WhatsApp IA badge — en todos los planes, incluso los gratis,
+                    salvo los pilotos (whatsappAi: null) */}
+                {plan.whatsappAi !== null && (
                   <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-sport-success/10 px-3 py-1 text-xs font-semibold text-sport-success">
                     <MessageCircle className="w-3.5 h-3.5" />
-                    {plan.whatsappAi}
+                    {plan.whatsappAi ?? WHATSAPP_IA_INCLUIDO}
                   </div>
                 )}
 
@@ -1194,8 +976,8 @@ export function RolePricingSection({ config, onCTA }: RolePricingSectionProps) {
         {/* Comparison block (Escuelas vs Clupik) */}
         {config.comparison && <ComparisonBlock data={config.comparison} />}
 
-        {/* WhatsApp AI add-ons collapsible */}
-        {config.showAddOns && <AddOnsSection role={config.role} />}
+        {/* WhatsApp IA: gratis + qué cobra Meta */}
+        {config.showAddOns && <AddOnsSection />}
       </div>
     </section>
   );

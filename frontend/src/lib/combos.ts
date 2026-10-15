@@ -32,85 +32,55 @@ export interface Combo {
   anchor?: string;
 }
 
+// 2026-10-14: se retiraron los combos armados con SKUs que no se pueden comprar
+// (Marketplace Pro, Organizador Pro, Federación Pro, Servicio Pro / Clínica).
+// Los que quedan suman SOLO precios publicados: Escuela Pro ($159.000), adicional
+// Torneos ($49.000), adicional Tienda escolar ($49.000) y Wellness Pro ($59.000).
+// Sin descuento inventado: comboPrice = normalPrice hasta que el negocio decida uno.
 export const combos: Combo[] = [
   {
     id: "academia-tienda",
     name: "Academia + Tienda",
     emoji: "🏫🎽",
-    modules: ["Escuela Pro", "Marketplace Pro"],
-    pitch: "Vende uniformes y equipamiento propio sin caos",
+    modules: ["Escuela Pro", "Adicional Tienda escolar"],
+    pitch: "Vende los uniformes y kits de tu escuela con tu propia pasarela",
     description:
       "Para academias que quieren monetizar más allá de la matrícula mensual.",
-    normalPrice: 358000,
-    comboPrice: 299000,
-  },
-  {
-    id: "coach-tienda",
-    name: "Coach con Tienda Propia",
-    emoji: "🏃🎽",
-    modules: ["Coach Pro", "Marketplace Pro"],
-    pitch: "Marca personal con programas digitales + merchandising propio",
-    description:
-      "Para entrenadores que quieren construir un negocio escalable con productos.",
-    normalPrice: 298000,
-    comboPrice: 249000,
+    normalPrice: 208000,
+    comboPrice: 208000,
   },
   {
     id: "escuela-eventos",
     name: "Escuela Eventos",
     emoji: "🏫🏆",
-    modules: ["Escuela Pro", "Organizador Pro"],
-    pitch: "Organiza torneos y festivales propios para tus alumnos",
+    modules: ["Escuela Pro", "Adicional Torneos"],
+    pitch: "Ligas y copas con fixture, goleadores, tabla pública e inscripción con cobro",
     description:
-      "Para academias que organizan competencias internas o externas con regularidad.",
-    normalPrice: 408000,
-    comboPrice: 339000,
-    badge: "MÁS POPULAR",
+      "Para academias que organizan torneos internos o con otras escuelas.",
+    normalPrice: 208000,
+    comboPrice: 208000,
   },
   {
     id: "academia-salud",
     name: "Academia Salud Deportiva",
     emoji: "🏫❤️",
     modules: ["Escuela Pro", "Wellness Pro"],
-    pitch: "Fisio o psicólogo deportivo integrado en tu academia",
+    pitch: "El fisio de tu escuela, con agenda e historia clínica",
     description:
-      "Ideal para porrismo, gimnasia y deportes de alto impacto físico donde la salud es central.",
-    normalPrice: 308000,
-    comboPrice: 259000,
-  },
-  {
-    id: "clinica-deportiva",
-    name: "Clínica Deportiva",
-    emoji: "❤️🔧",
-    modules: ["Wellness Pro", "Servicio Pro"],
-    pitch: "Centro de salud deportiva con servicios complementarios",
-    description:
-      "Para centros que ofrecen terapia, nutrición y servicios profesionales bajo una marca.",
-    normalPrice: 258000,
-    comboPrice: 219000,
-  },
-  {
-    id: "federacion-completa",
-    name: "Federación Completa",
-    emoji: "🏆🏆",
-    modules: ["Federación Pro", "Organizador Pro"],
-    pitch: "Federación + circuito de torneos propios en una sola plataforma",
-    description: "Para ligas que ya operan un calendario competitivo anual.",
-    normalPrice: 798000,
-    comboPrice: 669000,
-    anchor: "Equivale a 2 asistentes administrativos full-time",
+      "Ideal para deportes de alto impacto físico donde la salud es central.",
+    normalPrice: 218000,
+    comboPrice: 218000,
   },
   {
     id: "academia-360",
     name: "Academia 360°",
     emoji: "🏫🎽🏆",
-    modules: ["Escuela Pro", "Marketplace Pro", "Organizador Pro"],
-    pitch: "Academia premium: alumnos + tienda + eventos propios",
+    modules: ["Escuela Pro", "Adicional Tienda escolar", "Adicional Torneos"],
+    pitch: "Alumnos + tienda + torneos propios",
     description:
-      "Modelo full-stack para academias que quieren maximizar revenue por alumno.",
-    normalPrice: 607000,
-    comboPrice: 449000,
-    anchor: "Equivale a 1.3 asistentes administrativos full-time",
+      "Para academias que quieren tener la tienda y los torneos en la misma plataforma.",
+    normalPrice: 257000,
+    comboPrice: 257000,
   },
 ];
 
@@ -143,9 +113,7 @@ export function buildComboWhatsAppMessage(combo: Combo): string {
     "",
     "📋 Mis datos:",
     `• Módulos: ${combo.modules.join(" + ")}`,
-    `• Precio referencial: ${formatPriceCOP(combo.comboPrice)}/mes (valor normal ${formatPriceCOP(
-      combo.normalPrice
-    )})`,
+    `• Precio referencial: ${formatPriceCOP(combo.comboPrice)}/mes`,
     "• Tamaño aproximado: ___ (alumnos / clientes / eventos)",
     utmSource
       ? `• ¿Cómo nos conociste?: ${utmSource}`
@@ -189,9 +157,7 @@ export function buildComboWhatsAppMessageWithContext(
     `• Necesidad: ${ctx.needLabel}`,
     `• Tamaño aproximado: ${ctx.sizeLabel}`,
     `• Módulos: ${combo.modules.join(" + ")}`,
-    `• Precio referencial: ${formatPriceCOP(combo.comboPrice)}/mes (valor normal ${formatPriceCOP(
-      combo.normalPrice
-    )})`,
+    `• Precio referencial: ${formatPriceCOP(combo.comboPrice)}/mes`,
     utmSource ? `• ¿Cómo nos conociste?: ${utmSource}` : null,
     "",
     "¿Cómo seguimos?",

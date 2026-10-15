@@ -13,6 +13,11 @@ import { blogPosts, type BlogCategory } from "@/lib/blog-posts";
 
 const CATEGORIES: ("Todos" | BlogCategory)[] = [
   "Todos",
+  "Cobros y pagos",
+  "WhatsApp IA",
+  "Por deporte",
+  "Por ciudad",
+  "Para familias",
   "Casos de éxito",
   "Producto",
   "Comparativas",
@@ -42,7 +47,7 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Blog de Tecnología Deportiva | SportMaps"
+        title="Blog: guías para escuelas deportivas, entrenadores y familias"
         description="Artículos, guías y tendencias sobre tecnología deportiva, gestión de academias, entrenamiento y digitalización del deporte en Latinoamérica."
         keywords="blog deportivo, tecnología deportiva, gestión academias deportivas, digitalización deporte, tendencias deporte"
         url="https://sportmaps.co/blog"

@@ -90,7 +90,7 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
         "Inscripciones colectivas: cada escuela inscribe a sus atletas",
         "Recepción y validación de documentos por inscrito",
         "Pagos completos y abonos parciales con saldos en vivo",
-        "Pasarela Wompi + transferencia/efectivo en una sola conciliación",
+        "Wompi + Mercado Pago + transferencia/efectivo en una sola conciliación",
         "Boletería con QR y check-in en la puerta",
         "Distribución: página pública + pin en mapa + link compartible"
       ]

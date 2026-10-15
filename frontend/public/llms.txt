@@ -1,21 +1,32 @@
 # SportMaps
 
-> SportMaps es un software todo-en-uno de gestión deportiva para escuelas, entrenadores, federaciones y organizadores de eventos en Latinoamérica. Reemplaza Excel + WhatsApp + carpeta de pagos con una plataforma única que integra agenda, cobranza, asistencia, app de marca propia y WhatsApp AI para recordatorios y mora.
+> SportMaps es un software todo-en-uno de gestión deportiva para escuelas, entrenadores, federaciones y organizadores de eventos en Latinoamérica. Reemplaza Excel + WhatsApp + carpeta de pagos con una plataforma única que integra agenda, cobranza con Wompi y Mercado Pago, asistencia con QR, carnets digitales y WhatsApp IA que lee comprobantes y recuerda los pagos.
 
-Mercado principal: Colombia (con clientes activos en México, Argentina, Chile, Perú y Ecuador). Sede: Medellín, Colombia. Idioma: español (es-CO).
+Mercado: Colombia (precios y facturación en pesos colombianos). Sede: Medellín, Colombia. Idioma: español (es-CO).
 
 ## Resumen del producto
 
 - **Tipo:** SaaS B2B vertical para industria deportiva
-- **Modelo:** Suscripción mensual ($29.000 COP gratuito / $159.000 COP Pro)
+- **Modelo:** Suscripción mensual en COP: Free Start $0 (20 alumnos), Escuela Start $69.000 (50), Escuela Crecimiento $99.000 (120), Escuela Pro $159.000 (300), Escuela Elite $349.000 (800), Custom desde $750.000. Fuente oficial: https://sportmaps.co/planes
 - **Diferenciadores clave:**
-  - App de marca propia incluida en Plan Pro (no add-on)
-  - Integración nativa con Wompi (pasarela colombiana, no Mercado Pago)
-  - WhatsApp AI para cobranza automática (500 conversaciones/mes incluidas)
-  - Soporte en español por WhatsApp directo con respuesta <2h
+  - WhatsApp IA gratis en todos los planes: lee comprobantes en segundos y los deja listos para aprobar; solo se paga a Meta si se excede
+  - Wompi y Mercado Pago integrados en todos los planes
+  - Facturación electrónica DIAN con integración gratis (solo el paquete por volumen de facturas)
+  - Entrenadores y staff ilimitados; pizarra táctica para entrenadores
+  - Soporte en español por WhatsApp directo desde Colombia
   - Migración asistida gratuita desde Excel o competencia
 - **Comparativa principal:** SportMaps vs Clupik (España) — SportMaps es ~3x más barato a igualdad de features para academias en Colombia
 - **Rival directo en Colombia:** SportMaps vs Controla.Club — Controla.Club es fuerte en gimnasios y control de acceso físico; SportMaps es el vertical para escuelas deportivas formativas (categorías por edad, padre-atleta, torneos), con facturación electrónica DIAN incluida
+
+## Incluido en TODOS los planes (vigente desde 2026-10-14, también en el plan gratis)
+
+- **WhatsApp IA gratis:** el asistente lee en segundos los comprobantes que mandan las familias (monto, fecha y referencia), los cruza contra el cobro y los deja listos para que la escuela apruebe con un toque. También responde a prospectos y agenda clases de cortesía. SportMaps no cobra el asistente ni vende paquetes de conversaciones. Solo se le paga a Meta si la escuela se excede de los mensajes de servicio gratis del mes, directo a Meta.
+- **No cambias de plataforma:** tus familias siguen en WhatsApp; SportMaps es el complemento que registra, concilia y reporta.
+- **Pasarelas Wompi y Mercado Pago integradas** (PSE, Nequi, tarjetas, billetera). La plata llega directo a la cuenta de la escuela; SportMaps no cobra comisión por la integración.
+- **Facturación electrónica DIAN:** la integración es gratis; solo se paga el paquete según la cantidad de facturas, más barato que un proveedor tradicional. El contador de la escuela puede tener acceso para revisar el estado.
+- **Entrenadores y staff ilimitados**, con roles y permisos.
+- **Página pública de la escuela** con 4 diseños y botón de inscripción; si la escuela tiene dominio propio, SportMaps ayuda a conectarlo.
+- **Para entrenadores:** pizarra táctica (hoy para fútbol; más deportes en camino), planificación por mesociclos y microciclos, y autoevaluación post-entreno.
 
 ## SportMaps Canchas (lanzamiento noviembre 2026, todavía no disponible)
 
@@ -44,7 +55,7 @@ Mercado principal: Colombia (con clientes activos en México, Argentina, Chile, 
 - [Comparar vs Athleos](https://sportmaps.co/comparar/athleos): Ambos cobran a familias en Colombia; diferencia en DIAN, torneos y ecosistema
 - [Comparar vs CuotaQ](https://sportmaps.co/comparar/cuotaq): Especialista en cobro de cuotas vs operación deportiva completa
 - [Comparar vs AgendaPro](https://sportmaps.co/comparar/agendapro): Vertical deportivo con DIAN incluida vs "todo en uno" horizontal con DIAN de add-on
-- [Comparar vs GOLAPP](https://sportmaps.co/comparar/golapp): Competidor colombiano simple vs plataforma completa con DIAN y WhatsApp AI
+- [Comparar vs GOLAPP](https://sportmaps.co/comparar/golapp): Competidor colombiano simple vs plataforma completa con DIAN y WhatsApp IA
 - [Comparar vs DeporteApp](https://sportmaps.co/comparar/deporteapp): Cobertura LatAm sin precios públicos vs precios transparentes y DIAN incluida
 - [Comparar vs Driblin](https://sportmaps.co/comparar/driblin): Scouting y monetización de club vs cobranza recurrente y categorías por edad
 - [SportMaps Canchas](https://sportmaps.co/canchas): Reserva y cobro de canchas por WhatsApp, lanzamiento noviembre 2026
@@ -57,7 +68,124 @@ Mercado principal: Colombia (con clientes activos en México, Argentina, Chile, 
 
 ## Blog
 
-- [Blog SportMaps](https://sportmaps.co/blog): Casos reales, comparativas honestas, análisis del mercado deportivo en Latam
+- [Blog SportMaps](https://sportmaps.co/blog): guías prácticas, comparativas con precios verificados, datos del sector y respuestas para escuelas, entrenadores y familias en Colombia
+
+### Cobros y pagos
+
+- [Cómo cobrar las mensualidades de una escuela deportiva sin perseguir a nadie](https://sportmaps.co/blog/como-cobrar-mensualidades-escuela-deportiva)
+- [Wompi vs Mercado Pago para escuelas deportivas: tarifas, medios de pago y cuál elegir](https://sportmaps.co/blog/wompi-vs-mercado-pago-escuelas-deportivas)
+- [Cómo reducir la mora de una escuela deportiva sin perder alumnos](https://sportmaps.co/blog/reducir-mora-escuela-deportiva-sin-perder-alumnos)
+- [Inscripción vs mensualidad en una escuela deportiva: qué incluye cada cobro y cómo no cobrar doble](https://sportmaps.co/blog/inscripcion-vs-mensualidad-escuela-deportiva)
+- [Cómo conciliar transferencias y comprobantes de pago en una escuela deportiva](https://sportmaps.co/blog/conciliar-transferencias-comprobantes-escuela-deportiva)
+- [Facturación electrónica para escuelas deportivas: quién está obligado ante la DIAN y cómo empezar](https://sportmaps.co/blog/facturacion-electronica-escuelas-deportivas-dian)
+
+### WhatsApp IA
+
+- [WhatsApp IA gratis para escuelas deportivas: cuánto cobra Meta de verdad en 2026](https://sportmaps.co/blog/whatsapp-ia-gratis-escuelas-deportivas-cuanto-cobra-meta)
+- [Recordatorios de pago por WhatsApp automáticos: cuándo enviarlos y qué decir](https://sportmaps.co/blog/recordatorios-de-pago-por-whatsapp-automaticos)
+- [Leer comprobantes de pago con IA: cómo funciona y qué revisa antes de aprobar](https://sportmaps.co/blog/leer-comprobantes-de-pago-con-ia)
+- [Grupos de WhatsApp vs. app para tu escuela deportiva: qué usar para cada cosa](https://sportmaps.co/blog/grupos-de-whatsapp-vs-app-escuela-deportiva)
+- [WhatsApp Business API para escuelas deportivas: guía práctica 2026](https://sportmaps.co/blog/whatsapp-business-api-escuelas-deportivas)
+- [Validación de pagos con IA en segundos por WhatsApp, sin cambiar de plataforma](https://sportmaps.co/blog/validacion-de-pagos-con-ia-en-segundos-whatsapp)
+
+### Comparativas y precios
+
+- [SportMaps vs Controla.Club (2026): precios verificados y qué incluye cada uno](https://sportmaps.co/blog/sportmaps-vs-controla-club)
+- [Alternativas a Clupik en Colombia (2026): precios públicos y cuándo conviene cada una](https://sportmaps.co/blog/alternativas-a-clupik-colombia)
+- [Excel vs software para una escuela deportiva: cuándo cambiar y cuánto te cuesta no hacerlo](https://sportmaps.co/blog/excel-vs-software-escuela-deportiva)
+- [¿Cuánto cuesta un software para escuela deportiva en Colombia en 2026? Precios públicos y costos ocultos](https://sportmaps.co/blog/cuanto-cuesta-software-escuela-deportiva-2026)
+- [Mejor software de gestión deportiva en Colombia 2026: criterios y opciones reales](https://sportmaps.co/blog/mejor-software-gestion-deportiva-colombia-2026)
+
+### Más comparativas
+
+- [SportMaps vs GOLAPP (2026): precios en pesos por tamaño de escuela y qué incluye cada uno](https://sportmaps.co/blog/sportmaps-vs-golapp)
+- [SportMaps vs QueFluya: qué conviene a tu academia y qué preguntar antes de elegir](https://sportmaps.co/blog/sportmaps-vs-quefluya)
+- [SportMaps vs Athleos: comparativa para escuelas deportivas en Colombia (2026)](https://sportmaps.co/blog/sportmaps-vs-athleos)
+- [SportMaps vs AgendaPro para escuelas deportivas: precios en Colombia y cuándo conviene cada uno](https://sportmaps.co/blog/sportmaps-vs-agendapro)
+- [Alternativas a Controla.Club en Colombia (2026): opciones reales según tu tipo de negocio](https://sportmaps.co/blog/alternativas-a-controla-club-colombia)
+- [SportEasy, TeamSnap o 360Player en Colombia: qué les falta para una escuela deportiva y cuándo sirven](https://sportmaps.co/blog/sportmaps-vs-sporteasy-teamsnap-360player)
+- [Controla Cancha vs SportMaps para reservas de canchas: qué existe hoy y qué llega en noviembre](https://sportmaps.co/blog/controla-cancha-vs-sportmaps-reservas)
+- [¿Cuál es la mejor app para cobrar mensualidades en Colombia? Opciones, costos y cuándo usar cada una](https://sportmaps.co/blog/mejor-app-para-cobrar-mensualidades-colombia)
+
+### Datos del sector
+
+- [KPIs de una escuela deportiva: fórmulas de retención, churn, LTV, mora y ocupación](https://sportmaps.co/blog/kpis-escuela-deportiva-formulas-retencion-churn)
+- [¿Cuánto cobra una escuela de fútbol en Colombia en 2026? Precios reales en Bogotá, Medellín y Cali](https://sportmaps.co/blog/cuanto-cobra-una-escuela-de-futbol-en-colombia-2026)
+- [Estadísticas del deporte formativo en Colombia: actividad física, clubes y juegos escolares](https://sportmaps.co/blog/estadisticas-deporte-formativo-colombia)
+- [¿Por qué se retiran los niños del deporte? Lo que dicen los estudios y qué puede hacer una escuela](https://sportmaps.co/blog/por-que-se-retiran-los-ninos-del-deporte)
+- [Calendario de temporada para una escuela deportiva en Colombia (2026–2027)](https://sportmaps.co/blog/calendario-temporada-escuela-deportiva-colombia)
+- [¿Cuánto gana un entrenador deportivo en Colombia en 2026?](https://sportmaps.co/blog/cuanto-gana-un-entrenador-en-colombia)
+
+### Guías para directores
+
+- [Cómo fijar el precio de la mensualidad de tu escuela deportiva (fórmula + tabla)](https://sportmaps.co/blog/como-fijar-precio-mensualidad-escuela-deportiva)
+- [Contrato de inscripción para escuela deportiva: cláusulas modelo listas para adaptar](https://sportmaps.co/blog/contrato-de-inscripcion-escuela-deportiva)
+- [Reglamento interno de una escuela deportiva: modelo por artículos para padres, deportistas y entrenadores](https://sportmaps.co/blog/reglamento-interno-escuela-deportiva)
+- [Cómo contratar entrenadores por prestación de servicios sin crear un contrato laboral (Colombia 2026)](https://sportmaps.co/blog/como-contratar-entrenadores-prestacion-de-servicios)
+- [Póliza de seguro para escuela deportiva en Colombia: qué cubrir, qué preguntar y qué no te obliga la ley](https://sportmaps.co/blog/poliza-seguro-escuela-deportiva-colombia)
+- [Reconocimiento deportivo de un club en Colombia: requisitos y checklist paso a paso](https://sportmaps.co/blog/reconocimiento-deportivo-club-paso-a-paso)
+- [Descuento por hermanos y becas en una escuela deportiva: cómo diseñarlos sin perder plata](https://sportmaps.co/blog/descuento-por-hermanos-y-becas-escuela-deportiva)
+- [Cómo abrir una escuela de fútbol en Colombia: guía paso a paso 2026](https://sportmaps.co/blog/como-abrir-una-escuela-de-futbol-en-colombia)
+
+### Por deporte
+
+- [Software para escuelas de fútbol en Colombia: qué necesita de verdad una escuela formativa](https://sportmaps.co/blog/software-escuelas-de-futbol-colombia)
+- [Software para clubes de voleibol: categorías, rotaciones y cobros en un solo lugar](https://sportmaps.co/blog/software-clubes-de-voleibol)
+- [Software para academias de natación: cupos por carril, niveles y paquetes de clases](https://sportmaps.co/blog/software-academias-de-natacion)
+- [Software para escuelas de baloncesto: del minibaloncesto al equipo juvenil](https://sportmaps.co/blog/software-escuelas-de-baloncesto)
+- [Software para clubes de patinaje: niveles, categorías, pruebas y cobros](https://sportmaps.co/blog/software-clubes-de-patinaje)
+- [Software para academias de tenis y pádel: reservas de cancha, clases y paquetes](https://sportmaps.co/blog/software-academias-de-tenis-y-padel)
+- [Software para academias de artes marciales: taekwondo, karate, grados y exámenes](https://sportmaps.co/blog/software-artes-marciales-taekwondo-karate)
+- [Software para escuelas de gimnasia: niveles, evaluaciones y rotación por aparatos](https://sportmaps.co/blog/software-escuelas-de-gimnasia)
+
+### Más deportes
+
+- [Software para escuelas de fútbol sala y futsal en Colombia: coliseo, categorías y cobros](https://sportmaps.co/blog/software-escuelas-de-futbol-sala-futsal)
+- [Software para clubes de atletismo: marcas, categorías sub-18 y sub-20 y cobros](https://sportmaps.co/blog/software-clubes-de-atletismo)
+- [Software para clubes y escuelas de ciclismo en Colombia: salidas, categorías y cobros](https://sportmaps.co/blog/software-clubes-de-ciclismo)
+- [Software para escuelas de porrismo y cheerleading: divisiones, niveles y cobros](https://sportmaps.co/blog/software-escuelas-de-porrismo-cheerleading)
+- [Software para academias de danza: grupos por estilo y nivel, muestras y mensualidades](https://sportmaps.co/blog/software-academias-de-danza)
+- [Software para clubes de rugby en Colombia: categorías M, contacto seguro y cuotas](https://sportmaps.co/blog/software-clubes-de-rugby)
+- [Software para escuelas de béisbol y sóftbol: categorías U12 a U18, estadísticas y cobros](https://sportmaps.co/blog/software-escuelas-de-beisbol-y-softbol)
+- [Software para academias de ajedrez: grupos por nivel, torneos por edades y mensualidades](https://sportmaps.co/blog/software-academias-de-ajedrez)
+
+### Por ciudad
+
+- [Software para escuelas deportivas en Bogotá: aval del IDRD, cobros y operación diaria](https://sportmaps.co/blog/software-escuelas-deportivas-bogota)
+- [Software para escuelas y clubes deportivos en Medellín: INDER, SIMÓN 2.0 y cobros sin enredos](https://sportmaps.co/blog/software-escuelas-deportivas-medellin)
+- [Software para escuelas deportivas en Cali: reconocimiento ante la Secretaría del Deporte, escenarios y cobros](https://sportmaps.co/blog/software-escuelas-deportivas-cali)
+- [Software para escuelas y clubes deportivos en Barranquilla: reconocimiento, apoyos del Distrito y cobros](https://sportmaps.co/blog/software-escuelas-deportivas-barranquilla)
+- [Software para escuelas deportivas en Bucaramanga y su área metropolitana: INDERBU, escenarios y cobros](https://sportmaps.co/blog/software-escuelas-deportivas-bucaramanga)
+- [Software para escuelas deportivas en el Eje Cafetero: Pereira, Manizales y Armenia](https://sportmaps.co/blog/software-escuelas-deportivas-eje-cafetero)
+
+### Más ciudades
+
+- [Software para escuelas deportivas en Cartagena: reconocimiento ante el IDER, escenarios y cobros](https://sportmaps.co/blog/software-escuelas-deportivas-cartagena)
+- [Software para escuelas deportivas en Santa Marta: INRED, escenarios de los Bolivarianos 2017 y cobros](https://sportmaps.co/blog/software-escuelas-deportivas-santa-marta)
+- [Software para escuelas deportivas en Villavicencio: IMDER, categorización de clubes y cobros](https://sportmaps.co/blog/software-escuelas-deportivas-villavicencio)
+- [Software para escuelas y clubes deportivos en Ibagué: IMDRI, reconocimiento vencido y cobros](https://sportmaps.co/blog/software-escuelas-deportivas-ibague)
+- [Software para escuelas deportivas en Cúcuta: IMRD, escenarios y cobros sin enredos](https://sportmaps.co/blog/software-escuelas-deportivas-cucuta)
+- [Software para escuelas deportivas en Pasto: Pasto Deporte, escenarios en recuperación y cobros](https://sportmaps.co/blog/software-escuelas-deportivas-pasto)
+- [Software para escuelas deportivas en Neiva: Secretaría de Deporte, escenarios y cobros](https://sportmaps.co/blog/software-escuelas-deportivas-neiva)
+- [Software para escuelas deportivas en Montería: IMDER, villas olímpicas, béisbol y cobros](https://sportmaps.co/blog/software-escuelas-deportivas-monteria)
+
+### Para familias
+
+- [Cómo pagar la mensualidad de la escuela deportiva desde el celular](https://sportmaps.co/blog/como-pagar-mensualidad-escuela-deportiva-desde-el-celular)
+- [Carnet digital del deportista: qué es, para qué sirve y cómo usarlo](https://sportmaps.co/blog/carnet-digital-deportista)
+- [Paz y salvo de la escuela deportiva: cómo pedirlo y para qué sirve](https://sportmaps.co/blog/paz-y-salvo-escuela-deportiva)
+- [Informe mensual del deportista: qué debería recibir como papá o mamá](https://sportmaps.co/blog/informe-mensual-del-deportista-para-padres)
+- [Cómo elegir una escuela de fútbol para tu hijo: 10 criterios que sí importan](https://sportmaps.co/blog/como-elegir-escuela-de-futbol-para-tu-hijo)
+- [Datos de menores en escuelas deportivas: qué dice la Ley 1581 y qué hacer](https://sportmaps.co/blog/datos-de-menores-ley-1581-escuelas-deportivas)
+
+### Operación y entrenadores
+
+- [Control de asistencia en una escuela deportiva: lista, carnet QR y torniquetes ZKTeco](https://sportmaps.co/blog/control-de-asistencia-con-qr-y-torniquetes)
+- [Categorías por año de nacimiento en el fútbol formativo: tabla 2026 de la Difútbol y cómo organizar tu escuela](https://sportmaps.co/blog/categorias-por-ano-de-nacimiento-futbol-formativo)
+- [Planificación del entrenamiento por mesociclos en una escuela deportiva: guía práctica](https://sportmaps.co/blog/planificacion-entrenamiento-mesociclos-escuela)
+- [Pizarra táctica digital para entrenadores: jugadas animadas con tu plantel real](https://sportmaps.co/blog/pizarra-tactica-digital-para-entrenadores)
+- [Tienda online para tu escuela deportiva: cómo vender uniformes y kits sin perder el control](https://sportmaps.co/blog/tienda-online-escuela-deportiva-uniformes)
+- [Página web para una escuela deportiva: qué debe tener y cómo tenerla sin pagar un desarrollador](https://sportmaps.co/blog/pagina-web-para-escuela-deportiva)
 
 ## Documentación extendida para IA
 

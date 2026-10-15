@@ -97,7 +97,7 @@ export function SportMapsFooter() {
               </li>
               <li>
                 <Link to="/organizadores" className="text-muted-foreground hover:text-sport-primary transition-colors">
-                  Organizadores Pro
+                  Organizadores
                 </Link>
               </li>
               <li>

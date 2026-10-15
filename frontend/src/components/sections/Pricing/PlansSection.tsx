@@ -73,13 +73,14 @@ function AtletasFreeSection({ selectedClient }: { selectedClient: string }) {
             icon={User}
             badge="Atleta ID"
             title="Tu pasaporte deportivo"
-            description="Historial portable, perfil verificado, eventos cercanos y descuentos en marcas aliadas."
+            description="Tu perfil deportivo con tu escuela. Historial portable, highlights y scouts llegan próximamente."
             benefits={[
-              'Perfil deportivo portable',
-              'Inscripción a eventos sin fricción',
-              'Acceso a rutas y mapa SportMaps',
-              'Estadísticas y video highlights',
-              'Conexión con scouts y patrocinadores',
+              'Tu perfil deportivo en la app de tu escuela',
+              'Asistencia, entrenamientos e informes',
+              'Calendario de prácticas y eventos',
+              'Historial portable: próximamente',
+              'Video highlights: próximamente',
+              'Conexión con scouts: próximamente',
             ]}
             ctaText="Crear Atleta ID gratis"
           />

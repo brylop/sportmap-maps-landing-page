@@ -263,7 +263,7 @@ export const ADDONS: Record<AddonKey, AddonDefinition> = {
   tournaments: {
     key: 'tournaments',
     name: 'Torneos',
-    description: 'Americanos, brackets eliminatorios y ranking PWR.',
+    description: 'Ligas y copas con fixture automático, goleadores, tabla pública e inscripción con cobro.',
     priceCents: 4_900_000,
     setupCents: 0,
     includedIn: ['elite', 'enterprise'],
@@ -321,7 +321,10 @@ export const ADDONS: Record<AddonKey, AddonDefinition> = {
     description: 'PSE, Nequi, tarjetas y transferencias.',
     priceCents: 5_000_000,
     setupCents: 0,
-    includedIn: ['start', 'crecimiento', 'profesional', 'elite', 'enterprise'], // Wompi desde Start
+    // Decisión 2026-10-14: las dos pasarelas (Wompi y MercadoPago) van
+    // incluidas en TODOS los planes, Free Start incluido. priceCents queda
+    // solo como referencia; no se cobra como addon.
+    includedIn: ['starter', 'start', 'crecimiento', 'profesional', 'elite', 'enterprise'],
     salesLed: false,
   },
   mp: {
@@ -330,7 +333,7 @@ export const ADDONS: Record<AddonKey, AddonDefinition> = {
     description: 'Cobros con MercadoPago, billetera y QR.',
     priceCents: 9_000_000,
     setupCents: 0,
-    includedIn: ['elite', 'enterprise'],
+    includedIn: ['starter', 'start', 'crecimiento', 'profesional', 'elite', 'enterprise'], // todos los planes (2026-10-14)
     salesLed: false,
   },
   store: {
@@ -357,10 +360,11 @@ export const ADDONS: Record<AddonKey, AddonDefinition> = {
     key: 'invoicing',
     name: 'Facturación electrónica',
     description:
-      'Emisión de factura electrónica DIAN (Factus). Cobro por volumen de documentos. Incluida en Elite.',
-    priceCents: -1, // por volumen / pass-through del PAC (a definir)
+      'Factura electrónica DIAN (Factus). La integración es gratis en todos los planes; solo pagas el paquete según la cantidad de facturas. Tu contador tiene acceso para revisar el estado.',
+    priceCents: -1, // integración $0; se paga solo el paquete por volumen de documentos
     setupCents: 0,
-    includedIn: ['elite', 'enterprise'],
+    // Decisión 2026-10-14: integración incluida en todos los planes.
+    includedIn: ['starter', 'start', 'crecimiento', 'profesional', 'elite', 'enterprise'],
     salesLed: false,
   },
 };
@@ -434,11 +438,12 @@ export const FEATURES: Record<FeatureKey, FeatureDefinition> = {
     label: 'Coaches',
     minTier: 'starter',
     unit: 'coaches',
+    // Decisión 2026-10-14: entrenadores y staff ILIMITADOS en todos los planes.
     limits: {
-      starter: 1,
-      start: 3,
-      crecimiento: 5,
-      profesional: 10,
+      starter: -1,
+      start: -1,
+      crecimiento: -1,
+      profesional: -1,
       elite: -1,
       enterprise: -1,
     },
@@ -539,16 +544,16 @@ export const FEATURES: Record<FeatureKey, FeatureDefinition> = {
   payments_online_addon: {
     key: 'payments_online_addon',
     kind: 'tier',
-    minTier: 'start',
-    label: 'Pasarela online (addon)',
-    description: 'Wompi o MercadoPago activable como addon.',
+    minTier: 'starter',
+    label: 'Pasarela online (Wompi + MercadoPago)',
+    description: 'Wompi y MercadoPago incluidos en todos los planes.',
   },
   payments_online_included: {
     key: 'payments_online_included',
     kind: 'tier',
-    minTier: 'profesional',
+    minTier: 'starter',
     label: 'Pasarela online incluida',
-    description: 'Profesional incluye 1 pasarela. Elite incluye ambas.',
+    description: 'Todos los planes incluyen Wompi y MercadoPago.',
   },
 
   // ---------- Marketplace ----------

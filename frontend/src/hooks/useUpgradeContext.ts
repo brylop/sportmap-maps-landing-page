@@ -14,7 +14,7 @@
  *
  * Source of truth de URLs:
  *   - VITE_BFF_URL     → BFF (default: https://sportmaps-bff.onrender.com)
- *   - VITE_APP_URL     → admin app (default: https://stg.sportmaps.co)
+ *   - VITE_APP_URL     → admin app (default: https://app.sportmaps.co)
  */
 
 import { useEffect, useState, useMemo, useCallback } from 'react';
@@ -232,7 +232,7 @@ export function useUpgradeContext() {
                     };
                 }
 
-                const res = await fetch(`${BFF_URL}/api/v1/upgrade-requests`, {
+                const res = await fetch(`${resolveBffUrl()}/api/v1/upgrade-requests`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -279,7 +279,7 @@ export function useUpgradeContext() {
         } else {
             const appUrl =
                 (import.meta as any).env?.VITE_APP_URL ||
-                'https://stg.sportmaps.co';
+                'https://app.sportmaps.co';
             window.location.href = `${appUrl}/mi-plan`;
         }
     }, [deepLink.returnTo]);

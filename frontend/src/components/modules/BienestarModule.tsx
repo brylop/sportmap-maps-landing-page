@@ -1,33 +1,33 @@
 import { motion } from "framer-motion";
-import { Heart, Video, Activity, Lock, Calendar, Brain, Monitor, Stethoscope, Shield, Users } from "lucide-react";
+import { Heart, Activity, Calendar, Users, FileText, Monitor, Shield, School } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 export function BienestarModule() {
   const services = [
     {
-      icon: Video,
-      title: "Consulta Virtual",
-      description: "Conexión directa con especialistas certificados desde casa con videollamada HD y historial médico completo.",
-      badges: ["HD Video", "Historial"],
+      icon: Calendar,
+      title: "Agenda y pacientes",
+      description: "Organiza tus citas y la lista de deportistas que atiendes en la escuela, en un solo lugar.",
+      badges: ["Agenda", "Pacientes"],
       color: "sport-wellness",
-      stats: "24/7 disponible"
+      stats: "Fisio de tu escuela"
     },
     {
-      icon: Activity,
-      title: "Monitoreo Inteligente",
-      description: "Integración con dispositivos wearables para seguimiento de métricas vitales y prevención de lesiones.",
-      badges: ["Wearables", "Alertas IA"],
+      icon: FileText,
+      title: "Historia clínica",
+      description: "Registro de la historia clínica según la Resolución 1995 de 1999, con acceso solo del profesional a cargo.",
+      badges: ["Res. 1995", "Lesiones"],
       color: "sport-primary",
-      stats: "Tiempo real"
+      stats: "Registro de lesiones"
     },
     {
-      icon: Lock,
-      title: "Máxima Seguridad",
-      description: "Protección total de datos médicos con encriptación avanzada y cumplimiento normativo internacional.",
-      badges: ["Encriptado", "HIPAA"],
+      icon: Shield,
+      title: "Consentimiento del acudiente",
+      description: "Para menores de edad, el acudiente autoriza la atención y el tratamiento de sus datos de salud (Ley 1581 de 2012).",
+      badges: ["Ley 1581", "Menores"],
       color: "sport-accent",
-      stats: "100% seguro"
+      stats: "Autorización previa"
     }
   ];
 
@@ -35,37 +35,31 @@ export function BienestarModule() {
     {
       icon: Heart,
       name: "Fisioterapia Deportiva",
-      description: "Especialistas en recuperación y prevención de lesiones",
+      description: "Recuperación y prevención de lesiones de los deportistas de la escuela",
       image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=300&fit=crop",
-      professionals: "45+ especialistas"
+      professionals: "Agenda + historia clínica"
     },
     {
-      icon: Brain,
-      name: "Psicología del Rendimiento",
-      description: "Optimiza tu mente para el máximo rendimiento",
-      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=300&fit=crop",
-      professionals: "30+ psicólogos"
-    },
-    {
-      icon: Calendar,
-      name: "Planes Personalizados",
-      description: "Recuperación adaptada a tus necesidades",
+      icon: Activity,
+      name: "Registro de Lesiones",
+      description: "Tipo, fecha y evolución de cada lesión",
       image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=300&fit=crop",
-      professionals: "Plan individual"
+      professionals: "Por deportista"
     },
     {
-      icon: Stethoscope,
-      name: "Análisis Biomecánico",
-      description: "Evaluación avanzada de movimiento y técnica",
+      icon: Users,
+      name: "Pacientes",
+      description: "Ficha del deportista con los datos del acudiente",
+      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=300&fit=crop",
+      professionals: "Datos del acudiente"
+    },
+    {
+      icon: School,
+      name: "Conectado con la Escuela",
+      description: "La escuela te vincula y atiendes a sus deportistas",
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=300&fit=crop",
-      professionals: "Tecnología 3D"
+      professionals: "Wellness Pro $59.000/mes"
     }
-  ];
-
-  const stats = [
-    { icon: Users, value: "200+", label: "Profesionales Certificados" },
-    { icon: Heart, value: "10K+", label: "Consultas Realizadas" },
-    { icon: Shield, value: "99.9%", label: "Confianza del Usuario" }
   ];
 
   return (
@@ -91,30 +85,12 @@ export function BienestarModule() {
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <h2 className="text-3xl sm:text-4xl font-bold text-sport-text">Bienestar & Salud</h2>
-                <Badge className="bg-sport-wellness text-white">Teleconsulta</Badge>
+                <Badge className="bg-sport-wellness text-white">Fisio de tu escuela</Badge>
               </div>
               <p className="text-base sm:text-lg text-sport-text/80">
-                Cuidado integral del deportista con profesionales certificados. Fisioterapia, psicología deportiva y monitoreo 24/7 para máximo rendimiento.
+                Para el fisio y los profesionales de salud de la escuela: agenda, pacientes, registro de lesiones, historia clínica según la Resolución 1995 y consentimiento del acudiente (Ley 1581). El cobro de consultas dentro de la app llega próximamente.
               </p>
             </div>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 mb-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-sport-background/60 backdrop-blur-sm rounded-xl p-4 text-center"
-              >
-                <stat.icon className="w-8 h-8 mx-auto mb-2 text-sport-wellness" />
-                <div className="text-2xl font-bold text-sport-text">{stat.value}</div>
-                <div className="text-xs text-sport-text/70">{stat.label}</div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </motion.div>
@@ -223,7 +199,7 @@ export function BienestarModule() {
         >
           <Button size="lg" className="bg-gradient-tech-primary text-white px-8 rounded-full hover:shadow-glow-primary">
             <Calendar className="w-5 h-5 mr-2" />
-            Agendar Consulta
+            Solicitar demo
           </Button>
         </motion.div>
       </motion.div>

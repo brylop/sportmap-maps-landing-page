@@ -11,7 +11,7 @@ import { NetworkSection } from "./NetworkSection";
 
 // New organized sections
 import { PricingHeroSection, PlansSection, ComparisonSection } from "./Pricing";
-import { PainPointsSection, SponsorshipsSection } from "./ValueProp";
+import { PainPointsSection, SponsorshipsSection, WhatsAppSection } from "./ValueProp";
 import { CTAFinalSection } from "./CTA";
 import { TestimonialsSection } from "./Testimonials";
 
@@ -45,7 +45,11 @@ export function HomeContent({ onDemoClick, onModuleClick }: HomeContentProps) {
       <AnimatedSection direction="up" delay={0.1}>
         <PainPointsSection />
       </AnimatedSection>
-      
+
+      <AnimatedSection direction="up" delay={0.1}>
+        <WhatsAppSection />
+      </AnimatedSection>
+
       <AnimatedSection direction="fade" delay={0.1}>
         <ComparisonSection />
       </AnimatedSection>

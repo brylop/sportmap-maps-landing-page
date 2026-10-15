@@ -28,7 +28,12 @@ import { SEO } from "@/components/SEO";
 import { SportMapsFooter } from "@/components/SportMapsFooter";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { DemoRequestModal } from "@/components/modals/DemoRequestModal";
+import { salesWhatsappLink } from "@/lib/whatsappFallback";
 import { motion } from "framer-motion";
+
+const ORGANIZER_WAITLIST_URL = salesWhatsappLink(
+  "Hola SportMaps, organizo eventos deportivos y quiero entrar a la lista de espera / piloto gratis de 1 mes para organizadores."
+);
 
 const painPoints = [
   {
@@ -38,57 +43,52 @@ const painPoints = [
   },
   {
     problem: "Excel interminable de inscritos",
-    solution: "Panel de gestión con inscripciones automáticas",
+    solution: "Las escuelas se inscriben por un enlace",
     icon: ClipboardList
   },
   {
     problem: "Persigues pagos y comprobantes",
-    solution: "Validación de pagos integrada sin comisión",
+    solution: "Cobro de inscripción con comprobante que tú apruebas",
     icon: CreditCard
-  },
-  {
-    problem: "Nadie encuentra tu evento",
-    solution: "Apareces en el mapa de SportMaps 24/7",
-    icon: MapPin
   }
 ];
 
 const features = [
   {
-    title: "Crea Eventos en 1 Minuto",
-    description: "Nombre, fecha, ubicación, cupos y precio. Sin formularios eternos, sin complicaciones.",
+    title: "Torneos desde tu Escuela",
+    description: "Con el adicional Torneos, la escuela crea el torneo con sus categorías y precios.",
     icon: Calendar,
     color: "text-sport-primary"
   },
   {
-    title: "Página Pública Automática",
-    description: "Cada evento genera una página profesional que funciona en móvil sin login requerido.",
+    title: "Tabla Pública",
+    description: "Tabla de posiciones y goleadores en una página pública, sin necesidad de iniciar sesión.",
     icon: Globe,
     color: "text-sport-success"
   },
   {
-    title: "Link Único Compartible",
-    description: "Un solo link para WhatsApp, Instagram, email. Reemplaza flyers, PDFs y mensajes largos.",
+    title: "Inscripción por Enlace",
+    description: "Un solo enlace para que las escuelas inscriban a sus deportistas. Compártelo por WhatsApp o Instagram.",
     icon: Link2,
     color: "text-sport-accent"
   },
   {
-    title: "Mapa como Descubrimiento",
-    description: "Tu evento aparece como pin en el mapa. Nuevos participantes te encuentran sin promoción.",
-    icon: MapPin,
+    title: "Fixture de Liga o Copa",
+    description: "Arma el fixture en formato liga o copa a partir de los equipos inscritos.",
+    icon: ClipboardList,
     color: "text-sport-info"
   },
   {
-    title: "Inscripciones Sin Fricción",
-    description: "Nombre, WhatsApp, comprobante opcional. Cero apps, cero registros complejos.",
-    icon: Users,
-    color: "text-sport-highlight"
-  },
-  {
-    title: "Pagos Sin Comisión",
-    description: "SportMaps NO cobra comisión. Usa transferencia, efectivo o pasarela opcional.",
+    title: "Cobro con Comprobante",
+    description: "Cada escuela sube su comprobante de pago y tú lo apruebas. SportMaps no cobra comisión por inscripción.",
     icon: CreditCard,
     color: "text-sport-warning"
+  },
+  {
+    title: "Boletería, Check-in y Plan por Evento",
+    description: "Próximamente. Hoy no están disponibles.",
+    icon: QrCode,
+    color: "text-sport-text-secondary"
   }
 ];
 
@@ -101,30 +101,8 @@ const eventTypes = [
   { name: "Competencias", emoji: "🎯" }
 ];
 
-const testimonials = [
-  {
-    name: "Laura Gómez",
-    role: "Directora, Festival Cheer Colombia",
-    quote: "Dejamos de responder 500 mensajes con la misma información. Ahora todos van al link y se inscriben solos.",
-    rating: 5
-  },
-  {
-    name: "Ricardo Mendoza",
-    role: "Organizador, Copa Natación Junior",
-    quote: "El mapa nos trajo participantes de ciudades que ni habíamos promocionado. Descubrimiento orgánico real.",
-    rating: 5
-  },
-  {
-    name: "Patricia Ruiz",
-    role: "Academia de Gimnasia Artística",
-    quote: "Sin comisiones significa que todo el dinero va a nuestro evento. Simple y directo como debe ser.",
-    rating: 5
-  }
-];
-
 const differentiators = [
-  { text: "Mapa como motor, no adorno", icon: MapPin },
-  { text: "Link > App", icon: Link2 },
+  { text: "Inscripción por enlace", icon: Link2 },
   { text: "Sin comisión", icon: CreditCard },
   { text: "Mobile first", icon: Smartphone },
   { text: "Funciona para cualquier deporte", icon: Star }
@@ -139,7 +117,7 @@ export default function Eventos() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO 
         title="Organiza Eventos Deportivos Sin Caos | SportMaps"
-        description="Crea eventos deportivos, comparte un link único, recibe inscripciones automáticas y aparece en el mapa. Sin comisiones, sin WhatsApp interminable."
+        description="Torneos para escuelas con el adicional Torneos: inscripción por enlace, cobro con comprobante, fixture de liga o copa y tabla pública. Organizadores independientes: lista de espera y piloto gratis de un mes."
         url="https://sportmaps.co/eventos"
         canonical="https://sportmaps.co/eventos"
         keywords="organizar eventos deportivos, inscripciones torneos, gestión eventos deportivos, festivales deportivos Colombia, campeonatos deportivos"
@@ -160,8 +138,10 @@ export default function Eventos() {
               <p className="text-xs text-sport-text-secondary hidden sm:block">Organiza sin organizar personas</p>
             </div>
           </div>
-          <Button onClick={openModal} className="bg-sport-primary hover:bg-sport-primary/90">
-            Crear Evento
+          <Button asChild className="bg-sport-primary hover:bg-sport-primary/90">
+            <a href={ORGANIZER_WAITLIST_URL} target="_blank" rel="noopener noreferrer">
+              Lista de espera
+            </a>
           </Button>
         </div>
       </header>
@@ -177,7 +157,7 @@ export default function Eventos() {
             >
               <Badge className="mb-4 bg-sport-accent/10 text-sport-accent border-sport-accent/30">
                 <Calendar className="w-3 h-3 mr-1" />
-                Nuevo módulo de eventos
+                Para escuelas con el adicional Torneos
               </Badge>
               
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -188,8 +168,10 @@ export default function Eventos() {
               </h2>
               
               <p className="text-lg md:text-xl text-sport-text-secondary max-w-2xl mx-auto mb-6">
-                Crea un evento en 1 minuto, comparte un link único, recibe inscripciones automáticas 
-                y aparece en el mapa de SportMaps. <strong>Sin comisiones.</strong>
+                Hoy la creación de eventos y torneos es para <strong>escuelas con el adicional
+                Torneos</strong>: inscripción de escuelas por enlace, cobro con comprobante, fixture
+                y tabla pública. ¿Organizas por tu cuenta? Únete a la lista de espera o pide un
+                piloto gratis de un mes.
               </p>
 
               {/* Frase guía */}
@@ -198,28 +180,30 @@ export default function Eventos() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   onClick={openModal}
                   className="bg-gradient-to-r from-sport-accent to-sport-primary hover:shadow-glow-accent text-white px-8 py-6 text-lg font-bold rounded-full"
                 >
                   <Play className="w-5 h-5 mr-2" />
-                  Crear Mi Primer Evento
+                  Soy una escuela
                 </Button>
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   variant="outline"
-                  onClick={openModal}
+                  asChild
                   className="border-sport-accent text-sport-accent hover:bg-sport-accent hover:text-white px-8 py-6 text-lg rounded-full"
                 >
-                  <Clock className="w-5 h-5 mr-2" />
-                  Ver Demo de 5 min
+                  <a href={ORGANIZER_WAITLIST_URL} target="_blank" rel="noopener noreferrer">
+                    <Clock className="w-5 h-5 mr-2" />
+                    Organizador independiente: lista de espera
+                  </a>
                 </Button>
               </div>
 
               <p className="text-sm text-sport-text-secondary mt-4 flex items-center justify-center gap-2">
                 <Shield className="w-4 h-4" />
-                Sin comisiones • Evento listo en 1 minuto
+                Sin comisión por inscripción · Piloto gratis 1 mes para organizadores
               </p>
             </motion.div>
           </div>
@@ -294,10 +278,10 @@ export default function Eventos() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {[
-              { step: "1", title: "Crea tu evento", desc: "Nombre, fecha, lugar, cupos, precio", icon: Calendar },
-              { step: "2", title: "Comparte el link", desc: "WhatsApp, Instagram, email", icon: Share2 },
-              { step: "3", title: "Recibe inscritos", desc: "Sin Excel, sin mensajes", icon: Users },
-              { step: "4", title: "Apareces en el mapa", desc: "Nuevos participantes te encuentran", icon: MapPin }
+              { step: "1", title: "Crea el torneo", desc: "Desde tu escuela: categorías y precios", icon: Calendar },
+              { step: "2", title: "Comparte el enlace", desc: "WhatsApp, Instagram, email", icon: Share2 },
+              { step: "3", title: "Recibe inscritos", desc: "Las escuelas se inscriben y pagan con comprobante", icon: Users },
+              { step: "4", title: "Publica la tabla", desc: "Fixture, goleadores y tabla pública", icon: MapPin }
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -351,10 +335,10 @@ export default function Eventos() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-10">
               <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                Funcionalidad completa
+                Lo que tienes hoy
               </h3>
               <p className="text-sport-text-secondary max-w-2xl mx-auto">
-                Todo lo que necesitas para organizar eventos sin caos
+                Disponible para escuelas con el adicional Torneos
               </p>
             </div>
 
@@ -405,67 +389,33 @@ export default function Eventos() {
           </div>
         </section>
 
-        {/* Testimonials */}
-        <section className="py-12 md:py-16 container mx-auto px-4">
-          <div className="text-center mb-10">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Organizadores que ya lo usan
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="h-full border-sport-border bg-sport-card">
-                  <CardContent className="p-6">
-                    <div className="flex gap-1 mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-sport-warning text-sport-warning" />
-                      ))}
-                    </div>
-                    <p className="text-foreground mb-4 italic">"{testimonial.quote}"</p>
-                    <div>
-                      <p className="font-semibold text-foreground">{testimonial.name}</p>
-                      <p className="text-sm text-sport-text-secondary">{testimonial.role}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
         {/* Final CTA Section */}
         <section className="py-16 md:py-20 container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center bg-gradient-to-br from-sport-accent/10 to-sport-primary/10 rounded-3xl p-8 md:p-12 border border-sport-accent/20">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              ¿Listo para organizar sin caos?
+              ¿Organizas eventos sin tener una escuela?
             </h3>
             <p className="text-sport-text-secondary mb-8 max-w-xl mx-auto">
-              Crea tu primer evento en 1 minuto. Sin comisiones, sin mensajes repetidos, sin Excel.
+              Estamos abriendo SportMaps a organizadores independientes. Únete a la lista de espera o pide un piloto gratis de un mes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                onClick={openModal}
+              <Button
+                size="lg"
+                asChild
                 className="bg-gradient-to-r from-sport-accent to-sport-primary text-white px-8 py-6 text-lg font-bold rounded-full hover:shadow-glow-accent"
               >
-                <Calendar className="w-5 h-5 mr-2" />
-                Crear Mi Evento Ahora
+                <a href={ORGANIZER_WAITLIST_URL} target="_blank" rel="noopener noreferrer">
+                  <Calendar className="w-5 h-5 mr-2" />
+                  Unirme a la lista de espera
+                </a>
               </Button>
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 variant="outline"
                 onClick={openModal}
                 className="border-sport-accent text-sport-accent hover:bg-sport-accent hover:text-white px-8 py-6 text-lg rounded-full"
               >
-                Hablar con un Asesor
+                Soy una escuela: activar Torneos
               </Button>
             </div>
           </div>

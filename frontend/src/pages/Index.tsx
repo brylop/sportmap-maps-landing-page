@@ -46,7 +46,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="SportMaps | El sistema operativo del deporte en Colombia"
+        title="El sistema operativo del deporte en Colombia"
         description="Gestiona y cobra en tu academia, conéctate con familias, marcas y torneos. Pagos recurrentes, asistencia y facturación electrónica en una sola plataforma. El ecosistema deportivo #1 de Colombia."
         url="https://sportmaps.co"
         canonical="https://sportmaps.co"
@@ -70,6 +70,9 @@ export default function Index() {
             <InteractiveFeatures
               selectedClient={selectedClient}
               setSelectedClient={setSelectedClient}
+              onPricingClick={() => {
+                window.location.href = '/planes';
+              }}
             />
           </AnimatedSection>
         </div>

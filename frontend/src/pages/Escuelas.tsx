@@ -67,7 +67,7 @@ const features = [
   },
   {
     title: "Reservas Online 24/7",
-    description: "Calendario inteligente, gestión de cupos, notificaciones automáticas y lista de espera.",
+    description: "Calendario, gestión de cupos y avisos automáticos a las familias cuando algo cambia.",
     icon: Calendar,
     color: "text-sport-accent"
   },
@@ -85,7 +85,7 @@ const features = [
   },
   {
     title: "Certificaciones Digitales",
-    description: "Genera diplomas y certificados automáticamente con verificación blockchain.",
+    description: "Genera diplomas y certificados automáticamente, verificables en línea con su folio.",
     icon: Award,
     color: "text-sport-warning"
   }
