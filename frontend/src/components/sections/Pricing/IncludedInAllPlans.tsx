@@ -10,7 +10,7 @@ import { MessageCircle, CreditCard, FileText, Users, Globe, PenTool } from "luci
 const ITEMS = [
   {
     icon: MessageCircle,
-    title: "WhatsApp IA gratis",
+    title: "Mapi, tu WhatsApp IA, gratis",
     body: "Lee el comprobante y responde en menos de un minuto (mediana real: 42 s), y te lo deja listo para aprobar. Solo le pagas a Meta si te excedes de los mensajes gratis del mes.",
     roles: "all",
   },

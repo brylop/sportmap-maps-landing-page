@@ -1,3 +1,4 @@
+import { postImage } from "@/lib/blog-images";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
@@ -103,10 +104,13 @@ const Blog = () => {
             <Link to={`/blog/${featured.slug}`} className="group block">
               <Card className="overflow-hidden hover:border-sport-primary/40 transition-all duration-300 hover:-translate-y-1">
                 <div className="grid md:grid-cols-2">
-                  <div
-                    className={`aspect-[16/9] md:aspect-auto bg-gradient-to-br ${featured.heroGradient} flex items-center justify-center`}
-                  >
-                    <span className="text-7xl">📰</span>
+                  <div className={`aspect-[16/9] md:aspect-auto md:min-h-[280px] bg-gradient-to-br ${featured.heroGradient} overflow-hidden`}>
+                    <img
+                      src={postImage(featured, 1000)}
+                      alt=""
+                      loading="eager"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
                   <CardContent className="p-8 md:p-10 flex flex-col justify-center">
                     <Badge className="mb-3 w-fit bg-sport-primary/10 text-sport-primary border-sport-primary/30">
@@ -152,10 +156,13 @@ const Blog = () => {
               >
                 <Link to={`/blog/${post.slug}`} className="group block h-full">
                   <Card className="h-full overflow-hidden hover:border-sport-primary/40 transition-all duration-300 hover:-translate-y-1 flex flex-col">
-                    <div
-                      className={`aspect-[16/9] bg-gradient-to-br ${post.heroGradient} flex items-center justify-center shrink-0`}
-                    >
-                      <span className="text-5xl">📊</span>
+                    <div className={`aspect-[16/9] bg-gradient-to-br ${post.heroGradient} overflow-hidden shrink-0`}>
+                      <img
+                        src={postImage(post, 640)}
+                        alt=""
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
                     <CardContent className="p-6 flex-1 flex flex-col">
                       <Badge variant="outline" className="mb-3 w-fit text-xs">

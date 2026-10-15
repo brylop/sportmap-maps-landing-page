@@ -1,3 +1,4 @@
+import { postImage } from "@/lib/blog-images";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
@@ -99,7 +100,7 @@ export default function BlogPost() {
       "@type": "WebPage",
       "@id": canonical,
     },
-    image: post.image ?? "https://app.sportmaps.co/sportmaps-logo.png",
+    image: postImage(post, 1200),
     articleSection: post.category,
     wordCount,
     // Habilita citas en asistentes de voz y respuestas cortas (ChatGPT/Gemini)
@@ -162,6 +163,7 @@ export default function BlogPost() {
         url={canonical}
         canonical={canonical}
         type="article"
+        image={postImage(post, 1200)}
         keywords={`${post.category.toLowerCase()}, ${post.title.toLowerCase()}`}
       />
       <Helmet>
@@ -226,11 +228,9 @@ export default function BlogPost() {
             </div>
           </motion.header>
 
-          {/* Hero image placeholder */}
-          <div
-            className={`aspect-[2/1] rounded-2xl mb-12 bg-gradient-to-br ${post.heroGradient} flex items-center justify-center`}
-          >
-            <span className="text-6xl">📊</span>
+          {/* Portada: foto real (src/lib/blog-images.ts) */}
+          <div className={`aspect-[2/1] rounded-2xl mb-12 bg-gradient-to-br ${post.heroGradient} overflow-hidden`}>
+            <img src={postImage(post, 1400)} alt="" loading="eager" className="w-full h-full object-cover" />
           </div>
 
           {/* Body */}
@@ -275,9 +275,9 @@ export default function BlogPost() {
               {related.map((r) => (
                 <Link key={r.slug} to={`/blog/${r.slug}`} className="group">
                   <Card className="h-full hover:border-sport-primary/40 transition-colors">
-                    <div
-                      className={`aspect-[16/9] rounded-t-xl bg-gradient-to-br ${r.heroGradient}`}
-                    />
+                    <div className={`aspect-[16/9] rounded-t-xl bg-gradient-to-br ${r.heroGradient} overflow-hidden`}>
+                      <img src={postImage(r, 640)} alt="" loading="lazy" className="w-full h-full object-cover" />
+                    </div>
                     <CardContent className="p-5">
                       <Badge variant="outline" className="mb-3 text-xs">
                         {r.category}

@@ -132,7 +132,21 @@ export function SegmentedHero({ onScrollToMap }: SegmentedHeroProps) {
             <Zap className="w-4 h-4 text-sport-accent" />
           </motion.div>
 
-          {/* Main Title — Maki (decisión 2026-10-15). No usar "Cobra las
+          {/* Mapi, el asistente de WhatsApp IA (lémur con gafas de SportMaps). */}
+          <motion.img
+            src="/mapi/mapi-400.webp"
+            srcSet="/mapi/mapi-400.webp 400w, /mapi/mapi-800.webp 800w"
+            sizes="(max-width: 768px) 160px, 220px"
+            alt="Mapi, el asistente de WhatsApp IA de SportMaps"
+            width={220}
+            height={212}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="mx-auto w-40 md:w-[220px] h-auto drop-shadow-xl"
+          />
+
+          {/* Main Title — Mapi (decisión 2026-10-15). No usar "Cobra las
               mensualidades sin perseguir a nadie": es la frase de ClubesHub. */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -142,7 +156,7 @@ export function SegmentedHero({ onScrollToMap }: SegmentedHeroProps) {
           >
             <span className="text-foreground">Tú no revisas comprobantes. </span>
             <span className="bg-gradient-to-r from-sport-primary to-sport-accent bg-clip-text text-transparent">
-              Maki sí.
+              Mapi sí.
             </span>
           </motion.h1>
 
@@ -153,7 +167,7 @@ export function SegmentedHero({ onScrollToMap }: SegmentedHeroProps) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-2xl text-sport-text-secondary max-w-3xl mx-auto font-light"
           >
-            Maki es el asistente de IA de SportMaps: lee cada comprobante de Nequi, Bre-B o
+            Mapi es el asistente de IA de SportMaps: lee cada comprobante de Nequi, Bre-B o
             transferencia, valida monto y referencia y detecta los repetidos en segundos. Tú solo
             apruebas. Además, la factura DIAN sale sola.
           </motion.p>
@@ -203,14 +217,14 @@ export function SegmentedHero({ onScrollToMap }: SegmentedHeroProps) {
               <span className="relative z-10 ml-2 text-xs font-normal opacity-90">sin tarjeta</span>
               <div className="absolute inset-0 bg-gradient-to-r from-sport-accent to-sport-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </Button>
-            {/* TODO: cuando exista el video de 8 s de Maki, este botón lo abre. */}
+            {/* TODO: cuando exista el video de 8 s de Mapi, este botón lo abre. */}
             <Button
               onClick={() => { window.location.href = "/blog/validacion-de-pagos-con-ia-en-segundos-whatsapp"; }}
               size="lg"
               variant="ghost"
               className="px-8 py-7 text-lg font-semibold rounded-full text-sport-text-secondary hover:text-sport-primary group"
             >
-              Mira a Maki en acción
+              Mira a Mapi en acción
               <ArrowDown className="w-5 h-5 ml-2 -rotate-90 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
           </motion.div>

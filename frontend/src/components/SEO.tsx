@@ -46,7 +46,7 @@ const organizationSchema = {
     contentUrl: 'https://app.sportmaps.co/sportmaps-logo.png',
   },
   image: 'https://app.sportmaps.co/sportmaps-logo.png',
-  description: 'Plataforma colombiana para escuelas y clubes deportivos: cobros con Wompi, Mercado Pago y Bre-B, y Maki, el asistente de WhatsApp IA que lee los comprobantes.',
+  description: 'Plataforma colombiana para escuelas y clubes deportivos: cobros con Wompi, Mercado Pago y Bre-B, y Mapi, el asistente de WhatsApp IA que lee los comprobantes.',
   foundingDate: '2025',
   founder: {
     '@type': 'Person',

@@ -33,7 +33,7 @@ const SobreNosotros = () => {
     // Datos confirmados por el usuario el 2026-10-15 (fundación 2025, Bogotá).
     // Cifras: base de producción, corte 14 oct 2026, igual que /casos-exito.
     { year: "2025", title: "Fundación", description: "SportMaps nace en Bogotá para que las escuelas deportivas dejen de perseguir pagos" },
-    { year: "Jul 2026", title: "Primer gran club", description: "Dynasty Volley Club conecta a Maki, el asistente de WhatsApp IA, y empieza a facturar con la DIAN" },
+    { year: "Jul 2026", title: "Primer gran club", description: "Dynasty Volley Club conecta a Mapi, el asistente de WhatsApp IA, y empieza a facturar con la DIAN" },
     { year: "Oct 2026", title: "Operación real", description: "Más de 1.100 deportistas activos y más de $184 millones en mensualidades gestionadas" }
   ];
 
@@ -194,7 +194,7 @@ const SobreNosotros = () => {
               { value: "1.100+", label: "Deportistas activos" },
               { value: "$184M+", label: "En mensualidades gestionadas" },
               { value: "334", label: "Facturas aceptadas por la DIAN" },
-              { value: "42 s", label: "Respuesta mediana de Maki" }
+              { value: "42 s", label: "Respuesta mediana de Mapi" }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}

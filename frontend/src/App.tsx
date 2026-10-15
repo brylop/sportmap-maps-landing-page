@@ -45,6 +45,7 @@ const Clubes = lazy(() => import("./pages/Clubes"));
 const Club = lazy(() => import("./pages/Club"));
 const QueEsSportMaps = lazy(() => import("./pages/QueEsSportMaps"));
 const SportMapsEnTuPais = lazy(() => import("./pages/SportMapsEnTuPais"));
+const CobrarConBreB = lazy(() => import("./pages/CobrarConBreB"));
 const Comparar = lazy(() => import("./pages/Comparar"));
 const Calculadora = lazy(() => import("./pages/Calculadora"));
 const HelpArticle = lazy(() => import("./pages/HelpArticle"));
@@ -69,6 +70,7 @@ const App = () => (
               <Route path="/clubes/:slug" element={<Club />} />
               <Route path="/que-es-sportmaps" element={<QueEsSportMaps />} />
               <Route path="/sportmaps-en-tu-pais" element={<SportMapsEnTuPais />} />
+              <Route path="/cobrar-con-bre-b" element={<CobrarConBreB />} />
               <Route path="/comparar/:competidor" element={<Comparar />} />
               <Route path="/calculadora" element={<Calculadora />} />
               <Route path="/ayuda" element={<CentroAyuda />} />

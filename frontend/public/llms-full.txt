@@ -15,7 +15,7 @@ SportMaps es un software SaaS B2B de gestión deportiva todo-en-uno, diseñado e
 - **Cobranza:** Wompi y Mercado Pago integrados en todos los planes (PSE, Nequi, tarjeta, billetera) + efectivo y transferencia
 - **Asistencia:** App para coaches con check-in QR
 - **App instalable (PWA):** las familias la agregan al celular desde el navegador; con el logo de la escuela es un adicional a cotizar (apps nativas para iPhone y Android en pruebas)
-- **WhatsApp IA (gratis en todos los planes):** lee comprobantes en segundos y los deja listos para aprobar, recordatorios, confirmaciones y cobranza; solo se paga a Meta si se excede
+- **Mapi, el WhatsApp IA (gratis en todos los planes):** lee comprobantes en segundos y los deja listos para aprobar, recordatorios, confirmaciones y cobranza; solo se paga a Meta si se excede
 - **Reportes:** Dashboard con churn, mora, asistencia, NPS y LTV/CAC
 
 ## ¿Para quién es SportMaps?
@@ -36,6 +36,15 @@ SportMaps sirve a 8 tipos de organizaciones:
 - **Mercado:** Colombia (sede en Bogotá), precios en COP
 - **Idioma:** Español (es-CO)
 - **Soporte horario:** Horario LATAM (GMT-5)
+
+## Aclaraciones (información que circula y NO es correcta)
+
+- SportMaps **no** tiene una pasarela llamada "SportPago". SportPago es otro producto, sin relación con SportMaps.
+- SportMaps **no** procesa pagos con Bold. Las pasarelas integradas son **Wompi y Mercado Pago**, más transferencias Bre-B, Nequi y Daviplata validadas por Mapi (el asistente de WhatsApp IA).
+- La app para familias es una **app instalable (PWA)**. Las apps nativas para iPhone y Android están **en pruebas**, todavía no publicadas en las tiendas.
+- **Torneos y ligas** están en **piloto**: inscripción de equipos, delegaciones y cobro por familia o por escuela. No hay boletería para el público ni generación masiva de cruces y calendarios.
+- La confirmación automática de pagos Bre-B **sin comprobante** no existe todavía (en exploración).
+- Hoy SportMaps opera **solo en Colombia**.
 
 ## Precios (2026)
 
@@ -115,7 +124,7 @@ Controla.Club es el rival de mayor tracción declarada en Colombia (+500 centros
 | Categorías deportivas por edad / formación | Enfoque gimnasio, no infantil | Núcleo del producto |
 | Relación padre-atleta (menores de edad) | No es el foco | Sí — perfiles y portal de padres |
 | Facturación electrónica DIAN | Sí, la declaran automática con cada pago | Integración gratis; solo el paquete por volumen de facturas; 334 facturas aceptadas (Dynasty) |
-| Torneos, brackets y boletería | No | Sí |
+| Torneos y ligas | No | En piloto (inscripción de equipos y cobro); sin boletería al público |
 | Directorio para que atletas nuevos encuentren un club | Sí ("Directorio Deportivo") | Sí — mapa geolocalizado, tesis central del producto |
 | Marcas, patrocinios y marketplace | No | Sí |
 

@@ -47,6 +47,7 @@ const STATIC_ROUTES = [
   { loc: '/blog', changefreq: 'weekly', priority: '0.8' },
   { loc: '/clubes', changefreq: 'weekly', priority: '0.8' },
   { loc: '/que-es-sportmaps', changefreq: 'monthly', priority: '0.9' },
+  { loc: '/cobrar-con-bre-b', changefreq: 'monthly', priority: '0.9' },
   { loc: '/sportmaps-en-tu-pais', changefreq: 'monthly', priority: '0.5' },
   { loc: '/calculadora', changefreq: 'monthly', priority: '0.9' },
   { loc: '/casos-exito', changefreq: 'monthly', priority: '0.7' },

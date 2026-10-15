@@ -21,7 +21,7 @@ import { Card, CardContent } from "@/components/ui/card";
 const SITE_URL = "https://sportmaps.co";
 
 const DEFINICION =
-  "SportMaps es una plataforma colombiana para escuelas y clubes deportivos formativos. Empieza por lo que más duele, cobrar las mensualidades: las familias pagan con Wompi, Mercado Pago o transferencia (Bre-B, Nequi) y el asistente de WhatsApp con IA lee cada comprobante y lo deja listo para aprobar. Desde ahí conecta al deportista, su familia, los entrenadores y los profesionales de la salud en un solo lugar.";
+  "SportMaps es una plataforma colombiana para escuelas y clubes deportivos formativos. Empieza por lo que más duele, cobrar las mensualidades: las familias pagan con Wompi, Mercado Pago o transferencia (Bre-B, Nequi) y Mapi, el asistente de WhatsApp con IA, lee cada comprobante y lo deja listo para aprobar. Desde ahí conecta al deportista, su familia, los entrenadores y los profesionales de la salud en un solo lugar.";
 
 const GLOSARIO: { term: string; def: string }[] = [
   {
@@ -33,8 +33,8 @@ const GLOSARIO: { term: string; def: string }[] = [
     def: "El proceso con el que la escuela autoriza trasladar el historial de un deportista a otro club o liga. Está en preparación: hoy el historial no sale de la escuela sin su autorización.",
   },
   {
-    term: "WhatsApp IA",
-    def: "El asistente que atiende el WhatsApp de la escuela con su propio número: lee el comprobante de pago (mediana real de 42 segundos), lo cruza con el cobro y lo deja listo para que la escuela lo apruebe con un toque. Gratis en todos los planes; solo se le paga a Meta si se exceden los mensajes gratis del mes.",
+    term: "Mapi (WhatsApp IA)",
+    def: "Mapi es el asistente que atiende el WhatsApp de la escuela con su propio número: lee el comprobante de pago (mediana real de 42 segundos), lo cruza con el cobro y lo deja listo para que la escuela lo apruebe con un toque. Gratis en todos los planes; solo se le paga a Meta si se exceden los mensajes gratis del mes.",
   },
   {
     term: "Comprobante listo para aprobar",
@@ -87,7 +87,7 @@ const FAQS: { q: string; a: string }[] = [
 
 const PILARES = [
   { icon: CreditCard, title: "Cobros", text: "Mensualidades e inscripciones con Wompi, Mercado Pago y transferencias Bre-B o Nequi." },
-  { icon: MessageCircle, title: "WhatsApp IA", text: "Lee comprobantes, recuerda pagos y atiende a quien pregunta, desde el número de tu escuela." },
+  { icon: MessageCircle, title: "Mapi (WhatsApp IA)", text: "Lee comprobantes, recuerda pagos y atiende a quien pregunta, desde el número de tu escuela." },
   { icon: FileText, title: "Factura DIAN", text: "Integración gratis; solo pagas el paquete de facturas. Tu contador revisa el estado." },
   { icon: IdCard, title: "Atleta ID", text: "Perfil del deportista con asistencia, informes y carnet con QR verificable." },
   { icon: Users, title: "Equipo", text: "Entrenadores y staff ilimitados, con roles y permisos." },

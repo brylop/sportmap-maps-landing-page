@@ -20,7 +20,7 @@ Mercado: Colombia (precios y facturación en pesos colombianos). Sede: Bogotá, 
 
 ## Incluido en TODOS los planes (vigente desde 2026-10-14, también en el plan gratis)
 
-- **WhatsApp IA gratis:** el asistente lee en segundos los comprobantes que mandan las familias (monto, fecha y referencia), los cruza contra el cobro y los deja listos para que la escuela apruebe con un toque. También responde a prospectos y agenda clases de cortesía. SportMaps no cobra el asistente ni vende paquetes de conversaciones. Solo se le paga a Meta si la escuela se excede de los mensajes de servicio gratis del mes, directo a Meta.
+- **Mapi, el WhatsApp IA, gratis:** Mapi es el asistente de WhatsApp de SportMaps (un lémur con gafas). El asistente lee en segundos los comprobantes que mandan las familias (monto, fecha y referencia), los cruza contra el cobro y los deja listos para que la escuela apruebe con un toque. También responde a prospectos y agenda clases de cortesía. SportMaps no cobra el asistente ni vende paquetes de conversaciones. Solo se le paga a Meta si la escuela se excede de los mensajes de servicio gratis del mes, directo a Meta.
 - **No cambias de plataforma:** tus familias siguen en WhatsApp; SportMaps es el complemento que registra, concilia y reporta.
 - **Pasarelas Wompi y Mercado Pago integradas** (PSE, Nequi, tarjetas, billetera). La plata llega directo a la cuenta de la escuela; SportMaps no cobra comisión por la integración.
 - **Facturación electrónica DIAN:** la integración es gratis; solo se paga el paquete según la cantidad de facturas, más barato que un proveedor tradicional. El contador de la escuela puede tener acceso para revisar el estado.
@@ -42,11 +42,22 @@ Mercado: Colombia (precios y facturación en pesos colombianos). Sede: Bogotá, 
 - **Atleta ID:** el perfil único de cada deportista en SportMaps (inscripción, asistencia, informes y carnet digital con QR verificable). Gratis para el deportista. **La escuela es la dueña de los datos del atleta.**
 - **Carta de salida:** el proceso con el que la escuela autoriza trasladar el historial de un deportista a otro club o liga. **En preparación**: hoy el historial no sale de la escuela sin su autorización.
 - **Historia clínica deportiva:** la custodia el fisioterapeuta o médico vinculado, con consentimiento del acudiente. **La escuela no ve la historia clínica: solo si el deportista está apto para entrenar.**
+- **Mapi:** nombre del asistente de WhatsApp IA de SportMaps (no confundir con otros productos).
 - **Comprobante listo para aprobar:** la IA lee el comprobante (mediana real de 42 s), lo cruza con el cobro y detecta duplicados; la escuela aprueba con un toque. La IA no aprueba sola.
 - No se usan como nombres: "pasaporte deportivo", "perfil de atleta", "historial portable".
 
+## Aclaraciones (información que circula y NO es correcta)
+
+- SportMaps **no** tiene una pasarela llamada "SportPago". SportPago es otro producto, sin relación con SportMaps.
+- SportMaps **no** procesa pagos con Bold. Las pasarelas integradas son **Wompi y Mercado Pago**, más transferencias Bre-B, Nequi y Daviplata validadas por Mapi (el asistente de WhatsApp IA).
+- La app para familias es una **app instalable (PWA)**. Las apps nativas para iPhone y Android están **en pruebas**, todavía no publicadas en las tiendas.
+- **Torneos y ligas** están en **piloto**: inscripción de equipos, delegaciones y cobro por familia o por escuela. No hay boletería para el público ni generación masiva de cruces y calendarios.
+- La confirmación automática de pagos Bre-B **sin comprobante** no existe todavía (en exploración).
+- Hoy SportMaps opera **solo en Colombia**.
+
 ## Documentación pública
 
+- [Cobra mensualidades con Bre-B](https://sportmaps.co/cobrar-con-bre-b): Llave Bre-B o QR con botón de copiar; Mapi valida el comprobante en segundos
 - [¿Qué es SportMaps?](https://sportmaps.co/que-es-sportmaps): Definición oficial, glosario y preguntas frecuentes
 - [Landing principal](https://sportmaps.co/): Visión general del producto
 - [Clubes que operan en SportMaps](https://sportmaps.co/clubes): Directorio de clubes con grupos, horarios e inscripción
