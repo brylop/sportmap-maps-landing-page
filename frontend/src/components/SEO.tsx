@@ -10,6 +10,8 @@ interface SEOProps {
   keywords?: string;
   author?: string;
   canonical?: string;
+  /** true = la página existe pero Google no debe indexarla (fichas delgadas). */
+  noindex?: boolean;
 }
 
 const SITE_URL = 'https://sportmaps.co';
@@ -44,8 +46,8 @@ const organizationSchema = {
     contentUrl: 'https://app.sportmaps.co/sportmaps-logo.png',
   },
   image: 'https://app.sportmaps.co/sportmaps-logo.png',
-  description: 'Software todo-en-uno para escuelas, entrenadores y federaciones deportivas en Latinoamérica.',
-  foundingDate: '2024',
+  description: 'Plataforma colombiana para escuelas y clubes deportivos: cobros con Wompi, Mercado Pago y Bre-B, y Maki, el asistente de WhatsApp IA que lee los comprobantes.',
+  foundingDate: '2025',
   founder: {
     '@type': 'Person',
     name: 'Brayan López',
@@ -56,8 +58,8 @@ const organizationSchema = {
   telephone: '+573202683539',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Medellín',
-    addressRegion: 'Antioquia',
+    addressLocality: 'Bogotá',
+    addressRegion: 'Bogotá D.C.',
     addressCountry: 'CO',
   },
   contactPoint: [
@@ -66,11 +68,11 @@ const organizationSchema = {
       contactType: 'customer service',
       telephone: `+${SALES_WHATSAPP}`,
       email: 'contacto@sportmaps.co',
-      areaServed: ['CO', 'MX', 'AR', 'CL', 'PE', 'EC'],
+      areaServed: ['CO'],
       availableLanguage: ['Spanish', 'es-CO'],
     },
   ],
-  areaServed: ['CO', 'MX', 'AR', 'CL', 'PE', 'EC'],
+  areaServed: ['CO'],
   knowsLanguage: ['es-CO', 'es'],
   sameAs: [
     'https://www.linkedin.com/company/sportmaps/',
@@ -87,6 +89,7 @@ export function SEO({
   keywords,
   author,
   canonical,
+  noindex = false,
 }: SEOProps) {
   const seo = {
     title: title ? `${title} | SportMaps` : defaultSEO.title,
@@ -127,8 +130,8 @@ export function SEO({
       <meta name="twitter:image" content={seo.image} />
 
       {/* Additional SEO */}
-      <meta name="robots" content="index, follow" />
-      <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
+      <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
+      <meta name="googlebot" content={noindex ? "noindex, follow" : "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"} />
       <html lang="es-CO" />
 
       {/* Organization schema — entidad canónica para AEO (ChatGPT, Gemini, Perplexity) */}

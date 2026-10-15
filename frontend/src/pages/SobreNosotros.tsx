@@ -30,23 +30,23 @@ const SobreNosotros = () => {
   ];
 
   const milestones = [
-    { year: "2023", title: "Fundación", description: "SportMaps nace en Bogotá con la visión de transformar el deporte" },
-    { year: "2024", title: "Crecimiento", description: "Expandimos operaciones a 5 países de Latinoamérica" },
-    { year: "2025", title: "Consolidación", description: "Más de 100,000 usuarios activos en la plataforma" }
+    // Datos confirmados por el usuario el 2026-10-15 (fundación 2025, Bogotá).
+    // Cifras: base de producción, corte 14 oct 2026, igual que /casos-exito.
+    { year: "2025", title: "Fundación", description: "SportMaps nace en Bogotá para que las escuelas deportivas dejen de perseguir pagos" },
+    { year: "Jul 2026", title: "Primer gran club", description: "Dynasty Volley Club conecta a Maki, el asistente de WhatsApp IA, y empieza a facturar con la DIAN" },
+    { year: "Oct 2026", title: "Operación real", description: "Más de 1.100 deportistas activos y más de $184 millones en mensualidades gestionadas" }
   ];
 
+  // Equipo actual (2026-10-15). Andrés Pardo, Sebastián Rodríguez y Maleja Duarte ya no están.
   const team = [
     { name: "Brayan López", role: "Chief Executive Officer (CEO)", badge: "Co-Founder" },
-    { name: "Andrés Pardo", role: "Chief Technology Officer (CTO)", badge: "Co-Founder" },
-    { name: "Julián Gómez", role: "Chief Growth Officer (CGO)", badge: "Co-Founder" },
-    { name: "Maleja Duarte", role: "Marketing Director", badge: "Co-Founder" },
-    { name: "Sebastian Rodríguez", role: "Chief Commercial Officer (CCO)", badge: "" }
+    { name: "Julián Gómez", role: "Chief Growth Officer (CGO)", badge: "Co-Founder" }
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Sobre Nosotros | SportMaps - Conoce Nuestra Historia"
+        title="Sobre nosotros: el equipo de SportMaps en Bogotá"
         description="Conoce la historia de SportMaps, nuestra misión de transformar el ecosistema deportivo latinoamericano y el equipo detrás de la plataforma."
         keywords="sobre sportmaps, equipo sportmaps, historia sportmaps, startup deportiva, tecnología deportiva colombia"
         url="https://sportmaps.co/sobre-nosotros"
@@ -72,8 +72,8 @@ const SobreNosotros = () => {
               Co-Creando la <span className="text-sport-primary">Realidad Tecnológica</span> del Deporte
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Somos una startup colombiana con la misión de conectar y potenciar 
-              a todo el ecosistema deportivo de Latinoamérica.
+              Somos una startup de Bogotá. Empezamos por lo que más le duele a una escuela
+              deportiva, cobrar las mensualidades, y desde ahí conectamos todo el deporte.
             </p>
           </motion.div>
         </div>
@@ -190,10 +190,11 @@ const SobreNosotros = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: "100K+", label: "Usuarios Activos" },
-              { value: "5", label: "Países" },
-              { value: "500+", label: "Organizaciones" },
-              { value: "24/7", label: "Soporte" }
+              // Cifras reales de la plataforma, corte 14 oct 2026.
+              { value: "1.100+", label: "Deportistas activos" },
+              { value: "$184M+", label: "En mensualidades gestionadas" },
+              { value: "334", label: "Facturas aceptadas por la DIAN" },
+              { value: "42 s", label: "Respuesta mediana de Maki" }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}

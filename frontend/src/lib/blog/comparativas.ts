@@ -627,7 +627,7 @@ export const comparativasPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Una app nativa con el nombre y el escudo de tu escuela en App Store y Google Play cuesta mantenerla. Clupik la publica como adicional de $245.000 al mes en Pro y Élite. SportMaps funciona como app instalable desde el navegador (con notificaciones push) sin costo adicional; no publica una app nativa con tu marca en las tiendas.",
+          "Una app nativa con el nombre y el escudo de tu escuela en App Store y Google Play cuesta mantenerla. Clupik la publica como adicional de $245.000 al mes en Pro y Élite. SportMaps funciona como app instalable desde el navegador (con notificaciones push) sin costo adicional; las apps nativas para iPhone y Android están en pruebas; una app nativa con tu marca no está disponible hoy.",
       },
       { type: "h3", content: "5. Lo que no se ve en ninguna factura" },
       {

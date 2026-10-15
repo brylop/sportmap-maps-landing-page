@@ -42,6 +42,7 @@ export function ContactEquipoModal({ isOpen, onClose, preselectedCategory }: Con
     organizationName: "",
     email: "",
     phone: "",
+    country: "Colombia",
     organizationType: "",
     teamSize: "",
     currentChallenges: "",
@@ -67,6 +68,7 @@ export function ContactEquipoModal({ isOpen, onClose, preselectedCategory }: Con
 🏢 Organización: ${formData.organizationName}
 📧 Email: ${formData.email}
 📱 Teléfono: ${formData.phone}
+🌎 País: ${formData.country || "No especificado"}
 
 📊 DETALLES DE LA ORGANIZACIÓN
 • Tipo: ${organizationTypes.find(t => t.value === formData.organizationType)?.label || formData.organizationType}
@@ -96,6 +98,7 @@ ${preselectedCategory ? `• Categoría de interés: ${preselectedCategory}` : '
         organizationName: "",
         email: "",
         phone: "",
+        country: "Colombia",
         organizationType: "",
         teamSize: "",
         currentChallenges: "",
@@ -198,6 +201,18 @@ ${preselectedCategory ? `• Categoría de interés: ${preselectedCategory}` : '
                 className="bg-muted/50"
               />
             </div>
+          </div>
+
+          {/* Sensor de demanda por país: ¿desde dónde nos escriben? */}
+          <div className="space-y-2">
+            <Label htmlFor="country">¿Desde qué país nos escribes?</Label>
+            <Input
+              id="country"
+              placeholder="Colombia"
+              value={formData.country}
+              onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+              className="bg-muted/50"
+            />
           </div>
 
           {/* Organization Details */}

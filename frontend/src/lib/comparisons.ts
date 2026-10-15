@@ -220,7 +220,7 @@ export const comparisons: Comparison[] = [
       { feature: "Torneos con inscripción y cobro", competitor: "No", sportmaps: "Sí (liga o copa, goleadores y tabla pública)", sportmapsAdvantage: true },
       { feature: "Conexión con marcas / patrocinios", competitor: "No", sportmaps: "Marketplace + SponsorMatch", sportmapsAdvantage: true },
       { feature: "Ecosistema entre escuelas", competitor: "Cerrado a tu academia", sportmaps: "Mapa, eventos y descuentos cruzados", sportmapsAdvantage: true },
-      { feature: "App del atleta / perfil portable", competitor: "Portal del alumno", sportmaps: "Perfil deportivo portable + gratis", sportmapsAdvantage: true },
+      { feature: "App del atleta / perfil portable", competitor: "Portal del alumno", sportmaps: "Atleta ID gratis para el deportista", sportmapsAdvantage: true },
       { feature: "Precio 1er mes", competitor: "Gratis", sportmaps: "Gratis", sportmapsAdvantage: false },
     ],
     competitorWins: [
@@ -235,7 +235,7 @@ export const comparisons: Comparison[] = [
       "Conexión real con marcas: patrocinios y descuentos para tus familias",
       "Ecosistema abierto: tu academia aparece en el mapa deportivo, no aislada",
       "Cobro recurrente con pasarelas locales (Wompi + MercadoPago)",
-      "Perfil del atleta portable y gratuito que suma a la comunidad",
+      "Atleta ID gratuito para cada deportista, con carnet y QR verificable",
     ],
     costExample: {
       scenarioLabel:
@@ -770,7 +770,7 @@ export const comparisons: Comparison[] = [
       {
         feature: "Portal para acudientes",
         competitor: "Sí (portal web)",
-        sportmaps: "App instalable (PWA); app nativa solo a medida",
+        sportmaps: "App instalable (PWA); apps nativas iOS y Android en pruebas",
         sportmapsAdvantage: true,
       },
       {

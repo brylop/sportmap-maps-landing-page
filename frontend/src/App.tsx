@@ -41,6 +41,10 @@ const Bienestar = lazy(() => import("./pages/Bienestar"));
 const Equipamiento = lazy(() => import("./pages/Equipamiento"));
 const Partners = lazy(() => import("./pages/Partners"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+const Clubes = lazy(() => import("./pages/Clubes"));
+const Club = lazy(() => import("./pages/Club"));
+const QueEsSportMaps = lazy(() => import("./pages/QueEsSportMaps"));
+const SportMapsEnTuPais = lazy(() => import("./pages/SportMapsEnTuPais"));
 const Comparar = lazy(() => import("./pages/Comparar"));
 const Calculadora = lazy(() => import("./pages/Calculadora"));
 const HelpArticle = lazy(() => import("./pages/HelpArticle"));
@@ -61,6 +65,10 @@ const App = () => (
               <Route path="/casos-exito" element={<CasosExito />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/clubes" element={<Clubes />} />
+              <Route path="/clubes/:slug" element={<Club />} />
+              <Route path="/que-es-sportmaps" element={<QueEsSportMaps />} />
+              <Route path="/sportmaps-en-tu-pais" element={<SportMapsEnTuPais />} />
               <Route path="/comparar/:competidor" element={<Comparar />} />
               <Route path="/calculadora" element={<Calculadora />} />
               <Route path="/ayuda" element={<CentroAyuda />} />

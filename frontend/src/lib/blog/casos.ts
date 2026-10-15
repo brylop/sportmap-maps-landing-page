@@ -147,7 +147,7 @@ export const casosPosts: BlogPost[] = [
         items: [
           "La auto-aprobación de comprobantes está apagada a propósito. La IA lee y prepara; el club aprueba con un toque. No es un pendiente técnico, es una decisión de control.",
           "El cobro en línea con pasarela de pago todavía se está terminando de activar para el club; el flujo que hoy mueve sus pagos es transferencia más comprobante leído por IA.",
-          "No hay app nativa en App Store ni Google Play. Las familias usan SportMaps como app instalable desde el navegador (PWA).",
+          "Las apps nativas para iPhone y Android están en pruebas, todavía sin publicar en App Store ni Google Play. Las familias usan SportMaps como app instalable desde el navegador (PWA).",
           "No usan la tienda en línea por ahora: la venta de uniformes no pasa por la plataforma.",
           "Cada escuela que quiera el asistente tiene que conectar su propio número con Meta. No es un número compartido de SportMaps.",
         ],
@@ -298,7 +298,7 @@ export const casosPosts: BlogPost[] = [
           "El control de acceso es un adicional y requiere hardware ZKTeco compatible; no viene en los planes base.",
           "Los torniquetes de otras marcas no están integrados hoy.",
           "La tienda en línea está en piloto con GYM RM; es un adicional ($49.000 al mes, incluido en el plan Elite).",
-          "No hay app nativa en App Store ni Google Play; los usuarios usan la app instalable desde el navegador.",
+          "Las apps nativas para iPhone y Android están en pruebas, todavía sin publicar en App Store ni Google Play; los usuarios usan la app instalable desde el navegador.",
           "El bloqueo depende de que los pagos manuales se registren a tiempo: el torniquete no puede saber de un pago que nadie anotó.",
         ],
       },
@@ -453,7 +453,7 @@ export const casosPosts: BlogPost[] = [
         type: "ul",
         items: [
           "La auto-aprobación de comprobantes está apagada a propósito: la IA lee y prepara el pago, y la escuela aprueba con un toque.",
-          "No hay app nativa en App Store ni Google Play; SportMaps se usa como app instalable desde el navegador (PWA).",
+          "Las apps nativas para iPhone y Android están en pruebas, todavía sin publicar en App Store ni Google Play; SportMaps se usa como app instalable desde el navegador (PWA).",
           "Torniquetes, contabilidad, tienda en línea y torneos son adicionales; no vienen en todos los planes.",
           "La contabilidad está en piloto con Monster's Volley Club.",
           "SportMaps opera solo en Colombia y en pesos colombianos.",

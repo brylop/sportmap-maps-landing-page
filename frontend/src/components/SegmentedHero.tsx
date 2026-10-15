@@ -127,21 +127,22 @@ export function SegmentedHero({ onScrollToMap }: SegmentedHeroProps) {
           >
             <Rocket className="w-4 h-4 text-sport-primary animate-pulse-slow" />
             <span className="text-sm font-semibold bg-gradient-to-r from-sport-primary to-sport-accent bg-clip-text text-transparent">
-              Únete a la Élite Deportiva
+              WhatsApp IA gratis en todos los planes
             </span>
             <Zap className="w-4 h-4 text-sport-accent" />
           </motion.div>
 
-          {/* Main Title - Ecosystem positioning */}
+          {/* Main Title — Maki (decisión 2026-10-15). No usar "Cobra las
+              mensualidades sin perseguir a nadie": es la frase de ClubesHub. */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight"
           >
-            <span className="text-foreground">El sistema operativo del </span>
+            <span className="text-foreground">Tú no revisas comprobantes. </span>
             <span className="bg-gradient-to-r from-sport-primary to-sport-accent bg-clip-text text-transparent">
-              deporte en Colombia
+              Maki sí.
             </span>
           </motion.h1>
 
@@ -152,9 +153,15 @@ export function SegmentedHero({ onScrollToMap }: SegmentedHeroProps) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-2xl text-sport-text-secondary max-w-3xl mx-auto font-light"
           >
-            Gestiona y cobra en tu academia, conéctate con familias, marcas y torneos.
-            Una sola plataforma para todo el ecosistema deportivo.
+            Maki es el asistente de IA de SportMaps: lee cada comprobante de Nequi, Bre-B o
+            transferencia, valida monto y referencia y detecta los repetidos en segundos. Tú solo
+            apruebas. Además, la factura DIAN sale sola.
           </motion.p>
+
+          {/* Línea de confianza: la IA prepara, la escuela decide. */}
+          <p className="text-sm md:text-base font-semibold text-sport-success">
+            Nada que mueva plata se hace sin tu aprobación.
+          </p>
 
           {/* Ecosystem actors - who the platform connects */}
           <motion.div
@@ -193,16 +200,18 @@ export function SegmentedHero({ onScrollToMap }: SegmentedHeroProps) {
                 <Rocket className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
                 Empieza gratis
               </span>
+              <span className="relative z-10 ml-2 text-xs font-normal opacity-90">sin tarjeta</span>
               <div className="absolute inset-0 bg-gradient-to-r from-sport-accent to-sport-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </Button>
+            {/* TODO: cuando exista el video de 8 s de Maki, este botón lo abre. */}
             <Button
-              onClick={onScrollToMap}
+              onClick={() => { window.location.href = "/blog/validacion-de-pagos-con-ia-en-segundos-whatsapp"; }}
               size="lg"
               variant="ghost"
               className="px-8 py-7 text-lg font-semibold rounded-full text-sport-text-secondary hover:text-sport-primary group"
             >
-              Explora el mapa
-              <ArrowDown className="w-5 h-5 ml-2 group-hover:translate-y-1 transition-transform duration-300" />
+              Mira a Maki en acción
+              <ArrowDown className="w-5 h-5 ml-2 -rotate-90 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
           </motion.div>
 

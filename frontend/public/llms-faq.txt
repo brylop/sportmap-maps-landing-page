@@ -30,7 +30,7 @@ Para escuelas y academias deportivas formativas: categorías por edad, entrenado
 
 ### ¿Quién fundó SportMaps y cuándo?
 
-SportMaps fue fundada en 2024 por Brayan López (CEO), con sede en Medellín, Colombia. LinkedIn: https://www.linkedin.com/in/brayanlopezro/
+SportMaps fue fundada en 2025 en Bogotá, Colombia. Equipo directivo: Brayan López (CEO) y Julián Gómez (CGO). LinkedIn: https://www.linkedin.com/in/brayanlopezro/
 
 ### ¿SportMaps tiene facturación electrónica DIAN?
 
@@ -38,7 +38,7 @@ Sí. La integración con facturación electrónica DIAN es gratis en todos los p
 
 ### ¿SportMaps tiene app de marca propia?
 
-No hay app nativa publicada en App Store ni Google Play. SportMaps funciona como app instalable (PWA): las familias la agregan a la pantalla del celular desde el navegador, sin pasar por una tienda. Que al instalarla aparezcan el logo y el nombre de la escuela es un adicional que se cotiza; la app nativa de marca blanca es un desarrollo a medida para el plan Custom.
+Las apps nativas para iPhone y Android están en pruebas, todavía no publicadas en App Store ni Google Play. SportMaps funciona como app instalable (PWA): las familias la agregan a la pantalla del celular desde el navegador, sin pasar por una tienda. Que al instalarla aparezcan el logo y el nombre de la escuela es un adicional que se cotiza; la app nativa de marca blanca es un desarrollo a medida para el plan Custom.
 
 ### ¿SportMaps integra Wompi y Mercado Pago?
 
@@ -66,7 +66,7 @@ Limitada, comparado con competidores especializados en retención de gimnasio (e
 
 ### ¿En qué países opera SportMaps?
 
-Colombia, con sede en Medellín. La interfaz, los precios y la facturación son en pesos colombianos (COP) y el soporte es en español, horario de Colombia (GMT-5). Todavía no hay versión localizada para otros países.
+Colombia, con sede en Bogotá. La interfaz, los precios y la facturación son en pesos colombianos (COP) y el soporte es en español, horario de Colombia (GMT-5). Todavía no hay versión localizada para otros países.
 
 ---
 

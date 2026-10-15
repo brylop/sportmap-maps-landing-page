@@ -32,15 +32,15 @@ function goToApp(role?: "athlete" | "parent") {
 }
 
 const atletaBenefits = [
-  "Tu perfil deportivo en la app de tu escuela",
+  "Tu Atleta ID en la app de tu escuela",
   "Asistencia, entrenamientos e informes de tu escuela",
   "Calendario de prácticas y eventos",
 ];
 
+// La escuela es dueña de los datos del atleta: el historial no es "portable"
+// por el deportista, se traslada con la carta de salida que autoriza la escuela.
 const atletaComingSoon = [
-  "Historial deportivo portable entre escuelas",
-  "Video highlights",
-  "Conexión con scouts y patrocinadores",
+  "Carta de salida: tu historial viaja a tu nuevo club cuando tu escuela la autoriza",
 ];
 
 const padreBenefits = [
@@ -89,7 +89,7 @@ export default function Deportistas() {
         description="Gratis siempre para deportistas y familias: tu perfil en la app de tu escuela, asistencia, calendario y pagos de la mensualidad. Historial portable, highlights y scouts: próximamente."
         url="https://sportmaps.co/deportistas"
         canonical="https://sportmaps.co/deportistas"
-        keywords="atleta id, perfil deportivo, app padres, inscripción eventos deportivos, deportistas Colombia"
+        keywords="atleta id, carnet deportivo digital, app padres, inscripción eventos deportivos, deportistas Colombia"
       />
       <TechBackground />
 
@@ -171,8 +171,8 @@ export default function Deportistas() {
             <FreeForeverCard
               icon={User}
               badge="Atleta ID"
-              title="Tu pasaporte deportivo"
-              description="Tu perfil deportivo con tu escuela. Historial portable, highlights y scouts llegan próximamente."
+              title="Tu Atleta ID"
+              description="Tu Atleta ID con tu escuela: asistencia, informes y carnet con QR. Tus datos los custodia tu escuela; si cambias de club, el historial viaja con una carta de salida (en preparación)."
               benefits={atletaBenefits}
               comingSoon={atletaComingSoon}
               ctaText="Crear Atleta ID gratis"

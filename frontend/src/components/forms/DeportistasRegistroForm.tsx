@@ -185,7 +185,7 @@ export function DeportistasRegistroForm({ onSuccess, planSelected }: Deportistas
             Enviando...
           </>
         ) : (
-          "Crear mi Perfil de Atleta"
+          "Crear mi Atleta ID"
         )}
       </Button>
     </form>

@@ -215,7 +215,7 @@ const basePosts: BlogPost[] = [
       {
         question: "¿SportMaps tiene app de marca propia?",
         answer:
-          "SportMaps funciona como app instalable (PWA): las familias la agregan al celular desde el navegador, sin pasar por las tiendas. Que aparezca con el logo de tu escuela es un adicional a cotizar. No hay app nativa publicada en App Store ni Google Play; en Clupik la app nativa es un add-on de $245.000/mes.",
+          "SportMaps funciona como app instalable (PWA): las familias la agregan al celular desde el navegador, sin pasar por las tiendas. Que aparezca con el logo de tu escuela es un adicional a cotizar. Las apps nativas para iPhone y Android están en pruebas; en Clupik la app nativa es un add-on de $245.000/mes.",
       },
       {
         question: "¿Qué pasarela de pago usa SportMaps en Colombia?",

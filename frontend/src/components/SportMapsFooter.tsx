@@ -82,7 +82,7 @@ export function SportMapsFooter() {
               </li>
               <li>
                 <Link to="/deportistas" className="text-muted-foreground hover:text-sport-primary transition-colors">
-                  Perfil de Atleta
+                  Atleta ID
                 </Link>
               </li>
               <li>

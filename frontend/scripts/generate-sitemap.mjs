@@ -19,7 +19,7 @@
  * prerender.mjs lea sus rutas.
  */
 import { createServer } from 'vite';
-import { writeFile } from 'node:fs/promises';
+import { writeFile, readFile } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -45,6 +45,9 @@ const STATIC_ROUTES = [
   { loc: '/servicios', changefreq: 'weekly', priority: '0.85' },
   { loc: '/equipamiento', changefreq: 'weekly', priority: '0.8' },
   { loc: '/blog', changefreq: 'weekly', priority: '0.8' },
+  { loc: '/clubes', changefreq: 'weekly', priority: '0.8' },
+  { loc: '/que-es-sportmaps', changefreq: 'monthly', priority: '0.9' },
+  { loc: '/sportmaps-en-tu-pais', changefreq: 'monthly', priority: '0.5' },
   { loc: '/calculadora', changefreq: 'monthly', priority: '0.9' },
   { loc: '/casos-exito', changefreq: 'monthly', priority: '0.7' },
   { loc: '/sobre-nosotros', changefreq: 'monthly', priority: '0.7' },
@@ -88,6 +91,16 @@ async function main() {
 
   await server.close();
 
+  // Directorio de clubes (snapshot de scripts/fetch-directorio.mjs). Solo los
+  // clientes van al sitemap: las fichas del directorio importado son noindex.
+  let directorio = [];
+  try {
+    directorio = JSON.parse(await readFile(resolve(projectRoot, 'src/data/directorio.json'), 'utf-8'));
+  } catch {
+    console.warn('⚠️  sin src/data/directorio.json: no se agregan clubes al sitemap');
+  }
+  const clientClubs = directorio.filter((c) => c.is_client && c.slug);
+
   const today = new Date().toISOString().slice(0, 10);
 
   const urls = [
@@ -104,6 +117,12 @@ async function main() {
       changefreq: 'monthly',
       priority: COMPARISON_PRIORITY[c.slug] || '0.85',
     })),
+    ...clientClubs.map((c) => ({
+      loc: `/clubes/${c.slug}`,
+      lastmod: (c.updated_at || today).slice(0, 10),
+      changefreq: 'weekly',
+      priority: '0.7',
+    })),
     ...helpArticles.map((a) => ({
       loc: `/ayuda/${a.slug}`,
       lastmod: today,
@@ -113,7 +132,7 @@ async function main() {
   ];
 
   await writeFile(sitemapPath, buildXml(urls), 'utf-8');
-  console.log(`✅ sitemap.xml generado — ${urls.length} URLs (${blogPosts.length} posts, ${comparisons.length} comparativas, ${helpArticles.length} artículos de ayuda, ${STATIC_ROUTES.length} páginas estáticas)`);
+  console.log(`✅ sitemap.xml generado — ${urls.length} URLs (${blogPosts.length} posts, ${comparisons.length} comparativas, ${helpArticles.length} artículos de ayuda, ${clientClubs.length} clubes, ${STATIC_ROUTES.length} páginas estáticas)`);
 }
 
 main().catch((err) => {

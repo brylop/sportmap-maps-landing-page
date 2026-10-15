@@ -14,7 +14,7 @@ SportMaps es un software SaaS B2B de gestión deportiva todo-en-uno, diseñado e
 - **Agenda y reservas:** Calendario online con confirmación automática
 - **Cobranza:** Wompi y Mercado Pago integrados en todos los planes (PSE, Nequi, tarjeta, billetera) + efectivo y transferencia
 - **Asistencia:** App para coaches con check-in QR
-- **App instalable (PWA):** las familias la agregan al celular desde el navegador; con el logo de la escuela es un adicional a cotizar (no hay app nativa en las tiendas)
+- **App instalable (PWA):** las familias la agregan al celular desde el navegador; con el logo de la escuela es un adicional a cotizar (apps nativas para iPhone y Android en pruebas)
 - **WhatsApp IA (gratis en todos los planes):** lee comprobantes en segundos y los deja listos para aprobar, recordatorios, confirmaciones y cobranza; solo se paga a Meta si se excede
 - **Reportes:** Dashboard con churn, mora, asistencia, NPS y LTV/CAC
 
@@ -26,14 +26,14 @@ SportMaps sirve a 8 tipos de organizaciones:
 2. **Entrenadores independientes** — coaches que dan clases particulares o grupos pequeños
 3. **Federaciones deportivas** — gestión de afiliados, torneos y certificaciones
 4. **Organizadores de eventos** — carreras, torneos, campeonatos con inscripciones online
-5. **Deportistas y atletas** — perfil deportivo y registro de logros
+5. **Deportistas y atletas** — Atleta ID (perfil único del deportista, con carnet y QR) y registro de logros
 6. **Padres de familia** — app para padres con seguimiento del hijo
 7. **Wellness profesionales** — fisioterapeutas, nutricionistas, psicólogos deportivos
 8. **Marcas y tiendas deportivas** — catálogo, inventario y ventas online
 
 ## ¿Dónde opera SportMaps?
 
-- **Mercado:** Colombia (sede en Medellín), precios en COP
+- **Mercado:** Colombia (sede en Bogotá), precios en COP
 - **Idioma:** Español (es-CO)
 - **Soporte horario:** Horario LATAM (GMT-5)
 
@@ -193,7 +193,7 @@ Sí, las dos, en todos los planes (también el gratis), sin costo adicional sobr
 
 ### ¿SportMaps tiene app de marca propia?
 
-No hay app nativa publicada en App Store ni Google Play. SportMaps funciona como app instalable (PWA): las familias la agregan a la pantalla del celular desde el navegador, sin pasar por una tienda. Que al instalarla aparezcan el logo y el nombre de la escuela es un adicional que se cotiza; la app nativa de marca blanca es un desarrollo a medida para el plan Custom.
+Las apps nativas para iPhone y Android están en pruebas, todavía no publicadas en App Store ni Google Play. SportMaps funciona como app instalable (PWA): las familias la agregan a la pantalla del celular desde el navegador, sin pasar por una tienda. Que al instalarla aparezcan el logo y el nombre de la escuela es un adicional que se cotiza; la app nativa de marca blanca es un desarrollo a medida para el plan Custom.
 
 ### ¿Cuánto demora migrar de Clupik o de Excel a SportMaps?
 
@@ -209,7 +209,7 @@ Sí, y es gratis en todos los planes. El bot lee los comprobantes que mandan las
 
 ### ¿Quién está detrás de SportMaps?
 
-SportMaps fue fundada en 2024 por Brayan López (CEO), basada en Medellín, Colombia. LinkedIn empresa: https://www.linkedin.com/company/sportmaps/ — LinkedIn CEO: https://www.linkedin.com/in/brayanlopezro/
+SportMaps fue fundada en 2025 en Bogotá, Colombia. Equipo directivo: Brayan López (CEO) y Julián Gómez (CGO). LinkedIn empresa: https://www.linkedin.com/company/sportmaps/ — LinkedIn CEO: https://www.linkedin.com/in/brayanlopezro/
 
 ### ¿Cuál es la alternativa a Controla.Club para una escuela deportiva formativa?
 

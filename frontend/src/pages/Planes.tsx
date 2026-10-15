@@ -363,7 +363,7 @@ const Planes = () => {
 
 function DeportistasFreeCard({ onRegister }: { onRegister: () => void }) {
   const benefits = [
-    "Tu perfil deportivo en la app de tu escuela",
+    "Tu Atleta ID en la app de tu escuela",
     "Asistencia, entrenamientos e informes",
     "Calendario de prácticas y eventos",
     "Historial portable entre escuelas: próximamente",
@@ -381,7 +381,7 @@ function DeportistasFreeCard({ onRegister }: { onRegister: () => void }) {
             <strong className="text-sport-success">Gratis para siempre</strong>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Tu perfil deportivo con tu escuela, sin costo y sin tarjeta de
+            Tu Atleta ID con tu escuela, sin costo y sin tarjeta de
             crédito.
           </p>
         </div>

@@ -51,7 +51,7 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
       ]
     },
     atletas: {
-      title: "Tu Pasaporte Deportivo Digital",
+      title: "Tu Atleta ID",
       desc: "Encuentra dónde entrenar, compite y lleva tu historial deportivo contigo para siempre en tu móvil.",
       benefits: [
         "Carnet Digital con acceso a convenios",

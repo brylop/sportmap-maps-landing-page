@@ -13,7 +13,7 @@ export function DeportistasRegistroModal({ isOpen, onClose, planSelected }: Depo
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold">
-            Crea tu Perfil de Atleta
+            Crea tu Atleta ID
             {planSelected && <span className="text-sport-primary ml-2">- Plan {planSelected}</span>}
           </DialogTitle>
         </DialogHeader>

@@ -72,15 +72,13 @@ function AtletasFreeSection({ selectedClient }: { selectedClient: string }) {
           <FreeForeverCard
             icon={User}
             badge="Atleta ID"
-            title="Tu pasaporte deportivo"
-            description="Tu perfil deportivo con tu escuela. Historial portable, highlights y scouts llegan próximamente."
+            title="Tu Atleta ID"
+            description="Tu Atleta ID con tu escuela: asistencia, informes y carnet con QR. Tus datos los custodia tu escuela; si cambias de club, el historial viaja con una carta de salida (en preparación)."
             benefits={[
-              'Tu perfil deportivo en la app de tu escuela',
+              'Tu Atleta ID en la app de tu escuela',
               'Asistencia, entrenamientos e informes',
               'Calendario de prácticas y eventos',
-              'Historial portable: próximamente',
-              'Video highlights: próximamente',
-              'Conexión con scouts: próximamente',
+              'Carta de salida para cambiar de club: en preparación',
             ]}
             ctaText="Crear Atleta ID gratis"
           />

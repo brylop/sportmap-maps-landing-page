@@ -2,7 +2,7 @@
 
 > SportMaps es un software todo-en-uno de gestión deportiva para escuelas, entrenadores, federaciones y organizadores de eventos en Latinoamérica. Reemplaza Excel + WhatsApp + carpeta de pagos con una plataforma única que integra agenda, cobranza con Wompi y Mercado Pago, asistencia con QR, carnets digitales y WhatsApp IA que lee comprobantes y recuerda los pagos.
 
-Mercado: Colombia (precios y facturación en pesos colombianos). Sede: Medellín, Colombia. Idioma: español (es-CO).
+Mercado: Colombia (precios y facturación en pesos colombianos). Sede: Bogotá, Colombia. Fundada en 2025. Idioma: español (es-CO).
 
 ## Resumen del producto
 
@@ -37,9 +37,20 @@ Mercado: Colombia (precios y facturación en pesos colombianos). Sede: Medellín
 - **Lo que ya existe hoy y en lo que se apoya:** cobros Wompi/Mercado Pago, lectura de comprobantes con IA, bot oficial de WhatsApp, escuelas, torneos y tienda.
 - Página: https://sportmaps.co/canchas
 
+## Glosario canónico (un nombre por concepto)
+
+- **Atleta ID:** el perfil único de cada deportista en SportMaps (inscripción, asistencia, informes y carnet digital con QR verificable). Gratis para el deportista. **La escuela es la dueña de los datos del atleta.**
+- **Carta de salida:** el proceso con el que la escuela autoriza trasladar el historial de un deportista a otro club o liga. **En preparación**: hoy el historial no sale de la escuela sin su autorización.
+- **Historia clínica deportiva:** la custodia el fisioterapeuta o médico vinculado, con consentimiento del acudiente. **La escuela no ve la historia clínica: solo si el deportista está apto para entrenar.**
+- **Comprobante listo para aprobar:** la IA lee el comprobante (mediana real de 42 s), lo cruza con el cobro y detecta duplicados; la escuela aprueba con un toque. La IA no aprueba sola.
+- No se usan como nombres: "pasaporte deportivo", "perfil de atleta", "historial portable".
+
 ## Documentación pública
 
+- [¿Qué es SportMaps?](https://sportmaps.co/que-es-sportmaps): Definición oficial, glosario y preguntas frecuentes
 - [Landing principal](https://sportmaps.co/): Visión general del producto
+- [Clubes que operan en SportMaps](https://sportmaps.co/clubes): Directorio de clubes con grupos, horarios e inscripción
+- [SportMaps en tu país](https://sportmaps.co/sportmaps-en-tu-pais): Hoy operamos solo en Colombia; lista de espera para otros países
 - [Planes y precios](https://sportmaps.co/planes): Planes Free, Pro y Custom con precios COP
 - [Calculadora de ahorro](https://sportmaps.co/calculadora): Estima ahorro vs Excel + manual
 - [Para escuelas deportivas](https://sportmaps.co/escuelas): Features específicas para escuelas

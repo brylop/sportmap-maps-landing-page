@@ -840,7 +840,7 @@ export const comparativas2Posts: BlogPost[] = [
         type: "table",
         headers: ["Opción", "Precio publicado (mensual)", "Fuerte en", "Ten en cuenta", "Fuente"],
         rows: [
-          ["SportMaps", "$0 (20 alumnos) · $69.000 (50) · $99.000 (120) · $159.000 (300) · $349.000 (800)", "Escuelas formativas: cobro con WhatsApp IA, Wompi y Mercado Pago, facturación DIAN, herramientas del entrenador", "App instalable desde el navegador, no app nativa en tiendas; control de acceso ZKTeco como adicional", "sportmaps.co/planes, 14 oct 2026"],
+          ["SportMaps", "$0 (20 alumnos) · $69.000 (50) · $99.000 (120) · $159.000 (300) · $349.000 (800)", "Escuelas formativas: cobro con WhatsApp IA, Wompi y Mercado Pago, facturación DIAN, herramientas del entrenador", "App instalable desde el navegador (apps nativas iOS y Android en pruebas); control de acceso ZKTeco como adicional", "sportmaps.co/planes, 14 oct 2026"],
           ["GOLAPP", "$150.000 (200) · $220.000 (400) · $320.000 (700+)", "Escuelas de fútbol base que necesitan lo esencial", "No menciona pasarela en línea ni facturación electrónica; avisos de mora por correo", "golapp.com.co, 14 oct 2026"],
           ["Athleos", "No publica montos; cobra por alumno activo", "Escuelas deportivas; cobranza responsable (Ley 2300) explícita; +500 escuelas declaradas", "No menciona facturación electrónica DIAN", "Su sitio, 14 oct 2026"],
           ["AgendaPro", "$29.900 (1 profesional) · $99.000 · $150.000 · $510.000", "Centros de clases con cupo, estudios, bienestar", "Facturación electrónica desde +$90.000 y WhatsApp desde +$10.000 por 50 mensajes", "agendapro.com/co/planes, 14 oct 2026"],
