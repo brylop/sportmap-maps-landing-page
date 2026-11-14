@@ -23,7 +23,7 @@ const PLANES: ContentBlock = {
 const INCLUIDO: ContentBlock = {
   type: "p",
   content:
-    "Todos los planes, incluido el gratis, traen el asistente de WhatsApp IA (solo le pagas a Meta si superas las 1.000 conversaciones de servicio gratis al mes), Wompi y Mercado Pago integrados sin comisión de SportMaps, entrenadores y staff ilimitados con roles, la página pública de la escuela con botón de inscripción y la integración de facturación electrónica DIAN, donde solo pagas el paquete según la cantidad de facturas. Torneos, tienda en línea y contabilidad con cierre de mes son adicionales (incluidos en Elite).",
+    "Todos los planes, incluido el gratis, traen Mapi, el asistente de WhatsApp con IA (solo le pagas a Meta si superas las 1.000 conversaciones de servicio gratis al mes), Wompi y Mercado Pago integrados sin comisión de SportMaps, entrenadores y staff ilimitados con roles, la página pública de la escuela con botón de inscripción y la integración de facturación electrónica DIAN, donde solo pagas el paquete según la cantidad de facturas. Torneos, tienda en línea y contabilidad con cierre de mes son adicionales (incluidos en Elite).",
 };
 
 export const ciudades2Posts: BlogPost[] = [
@@ -111,7 +111,7 @@ export const ciudades2Posts: BlogPost[] = [
         headers: ["Cómo paga la familia", "Qué pasa en SportMaps", "Costo para la escuela"],
         rows: [
           ["Enlace de pago (PSE, Nequi, tarjeta, Bancolombia, billetera Mercado Pago)", "Wompi o Mercado Pago integrados; el pago se marca contra el cobro", "Solo la tarifa de la pasarela; SportMaps no cobra comisión"],
-          ["Transferencia y comprobante por WhatsApp", "El asistente lee el comprobante en segundos, lo cruza con el cobro y lo deja listo para aprobar con un toque", "Gratis hasta 1.000 conversaciones de servicio al mes; el excedente lo cobra Meta"],
+          ["Transferencia y comprobante por WhatsApp", "Mapi (el asistente de WhatsApp con IA) lee el comprobante en segundos, lo cruza con el cobro y lo deja listo para aprobar con un toque", "Gratis hasta 1.000 conversaciones de servicio al mes; el excedente lo cobra Meta"],
           ["Efectivo en la cancha", "Registro de pago manual con comprobante", "$0"],
         ],
       },
@@ -291,7 +291,7 @@ export const ciudades2Posts: BlogPost[] = [
         type: "ol",
         items: [
           "El papá paga por enlace (Wompi o Mercado Pago: PSE, Nequi, tarjeta) y el cobro queda marcado como pagado.",
-          "O transfiere y manda el comprobante por WhatsApp: el asistente lo lee en segundos, lo cruza con el cobro y lo deja listo para que tú lo apruebes con un toque.",
+          "O transfiere y manda el comprobante por WhatsApp: Mapi (el asistente de WhatsApp con IA) lo lee en segundos, lo cruza con el cobro y lo deja listo para que tú lo apruebes con un toque.",
           "O paga en efectivo: lo registras como pago manual con su comprobante.",
         ],
       },
@@ -392,7 +392,7 @@ export const ciudades2Posts: BlogPost[] = [
       {
         question: "¿Cómo cobro mensualidades de mi escuela deportiva en Santa Marta sin perseguir a los papás?",
         answer:
-          "Con cobros automáticos por periodo y recordatorios por WhatsApp y correo con enlace de pago. En SportMaps el papá paga por PSE, Nequi o tarjeta, o manda el comprobante por WhatsApp y el asistente lo deja listo para que lo apruebes.",
+          "Con cobros automáticos por periodo y recordatorios por WhatsApp y correo con enlace de pago. En SportMaps el papá paga por PSE, Nequi o tarjeta, o manda el comprobante por WhatsApp y Mapi lo deja listo para que lo apruebes.",
       },
       {
         question: "¿Cuánto cuesta SportMaps para una escuela en Santa Marta?",
@@ -485,7 +485,7 @@ export const ciudades2Posts: BlogPost[] = [
         type: "table",
         headers: ["Situación", "Sin sistema", "Con SportMaps"],
         rows: [
-          ["Papá transfiere por Nequi y manda captura", "Revisar la captura contra la lista a mano", "El asistente de WhatsApp la lee, la cruza con el cobro y la deja lista para aprobar"],
+          ["Papá transfiere por Nequi y manda captura", "Revisar la captura contra la lista a mano", "Mapi (el asistente de WhatsApp con IA) la lee, la cruza con el cobro y la deja lista para aprobar"],
           ["Papá quiere pagar con PSE o tarjeta", "Pasarle un número de cuenta", "Enlace de pago Wompi o Mercado Pago; la plata va directo a tu cuenta"],
           ["Familia con dos hijos", "Calcular el descuento cada mes", "Descuento por hermanos configurado una vez"],
           ["Atleta atrasado", "Mensaje incómodo en el grupo", "Recordatorio automático; recargo por mora solo si tu escuela lo activa"],
@@ -660,7 +660,7 @@ export const ciudades2Posts: BlogPost[] = [
         type: "ul",
         items: [
           "Pagos en línea con Wompi o Mercado Pago (PSE, Nequi, tarjetas, Bancolombia): la plata va directo a la cuenta de tu escuela y SportMaps no cobra comisión.",
-          "Transferencias: el papá manda el comprobante por WhatsApp, el asistente lo lee, lo cruza con el cobro y lo deja listo para que lo apruebes con un toque.",
+          "Transferencias: el papá manda el comprobante por WhatsApp, Mapi (el asistente de WhatsApp con IA) lo lee, lo cruza con el cobro y lo deja listo para que lo apruebes con un toque.",
           "Efectivo: registro de pago manual con comprobante.",
           "Recargo por mora opcional, definido por la escuela; la mora no cancela al atleta automáticamente.",
         ],
@@ -849,7 +849,7 @@ export const ciudades2Posts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Una escuela que crece recibe todos los días los mismos mensajes: cuánto vale, qué horarios hay, si se puede hacer una clase de prueba. El asistente de WhatsApp de SportMaps también atiende a esos prospectos: responde precios con la información que tú configuras y agenda la clase de cortesía. Tú ves la cita en el sistema y decides el seguimiento. La página pública de la escuela, con cuatro diseños y botón de inscripción, completa el circuito: el papá ve la escuela, agenda la prueba y, si se queda, se inscribe con el mismo enlace.",
+          "Una escuela que crece recibe todos los días los mismos mensajes: cuánto vale, qué horarios hay, si se puede hacer una clase de prueba. Mapi (el asistente de WhatsApp con IA) también atiende a esos prospectos: responde precios con la información que tú configuras y agenda la clase de cortesía. Tú ves la cita en el sistema y decides el seguimiento. La página pública de la escuela, con cuatro diseños y botón de inscripción, completa el circuito: el papá ve la escuela, agenda la prueba y, si se queda, se inscribe con el mismo enlace.",
       },
       { type: "h2", content: "Calor y horarios" },
       {
@@ -864,7 +864,7 @@ export const ciudades2Posts: BlogPost[] = [
           "Configura la inscripción (se cobra una vez) y la mensualidad por periodo.",
           "Activa los recordatorios automáticos por WhatsApp y correo: tres días antes, el día del vencimiento y a los 3, 10 y 20 días, con enlace corto de pago sin iniciar sesión.",
           "Conecta Wompi o Mercado Pago para recibir PSE, Nequi y tarjetas directo en tu cuenta, sin comisión de SportMaps.",
-          "Conecta tu número de WhatsApp con Meta para que el asistente lea los comprobantes de transferencia y te los deje listos para aprobar.",
+          "Conecta tu número de WhatsApp con Meta para que Mapi lea los comprobantes de transferencia y te los deje listos para aprobar.",
           "Registra los pagos en efectivo como pago manual con comprobante.",
         ],
       },
@@ -1061,7 +1061,7 @@ export const ciudades2Posts: BlogPost[] = [
         headers: ["Cómo paga la familia", "Qué pasa en SportMaps"],
         rows: [
           ["PSE, Nequi, tarjeta o Bancolombia por enlace", "Wompi o Mercado Pago integrados; la plata llega a tu cuenta sin comisión de SportMaps"],
-          ["Transferencia con comprobante por WhatsApp", "El asistente lee el comprobante, lo cruza con el cobro y lo deja listo para aprobar"],
+          ["Transferencia con comprobante por WhatsApp", "Mapi (el asistente de WhatsApp con IA) lee el comprobante, lo cruza con el cobro y lo deja listo para aprobar"],
           ["Efectivo", "Pago manual registrado con comprobante"],
           ["Atraso", "Recordatorio automático; recargo por mora solo si tu escuela lo activa; la mora no cancela al atleta"],
         ],
@@ -1257,7 +1257,7 @@ export const ciudades2Posts: BlogPost[] = [
           "Configura la inscripción (se cobra una vez) y la mensualidad por periodo; si tienes hermanos, activa el descuento por hermanos.",
           "Activa los recordatorios por WhatsApp y correo: tres días antes, el día del vencimiento y a los 3, 10 y 20 días, con enlace corto de pago sin iniciar sesión.",
           "Conecta Wompi o Mercado Pago (PSE, Nequi, tarjetas): la plata va directo a tu cuenta y SportMaps no cobra comisión.",
-          "Conecta tu número de WhatsApp con Meta para que el asistente lea los comprobantes de transferencia y te los deje listos para aprobar.",
+          "Conecta tu número de WhatsApp con Meta para que Mapi (el asistente de WhatsApp con IA) lea los comprobantes de transferencia y te los deje listos para aprobar.",
           "Registra los pagos en efectivo como pago manual.",
         ],
       },
@@ -1454,7 +1454,7 @@ export const ciudades2Posts: BlogPost[] = [
           "Inscripción que se cobra una vez y mensualidad por periodo, generadas automáticamente.",
           "Recordatorios por WhatsApp y correo en los días -3, 0, +3, +10 y +20, con enlace corto de pago que no exige iniciar sesión.",
           "Pagos por PSE, Nequi, tarjetas y Bancolombia con Wompi o Mercado Pago, directo a tu cuenta y sin comisión de SportMaps.",
-          "Comprobantes de transferencia leídos por el asistente de WhatsApp, cruzados con el cobro y listos para aprobar con un toque.",
+          "Comprobantes de transferencia leídos por Mapi (el asistente de WhatsApp con IA), cruzados con el cobro y listos para aprobar con un toque.",
           "Descuento por hermanos y recargo por mora opcional que define tu escuela; la mora no cancela al atleta.",
         ],
       },

@@ -32,7 +32,7 @@ export const comparativasPosts: BlogPost[] = [
         type: "callout",
         variant: "tip",
         content:
-          "Si diriges una escuela formativa con niños, acudientes, categorías y mensualidades, compara primero cuánto te cuesta cobrar: en SportMaps el asistente de WhatsApp, las pasarelas y la facturación electrónica vienen en todos los planes. Si tu negocio es un gimnasio con torniquete y paquetes de sesiones, o una cancha sintética que vive de reservas, Controla.Club tiene productos pensados para eso.",
+          "Si diriges una escuela formativa con niños, acudientes, categorías y mensualidades, compara primero cuánto te cuesta cobrar: en SportMaps Mapi (el asistente de WhatsApp con IA), las pasarelas y la facturación electrónica vienen en todos los planes. Si tu negocio es un gimnasio con torniquete y paquetes de sesiones, o una cancha sintética que vive de reservas, Controla.Club tiene productos pensados para eso.",
       },
       {
         type: "callout",
@@ -61,7 +61,7 @@ export const comparativasPosts: BlogPost[] = [
       {
         type: "ul",
         items: [
-          "WhatsApp con IA gratis: el asistente lee los comprobantes que mandan las familias, extrae monto y referencia, los cruza contra el cobro y responde. SportMaps no cobra el asistente ni vende paquetes de conversaciones. WhatsApp da 1.000 conversaciones de servicio gratis al mes por número; si la escuela se excede, Meta le cobra el excedente directo a su tarjeta. El número es de la escuela.",
+          "WhatsApp con IA gratis: Mapi lee los comprobantes que mandan las familias, extrae monto y referencia, los cruza contra el cobro y responde. SportMaps no cobra por Mapi ni vende paquetes de conversaciones. WhatsApp da 1.000 conversaciones de servicio gratis al mes por número; si la escuela se excede, Meta le cobra el excedente directo a su tarjeta. El número es de la escuela.",
           "Wompi y Mercado Pago integrados: PSE, Nequi, tarjetas, Bancolombia y billetera de Mercado Pago. La plata llega directo a la cuenta de la escuela y SportMaps no cobra comisión por la integración; solo aplican las tarifas de la pasarela.",
           "Facturación electrónica DIAN: la integración no tiene costo; la escuela paga solo el paquete de facturas que use. El contador puede tener acceso para revisar el estado de las facturas.",
           "Entrenadores y staff ilimitados (coaches, administradores, recepción) con roles y permisos.",
@@ -130,7 +130,7 @@ export const comparativasPosts: BlogPost[] = [
         type: "ul",
         items: [
           "Precio de entrada y plan gratis: una escuela que arranca con 20 alumnos paga $0, y con 50 alumnos paga $69.000 al mes, o $59.000 en pago anual.",
-          "Cobro sin costos escondidos de SportMaps: el asistente de WhatsApp, las dos pasarelas y la integración de facturación electrónica vienen en todos los planes. Lo único que se paga aparte son las tarifas de la pasarela, el paquete de facturas y, si te excedes de las 1.000 conversaciones gratis al mes, a Meta.",
+          "Cobro sin costos escondidos de SportMaps: Mapi, las dos pasarelas y la integración de facturación electrónica vienen en todos los planes. Lo único que se paga aparte son las tarifas de la pasarela, el paquete de facturas y, si te excedes de las 1.000 conversaciones gratis al mes, a Meta.",
           "Pensado para la escuela formativa: acudientes vinculados a cada atleta, categorías por edad, equipos, inscripción una sola vez más mensualidad, recargo por mora opcional que define la escuela y sin cancelar automáticamente al atleta que se atrasa.",
           "Herramientas para el entrenador: pizarra táctica (hoy para fútbol; más deportes en camino), planificación por mesociclos y sesiones, evaluaciones físicas y autoevaluación post-entreno.",
           "Para las familias: carnet digital con QR, calendario y avisos con notificación push, informe mensual del atleta por correo y app instalable en el celular.",
@@ -188,7 +188,7 @@ export const comparativasPosts: BlogPost[] = [
       {
         question: "¿Es cierto que SportMaps cobra el WhatsApp con IA aparte?",
         answer:
-          "No. El asistente de WhatsApp que lee comprobantes y responde a las familias es gratis en todos los planes y SportMaps no vende paquetes de conversaciones. WhatsApp da 1.000 conversaciones de servicio gratis al mes por número; solo si la escuela se excede, Meta le cobra el excedente directo a su tarjeta.",
+          "No. Mapi que lee comprobantes y responde a las familias es gratis en todos los planes y SportMaps no vende paquetes de conversaciones. WhatsApp da 1.000 conversaciones de servicio gratis al mes por número; solo si la escuela se excede, Meta le cobra el excedente directo a su tarjeta.",
       },
       {
         question: "¿Es cierto que SportMaps exige el plan Elite para manejar varias sedes?",
@@ -198,7 +198,7 @@ export const comparativasPosts: BlogPost[] = [
       {
         question: "¿Es cierto que el soporte de SportMaps es solo en horario comercial?",
         answer:
-          "El asistente de WhatsApp atiende a las familias de forma automática a cualquier hora: recibe comprobantes, los cruza con el cobro y responde. El soporte para la escuela lo da por WhatsApp y en español un equipo en Colombia.",
+          "Mapi atiende a las familias de forma automática a cualquier hora: recibe comprobantes, los cruza con el cobro y responde. El soporte para la escuela lo da por WhatsApp y en español un equipo en Colombia.",
       },
       {
         question: "¿Cuál es más barato para una escuela de 50 alumnos, SportMaps o Controla.Club?",
@@ -439,7 +439,7 @@ export const comparativasPosts: BlogPost[] = [
         rows: [
           ["Inscripción", "Formulario aparte y copiar a mano", "Enlace o QR; la familia llena la ficha del atleta y del acudiente"],
           ["Cobro mensual", "Calculas quién debe y mandas mensajes", "Cobros automáticos por periodo con enlace de pago"],
-          ["Pagos por transferencia", "Revisas cada comprobante contra el banco", "El asistente de WhatsApp lee el comprobante, extrae monto y referencia y lo cruza con el cobro"],
+          ["Pagos por transferencia", "Revisas cada comprobante contra el banco", "Mapi (el asistente de WhatsApp con IA) lee el comprobante, extrae monto y referencia y lo cruza con el cobro"],
           ["Pagos en línea", "No aplica", "Wompi y Mercado Pago: PSE, Nequi, tarjetas; la plata llega a tu cuenta"],
           ["Recordatorios", "Manuales", "Automáticos por correo y WhatsApp"],
           ["Mora", "Columna en rojo", "Recargo opcional que defines tú; el atleta no se cancela solo por atrasarse"],
@@ -458,7 +458,7 @@ export const comparativasPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Ahora compara con el costo del software. Para 80 alumnos, SportMaps Escuela Crecimiento cuesta $99.000 al mes ($89.000 en pago anual), con el asistente de WhatsApp y las pasarelas incluidos. Si las horas que liberas valen más que eso, el cambio se paga solo. Si no, quédate en Excel o usa el plan gratis mientras creces.",
+          "Ahora compara con el costo del software. Para 80 alumnos, SportMaps Escuela Crecimiento cuesta $99.000 al mes ($89.000 en pago anual), con Mapi y las pasarelas incluidos. Si las horas que liberas valen más que eso, el cambio se paga solo. Si no, quédate en Excel o usa el plan gratis mientras creces.",
       },
       {
         type: "callout",
@@ -615,7 +615,7 @@ export const comparativasPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Si el software usa la API oficial de WhatsApp, Meta da 1.000 conversaciones de servicio gratis al mes por número. Por encima de eso, Meta cobra el excedente directamente a la tarjeta de la escuela; para mensajes de servicio en Colombia es del orden de unos pocos pesos por mensaje (verifica la tabla vigente de Meta, porque cambia). Pregunta dos cosas: si el proveedor cobra aparte el asistente o vende paquetes de conversaciones, y de quién es el número. En SportMaps el asistente es gratis, no hay paquetes y el número es de la escuela.",
+          "Si el software usa la API oficial de WhatsApp, Meta da 1.000 conversaciones de servicio gratis al mes por número. Por encima de eso, Meta cobra el excedente directamente a la tarjeta de la escuela; para mensajes de servicio en Colombia es del orden de unos pocos pesos por mensaje (verifica la tabla vigente de Meta, porque cambia). Pregunta dos cosas: si el proveedor cobra aparte el asistente o vende paquetes de conversaciones, y de quién es el número. En SportMaps Mapi (el asistente de WhatsApp con IA) es gratis, no hay paquetes y el número es de la escuela.",
       },
       { type: "h3", content: "3. Facturación electrónica" },
       {
@@ -714,7 +714,7 @@ export const comparativasPosts: BlogPost[] = [
       {
         question: "¿Cuánto cuesta usar WhatsApp para cobrar en una escuela deportiva?",
         answer:
-          "Meta da 1.000 conversaciones de servicio gratis al mes por número y cobra el excedente directo a la escuela. Aparte, algunos softwares cobran el asistente o venden paquetes de conversaciones; en SportMaps el asistente es gratis en todos los planes.",
+          "Meta da 1.000 conversaciones de servicio gratis al mes por número y cobra el excedente directo a la escuela. Aparte, algunos softwares cobran el asistente o venden paquetes de conversaciones; en SportMaps Mapi es gratis en todos los planes.",
       },
       {
         question: "¿Qué costos ocultos tiene un software deportivo?",
@@ -881,7 +881,7 @@ export const comparativasPosts: BlogPost[] = [
       {
         question: "¿Qué software deportivo tiene WhatsApp con inteligencia artificial?",
         answer:
-          "SportMaps incluye gratis en todos sus planes un asistente de WhatsApp que lee comprobantes, extrae monto y referencia y los cruza con el cobro. Controla.Club publica recordatorios automáticos por WhatsApp y un asistente llamado Controli.",
+          "SportMaps incluye gratis en todos sus planes a Mapi, un asistente de WhatsApp que lee comprobantes, extrae monto y referencia y los cruza con el cobro. Controla.Club publica recordatorios automáticos por WhatsApp y un asistente llamado Controli.",
       },
       {
         question: "¿Cómo elijo entre dos softwares deportivos?",

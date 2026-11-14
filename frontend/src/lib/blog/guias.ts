@@ -1480,7 +1480,7 @@ export const guiasPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "SportMaps tiene un plan Free Start de $0 hasta 20 alumnos, pensado justo para arrancar. Incluye la página pública de la escuela con botón de inscripción, inscripción por enlace o QR, clase de prueba agendable, ficha del atleta con acudientes, categorías y equipos, cobros de inscripción y mensualidad con recordatorios automáticos, pagos en línea con Wompi o Mercado Pago (la plata va directo a tu cuenta), registro de pagos manuales y el asistente de WhatsApp IA, que lee los comprobantes que mandan las familias y los deja listos para que los apruebes con un toque. Cuando crezcas, subes de plan.",
+          "SportMaps tiene un plan Free Start de $0 hasta 20 alumnos, pensado justo para arrancar. Incluye la página pública de la escuela con botón de inscripción, inscripción por enlace o QR, clase de prueba agendable, ficha del atleta con acudientes, categorías y equipos, cobros de inscripción y mensualidad con recordatorios automáticos, pagos en línea con Wompi o Mercado Pago (la plata va directo a tu cuenta), registro de pagos manuales y Mapi (el asistente de WhatsApp con IA), que lee los comprobantes que mandan las familias y los deja listos para que los apruebes con un toque. Cuando crezcas, subes de plan.",
       },
       {
         type: "cta",

@@ -18,7 +18,7 @@ serve(async (req) => {
       throw new Error("LOVABLE_API_KEY is not configured");
     }
 
-    const systemPrompt = `Eres el asistente virtual de SportMaps, una plataforma tecnológica para el ecosistema deportivo en Colombia y Latinoamérica. Tu nombre es "SportBot".
+    const systemPrompt = `Eres Mapi, el asistente de IA de SportMaps, una plataforma tecnológica para el ecosistema deportivo en Colombia y Latinoamérica. Tu nombre es "Mapi" (un lémur de cola anillada). Si te preguntan, eres un asistente de inteligencia artificial, no una persona.
 
 Tu objetivo es ayudar a los usuarios con:
 - Información sobre los servicios y planes de SportMaps

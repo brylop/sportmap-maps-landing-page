@@ -23,7 +23,7 @@ export const casosPosts: BlogPost[] = [
     title:
       "Caso Dynasty Volley Club: 502 deportistas, $117,6 millones en pagos y comprobantes leídos por IA en WhatsApp",
     excerpt:
-      "Cómo un club de voleibol de Bogotá organizó cobros, asistencia, carnets y facturación electrónica DIAN en SportMaps desde julio de 2026, con un asistente de WhatsApp que lee los comprobantes y los deja listos para aprobar.",
+      "Cómo un club de voleibol de Bogotá organizó cobros, asistencia, carnets y facturación electrónica DIAN en SportMaps desde julio de 2026, con Mapi, un asistente de WhatsApp que lee los comprobantes y los deja listos para aprobar.",
     category: "Casos de éxito",
     readTime: "8 min",
     date: "14 Oct 2026",
@@ -34,7 +34,7 @@ export const casosPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Dynasty Volley Club es un club de voleibol de Bogotá que usa SportMaps desde el 28 de julio de 2026. Al 14 de octubre de 2026 gestiona 502 deportistas activos, lleva 756 pagos registrados por $117,6 millones, 455 comprobantes de pago leídos por inteligencia artificial, 2.666 asistencias, 494 carnets digitales y 334 facturas electrónicas aceptadas por la DIAN. Fue el primer club en conectar el asistente de WhatsApp de SportMaps a su propio número: el asistente lee el comprobante que manda la familia y deja el pago listo para que la escuela lo apruebe con un toque.",
+          "Dynasty Volley Club es un club de voleibol de Bogotá que usa SportMaps desde el 28 de julio de 2026. Al 14 de octubre de 2026 gestiona 502 deportistas activos, lleva 756 pagos registrados por $117,6 millones, 455 comprobantes de pago leídos por inteligencia artificial, 2.666 asistencias, 494 carnets digitales y 334 facturas electrónicas aceptadas por la DIAN. Fue el primer club en conectar Mapi (el asistente de WhatsApp con IA) a su propio número: Mapi lee el comprobante que manda la familia y deja el pago listo para que la escuela lo apruebe con un toque.",
       },
       { type: "h2", content: "En resumen" },
       {
@@ -80,24 +80,24 @@ export const casosPosts: BlogPost[] = [
         type: "ol",
         items: [
           "Cargó a sus deportistas y sus cobros en SportMaps. Hoy son 502 deportistas activos, cada uno con su ficha y su estado de pago.",
-          "Conectó su propio número de WhatsApp al asistente de SportMaps mediante el registro integrado de Meta. El número sigue siendo del club; fue el primer club en hacerlo.",
-          "Dejó que el asistente recibiera los comprobantes: cuando una familia manda la foto de una transferencia, la IA lee el monto y la referencia, la cruza con el cobro pendiente y deja el pago listo para aprobar. Así se han leído 455 comprobantes.",
+          "Conectó su propio número de WhatsApp a Mapi mediante el registro integrado de Meta. El número sigue siendo del club; fue el primer club en hacerlo.",
+          "Dejó que Mapi recibiera los comprobantes: cuando una familia manda la foto de una transferencia, la IA lee el monto y la referencia, la cruza con el cobro pendiente y deja el pago listo para aprobar. Así se han leído 455 comprobantes.",
           "Mantuvo la aprobación en manos del equipo: alguien del club revisa lo que preparó la IA y aprueba con un toque. La auto-aprobación está apagada a propósito.",
           "Registró la asistencia en la plataforma: van 2.666 asistencias.",
           "Emitió los carnets digitales de sus deportistas: 494 carnets con código QR.",
           "Activó la facturación electrónica integrada: 334 facturas aceptadas por la DIAN salieron desde SportMaps, sin pasar los datos a otro sistema.",
         ],
       },
-      { type: "h2", content: "Cómo funciona el asistente de WhatsApp en la práctica" },
+      { type: "h2", content: "Cómo funciona Mapi en la práctica" },
       {
         type: "p",
         content:
-          "El asistente no reemplaza al equipo del club; le quita la parte mecánica. Cuando llega un comprobante por WhatsApp, la IA hace tres cosas: lee la imagen (monto, fecha, referencia, banco), busca el cobro que corresponde a esa familia y responde que el comprobante fue recibido. El pago queda en una bandeja de revisión con la información ya extraída, y el club lo aprueba.",
+          "Mapi no reemplaza al equipo del club; le quita la parte mecánica. Cuando llega un comprobante por WhatsApp, la IA hace tres cosas: lee la imagen (monto, fecha, referencia, banco), busca el cobro que corresponde a esa familia y responde que el comprobante fue recibido. El pago queda en una bandeja de revisión con la información ya extraída, y el club lo aprueba.",
       },
       {
         type: "p",
         content:
-          "Los tiempos de respuesta están medidos sobre todas las escuelas que usan el asistente, no solo Dynasty: en 862 respuestas medidas, el asistente contesta mensajes de texto con una mediana de 20 segundos, y a los comprobantes de pago, que exigen leer la imagen y cruzarla con el cobro, responde con una mediana de 42 segundos; 9 de cada 10 comprobantes reciben respuesta en menos de 93 segundos. En total, el asistente ha gestionado 6.612 mensajes, de los cuales 773 fueron respuestas generadas por IA.",
+          "Los tiempos de respuesta están medidos sobre todas las escuelas que usan Mapi, no solo Dynasty: en 862 respuestas medidas, Mapi contesta mensajes de texto con una mediana de 20 segundos, y a los comprobantes de pago, que exigen leer la imagen y cruzarla con el cobro, responde con una mediana de 42 segundos; 9 de cada 10 comprobantes reciben respuesta en menos de 93 segundos. En total, Mapi ha gestionado 6.612 mensajes, de los cuales 773 fueron respuestas generadas por IA.",
       },
       {
         type: "table",
@@ -149,7 +149,7 @@ export const casosPosts: BlogPost[] = [
           "El cobro en línea con pasarela de pago todavía se está terminando de activar para el club; el flujo que hoy mueve sus pagos es transferencia más comprobante leído por IA.",
           "Las apps nativas para iPhone y Android están en pruebas, todavía sin publicar en App Store ni Google Play. Las familias usan SportMaps como app instalable desde el navegador (PWA).",
           "No usan la tienda en línea por ahora: la venta de uniformes no pasa por la plataforma.",
-          "Cada escuela que quiera el asistente tiene que conectar su propio número con Meta. No es un número compartido de SportMaps.",
+          "Cada escuela que quiera Mapi tiene que conectar su propio número con Meta. No es un número compartido de SportMaps.",
         ],
       },
       { type: "h2", content: "Qué puede copiar otra escuela de este caso" },
@@ -160,14 +160,14 @@ export const casosPosts: BlogPost[] = [
           "Conectar el número de WhatsApp que las familias ya conocen, en vez de pedirles que escriban a otro.",
           "Dejar la aprobación del pago en una persona del equipo, con la información ya preparada.",
           "Sacar la factura electrónica del mismo registro del pago para no digitar dos veces.",
-          "Si tu escuela es pequeña, no necesitas todo esto el primer mes: el asistente de WhatsApp está incluido en todos los planes, incluso en Free Start.",
+          "Si tu escuela es pequeña, no necesitas todo esto el primer mes: Mapi está incluido en todos los planes, incluso en Free Start.",
         ],
       },
       {
         type: "cta",
         title: "Organiza tus cobros como Dynasty",
         description:
-          "El asistente de WhatsApp que lee comprobantes y la integración de facturación electrónica vienen en todos los planes. Mira cuál se ajusta al tamaño de tu escuela.",
+          "Mapi que lee comprobantes y la integración de facturación electrónica vienen en todos los planes. Mira cuál se ajusta al tamaño de tu escuela.",
         href: "/planes",
         label: "Ver planes",
       },
@@ -191,9 +191,9 @@ export const casosPosts: BlogPost[] = [
           "Es un club de voleibol de Bogotá que usa SportMaps desde el 28 de julio de 2026. Al 14 de octubre de 2026 tiene 502 deportistas activos y 756 pagos registrados por $117,6 millones en la plataforma.",
       },
       {
-        question: "¿El asistente de WhatsApp de SportMaps aprueba los pagos solo?",
+        question: "¿Mapi aprueba los pagos solo?",
         answer:
-          "No. El asistente lee el comprobante, extrae monto y referencia, lo cruza con el cobro y lo deja listo para aprobar. La auto-aprobación está apagada a propósito: la escuela revisa y aprueba con un toque.",
+          "No. Mapi lee el comprobante, extrae monto y referencia, lo cruza con el cobro y lo deja listo para aprobar. La auto-aprobación está apagada a propósito: la escuela revisa y aprueba con un toque.",
       },
       {
         question: "¿Qué tan rápido responde el bot de WhatsApp a un comprobante de pago?",
@@ -394,7 +394,7 @@ export const casosPosts: BlogPost[] = [
           ["Facturas electrónicas aceptadas por la DIAN", "334"],
           ["Accesos por torniquete", "14.459"],
           ["Asistencias registradas", "5.029"],
-          ["Mensajes gestionados por el asistente de WhatsApp", "6.612"],
+          ["Mensajes gestionados por Mapi (el asistente de WhatsApp con IA)", "6.612"],
           ["Mediana de respuesta a comprobantes por WhatsApp", "42 s"],
         ],
       },
@@ -463,7 +463,7 @@ export const casosPosts: BlogPost[] = [
         type: "cta",
         title: "Empieza por tu problema más urgente",
         description:
-          "Free Start es gratis hasta 20 alumnos e incluye el asistente de WhatsApp. Compara los planes y los adicionales.",
+          "Free Start es gratis hasta 20 alumnos e incluye Mapi. Compara los planes y los adicionales.",
         href: "/planes",
         label: "Ver planes",
       },

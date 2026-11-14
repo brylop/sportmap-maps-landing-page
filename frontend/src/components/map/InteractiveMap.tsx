@@ -263,6 +263,7 @@ export function InteractiveMap({
               }}
             />
             <Marker
+              title="Tu ubicación"
               position={[userLocation.lat, userLocation.lng]}
               icon={createUserIcon()}
             >
@@ -282,6 +283,7 @@ export function InteractiveMap({
         {filteredLocations.map((location) => (
           <Marker
             key={location.id}
+            title={location.name}
             position={[location.lat, location.lng]}
             icon={createCustomIcon(effectiveType(location), getTypeColor(effectiveType(location)))}
             eventHandlers={{
@@ -365,6 +367,8 @@ export function InteractiveMap({
           <Marker
             key={`${route.id}-start`}
             position={route.coordinates[0]}
+            interactive={false}
+            keyboard={false}
             icon={L.divIcon({
               html: `<div style="background: ${getRouteColor(route.type)}; width: 12px; height: 12px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.3);"></div>`,
               className: 'route-start-marker',
@@ -420,6 +424,7 @@ export function InteractiveMap({
             userLocation ? 'bg-blue-500/20 text-blue-500' : 'hover:bg-sport-primary/20'
           } ${isLocating ? 'animate-pulse' : ''}`}
           title="Encontrar mi ubicación"
+          aria-label="Encontrar mi ubicación"
         >
           {isLocating ? (
             <Loader2 className="w-5 h-5 animate-spin" />
@@ -430,12 +435,14 @@ export function InteractiveMap({
         
         {/* Zoom Controls */}
         <button 
+          aria-label="Acercar el mapa"
           onClick={() => mapRef.current?.zoomIn()}
           className="w-10 h-10 glass-effect rounded-lg flex items-center justify-center text-lg font-bold hover:bg-sport-primary/20 transition-colors"
         >
           +
         </button>
         <button 
+          aria-label="Alejar el mapa"
           onClick={() => mapRef.current?.zoomOut()}
           className="w-10 h-10 glass-effect rounded-lg flex items-center justify-center text-lg font-bold hover:bg-sport-primary/20 transition-colors"
         >

@@ -1,8 +1,14 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useRef, lazy, Suspense } from 'react';
 import { Search, Filter, MapPin, GraduationCap, Users, Route, Navigation, Loader2, CalendarDays, Building2, Award, Handshake, Trophy, Dumbbell } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { InteractiveMap } from './InteractiveMap';
+// El mapa (Leaflet + decenas de teselas) pesa y está debajo del primer
+// pantallazo: se carga solo cuando la sección se acerca a la pantalla, y nunca
+// durante el prerender (si quedara en el HTML estático, el navegador pediría
+// las teselas antes de pintar el hero).
+const InteractiveMap = lazy(() =>
+  import('./InteractiveMap').then((m) => ({ default: m.InteractiveMap })),
+);
 import { MapSidebar } from './MapSidebar';
 import { MapLocation, SportRoute, mapStats, cities } from '@/data/mapData';
 import { motion } from 'framer-motion';
@@ -44,6 +50,28 @@ export function MapHeroSection({ onScrollToFeatures }: MapHeroSectionProps) {
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
   const [selectedCity, setSelectedCity] = useState<string>('all');
+  const sectionRef = useRef<HTMLElement>(null);
+  const [mapVisible, setMapVisible] = useState(false);
+
+  useEffect(() => {
+    if ((window as unknown as { __PRERENDER__?: boolean }).__PRERENDER__) return;
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      setMapVisible(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setMapVisible(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: '300px 0px' },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   const toggleFilter = useCallback((filterId: string) => {
     setSelectedFilters(prev => 
@@ -84,17 +112,21 @@ export function MapHeroSection({ onScrollToFeatures }: MapHeroSectionProps) {
     : searchQuery;
 
   return (
-    <section className="relative w-full h-[85vh] min-h-[600px] overflow-hidden">
+    <section ref={sectionRef} className="relative w-full h-[85vh] min-h-[600px] overflow-hidden">
       {/* Background Map */}
-      <div className="absolute inset-0">
-        <InteractiveMap 
-          onLocationSelect={handleLocationSelect}
-          onRouteSelect={handleRouteSelect}
-          selectedFilters={selectedFilters}
-          searchQuery={effectiveSearchQuery}
-          userLocation={userLocation}
-          onUserLocationChange={setUserLocation}
-        />
+      <div className="absolute inset-0 bg-[#0b0f14]">
+        {mapVisible && (
+          <Suspense fallback={null}>
+            <InteractiveMap
+              onLocationSelect={handleLocationSelect}
+              onRouteSelect={handleRouteSelect}
+              selectedFilters={selectedFilters}
+              searchQuery={effectiveSearchQuery}
+              userLocation={userLocation}
+              onUserLocationChange={setUserLocation}
+            />
+          </Suspense>
+        )}
       </div>
 
       {/* Top Gradient Overlay */}
@@ -122,7 +154,7 @@ export function MapHeroSection({ onScrollToFeatures }: MapHeroSectionProps) {
           <div className="flex gap-2">
             {/* City Selector */}
             <Select value={selectedCity} onValueChange={handleCityChange}>
-              <SelectTrigger className="w-[140px] md:w-[180px] bg-background/50 border-sport-border">
+              <SelectTrigger aria-label="Elegir ciudad" className="w-[140px] md:w-[180px] bg-background/50 border-sport-border">
                 <SelectValue placeholder="Ciudad" />
               </SelectTrigger>
               <SelectContent>

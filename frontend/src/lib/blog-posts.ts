@@ -23,6 +23,10 @@ import { ciudades2Posts } from "./blog/ciudades-2";
 import { guiasPosts } from "./blog/guias";
 import { datosPosts } from "./blog/datos";
 import { casosPosts } from "./blog/casos";
+import { actualidadOlimpicaPosts } from "./blog/actualidad-olimpica";
+import { actualidadContinentalPosts } from "./blog/actualidad-continental";
+import { actualidadFutbolVoleibolPosts } from "./blog/actualidad-futbol-voleibol";
+import { actualidadCheerGimnasiaPosts } from "./blog/actualidad-cheer-gimnasia";
 
 export type BlogCategory =
   | "Casos de éxito"
@@ -35,6 +39,7 @@ export type BlogCategory =
   | "Cobros y pagos"
   | "WhatsApp IA"
   | "Por deporte"
+  | "Actualidad deportiva"
   | "Por ciudad"
   | "Para familias";
 
@@ -381,7 +386,7 @@ const basePosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Pedirle al asistente que mande WhatsApp uno por uno es caro y poco confiable. Un sistema que mande 200 recordatorios a la misma hora cuesta lo mismo que 20.",
+          "Pedirle a Mapi (el asistente de WhatsApp con IA) que mande WhatsApp uno por uno es caro y poco confiable. Un sistema que mande 200 recordatorios a la misma hora cuesta lo mismo que 20.",
       },
       { type: "h2", content: "4. Métricas semanales, no trimestrales" },
       {
@@ -564,6 +569,10 @@ export const blogPosts: BlogPost[] = [
   ...guiasPosts,
   ...datosPosts,
   ...casosPosts,
+  ...actualidadOlimpicaPosts,
+  ...actualidadContinentalPosts,
+  ...actualidadFutbolVoleibolPosts,
+  ...actualidadCheerGimnasiaPosts,
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

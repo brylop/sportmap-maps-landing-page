@@ -25,7 +25,7 @@ export const deportes2Posts: BlogPost[] = [
         type: "callout",
         variant: "tip",
         content:
-          "Define primero si tu escuela juega futsal FIFA, microfútbol AMF o ambos, porque cambia el torneo y el reglamento. Luego organiza grupos por año de nacimiento con cupos ajustados al turno de coliseo y cobra mensualidad e inscripción por separado. SportMaps cubre cobros, asistencia y avisos, con el asistente de WhatsApp gratis en todos los planes.",
+          "Define primero si tu escuela juega futsal FIFA, microfútbol AMF o ambos, porque cambia el torneo y el reglamento. Luego organiza grupos por año de nacimiento con cupos ajustados al turno de coliseo y cobra mensualidad e inscripción por separado. SportMaps cubre cobros, asistencia y avisos, con Mapi (el asistente de WhatsApp con IA) gratis en todos los planes.",
       },
       { type: "h2", content: "Futsal y microfútbol: dos deportes con el mismo apodo" },
       {
@@ -113,7 +113,7 @@ export const deportes2Posts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Las familias pagan con Wompi o Mercado Pago (PSE, Nequi, tarjeta, Bancolombia) y el dinero llega a la cuenta de la escuela. Si prefieren transferir y mandar foto del comprobante por WhatsApp, el asistente lee monto y referencia, lo cruza con el cobro pendiente y lo deja listo para que apruebes con un toque. La mora no da de baja al niño: tú decides si aplicas recargo.",
+          "Las familias pagan con Wompi o Mercado Pago (PSE, Nequi, tarjeta, Bancolombia) y el dinero llega a la cuenta de la escuela. Si prefieren transferir y mandar foto del comprobante por WhatsApp, Mapi lee monto y referencia, lo cruza con el cobro pendiente y lo deja listo para que apruebes con un toque. La mora no da de baja al niño: tú decides si aplicas recargo.",
       },
       { type: "h2", content: "Lo que el entrenador de fútbol sala usa en la semana" },
       {
@@ -202,7 +202,7 @@ export const deportes2Posts: BlogPost[] = [
       {
         question: "¿Cómo cobro la mensualidad de una escuela de microfútbol?",
         answer:
-          "Con cobros automáticos por período y un enlace de pago que la familia abre desde WhatsApp o correo, pagando por PSE, Nequi o tarjeta con Wompi o Mercado Pago. Si el papá transfiere, el asistente de WhatsApp lee el comprobante y lo deja listo para que la escuela lo apruebe.",
+          "Con cobros automáticos por período y un enlace de pago que la familia abre desde WhatsApp o correo, pagando por PSE, Nequi o tarjeta con Wompi o Mercado Pago. Si el papá transfiere, Mapi lee el comprobante y lo deja listo para que la escuela lo apruebe.",
       },
     ],
   },
@@ -539,7 +539,7 @@ export const deportes2Posts: BlogPost[] = [
           "Inscripciones a válidas y nacionales como cobros puntuales para los convocados.",
           "Uniforme del club, casco o repuestos por catálogo de artículos sumado a la mensualidad; si vendes mucho, tienda en línea (adicional de $49.000 al mes, incluida en Escuela Elite).",
           "Descuento por hermanos, frecuente en familias ciclistas.",
-          "Pagos por Wompi o Mercado Pago (PSE, Nequi, tarjeta) y comprobantes de transferencia leídos por el asistente de WhatsApp, listos para que apruebes.",
+          "Pagos por Wompi o Mercado Pago (PSE, Nequi, tarjeta) y comprobantes de transferencia leídos por Mapi (el asistente de WhatsApp con IA), listos para que apruebes.",
         ],
       },
       { type: "h2", content: "Paso a paso" },
@@ -709,7 +709,7 @@ export const deportes2Posts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Las familias pagan por PSE, Nequi o tarjeta con Wompi o Mercado Pago, y el dinero llega a la cuenta del club. Si pagan por transferencia, el asistente de WhatsApp lee el comprobante y lo deja listo para aprobar. Con el descuento por hermanos configurado, las familias con dos porristas no tienen que pedirlo cada mes.",
+          "Las familias pagan por PSE, Nequi o tarjeta con Wompi o Mercado Pago, y el dinero llega a la cuenta del club. Si pagan por transferencia, Mapi (el asistente de WhatsApp con IA) lee el comprobante y lo deja listo para aprobar. Con el descuento por hermanos configurado, las familias con dos porristas no tienen que pedirlo cada mes.",
       },
       { type: "h2", content: "Qué decirles a las familias desde la inscripción" },
       {
@@ -861,7 +861,7 @@ export const deportes2Posts: BlogPost[] = [
           ["Una alumna toma ballet y jazz", "La misma ficha en dos grupos, sin duplicar"],
           ["Grupo de adultos de salsa", "Grupo aparte; el alumno adulto es su propio pagador"],
           ["Dos salones o dos sedes", "Multi-sede, cada grupo en su sede"],
-          ["Clase de prueba para prospectos", "Clase de prueba agendable; el asistente de WhatsApp responde precios y agenda la cortesía"],
+          ["Clase de prueba para prospectos", "Clase de prueba agendable; Mapi (el asistente de WhatsApp con IA) responde precios y agenda la cortesía"],
         ],
       },
       { type: "h2", content: "Cobros: mensualidad, vestuario y muestra" },
@@ -877,7 +877,7 @@ export const deportes2Posts: BlogPost[] = [
           "Matrícula o inscripción una sola vez, separada de la mensualidad.",
           "Vestuario de muestra por catálogo de artículos, que se suma al cobro del mes, o cobro puntual solo a los grupos que se presentan.",
           "Descuento por hermanos o por tomar dos estilos, configurado una vez.",
-          "Pagos por PSE, Nequi o tarjeta con Wompi o Mercado Pago; comprobantes de transferencia leídos por el asistente de WhatsApp y listos para aprobar.",
+          "Pagos por PSE, Nequi o tarjeta con Wompi o Mercado Pago; comprobantes de transferencia leídos por Mapi y listos para aprobar.",
         ],
       },
       {
@@ -1075,7 +1075,7 @@ export const deportes2Posts: BlogPost[] = [
           "Inscripción anual al club, separada.",
           "Cobros puntuales por torneo o viaje, solo a los convocados.",
           "Camiseta del club por catálogo de artículos sumado a la mensualidad, o tienda en línea (adicional de $49.000 al mes, incluida en Escuela Elite) si vendes a hinchas y exjugadores.",
-          "Pagos por PSE, Nequi o tarjeta con Wompi o Mercado Pago, y comprobantes de transferencia leídos por el asistente de WhatsApp, listos para aprobar.",
+          "Pagos por PSE, Nequi o tarjeta con Wompi o Mercado Pago, y comprobantes de transferencia leídos por Mapi (el asistente de WhatsApp con IA), listos para aprobar.",
         ],
       },
       {
@@ -1263,7 +1263,7 @@ export const deportes2Posts: BlogPost[] = [
           "Inscripción al club una vez, separada.",
           "Uniforme, gorra y casco por catálogo de artículos sumado a la mensualidad; si vendes guantes y bates, la tienda en línea es un adicional de $49.000 al mes (incluida en Escuela Elite).",
           "Viajes a nacionales y departamentales como cobros puntuales para los convocados.",
-          "Pagos con Wompi o Mercado Pago (PSE, Nequi, tarjeta) y comprobantes de transferencia leídos por el asistente de WhatsApp, listos para aprobar.",
+          "Pagos con Wompi o Mercado Pago (PSE, Nequi, tarjeta) y comprobantes de transferencia leídos por Mapi (el asistente de WhatsApp con IA), listos para aprobar.",
         ],
       },
       { type: "h3", content: "Ejemplo de cálculo con un pelotero" },
@@ -1460,14 +1460,14 @@ export const deportes2Posts: BlogPost[] = [
           "Inscripción a torneos como cobro puntual para quienes juegan.",
           "Tablero, reloj o libro por catálogo de artículos sumado a la mensualidad.",
           "Descuento por hermanos configurado una vez.",
-          "Pagos con Wompi o Mercado Pago (PSE, Nequi, tarjeta) y comprobantes de transferencia leídos por el asistente de WhatsApp, listos para aprobar.",
+          "Pagos con Wompi o Mercado Pago (PSE, Nequi, tarjeta) y comprobantes de transferencia leídos por Mapi (el asistente de WhatsApp con IA), listos para aprobar.",
         ],
       },
       {
         type: "callout",
         variant: "info",
         content:
-          "Para captar alumnos nuevos, el asistente de WhatsApp responde precios y agenda la clase de prueba, y la página pública de la academia tiene botón de inscripción. Así no dependes de contestar a las 10 de la noche.",
+          "Para captar alumnos nuevos, Mapi responde precios y agenda la clase de prueba, y la página pública de la academia tiene botón de inscripción. Así no dependes de contestar a las 10 de la noche.",
       },
       { type: "h2", content: "Paso a paso" },
       {

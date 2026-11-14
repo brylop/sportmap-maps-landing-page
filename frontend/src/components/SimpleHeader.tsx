@@ -11,7 +11,7 @@ export function SimpleHeader() {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="relative">
-              <img src="/logo.jpg" alt="SportMaps Logo" className="w-10 h-10 object-contain rounded-xl bg-white p-0.5 shadow-glow-primary group-hover:shadow-glow-secondary transition-all duration-300" />
+              <img src="/logo-96.webp" srcSet="/logo-96.webp 1x, /logo-192.webp 2x" width={96} height={99} alt="SportMaps Logo" className="w-10 h-10 object-contain rounded-xl bg-white p-0.5 shadow-glow-primary group-hover:shadow-glow-secondary transition-all duration-300" />
             </div>
             <div className="hidden sm:block">
               <span className="text-xl font-bold bg-gradient-tech-primary bg-clip-text text-transparent">

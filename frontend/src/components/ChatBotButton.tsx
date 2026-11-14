@@ -1,7 +1,7 @@
-import { Bot } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { ChatBotModal } from '@/components/modals/ChatBotModal';
+import { MapiAvatar } from '@/components/MapiAvatar';
 
 export function ChatBotButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,9 +33,9 @@ export function ChatBotButton() {
           }
         }}
         whileTap={{ scale: 0.9 }}
-        aria-label="Abrir chat de ayuda"
+        aria-label="Hablar con Mapi, el asistente de IA de SportMaps"
       >
-        <Bot className="w-8 h-8" />
+        <MapiAvatar className="relative z-10 w-14 h-14 ring-2 ring-white/70" />
         
         {/* Pulse ring animation */}
         <motion.span 

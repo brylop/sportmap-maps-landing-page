@@ -99,7 +99,7 @@ export const familiasPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Depende de la escuela. Algunas tienen un asistente de WhatsApp que recibe la foto del comprobante, lee el valor y la referencia en segundos, lo cruza con tu cobro y lo deja listo para que la escuela lo apruebe con un toque. En SportMaps ese asistente viene incluido para la escuela, que conecta su propio número de WhatsApp; si tu escuela lo tiene activo, mandar la foto a su número oficial funciona igual que subirla en el cobro. Si no lo tiene, el comprobante que mandas por chat queda en el celular de alguien y es fácil que se pierda: mejor súbelo en el cobro.",
+          "Depende de la escuela. Algunas tienen un asistente de WhatsApp que recibe la foto del comprobante, lee el valor y la referencia en segundos, lo cruza con tu cobro y lo deja listo para que la escuela lo apruebe con un toque. En SportMaps Mapi viene incluido para la escuela, que conecta su propio número de WhatsApp; si tu escuela lo tiene activo, mandar la foto a su número oficial funciona igual que subirla en el cobro. Si no lo tiene, el comprobante que mandas por chat queda en el celular de alguien y es fácil que se pierda: mejor súbelo en el cobro.",
       },
       { type: "h2", content: "Qué revisar antes de pagar" },
       {
@@ -151,7 +151,7 @@ export const familiasPosts: BlogPost[] = [
         type: "cta",
         title: "¿Tu escuela todavía cobra por chat y capturas?",
         description:
-          "Compártele esta guía. SportMaps le da cobros con enlace, pasarelas Wompi y Mercado Pago y lectura de comprobantes sin costo adicional por el asistente.",
+          "Compártele esta guía. SportMaps le da cobros con enlace, pasarelas Wompi y Mercado Pago y lectura de comprobantes sin costo adicional por Mapi (el asistente de WhatsApp con IA).",
         href: "/escuelas",
         label: "Ver SportMaps para escuelas",
       },

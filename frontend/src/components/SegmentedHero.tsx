@@ -133,16 +133,18 @@ export function SegmentedHero({ onScrollToMap }: SegmentedHeroProps) {
           </motion.div>
 
           {/* Mapi, el asistente de WhatsApp IA (lémur con gafas de SportMaps). */}
-          <motion.img
+          {/* Es el LCP de la página: <img> plano (sin animación de opacidad, que
+              lo dejaba invisible hasta que cargaba el JS) y con prioridad alta. */}
+          <img
             src="/mapi/mapi-400.webp"
-            srcSet="/mapi/mapi-400.webp 400w, /mapi/mapi-800.webp 800w"
+            srcSet="/mapi/mapi-400.webp 400w, /mapi/mapi-560.webp 560w, /mapi/mapi-800.webp 800w"
             sizes="(max-width: 768px) 160px, 220px"
             alt="Mapi, el asistente de WhatsApp IA de SportMaps"
             width={220}
             height={212}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
             className="mx-auto w-40 md:w-[220px] h-auto drop-shadow-xl"
           />
 

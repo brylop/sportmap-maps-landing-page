@@ -46,7 +46,7 @@ const Entrenadores = () => {
     {
       icon: BarChart3,
       title: "Pizarra Táctica",
-      description: "Jugadas, alineaciones y ejercicios en la pizarra táctica (fútbol hoy; más deportes en camino)."
+      description: "Jugadas, alineaciones y ejercicios en la pizarra táctica (fútbol hoy; más deportes en camino). No enviamos nombres ni fotos de tus deportistas."
     }
   ];
 

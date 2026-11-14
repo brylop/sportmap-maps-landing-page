@@ -16,6 +16,7 @@ const CATEGORIES: ("Todos" | BlogCategory)[] = [
   "Todos",
   "Cobros y pagos",
   "WhatsApp IA",
+  "Actualidad deportiva",
   "Por deporte",
   "Por ciudad",
   "Para familias",

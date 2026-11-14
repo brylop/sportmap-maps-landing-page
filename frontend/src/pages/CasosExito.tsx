@@ -23,7 +23,7 @@ const CasosExito = () => {
       name: "Dynasty Volley Club",
       location: "Bogotá, Colombia · en SportMaps desde el 28 jul 2026",
       summary:
-        "Primer club en conectar el asistente de WhatsApp a su propio número. La IA lee los comprobantes que mandan las familias y deja cada pago listo para que el club lo apruebe con un toque. Emite su facturación electrónica DIAN desde la plataforma.",
+        "Primer club en conectar a Mapi, el asistente de WhatsApp, a su propio número. Mapi lee los comprobantes que mandan las familias y deja cada pago listo para que el club lo apruebe con un toque. Emite su facturación electrónica DIAN desde la plataforma.",
       stats: [
         { value: "502", label: "Deportistas activos" },
         { value: "$117,6 M", label: "En 756 pagos registrados" },
@@ -292,7 +292,7 @@ const CasosExito = () => {
             ¿Quieres organizar tu escuela así?
           </h2>
           <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-            Empieza gratis con Free Start (hasta 20 alumnos) y el asistente de WhatsApp incluido.
+            Empieza gratis con Free Start (hasta 20 alumnos) y Mapi, el asistente de WhatsApp, incluido.
           </p>
           <Button asChild size="lg" className="bg-sport-primary hover:bg-sport-primary/90">
             <Link to="/planes">

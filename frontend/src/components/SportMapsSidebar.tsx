@@ -62,7 +62,7 @@ export function SportMapsSidebar({ onSectionClick, activeSection }: SidebarProps
       >
         {/* Header */}
         <div className="flex items-center gap-3 mb-8 pb-4 border-b border-white/25">
-          <img src="/logo.jpg" alt="SportMaps Logo" className="w-8 h-8 object-contain rounded-lg bg-white p-0.5" />
+          <img src="/logo-96.webp" srcSet="/logo-96.webp 1x, /logo-192.webp 2x" width={96} height={99} alt="SportMaps Logo" className="w-8 h-8 object-contain rounded-lg bg-white p-0.5" />
           <h2 className="text-xl font-bold">SportMaps</h2>
         </div>
 

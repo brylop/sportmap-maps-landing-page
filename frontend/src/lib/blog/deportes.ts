@@ -25,7 +25,7 @@ export const deportesPosts: BlogPost[] = [
         type: "callout",
         variant: "tip",
         content:
-          "Busca un software que agrupe atletas por año de nacimiento y equipo, que cobre por período con recordatorios automáticos y que le dé al profe pizarra táctica, asistencia y evaluaciones. SportMaps hace las tres cosas y el asistente de WhatsApp que lee comprobantes viene gratis en todos los planes, incluido el Free Start de hasta 20 alumnos.",
+          "Busca un software que agrupe atletas por año de nacimiento y equipo, que cobre por período con recordatorios automáticos y que le dé al profe pizarra táctica, asistencia y evaluaciones. SportMaps hace las tres cosas y Mapi (el asistente de WhatsApp con IA) que lee comprobantes viene gratis en todos los planes, incluido el Free Start de hasta 20 alumnos.",
       },
       { type: "h2", content: "Cómo se organiza el fútbol formativo en Colombia" },
       {
@@ -67,7 +67,7 @@ export const deportesPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "En SportMaps las familias pagan con Wompi o Mercado Pago (PSE, Nequi, tarjeta, botón Bancolombia, billetera de Mercado Pago) y la plata llega directo a la cuenta de la escuela. SportMaps no cobra comisión por la integración; solo aplican las tarifas de la pasarela. Si el papá prefiere transferir y mandar la foto del comprobante por WhatsApp, el asistente de IA lee el monto y la referencia en segundos, lo cruza contra el cobro pendiente y lo deja listo para que la escuela lo apruebe con un toque. Ese asistente es gratis (cada escuela conecta su propio número con Meta): Meta da 1.000 conversaciones de servicio al mes por número y, si te pasas, el excedente lo cobra Meta directo a tu tarjeta.",
+          "En SportMaps las familias pagan con Wompi o Mercado Pago (PSE, Nequi, tarjeta, botón Bancolombia, billetera de Mercado Pago) y la plata llega directo a la cuenta de la escuela. SportMaps no cobra comisión por la integración; solo aplican las tarifas de la pasarela. Si el papá prefiere transferir y mandar la foto del comprobante por WhatsApp, Mapi lee el monto y la referencia en segundos, lo cruza contra el cobro pendiente y lo deja listo para que la escuela lo apruebe con un toque. Mapi es gratis (cada escuela conecta su propio número con Meta): Meta da 1.000 conversaciones de servicio al mes por número y, si te pasas, el excedente lo cobra Meta directo a tu tarjeta.",
       },
       { type: "h2", content: "Lo que necesita el entrenador de fútbol" },
       {
@@ -298,7 +298,7 @@ export const deportesPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Los viajes a torneos son el gasto que más desordena a un club: se recoge plata por partes, en efectivo y por transferencia. Registrar cada abono como pago manual con su comprobante, o dejar que el asistente de WhatsApp lea la foto de la transferencia y la deje cruzada contra el cobro, lista para aprobar, evita la tarde entera de cuadrar cuentas antes de salir.",
+          "Los viajes a torneos son el gasto que más desordena a un club: se recoge plata por partes, en efectivo y por transferencia. Registrar cada abono como pago manual con su comprobante, o dejar que Mapi (el asistente de WhatsApp con IA) lea la foto de la transferencia y la deje cruzada contra el cobro, lista para aprobar, evita la tarde entera de cuadrar cuentas antes de salir.",
       },
       { type: "h2", content: "Planificar la temporada de voleibol" },
       {
@@ -406,7 +406,7 @@ export const deportesPosts: BlogPost[] = [
       {
         question: "¿Cómo cobrar los viajes a torneos de un club de voleibol?",
         answer:
-          "Como un cobro aparte de la mensualidad, registrando cada abono con su comprobante. En SportMaps los pagos manuales quedan con soporte y el asistente de WhatsApp puede leer las transferencias que mandan las familias.",
+          "Como un cobro aparte de la mensualidad, registrando cada abono con su comprobante. En SportMaps los pagos manuales quedan con soporte y Mapi puede leer las transferencias que mandan las familias.",
       },
     ],
   },
@@ -492,7 +492,7 @@ export const deportesPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Los pagos entran por Wompi o Mercado Pago (PSE, Nequi, tarjeta) directo a la cuenta de la academia, sin comisión de SportMaps por la integración. Si la familia transfiere y manda la foto del comprobante por WhatsApp, el asistente de IA lo lee, lo cruza contra el cobro y lo deja listo para que la escuela lo apruebe con un toque; es gratis en todos los planes.",
+          "Los pagos entran por Wompi o Mercado Pago (PSE, Nequi, tarjeta) directo a la cuenta de la academia, sin comisión de SportMaps por la integración. Si la familia transfiere y manda la foto del comprobante por WhatsApp, Mapi (el asistente de WhatsApp con IA) lo lee, lo cruza contra el cobro y lo deja listo para que la escuela lo apruebe con un toque; es gratis en todos los planes.",
       },
       { type: "h2", content: "Métricas que le sirven al entrenador de natación" },
       {
@@ -702,7 +702,7 @@ export const deportesPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Las familias pagan por PSE, Nequi o tarjeta con Wompi o Mercado Pago, directo a la cuenta de la escuela, y reciben recordatorios automáticos por correo y WhatsApp. Si pagan por transferencia, el asistente de WhatsApp lee el comprobante, lo cruza contra el cobro y lo deja listo para que la escuela lo apruebe con un toque; es gratis en todos los planes.",
+          "Las familias pagan por PSE, Nequi o tarjeta con Wompi o Mercado Pago, directo a la cuenta de la escuela, y reciben recordatorios automáticos por correo y WhatsApp. Si pagan por transferencia, Mapi (el asistente de WhatsApp con IA) lee el comprobante, lo cruza contra el cobro y lo deja listo para que la escuela lo apruebe con un toque; es gratis en todos los planes.",
       },
       { type: "h2", content: "Minutos de juego y retención en categorías formativas" },
       {
@@ -903,7 +903,7 @@ export const deportesPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Los pagos llegan por Wompi o Mercado Pago (PSE, Nequi, tarjeta) directo a la cuenta del club, sin comisión de SportMaps por la integración. Cuando una familia transfiere y manda la foto por WhatsApp, el asistente de IA lee el comprobante, lo cruza contra el cobro y lo deja listo para que la escuela lo apruebe con un toque; es gratis en todos los planes.",
+          "Los pagos llegan por Wompi o Mercado Pago (PSE, Nequi, tarjeta) directo a la cuenta del club, sin comisión de SportMaps por la integración. Cuando una familia transfiere y manda la foto por WhatsApp, Mapi (el asistente de WhatsApp con IA) lee el comprobante, lo cruza contra el cobro y lo deja listo para que la escuela lo apruebe con un toque; es gratis en todos los planes.",
       },
       { type: "h2", content: "Seguridad y equipo: lo que debe estar en la ficha" },
       {
@@ -1089,7 +1089,7 @@ export const deportesPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Los pagos entran por Wompi o Mercado Pago (PSE, Nequi, tarjeta) directo a la cuenta de la academia, sin comisión de SportMaps por la integración. El adulto que transfiere y manda el comprobante por WhatsApp no tiene que esperar a que alguien revise el banco: el asistente de IA lo lee, lo cruza contra el cobro y lo deja listo para que la escuela lo apruebe con un toque. Ese asistente es gratis en todos los planes.",
+          "Los pagos entran por Wompi o Mercado Pago (PSE, Nequi, tarjeta) directo a la cuenta de la academia, sin comisión de SportMaps por la integración. El adulto que transfiere y manda el comprobante por WhatsApp no tiene que esperar a que alguien revise el banco: Mapi (el asistente de WhatsApp con IA) lo lee, lo cruza contra el cobro y lo deja listo para que la escuela lo apruebe con un toque. Mapi es gratis en todos los planes.",
       },
       { type: "h2", content: "Qué evaluar en tenis y pádel" },
       {
@@ -1116,7 +1116,7 @@ export const deportesPosts: BlogPost[] = [
       {
         type: "ol",
         items: [
-          "Agenda la clase de prueba con nombre y teléfono del interesado (en SportMaps la clase de cortesía es agendable, y el asistente de WhatsApp puede responder precios y agendarla).",
+          "Agenda la clase de prueba con nombre y teléfono del interesado (en SportMaps la clase de cortesía es agendable, y Mapi puede responder precios y agendarla).",
           "Al terminar, el profesor anota el nivel en que lo ubicaría.",
           "Al día siguiente, la academia le envía la oferta del paquete de su nivel con el enlace de pago.",
           "Si paga, queda inscrito con su saldo de clases.",
@@ -1313,7 +1313,7 @@ export const deportesPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Los pagos llegan por Wompi o Mercado Pago (PSE, Nequi, tarjeta) directo a la cuenta de la academia, sin comisión de SportMaps por la integración. El asistente de WhatsApp lee los comprobantes de transferencia que mandan los papás, los cruza contra el cobro y los deja listos para que la academia los apruebe con un toque; es gratis en todos los planes. Y como la mora no da de baja automáticamente, un alumno atrasado no pierde su historial de grado.",
+          "Los pagos llegan por Wompi o Mercado Pago (PSE, Nequi, tarjeta) directo a la cuenta de la academia, sin comisión de SportMaps por la integración. Mapi (el asistente de WhatsApp con IA) lee los comprobantes de transferencia que mandan los papás, los cruza contra el cobro y los deja listos para que la academia los apruebe con un toque; es gratis en todos los planes. Y como la mora no da de baja automáticamente, un alumno atrasado no pierde su historial de grado.",
       },
       { type: "h2", content: "Grupos: por edad, por grado o por los dos" },
       {
@@ -1537,7 +1537,7 @@ export const deportesPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Las familias pagan por Wompi o Mercado Pago (PSE, Nequi, tarjeta) directo a la cuenta de la escuela, sin comisión de SportMaps por la integración, y reciben recordatorios automáticos por correo y WhatsApp. El asistente de IA lee los comprobantes de transferencia, los cruza contra el cobro y los deja listos para aprobar con un toque; es gratis en todos los planes, incluido Free Start.",
+          "Las familias pagan por Wompi o Mercado Pago (PSE, Nequi, tarjeta) directo a la cuenta de la escuela, sin comisión de SportMaps por la integración, y reciben recordatorios automáticos por correo y WhatsApp. Mapi (el asistente de WhatsApp con IA) lee los comprobantes de transferencia, los cruza contra el cobro y los deja listos para aprobar con un toque; es gratis en todos los planes, incluido Free Start.",
       },
       { type: "h2", content: "Paso a paso para montar tu escuela" },
       {

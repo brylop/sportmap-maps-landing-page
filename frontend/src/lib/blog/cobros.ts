@@ -130,7 +130,7 @@ export const cobrosPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Cuando una familia paga por transferencia y manda el comprobante por WhatsApp, el asistente con IA lo lee en segundos, extrae monto y referencia, lo cruza contra el cobro pendiente y lo deja listo para que la escuela lo apruebe con un toque. Cada escuela conecta su propio número de WhatsApp con Meta mediante el registro integrado. Los pagos en efectivo se registran a mano con su soporte. El recargo por mora es opcional y lo define cada escuela; la mora no cancela automáticamente al atleta. El plan Free Start ($0) cubre hasta 20 alumnos, y Escuela Start cuesta $69.000 al mes para hasta 50.",
+          "Cuando una familia paga por transferencia y manda el comprobante por WhatsApp, Mapi (el asistente de WhatsApp con IA) lo lee en segundos, extrae monto y referencia, lo cruza contra el cobro pendiente y lo deja listo para que la escuela lo apruebe con un toque. Cada escuela conecta su propio número de WhatsApp con Meta mediante el registro integrado. Los pagos en efectivo se registran a mano con su soporte. El recargo por mora es opcional y lo define cada escuela; la mora no cancela automáticamente al atleta. El plan Free Start ($0) cubre hasta 20 alumnos, y Escuela Start cuesta $69.000 al mes para hasta 50.",
       },
       {
         type: "cta",
@@ -516,7 +516,7 @@ export const cobrosPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "SportMaps envía recordatorios de cobro automáticos por correo y WhatsApp (3 días antes, el día del vencimiento y a los 3, 10 y 20 días) con un enlace corto de pago que la familia abre sin iniciar sesión y paga por Wompi o Mercado Pago. El recargo por mora es opcional: lo activa y lo define cada escuela. La mora no cancela automáticamente al atleta: el retiro es siempre una decisión de la escuela. Cuando una familia responde con el comprobante por WhatsApp, el asistente con IA lo lee en segundos, lo cruza contra el cobro pendiente y lo deja listo para que la escuela lo apruebe con un toque; los pagos en efectivo se registran como pago manual. El WhatsApp IA viene incluido sin costo en todos los planes; solo pagas a Meta si superas las 1.000 conversaciones de servicio gratuitas al mes.",
+          "SportMaps envía recordatorios de cobro automáticos por correo y WhatsApp (3 días antes, el día del vencimiento y a los 3, 10 y 20 días) con un enlace corto de pago que la familia abre sin iniciar sesión y paga por Wompi o Mercado Pago. El recargo por mora es opcional: lo activa y lo define cada escuela. La mora no cancela automáticamente al atleta: el retiro es siempre una decisión de la escuela. Cuando una familia responde con el comprobante por WhatsApp, Mapi (el asistente de WhatsApp con IA) lo lee en segundos, lo cruza contra el cobro pendiente y lo deja listo para que la escuela lo apruebe con un toque; los pagos en efectivo se registran como pago manual. El WhatsApp IA viene incluido sin costo en todos los planes; solo pagas a Meta si superas las 1.000 conversaciones de servicio gratuitas al mes.",
       },
       {
         type: "cta",
@@ -895,7 +895,7 @@ export const cobrosPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "En SportMaps las familias mandan el comprobante al WhatsApp de la escuela y el asistente con IA lo lee en segundos: extrae monto, fecha, referencia y cuenta destino, lo cruza contra el cobro pendiente del atleta y lo deja listo para que la escuela lo apruebe con un toque. Si la referencia ya se usó o la cuenta destino no es de la escuela, lo señala para que la escuela lo revise antes de acreditar nada. Cada escuela conecta su propio número de WhatsApp con Meta mediante el registro integrado. Los pagos por pasarela (Wompi o Mercado Pago) se marcan solos, y los pagos en efectivo se registran como pago manual con su soporte. El WhatsApp IA está incluido sin costo en todos los planes, también en Free Start.",
+          "En SportMaps las familias mandan el comprobante al WhatsApp de la escuela y Mapi (el asistente de WhatsApp con IA) lo lee en segundos: extrae monto, fecha, referencia y cuenta destino, lo cruza contra el cobro pendiente del atleta y lo deja listo para que la escuela lo apruebe con un toque. Si la referencia ya se usó o la cuenta destino no es de la escuela, lo señala para que la escuela lo revise antes de acreditar nada. Cada escuela conecta su propio número de WhatsApp con Meta mediante el registro integrado. Los pagos por pasarela (Wompi o Mercado Pago) se marcan solos, y los pagos en efectivo se registran como pago manual con su soporte. El WhatsApp IA está incluido sin costo en todos los planes, también en Free Start.",
       },
       {
         type: "cta",
@@ -930,7 +930,7 @@ export const cobrosPosts: BlogPost[] = [
       {
         question: "¿Se pueden leer los comprobantes de pago automáticamente?",
         answer:
-          "Sí. Hay herramientas con inteligencia artificial que leen la imagen o el PDF del comprobante y extraen monto, fecha, referencia y cuenta destino. En SportMaps eso lo hace el asistente de WhatsApp IA, incluido en todos los planes: lee el comprobante, lo cruza con el cobro y lo deja listo para que la escuela lo apruebe.",
+          "Sí. Hay herramientas con inteligencia artificial que leen la imagen o el PDF del comprobante y extraen monto, fecha, referencia y cuenta destino. En SportMaps eso lo hace Mapi, incluido en todos los planes: lee el comprobante, lo cruza con el cobro y lo deja listo para que la escuela lo apruebe.",
       },
     ],
     about: [

@@ -73,7 +73,7 @@ export const comparativas2Posts: BlogPost[] = [
       {
         type: "p",
         content:
-          "En todos los planes, incluido el gratis, vienen: el asistente de WhatsApp con IA (lee el comprobante que manda la familia, lo cruza con el cobro y lo deja listo para que la escuela lo apruebe con un toque), Wompi y Mercado Pago integrados (PSE, Nequi, tarjetas, botón Bancolombia), la integración de facturación electrónica DIAN sin costo (pagas solo el paquete de facturas que uses), entrenadores y staff ilimitados y la página pública de la escuela con botón de inscripción.",
+          "En todos los planes, incluido el gratis, vienen: Mapi, el asistente de WhatsApp con IA (lee el comprobante que manda la familia, lo cruza con el cobro y lo deja listo para que la escuela lo apruebe con un toque), Wompi y Mercado Pago integrados (PSE, Nequi, tarjetas, botón Bancolombia), la integración de facturación electrónica DIAN sin costo (pagas solo el paquete de facturas que uses), entrenadores y staff ilimitados y la página pública de la escuela con botón de inscripción.",
       },
       { type: "h2", content: "Tramo por tramo: quién cuesta menos" },
       {
@@ -128,7 +128,7 @@ export const comparativas2Posts: BlogPost[] = [
         items: [
           "Escuelas pequeñas: gratis hasta 20 alumnos y $69.000 hasta 50. Para una escuela que arranca, la diferencia frente a $150.000 es grande.",
           "Cobrar, no solo registrar: las familias pagan por PSE, Nequi o tarjeta desde un enlace, y la plata llega directo a la cuenta de la escuela. SportMaps no cobra comisión por la integración; solo aplican las tarifas de la pasarela.",
-          "Comprobantes de transferencia: el asistente de WhatsApp los lee y los cruza con el cobro, y tú solo apruebas. Es la tarea que más horas quita a una escuela que cobra por transferencia.",
+          "Comprobantes de transferencia: Mapi los lee y los cruza con el cobro, y tú solo apruebas. Es la tarea que más horas quita a una escuela que cobra por transferencia.",
           "Recordatorios por WhatsApp, que es donde las familias sí leen: salen 3 días antes, el día del vencimiento y a los 3, 10 y 20 días, con enlace de pago.",
           "Facturación electrónica DIAN con integración sin costo, y el contador con acceso de solo lectura para revisar las facturas.",
           "Para las familias: carnet digital con QR, informe mensual del atleta y avisos del calendario con notificación push.",
@@ -294,7 +294,7 @@ export const comparativas2Posts: BlogPost[] = [
         items: [
           "Construido para la escuela deportiva: acudientes vinculados, categorías por edad, equipos, multi-sede y la regla de inscripción una vez y mensualidad después.",
           "Precios publicados en pesos y un plan gratis permanente hasta 20 alumnos, sin tarjeta.",
-          "La conciliación resuelta: el asistente de WhatsApp lee los comprobantes y los cruza con el cobro. Es lo que más tiempo quita en una escuela que cobra por transferencia.",
+          "La conciliación resuelta: Mapi (el asistente de WhatsApp con IA) lee los comprobantes y los cruza con el cobro. Es lo que más tiempo quita en una escuela que cobra por transferencia.",
           "Facturación electrónica DIAN integrada, sin contratar otro proveedor y digitar dos veces.",
           "Herramientas deportivas que una herramienta multidisciplina no suele traer: pizarra táctica de fútbol, mesociclos, evaluaciones, partidos y control de acceso con torniquetes ZKTeco como adicional.",
         ],
@@ -425,7 +425,7 @@ export const comparativas2Posts: BlogPost[] = [
         type: "callout",
         variant: "tip",
         content:
-          "Si quieres una herramienta con tracción declarada y un compromiso explícito de cobranza responsable, Athleos es una opción seria: pide la cotización. Si quieres saber el precio antes de hablar con ventas, que el asistente de WhatsApp te deje los comprobantes listos para aprobar y facturar electrónicamente desde el mismo sistema, compara con SportMaps.",
+          "Si quieres una herramienta con tracción declarada y un compromiso explícito de cobranza responsable, Athleos es una opción seria: pide la cotización. Si quieres saber el precio antes de hablar con ventas, que Mapi (el asistente de WhatsApp con IA) te deje los comprobantes listos para aprobar y facturar electrónicamente desde el mismo sistema, compara con SportMaps.",
       },
       { type: "h2", content: "Qué publica Athleos" },
       {
@@ -499,7 +499,7 @@ export const comparativas2Posts: BlogPost[] = [
         type: "ul",
         items: [
           "Sabes el precio antes de hablar con alguien, y si tienes 20 alumnos o menos, no pagas.",
-          "El trabajo con las transferencias: el asistente de WhatsApp lee monto y referencia del comprobante y lo cruza con el cobro; la escuela solo aprueba.",
+          "El trabajo con las transferencias: Mapi lee monto y referencia del comprobante y lo cruza con el cobro; la escuela solo aprueba.",
           "Facturación electrónica DIAN dentro del mismo sistema, sin costo de integración y con acceso de solo lectura para el contador.",
           "Más canales de pago: además de PSE y tarjeta, Nequi, botón Bancolombia y billetera de Mercado Pago.",
           "Lo deportivo y lo de las familias: carnets con QR, informe mensual del atleta, avisos del calendario, historia clínica deportiva para fisioterapeutas con consentimiento del acudiente, pizarra táctica de fútbol y planificación por mesociclos.",
@@ -726,7 +726,7 @@ export const comparativas2Posts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Así se ve el cobro de una mensualidad en SportMaps: el día 1 el sistema genera el cobro de cada alumno según su plan y le aplica el descuento por hermanos si corresponde. Tres días antes del vencimiento sale el recordatorio por WhatsApp y correo con un enlace corto; la familia paga por PSE, Nequi o tarjeta sin iniciar sesión, o transfiere y manda la foto del comprobante al WhatsApp de la escuela. El asistente lee el comprobante y lo deja listo para aprobar. Quien no ha pagado recibe avisos el día del vencimiento y a los 3, 10 y 20 días. Al cierre, el estado de cuenta de cada familia está al día sin abrir una hoja de cálculo.",
+          "Así se ve el cobro de una mensualidad en SportMaps: el día 1 el sistema genera el cobro de cada alumno según su plan y le aplica el descuento por hermanos si corresponde. Tres días antes del vencimiento sale el recordatorio por WhatsApp y correo con un enlace corto; la familia paga por PSE, Nequi o tarjeta sin iniciar sesión, o transfiere y manda la foto del comprobante al WhatsApp de la escuela. Mapi (el asistente de WhatsApp con IA) lee el comprobante y lo deja listo para aprobar. Quien no ha pagado recibe avisos el día del vencimiento y a los 3, 10 y 20 días. Al cierre, el estado de cuenta de cada familia está al día sin abrir una hoja de cálculo.",
       },
       {
         type: "p",
@@ -852,7 +852,7 @@ export const comparativas2Posts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Aquí lo que importa es cobrar bien: inscripción una vez, mensualidad, comprobantes de transferencia, recordatorios y paz y salvo. SportMaps está construido para eso y trae en todos los planes el asistente de WhatsApp que lee los comprobantes y los deja listos para aprobar, las pasarelas y la integración de facturación electrónica. GOLAPP es una opción simple si tu escuela es de fútbol y no necesitas cobrar en línea. Athleos es otra opción seria si prefieres pagar por alumno activo.",
+          "Aquí lo que importa es cobrar bien: inscripción una vez, mensualidad, comprobantes de transferencia, recordatorios y paz y salvo. SportMaps está construido para eso y trae en todos los planes Mapi (el asistente de WhatsApp con IA) que lee los comprobantes y los deja listos para aprobar, las pasarelas y la integración de facturación electrónica. GOLAPP es una opción simple si tu escuela es de fútbol y no necesitas cobrar en línea. Athleos es otra opción seria si prefieres pagar por alumno activo.",
       },
       { type: "h3", content: "Gimnasio, box o centro con torniquete" },
       {
@@ -1201,7 +1201,7 @@ export const comparativas2Posts: BlogPost[] = [
         items: [
           "Publicar las canchas o instalaciones de tu sede y recibir solicitudes de reserva por un enlace.",
           "Todo en la misma cuenta de la escuela: tus alumnos, tus cobros y tus instalaciones.",
-          "Lo que ya opera hoy para las escuelas y servirá para las canchas: Wompi y Mercado Pago (PSE, Nequi, tarjetas), y el asistente de WhatsApp que lee comprobantes de transferencia y los deja listos para aprobar.",
+          "Lo que ya opera hoy para las escuelas y servirá para las canchas: Wompi y Mercado Pago (PSE, Nequi, tarjetas), y Mapi (el asistente de WhatsApp con IA) que lee comprobantes de transferencia y los deja listos para aprobar.",
         ],
       },
       {
@@ -1230,7 +1230,7 @@ export const comparativas2Posts: BlogPost[] = [
         type: "table",
         headers: ["Tu sede", "Controla Cancha (hoy)", "SportMaps Canchas (anunciado, nov-2026)"],
         rows: [
-          ["1 a 2 canchas", "$149.000 (Partido, sin IA)", "$0 (Gratis, sin bot)"],
+          ["1 a 2 canchas", "$149.000 (Partido, sin IA)", "$0 (Gratis, sin Mapi)"],
           ["1 a 2 canchas con bot de WhatsApp", "$249.000 (Torneo es el primer plan con IA)", "$99.000 (Canchas Pro)"],
           ["3 a 5 canchas", "$249.000, 400 reservas con IA al mes", "$99.000, sin tope de reservas"],
           ["6 o más, varias sedes", "$399.000, 1.000 reservas con IA al mes", "$199.000 (Canchas Club)"],
@@ -1259,7 +1259,7 @@ export const comparativas2Posts: BlogPost[] = [
         items: [
           "Escuela y canchas en la misma cuenta: si tienes academia, tus alumnos, sus cobros y tus instalaciones viven en un solo lugar.",
           "Cobro en línea con Wompi y Mercado Pago (PSE, Nequi, tarjetas) que ya opera hoy para las escuelas; Controla Cancha cobra por transferencia, billeteras o efectivo.",
-          "El asistente de WhatsApp sobre la API oficial de WhatsApp Business que ya lee comprobantes de mensualidades.",
+          "Mapi sobre la API oficial de WhatsApp Business que ya lee comprobantes de mensualidades.",
           "Precios anunciados más bajos en cada tramo y sin tope de reservas desde Canchas Pro (lanzamiento nov-2026).",
         ],
       },
@@ -1329,12 +1329,12 @@ export const comparativas2Posts: BlogPost[] = [
       {
         question: "¿SportMaps tiene reservas de canchas?",
         answer:
-          "Hoy tiene reservas básicas: publicar tus canchas o instalaciones y recibir solicitudes por un enlace. El producto dedicado, SportMaps Canchas, con bot de WhatsApp y cobro en línea, lanza en noviembre de 2026.",
+          "Hoy tiene reservas básicas: publicar tus canchas o instalaciones y recibir solicitudes por un enlace. El producto dedicado, SportMaps Canchas, con Mapi en WhatsApp y cobro en línea, lanza en noviembre de 2026.",
       },
       {
         question: "¿Cuánto va a costar SportMaps Canchas?",
         answer:
-          "Los planes anunciados son Gratis ($0, hasta 2 canchas, sin bot), Canchas Pro ($99.000, hasta 5, con bot sin tope) y Canchas Club ($199.000, ilimitadas y multisede), sin comisión por reserva. Los primeros 50 clubes tienen 3 meses de Canchas Pro gratis.",
+          "Los planes anunciados son Gratis ($0, hasta 2 canchas, sin Mapi), Canchas Pro ($99.000, hasta 5, con Mapi sin tope) y Canchas Club ($199.000, ilimitadas y multisede), sin comisión por reserva. Los primeros 50 clubes tienen 3 meses de Canchas Pro gratis.",
       },
       {
         question: "¿Controla Cancha cobra en línea con PSE?",
@@ -1454,7 +1454,7 @@ export const comparativas2Posts: BlogPost[] = [
       {
         type: "ul",
         items: [
-          "Cobra y concilia: las familias pagan por PSE, Nequi o tarjeta, y si transfieren, el asistente de WhatsApp lee el comprobante, lo cruza con el cobro y lo deja listo para que lo apruebes con un toque.",
+          "Cobra y concilia: las familias pagan por PSE, Nequi o tarjeta, y si transfieren, Mapi (el asistente de WhatsApp con IA) lee el comprobante, lo cruza con el cobro y lo deja listo para que lo apruebes con un toque.",
           "Recordatorios automáticos por WhatsApp y correo: 3 días antes, el día del vencimiento y a los 3, 10 y 20 días, con un enlace corto para pagar sin iniciar sesión.",
           "Inscripción una vez y mensualidad después, cobros automáticos por periodo, descuento por hermanos y recargo por mora opcional que define la escuela. La mora no cancela al atleta.",
           "Pagos en efectivo o transferencia registrados a mano, con su comprobante, en el mismo estado de cuenta.",
@@ -1523,7 +1523,7 @@ export const comparativas2Posts: BlogPost[] = [
       {
         question: "¿Puedo cobrar mensualidades por Nequi automáticamente?",
         answer:
-          "Sí, con una pasarela como Wompi o Mercado Pago la familia paga con Nequi desde un enlace y el pago queda registrado. Si te transfieren directo a tu Nequi, necesitas revisar el comprobante; en SportMaps el asistente de WhatsApp lo lee y lo deja listo para aprobar.",
+          "Sí, con una pasarela como Wompi o Mercado Pago la familia paga con Nequi desde un enlace y el pago queda registrado. Si te transfieren directo a tu Nequi, necesitas revisar el comprobante; en SportMaps Mapi lo lee y lo deja listo para aprobar.",
       },
       {
         question: "¿Es mejor link de pago o un software para cobrar mensualidades?",

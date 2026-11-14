@@ -244,7 +244,7 @@ export function InteractiveFeatures({ onPricingClick, selectedClient, setSelecte
                       <div className="space-y-4">
                         <div className="bg-muted/30 rounded-xl border border-border p-4">
                            <div className="flex justify-between items-end mb-2">
-                             <span className="text-[10px] text-muted-foreground font-bold uppercase">Respuesta del bot a un comprobante (mediana real)</span>
+                             <span className="text-[10px] text-muted-foreground font-bold uppercase">Respuesta de Mapi a un comprobante (mediana real)</span>
                              <span className="text-sport-primary font-bold text-sm">42 s</span>
                            </div>
                            <div className="h-1.5 w-full bg-muted rounded-full overflow-hidden">

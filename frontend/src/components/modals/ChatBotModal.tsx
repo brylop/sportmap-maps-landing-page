@@ -3,7 +3,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Bot, Send, User, Loader2, X, MessageCircle } from "lucide-react";
+import { Send, User, Loader2, X, MessageCircle } from "lucide-react";
+import { MapiAvatar } from "@/components/MapiAvatar";
 import { motion, AnimatePresence } from "framer-motion";
 import { salesWhatsappLink } from "@/lib/whatsappFallback";
 
@@ -23,7 +24,7 @@ export function ChatBotModal({ isOpen, onClose }: ChatBotModalProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "¡Hola! 👋 Soy SportBot, tu asistente virtual de SportMaps. ¿En qué puedo ayudarte hoy?\n\nPuedo responder preguntas sobre:\n• Nuestros planes y precios\n• Cómo funciona la plataforma\n• Qué solución es mejor para ti\n• Soporte técnico básico"
+      content: "¡Hola! 👋 Soy Mapi, el asistente de IA de SportMaps. ¿En qué puedo ayudarte hoy?\n\nPuedo responder preguntas sobre:\n• Nuestros planes y precios\n• Cómo funciona la plataforma\n• Qué solución es mejor para ti\n• Soporte técnico básico"
     }
   ]);
   const [input, setInput] = useState("");
@@ -65,7 +66,7 @@ export function ChatBotModal({ isOpen, onClose }: ChatBotModalProps) {
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.error || "Error al conectar con el asistente");
+        throw new Error(errorData.error || "Error al conectar con Mapi");
       }
 
       if (!response.body) throw new Error("No response body");
@@ -145,12 +146,10 @@ export function ChatBotModal({ isOpen, onClose }: ChatBotModalProps) {
         {/* Header */}
         <DialogHeader className="px-4 py-3 border-b border-border bg-gradient-to-r from-sport-primary/10 to-sport-accent/10">
           <DialogTitle className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-sport-primary to-sport-accent flex items-center justify-center">
-              <Bot className="w-5 h-5 text-white" />
-            </div>
+            <MapiAvatar className="w-10 h-10" />
             <div>
-              <span className="text-lg font-semibold">SportBot</span>
-              <p className="text-xs text-muted-foreground font-normal">Asistente virtual de SportMaps</p>
+              <span className="text-lg font-semibold">Mapi</span>
+              <p className="text-xs text-muted-foreground font-normal">Asistente de IA de SportMaps</p>
             </div>
           </DialogTitle>
         </DialogHeader>
@@ -168,9 +167,7 @@ export function ChatBotModal({ isOpen, onClose }: ChatBotModalProps) {
                   className={`flex gap-3 ${message.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   {message.role === "assistant" && (
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-sport-primary to-sport-accent flex items-center justify-center shrink-0">
-                      <Bot className="w-4 h-4 text-white" />
-                    </div>
+                    <MapiAvatar className="w-8 h-8" />
                   )}
                   <div
                     className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-sm whitespace-pre-wrap ${
@@ -201,9 +198,7 @@ export function ChatBotModal({ isOpen, onClose }: ChatBotModalProps) {
                 animate={{ opacity: 1, y: 0 }}
                 className="flex gap-3"
               >
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-sport-primary to-sport-accent flex items-center justify-center">
-                  <Bot className="w-4 h-4 text-white" />
-                </div>
+                <MapiAvatar className="w-8 h-8" />
                 <div className="bg-muted rounded-2xl rounded-bl-md px-4 py-2.5">
                   <span className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Loader2 className="w-3 h-3 animate-spin" />

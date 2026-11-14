@@ -14,7 +14,7 @@ export const whatsappIaPosts: BlogPost[] = [
     slug: "whatsapp-ia-gratis-escuelas-deportivas-cuanto-cobra-meta",
     title: "WhatsApp IA gratis para escuelas deportivas: cuánto cobra Meta de verdad en 2026",
     excerpt:
-      "SportMaps no cobra el asistente de WhatsApp en ningún plan. Lo único que se paga es la tarifa de Meta por mensaje: en Colombia, unos $3 por mensaje de servicio. Te mostramos la tabla oficial y cuánto le sale a una escuela real.",
+      "SportMaps no cobra por Mapi en ningún plan. Lo único que se paga es la tarifa de Meta por mensaje: en Colombia, unos $3 por mensaje de servicio. Te mostramos la tabla oficial y cuánto le sale a una escuela real.",
     category: "WhatsApp IA",
     readTime: "8 min",
     date: "14 Oct 2026",
@@ -27,14 +27,14 @@ export const whatsappIaPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "El asistente de WhatsApp con IA de SportMaps es gratis en todos los planes, incluido Free Start: SportMaps no cobra por el bot ni vende paquetes de conversaciones. Lo único que existe como costo es la tarifa que Meta, dueña de WhatsApp, cobra por cada mensaje que envía tu número. En Colombia, según la hoja oficial de tarifas en pesos vigente desde el 1 de octubre de 2026, un mensaje de servicio o de utilidad cuesta $2,95 y uno de marketing $46,02. Para una escuela de 80 alumnos eso suele quedar por debajo de $3.000 al mes, y lo cobra Meta directo a la tarjeta de la escuela.",
+          "Mapi (el asistente de WhatsApp con IA) es gratis en todos los planes, incluido Free Start: SportMaps no cobra por Mapi ni vende paquetes de conversaciones. Lo único que existe como costo es la tarifa que Meta, dueña de WhatsApp, cobra por cada mensaje que envía tu número. En Colombia, según la hoja oficial de tarifas en pesos vigente desde el 1 de octubre de 2026, un mensaje de servicio o de utilidad cuesta $2,95 y uno de marketing $46,02. Para una escuela de 80 alumnos eso suele quedar por debajo de $3.000 al mes, y lo cobra Meta directo a la tarjeta de la escuela.",
       },
       { type: "h2", content: "En resumen" },
       {
         type: "callout",
         variant: "tip",
         content:
-          "SportMaps no cobra el WhatsApp IA. Meta cobra por mensaje enviado: unos $3 por mensaje de servicio o de utilidad en Colombia y unos $46 por mensaje de marketing. Si usas el bot para cobrar, responder y atender prospectos, y casi nunca mandas publicidad, la cuenta mensual es de miles de pesos, no de cientos de miles.",
+          "SportMaps no cobra el WhatsApp IA. Meta cobra por mensaje enviado: unos $3 por mensaje de servicio o de utilidad en Colombia y unos $46 por mensaje de marketing. Si usas Mapi para cobrar, responder y atender prospectos, y casi nunca mandas publicidad, la cuenta mensual es de miles de pesos, no de cientos de miles.",
       },
       { type: "h2", content: "Qué es gratis y qué no, sin letra pequeña" },
       {
@@ -99,7 +99,7 @@ export const whatsappIaPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Ejemplo ilustrativo, no un cliente real: una escuela de 80 alumnos que usa el bot para cobrar, recibir comprobantes y atender a quienes preguntan por inscripciones. Contamos solo los mensajes que envía la escuela.",
+          "Ejemplo ilustrativo, no un cliente real: una escuela de 80 alumnos que usa Mapi para cobrar, recibir comprobantes y atender a quienes preguntan por inscripciones. Contamos solo los mensajes que envía la escuela.",
       },
       {
         type: "table",
@@ -118,18 +118,18 @@ export const whatsappIaPosts: BlogPost[] = [
         content:
           "La conclusión práctica: el costo de WhatsApp para operar una escuela está en el orden de un par de miles de pesos al mes. Lo que dispara la cuenta es el marketing masivo, que cuesta unas 15 veces más por mensaje. Si quieres anunciar un campamento a toda tu base de datos, puede salir más barato hacerlo por correo o con un aviso en la app, y reservar WhatsApp para lo transaccional.",
       },
-      { type: "h2", content: "Por qué SportMaps no cobra el asistente" },
+      { type: "h2", content: "Por qué SportMaps no cobra por Mapi" },
       {
         type: "p",
         content:
-          "La mayoría de herramientas de WhatsApp para negocios cobran una mensualidad por el bot o venden paquetes de conversaciones con un margen sobre la tarifa de Meta. Nosotros decidimos no hacerlo por una razón simple: el bot es la puerta de entrada al cobro. Si el asistente lee el comprobante y deja el pago listo para aprobar, la escuela cobra más rápido y usa más la plataforma, y ahí es donde SportMaps gana con sus planes. Cobrar el bot aparte haría que las escuelas pequeñas no lo activaran, y son justamente las que más horas pierden revisando capturas.",
+          "La mayoría de herramientas de WhatsApp para negocios cobran una mensualidad por el bot o venden paquetes de conversaciones con un margen sobre la tarifa de Meta. Nosotros decidimos no hacerlo por una razón simple: Mapi es la puerta de entrada al cobro. Si Mapi lee el comprobante y deja el pago listo para aprobar, la escuela cobra más rápido y usa más la plataforma, y ahí es donde SportMaps gana con sus planes. Cobrar Mapi aparte haría que las escuelas pequeñas no lo activaran, y son justamente las que más horas pierden revisando capturas.",
       },
       {
         type: "p",
         content:
           "Por eso la factura de Meta llega directo a la escuela, con su tarjeta, sin intermediarios ni recargos de SportMaps. Tú ves en el administrador de WhatsApp de Meta exactamente cuántos mensajes enviaste y cuánto pagaste.",
       },
-      { type: "h2", content: "Qué hace el asistente por ese costo" },
+      { type: "h2", content: "Qué hace Mapi por ese costo" },
       {
         type: "ul",
         items: [
@@ -144,7 +144,7 @@ export const whatsappIaPosts: BlogPost[] = [
         type: "callout",
         variant: "warning",
         content:
-          "El asistente no aprueba pagos por su cuenta. Lee, cruza y deja el comprobante listo; la decisión final la toma la escuela. Así un comprobante dudoso nunca se aplica solo.",
+          "Mapi no aprueba pagos por su cuenta. Lee, cruza y deja el comprobante listo; la decisión final la toma la escuela. Así un comprobante dudoso nunca se aplica solo.",
       },
       { type: "h2", content: "Pasos para activarlo" },
       {
@@ -153,7 +153,7 @@ export const whatsappIaPosts: BlogPost[] = [
           "Elige el número que usará la escuela. Lo ideal es un número de la escuela, no el celular personal de la directora.",
           "Conecta ese número con Meta desde SportMaps mediante el registro integrado (Embedded Signup). Meta pide verificar el negocio y el nombre que se mostrará.",
           "Registra un método de pago en el administrador de WhatsApp de Meta. Ahí es donde Meta cobra los mensajes.",
-          "Carga en SportMaps las cuentas o llaves donde recibes pagos, para que el bot pueda cruzar la cuenta destino de cada comprobante.",
+          "Carga en SportMaps las cuentas o llaves donde recibes pagos, para que Mapi pueda cruzar la cuenta destino de cada comprobante.",
           "Activa los recordatorios de cobro y pide a las familias que acepten recibir mensajes de la escuela por WhatsApp.",
         ],
       },
@@ -161,11 +161,11 @@ export const whatsappIaPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Si tu escuela tiene menos de 15 alumnos, cobras todo en efectivo en la cancha y nadie te manda capturas, el bot te ahorra poco. Tampoco es para quien quiere usar WhatsApp como canal de publicidad masiva: ahí el costo de Meta sí pesa y la herramienta correcta es otra. Y si no estás dispuesto a pasar la verificación de negocio de Meta, todavía no podrás conectar tu número.",
+          "Si tu escuela tiene menos de 15 alumnos, cobras todo en efectivo en la cancha y nadie te manda capturas, Mapi te ahorra poco. Tampoco es para quien quiere usar WhatsApp como canal de publicidad masiva: ahí el costo de Meta sí pesa y la herramienta correcta es otra. Y si no estás dispuesto a pasar la verificación de negocio de Meta, todavía no podrás conectar tu número.",
       },
       {
         type: "cta",
-        title: "Activa WhatsApp IA sin pagar por el bot",
+        title: "Activa Mapi, el asistente de WhatsApp con IA, sin pagar extra",
         description:
           "Está incluido en todos los planes, también en Free Start. Solo pagas a Meta los mensajes que envías.",
         href: "/planes",
@@ -193,7 +193,7 @@ export const whatsappIaPosts: BlogPost[] = [
       {
         question: "¿El WhatsApp con IA de SportMaps tiene costo?",
         answer:
-          "No. SportMaps no cobra el asistente ni vende paquetes de conversaciones, en ningún plan, incluido Free Start. Lo único que paga la escuela son los mensajes que Meta factura directo a su tarjeta.",
+          "No. SportMaps no cobra por Mapi ni vende paquetes de conversaciones, en ningún plan, incluido Free Start. Lo único que paga la escuela son los mensajes que Meta factura directo a su tarjeta.",
       },
       {
         question: "¿Sigue habiendo 1.000 conversaciones gratis en WhatsApp Business?",
@@ -487,7 +487,7 @@ export const whatsappIaPosts: BlogPost[] = [
         items: [
           "La familia manda la captura por WhatsApp o la sube en la app.",
           "En segundos, la IA lee los datos y las reglas producen el semáforo con sus motivos.",
-          "El asistente responde a la familia que recibió el comprobante.",
+          "Mapi (el asistente de WhatsApp con IA) responde a la familia que recibió el comprobante.",
           "En el panel, la escuela ve el comprobante, los datos leídos y el motivo de cada alerta.",
           "Si está en verde, aprueba con un toque. Si está en amarillo o rojo, revisa el motivo y decide.",
           "Al aprobarse, el cobro queda pagado y se detienen los recordatorios.",
@@ -644,7 +644,7 @@ export const whatsappIaPosts: BlogPost[] = [
           ["Aviso rápido de cancha u horario", "Sí", "No hace falta", "Además, aviso en calendario para familias"],
           ["Cobro de mensualidad", "No", "Recordatorio con enlace corto de pago", "Cobro con monto, vencimiento y estado"],
           ["Recibir comprobante", "No", "La familia lo manda y la IA lo lee", "Queda listo para aprobar"],
-          ["Inscripción de un nuevo atleta", "No", "El asistente manda el enlace de inscripción", "Ficha del atleta y acudientes"],
+          ["Inscripción de un nuevo atleta", "No", "Mapi (el asistente de WhatsApp con IA) manda el enlace de inscripción", "Ficha del atleta y acudientes"],
           ["Preguntas de prospectos", "No", "Responde precios y agenda clase de cortesía", "Registro del prospecto"],
           ["Asistencia", "No", "No", "Manual, por QR o con torniquetes (adicional)"],
           ["Fotos y celebraciones", "Sí", "No", "Opcional"],
@@ -655,7 +655,7 @@ export const whatsappIaPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Muchas plataformas intentan reemplazar WhatsApp con un chat propio dentro de su app. En la práctica, las familias no lo abren: la notificación de WhatsApp gana siempre. Por eso en SportMaps el canal principal con la familia sigue siendo WhatsApp, pero el 1 a 1 de la escuela, no el grupo. El asistente con IA responde ahí, manda los recordatorios, recibe los comprobantes y atiende a quien pregunta por inscripciones. La app queda para lo que necesita una pantalla: ver el estado de cuenta, el carnet digital del atleta o el calendario.",
+          "Muchas plataformas intentan reemplazar WhatsApp con un chat propio dentro de su app. En la práctica, las familias no lo abren: la notificación de WhatsApp gana siempre. Por eso en SportMaps el canal principal con la familia sigue siendo WhatsApp, pero el 1 a 1 de la escuela, no el grupo. Mapi responde ahí, manda los recordatorios, recibe los comprobantes y atiende a quien pregunta por inscripciones. La app queda para lo que necesita una pantalla: ver el estado de cuenta, el carnet digital del atleta o el calendario.",
       },
       { type: "h2", content: "Cómo hacer la transición en cuatro semanas" },
       {
@@ -671,7 +671,7 @@ export const whatsappIaPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Si entrenas a un solo equipo de 12 niños, cobras en efectivo y conoces a todos los papás, un grupo y una libreta pueden bastar. El punto de quiebre suele aparecer cuando hay más de un grupo de edad, más de un entrenador o pagos por transferencia: ahí el tiempo que se pierde buscando capturas supera lo que cuesta ordenar el proceso. Recuerda que el plan Free Start de SportMaps es gratis hasta 20 alumnos e incluye el asistente de WhatsApp.",
+          "Si entrenas a un solo equipo de 12 niños, cobras en efectivo y conoces a todos los papás, un grupo y una libreta pueden bastar. El punto de quiebre suele aparecer cuando hay más de un grupo de edad, más de un entrenador o pagos por transferencia: ahí el tiempo que se pierde buscando capturas supera lo que cuesta ordenar el proceso. Recuerda que el plan Free Start de SportMaps es gratis hasta 20 alumnos e incluye Mapi.",
       },
       { type: "h2", content: "Reglas de convivencia para el grupo que se queda" },
       {
@@ -687,7 +687,7 @@ export const whatsappIaPosts: BlogPost[] = [
         type: "cta",
         title: "Ordena los cobros sin sacar a nadie de WhatsApp",
         description:
-          "Empieza gratis hasta 20 alumnos con el asistente de WhatsApp incluido.",
+          "Empieza gratis hasta 20 alumnos con Mapi incluido.",
         href: "/escuelas",
         label: "Conocer SportMaps para escuelas",
       },
@@ -755,7 +755,7 @@ export const whatsappIaPosts: BlogPost[] = [
         type: "callout",
         variant: "tip",
         content:
-          "La app WhatsApp Business sirve para atender a mano desde un celular. La plataforma sirve para automatizar. Para usarla necesitas un número, la verificación de tu negocio en Meta, plantillas aprobadas y un método de pago para los mensajes. SportMaps pone el software y el asistente sin costo.",
+          "La app WhatsApp Business sirve para atender a mano desde un celular. La plataforma sirve para automatizar. Para usarla necesitas un número, la verificación de tu negocio en Meta, plantillas aprobadas y un método de pago para los mensajes. SportMaps pone el software y Mapi (el asistente de WhatsApp con IA) sin costo.",
       },
       { type: "h2", content: "App WhatsApp Business vs. WhatsApp Business Platform" },
       {
@@ -821,7 +821,7 @@ export const whatsappIaPosts: BlogPost[] = [
           "Desde SportMaps inicia el registro integrado de Meta: inicias sesión con Facebook, eliges o creas el portafolio del negocio y registras el número.",
           "Define el nombre visible del número. Meta lo revisa antes de aprobarlo.",
           "Agrega un método de pago en el administrador de WhatsApp de Meta para los mensajes.",
-          "Aprueba las plantillas de recordatorio de cobro y activa el asistente.",
+          "Aprueba las plantillas de recordatorio de cobro y activa Mapi.",
         ],
       },
       {
@@ -855,7 +855,7 @@ export const whatsappIaPosts: BlogPost[] = [
         type: "cta",
         title: "Conecta tu número sin pagar por el software",
         description:
-          "SportMaps incluye la integración con WhatsApp Business Platform y el asistente con IA en todos los planes.",
+          "SportMaps incluye la integración con WhatsApp Business Platform y Mapi en todos los planes.",
         href: "/planes",
         label: "Ver planes",
       },
@@ -881,7 +881,7 @@ export const whatsappIaPosts: BlogPost[] = [
       {
         question: "¿Cuánto cuesta WhatsApp Business API en Colombia?",
         answer:
-          "Desde el 1 de octubre de 2026 Meta cobra en Colombia $2,9455 por mensaje de servicio, utilidad o autenticación y $46,0227 por mensaje de marketing. El software que lo usa puede cobrar aparte; SportMaps no cobra el asistente.",
+          "Desde el 1 de octubre de 2026 Meta cobra en Colombia $2,9455 por mensaje de servicio, utilidad o autenticación y $46,0227 por mensaje de marketing. El software que lo usa puede cobrar aparte; SportMaps no cobra por Mapi.",
       },
       {
         question: "¿Qué es la ventana de 24 horas de WhatsApp?",
@@ -894,7 +894,7 @@ export const whatsappIaPosts: BlogPost[] = [
           "Sí, puedes conectar el número que ya usa la escuela mediante el registro integrado de Meta. Antes de hacerlo, revisa en el registro qué opciones te da Meta para seguir usando ese número en la app del celular.",
       },
       {
-        question: "¿Necesito verificar mi negocio en Meta para usar el bot?",
+        question: "¿Necesito verificar mi negocio en Meta para usar Mapi?",
         answer:
           "Sí. Meta exige verificar el negocio para operar en WhatsApp Business Platform y revisa el nombre visible del número. Ten a mano los datos legales de la escuela antes de empezar.",
       },
@@ -908,7 +908,7 @@ export const whatsappIaPosts: BlogPost[] = [
     slug: "validacion-de-pagos-con-ia-en-segundos-whatsapp",
     title: "Validación de pagos con IA en segundos por WhatsApp, sin cambiar de plataforma",
     excerpt:
-      "El asistente lee el comprobante en segundos y lo deja listo para aprobar con un toque. Tus familias siguen en WhatsApp; SportMaps entra como complemento. Cómo se reparten el trabajo y qué pasa cuando la IA duda.",
+      "Mapi (el asistente de WhatsApp con IA) lee el comprobante en segundos y lo deja listo para aprobar con un toque. Tus familias siguen en WhatsApp; SportMaps entra como complemento. Cómo se reparten el trabajo y qué pasa cuando la IA duda.",
     category: "WhatsApp IA",
     readTime: "7 min",
     date: "13 Oct 2026",
@@ -921,7 +921,7 @@ export const whatsappIaPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Validar un comprobante de pago con IA toma segundos, no horas. Cuando una familia manda la captura por WhatsApp, el asistente de SportMaps lee el monto, la fecha, la referencia y la cuenta destino, lo cruza contra el cobro de ese atleta, le responde a la familia y deja el pago listo para que la escuela lo apruebe con un toque. En las escuelas que lo usan, el tiempo de revisión de cobros baja más de un 70 %. Y nadie tiene que cambiar de plataforma: las familias siguen en WhatsApp.",
+          "Validar un comprobante de pago con IA toma segundos, no horas. Cuando una familia manda la captura por WhatsApp, Mapi lee el monto, la fecha, la referencia y la cuenta destino, lo cruza contra el cobro de ese atleta, le responde a la familia y deja el pago listo para que la escuela lo apruebe con un toque. En las escuelas que lo usan, el tiempo de revisión de cobros baja más de un 70 %. Y nadie tiene que cambiar de plataforma: las familias siguen en WhatsApp.",
       },
       { type: "h2", content: "En resumen" },
       {
@@ -935,10 +935,10 @@ export const whatsappIaPosts: BlogPost[] = [
         type: "ol",
         items: [
           "La familia paga por Nequi, Bancolombia, Daviplata o una llave Bre-B y manda la captura al WhatsApp de la escuela.",
-          "El asistente identifica a la familia por su número de teléfono y busca los cobros pendientes de sus hijos.",
+          "Mapi identifica a la familia por su número de teléfono y busca los cobros pendientes de sus hijos.",
           "La IA lee la captura: monto, fecha, referencia y cuenta destino.",
           "Las reglas comparan esos datos con el cobro y con las cuentas registradas de la escuela, y revisan si la referencia o la imagen ya se usaron.",
-          "El asistente le confirma a la familia que recibió el comprobante.",
+          "Mapi le confirma a la familia que recibió el comprobante.",
           "En el panel, el pago aparece listo para aprobar, con los datos leídos y cualquier alerta a la vista. La escuela lo aprueba con un toque.",
         ],
       },
@@ -946,7 +946,7 @@ export const whatsappIaPosts: BlogPost[] = [
         type: "callout",
         variant: "info",
         content:
-          "El asistente no aprueba pagos por su cuenta: la aprobación automática está apagada. La IA hace en segundos el trabajo de leer y cruzar; la decisión sigue siendo de la escuela.",
+          "Mapi no aprueba pagos por su cuenta: la aprobación automática está apagada. La IA hace en segundos el trabajo de leer y cruzar; la decisión sigue siendo de la escuela.",
       },
       { type: "h2", content: "Por qué el tiempo de revisión baja más de un 70 %" },
       {
@@ -956,7 +956,7 @@ export const whatsappIaPosts: BlogPost[] = [
       },
       {
         type: "table",
-        headers: ["Paso por comprobante", "A mano", "Con el asistente"],
+        headers: ["Paso por comprobante", "A mano", "Con Mapi"],
         rows: [
           ["Encontrar la captura en el chat y abrirla", "1 min", "0: llega sola al panel"],
           ["Leer monto, fecha, referencia y cuenta", "1 min", "Segundos, lo hace la IA"],
@@ -970,7 +970,7 @@ export const whatsappIaPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "En ese ejemplo, la revisión pasa de unas 15 horas a unas 2,5 horas al mes: una reducción cercana al 83 %. Aunque dupliques el tiempo con el asistente para revisar con calma los casos dudosos, sigues por encima del 70 %. Cambia los minutos por los tuyos; si hoy alguien en tu escuela pasa una tarde por semana con capturas, el número se parece.",
+          "En ese ejemplo, la revisión pasa de unas 15 horas a unas 2,5 horas al mes: una reducción cercana al 83 %. Aunque dupliques el tiempo con Mapi para revisar con calma los casos dudosos, sigues por encima del 70 %. Cambia los minutos por los tuyos; si hoy alguien en tu escuela pasa una tarde por semana con capturas, el número se parece.",
       },
       { type: "h2", content: "No cambies de plataforma: usa la que tus familias ya tienen" },
       {
@@ -994,7 +994,7 @@ export const whatsappIaPosts: BlogPost[] = [
           ["Aprobar", "La familia recibe la confirmación", "La escuela aprueba con un toque y los recordatorios se detienen"],
           ["Atender prospectos", "Pregunta precios y agenda la clase de cortesía", "Registra al prospecto y la cortesía agendada"],
           ["Inscribir", "Recibe el enlace de inscripción", "Crea la ficha del atleta y vincula al acudiente"],
-          ["Casos raros", "Una persona de la escuela responde", "El asistente le pasa la conversación con el contexto"],
+          ["Casos raros", "Una persona de la escuela responde", "Mapi le pasa la conversación con el contexto"],
         ],
       },
       { type: "h2", content: "Qué pasa cuando la IA duda" },
@@ -1018,13 +1018,13 @@ export const whatsappIaPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "SportMaps no cobra el asistente ni vende paquetes de conversaciones, en ningún plan, incluido Free Start hasta 20 alumnos. Cada escuela conecta su propio número con Meta. Lo único que se paga es la tarifa de Meta por los mensajes que envía tu número, directo a tu tarjeta: en Colombia, desde el 1 de octubre de 2026, unos $3 por mensaje de servicio o de utilidad (consulta del 14 de octubre de 2026). Para una escuela mediana eso suele ser un par de miles de pesos al mes.",
+          "SportMaps no cobra por Mapi ni vende paquetes de conversaciones, en ningún plan, incluido Free Start hasta 20 alumnos. Cada escuela conecta su propio número con Meta. Lo único que se paga es la tarifa de Meta por los mensajes que envía tu número, directo a tu tarjeta: en Colombia, desde el 1 de octubre de 2026, unos $3 por mensaje de servicio o de utilidad (consulta del 14 de octubre de 2026). Para una escuela mediana eso suele ser un par de miles de pesos al mes.",
       },
       { type: "h2", content: "Cuándo no te va a cambiar la vida" },
       {
         type: "p",
         content:
-          "Si casi todas tus familias pagan con tarjeta o PSE por la pasarela, no hay comprobantes que leer: la pasarela ya confirma el pago. Y si cobras en efectivo en la cancha, el asistente te sirve para recordar y para registrar, pero el ahorro de tiempo será menor. Donde más rinde es en escuelas que reciben transferencias y capturas por WhatsApp todos los meses.",
+          "Si casi todas tus familias pagan con tarjeta o PSE por la pasarela, no hay comprobantes que leer: la pasarela ya confirma el pago. Y si cobras en efectivo en la cancha, Mapi te sirve para recordar y para registrar, pero el ahorro de tiempo será menor. Donde más rinde es en escuelas que reciben transferencias y capturas por WhatsApp todos los meses.",
       },
       {
         type: "cta",
@@ -1051,7 +1051,7 @@ export const whatsappIaPosts: BlogPost[] = [
       {
         question: "¿Cuánto tarda la IA en validar un comprobante de pago?",
         answer:
-          "Segundos. El asistente lee el monto, la fecha, la referencia y la cuenta destino, los cruza con el cobro y deja el pago listo para que la escuela lo apruebe con un toque.",
+          "Segundos. Mapi lee el monto, la fecha, la referencia y la cuenta destino, los cruza con el cobro y deja el pago listo para que la escuela lo apruebe con un toque.",
       },
       {
         question: "¿Tengo que dejar de usar WhatsApp para usar SportMaps?",

@@ -104,7 +104,7 @@ const features = [
   {
     title: "WhatsApp oficial de Meta",
     description:
-      "El bot corre sobre la API oficial de WhatsApp Business, la misma que SportMaps ya usa hoy con escuelas. Sin riesgo de que te bloqueen el número.",
+      "Mapi corre sobre la API oficial de WhatsApp Business, la misma que SportMaps ya usa hoy con escuelas. Sin riesgo de que te bloqueen el número.",
     icon: MessageCircle,
   },
   {
@@ -187,7 +187,7 @@ const plans = [
       "Agenda única sin dobles reservas",
       "Transferencia con aprobación manual",
       "Pago en efectivo",
-      "Sin bot de WhatsApp",
+      "Sin Mapi en WhatsApp",
     ],
   },
   {
@@ -198,7 +198,7 @@ const plans = [
     highlight: true,
     items: [
       "Todo lo del plan Gratis",
-      "Bot de WhatsApp sin tope de reservas",
+      "Mapi en WhatsApp sin tope de reservas",
       "Comprobantes leídos con IA",
       "Cobro en línea con Wompi y Mercado Pago",
       "Reglas socio/público, lista de espera y pago dividido",
@@ -254,7 +254,7 @@ const faqs = [
   {
     question: "¿Qué incluye el plan Gratis?",
     answer:
-      "Hasta 2 canchas, página pública de reservas, agenda sin dobles reservas, pago por transferencia con aprobación manual y pago en efectivo. El bot de WhatsApp, la lectura de comprobantes con IA y el cobro en línea vienen desde Canchas Pro ($99.000/mes).",
+      "Hasta 2 canchas, página pública de reservas, agenda sin dobles reservas, pago por transferencia con aprobación manual y pago en efectivo. Mapi en WhatsApp, la lectura de comprobantes con IA y el cobro en línea vienen desde Canchas Pro ($99.000/mes).",
   },
   {
     question: "¿Cómo funciona la promoción de los primeros 50 clubes?",
@@ -418,7 +418,7 @@ export default function Canchas() {
               {[
                 "Cobros con Wompi y Mercado Pago, con la plata directo a la cuenta del club",
                 "Lectura de comprobantes de transferencia con IA",
-                "Bot sobre la API oficial de WhatsApp Business",
+                "Mapi sobre la API oficial de WhatsApp Business",
                 "Gestión de escuelas, torneos y tienda en la misma cuenta",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2 text-sm">

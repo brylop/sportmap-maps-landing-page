@@ -691,7 +691,7 @@ function AddOnsSection() {
           WhatsApp IA gratis en todos los planes
         </p>
         <p className="text-sm text-muted-foreground">
-          <strong className="text-foreground">SportMaps no te cobra el asistente</strong>: leer
+          <strong className="text-foreground">SportMaps no te cobra por Mapi</strong>: leer
           los comprobantes que envían las familias, extraer el monto y la referencia, cruzarlos
           contra el cobro y responder por ti viene incluido en todos los planes, también en los
           gratis. Sin paquetes ni cupos de conversaciones.

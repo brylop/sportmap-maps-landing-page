@@ -12,7 +12,7 @@ export function SportMapsFooter() {
           {/* Logo & Description */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 text-xl font-bold text-foreground">
-              <img src="/logo.jpg" alt="SportMaps Logo" className="w-8 h-8 object-contain rounded-lg" loading="lazy" decoding="async" />
+              <img src="/logo-96.webp" srcSet="/logo-96.webp 1x, /logo-192.webp 2x" width={96} height={99} alt="SportMaps Logo" className="w-8 h-8 object-contain rounded-lg" loading="lazy" decoding="async" />
               <span>Sport<span className="text-sport-primary">Maps</span></span>
             </Link>
             <p className="text-muted-foreground text-sm mt-3">

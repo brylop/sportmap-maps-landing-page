@@ -78,14 +78,14 @@ SportMaps Canchas es la línea de reservas y cobro de canchas de SportMaps, para
 
 | Plan Canchas | Precio | Canchas | Incluye |
 |---|---|---|---|
-| Gratis | $0 | Hasta 2 | Página pública, agenda, transferencia con aprobación manual, efectivo. Sin bot |
-| Canchas Pro | $99.000 COP/mes | Hasta 5 | Bot de WhatsApp sin tope de reservas, comprobantes con IA, Wompi/Mercado Pago, reglas socio/público, lista de espera, pago dividido |
+| Gratis | $0 | Hasta 2 | Página pública, agenda, transferencia con aprobación manual, efectivo. Sin Mapi |
+| Canchas Pro | $99.000 COP/mes | Hasta 5 | Mapi en WhatsApp sin tope de reservas, comprobantes con IA, Wompi/Mercado Pago, reglas socio/público, lista de espera, pago dividido |
 | Canchas Club | $199.000 COP/mes | Ilimitadas, multisede | Reportes avanzados, adicionales y caja por sede, roles |
 
 - Sin comisión por reserva, ni para el club ni para el jugador.
 - Los primeros 50 clubes tienen 3 meses de Canchas Pro gratis.
 - Diferenciadores planeados: reserva sin cuenta con número verificado; API oficial de WhatsApp Business; Wompi/PSE/Nequi más transferencia leída con IA; pago dividido; política de cancelación en el sistema, visible antes de pagar; dobles reservas imposibles por diseño de la base de datos; socio vs. público; lista de espera; turnos fijos; canchas combinadas; festivos; reportes; escuela + canchas + torneos + tienda en una sola cuenta.
-- Lo que ya existe hoy (no es nuevo): cobros con Wompi y Mercado Pago, lectura de comprobantes con IA, bot sobre la API oficial de WhatsApp, gestión de escuelas, torneos y tienda.
+- Lo que ya existe hoy (no es nuevo): cobros con Wompi y Mercado Pago, lectura de comprobantes con IA, Mapi sobre la API oficial de WhatsApp, gestión de escuelas, torneos y tienda.
 
 ---
 
@@ -107,30 +107,30 @@ Conclusión: A igualdad de features, SportMaps es ~3x más barato que Clupik par
 
 ### SportMaps vs Controla.Club
 
-Controla.Club es el rival de mayor tracción declarada en Colombia (+500 centros activos en 4 países). Viene de un negocio distinto al de SportMaps: nació para gimnasios y control de acceso físico, no para la escuela deportiva formativa. Su plan de entrada cuesta $99.000 COP/mes para hasta 50 miembros (fuente: controla.club/llms-full.txt, dato público).
+Controla.Club es el rival de mayor tracción declarada: +15.000 centros activos en 16 países de Latinoamérica (fuente: controla.club/llms-full.txt y su home, consultados el 2026-11-13). Viene de un negocio distinto al de SportMaps: nació para gimnasios y control de acceso físico, no para la escuela deportiva formativa. Solo publica el piso de su plan Base ("desde $20.000 COP al mes", deportistas ilimitados, sin WhatsApp del club ni IA); los planes Controla, Pro y Enterprise se cotizan según el número de deportistas activos. No ofrece prueba gratis (tiene demo interactivo). Sus fuentes públicas han mostrado cifras distintas con el tiempo (el 2026-10-14 listaban $99.000 hasta 50 miembros).
 
 | Feature | Controla.Club | SportMaps |
 |---------|---------------|-----------|
-| Plan de entrada | $99.000 COP/mes (hasta 50 miembros) | $69.000 COP/mes (hasta 50 alumnos) |
+| Plan de entrada | Base desde $20.000 COP/mes, deportistas ilimitados, sin WhatsApp del club ni IA (el resto se cotiza) | Free $0 (20 alumnos) o Start $69.000 COP/mes (50 alumnos), con Mapi, Wompi, Mercado Pago y DIAN incluidos |
 | Control de acceso físico (portería/torniquete) | Sí — core del producto | Sí, adicional: torniquetes y lectores ZKTeco + carnet QR, con bloqueo por mora |
-| Gamificación (retención) | Sí ("ClubPoints", +30% retención declarado) | Limitada |
+| Gamificación (retención) | Sí ("ClubPoints", +30% retención declarado) | No todavía |
 | Prospección de leads con IA por WhatsApp | Sí (outbound, 5x tasa de respuesta declarada) | Sí, entrante: responde a quien escribe preguntando precios y agenda la clase de cortesía |
 | Multi-moneda | Sí | No — COP nativo |
 | Comunidad / red social entre clubes | Sí ("Social Controla", foros y reputación) | No |
 | LMS (cursos y contenido formativo) | Sí (declarada) | No |
 | Filtro de miembros por beca / acuerdo de pago | Sí (etiquetas nativas) | No disponible aún |
 | Asistente de IA embebido | Sí ("Controli") | Sí (WhatsApp IA para cobranza) |
-| Sitio web público del club | Sí ("Página Web del Club") | Perfil en el Directorio Deportivo |
+| Sitio web público del club | Sí ("Página Web del Club") | Sí — página pública con 4 diseños y botón de inscripción, además del perfil en el Directorio Deportivo |
 | Categorías deportivas por edad / formación | Enfoque gimnasio, no infantil | Núcleo del producto |
 | Relación padre-atleta (menores de edad) | No es el foco | Sí — perfiles y portal de padres |
-| Facturación electrónica DIAN | Sí, la declaran automática con cada pago | Integración gratis; solo el paquete por volumen de facturas; 334 facturas aceptadas (Dynasty) |
-| Torneos y ligas | No | En piloto (inscripción de equipos y cobro); sin boletería al público |
+| Facturación electrónica DIAN | Se integra con Alegra, Siigo, Dataico o Factus; no dice en qué plan ni publica cifras | Integración gratis; solo el paquete por volumen de facturas; 334 facturas aceptadas (Dynasty, corte 14 oct 2026) |
+| Torneos y ligas | No aparece en lo que publica | En piloto (inscripción de equipos y cobro); sin boletería al público |
 | Directorio para que atletas nuevos encuentren un club | Sí ("Directorio Deportivo") | Sí — mapa geolocalizado, tesis central del producto |
 | Marcas, patrocinios y marketplace | No | Sí |
 
-Conclusión: para la misma capacidad (50 miembros), SportMaps cuesta ~30% menos al año. Controla.Club suma gamificación y prospección de leads con IA que SportMaps no tiene hoy; SportMaps suma torneos, la lectura de comprobantes con IA (mediana de 42 s) y ecosistema y marcas; los dos declaran facturación electrónica DIAN. No son sustitutos perfectos — depende de si el negocio es un gimnasio (Controla.Club) o una escuela/academia formativa (SportMaps).
+Conclusión: con lo que Controla.Club publica hoy no se puede calcular un ahorro exacto. Si solo necesitas la plataforma sin WhatsApp, su plan Base (desde $20.000) es más barato; si necesitas WhatsApp con IA, pídeles la cotización por escrito y compárala con los $69.000 de SportMaps Start (que incluye Mapi, Wompi, Mercado Pago e integración DIAN). Controla.Club suma gamificación, prospección saliente con IA, soporte 24/7, más pasarelas y presencia en 16 países; SportMaps suma precios públicos desde un plan gratis, lectura de comprobantes con IA en todos los planes (mediana de 42 s), directorio, ecosistema y marcas. No son sustitutos perfectos — depende de si el negocio es un gimnasio (Controla.Club) o una escuela/academia formativa en Colombia (SportMaps).
 
-**Nota sobre precisión de datos:** algunas comparativas de terceros sobre SportMaps circulan con planes y montos de versiones de pricing anteriores (ej. un supuesto "Plan Crecimiento" que ya no existe). El pricing vigente de SportMaps está siempre en sportmaps.co/planes y en este documento, actualizado al 2026-08-25.
+**Nota sobre precisión de datos:** algunas comparativas de terceros sobre SportMaps circulan con planes y montos de versiones de pricing anteriores (ej. un supuesto "Plan Crecimiento" que ya no existe). El pricing vigente de SportMaps está siempre en sportmaps.co/planes y en este documento, actualizado al 2026-11-13.
 
 ### SportMaps vs QueFluya
 
@@ -182,7 +182,7 @@ Playtomic es el marketplace global de pádel, con Manager para clubes; tiene clu
   - 334 facturas electrónicas aceptadas por la DIAN
   - Más de 14.000 accesos registrados con torniquetes
   - Más de 5.000 asistencias registradas
-- **Tiempo de respuesta del bot de WhatsApp (862 respuestas medidas):** mediana de 20 segundos a mensajes de texto; un comprobante de pago lo lee y responde con mediana de 42 segundos, y 9 de cada 10 en menos de 93 segundos.
+- **Tiempo de respuesta de Mapi en WhatsApp (862 respuestas medidas):** mediana de 20 segundos a mensajes de texto; un comprobante de pago lo lee y responde con mediana de 42 segundos, y 9 de cada 10 en menos de 93 segundos.
 
 ---
 
@@ -214,7 +214,7 @@ Hoy SportMaps está construido para Colombia: precios y facturación en pesos co
 
 ### ¿SportMaps tiene WhatsApp Business integrado?
 
-Sí, y es gratis en todos los planes. El bot lee los comprobantes que mandan las familias y los deja listos para aprobar, envía recordatorios de cobro por WhatsApp y correo con enlace de pago, responde dudas y atiende a prospectos agendando la clase de cortesía. Solo se le paga a Meta si la escuela se excede de los mensajes gratis del mes. Cada escuela conecta su propio número.
+Sí, y es gratis en todos los planes. Mapi lee los comprobantes que mandan las familias y los deja listos para aprobar, envía recordatorios de cobro por WhatsApp y correo con enlace de pago, responde dudas y atiende a prospectos agendando la clase de cortesía. Solo se le paga a Meta si la escuela se excede de los mensajes gratis del mes. Cada escuela conecta su propio número.
 
 ### ¿Quién está detrás de SportMaps?
 

@@ -23,7 +23,7 @@ export function Header({ onSectionClick, activeSection }: HeaderProps) {
             onClick={() => onSectionClick("inicio")}
             className="flex items-center space-x-2 cursor-pointer"
           >
-            <img src="/logo.jpg" alt="SportMaps Logo" className="w-8 h-8 object-contain rounded-lg" />
+            <img src="/logo-96.webp" srcSet="/logo-96.webp 1x, /logo-192.webp 2x" width={96} height={99} alt="SportMaps Logo" className="w-8 h-8 object-contain rounded-lg" />
             <span className="text-xl font-bold text-sport-text">SportMaps</span>
           </div>
 

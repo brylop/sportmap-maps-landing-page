@@ -421,7 +421,7 @@ export default function TermsConditions() {
                       <strong className="text-sport-text-primary">WhatsApp.</strong> Los mensajes
                       iniciados por la Escuela requieren su consentimiento previo y explícito. Puede
                       darse de baja en cualquier momento respondiendo <strong>STOP</strong>. La
-                      conversación puede ser atendida por un asistente automático y por el personal
+                      conversación puede ser atendida por Mapi, el asistente automático con IA de SportMaps, y por el personal
                       de la Escuela. El costo de esos mensajes corre por cuenta de la Escuela y su
                       operador.
                     </li>
@@ -430,7 +430,7 @@ export default function TermsConditions() {
                       haya optado por no recibir comunicaciones comerciales.
                     </li>
                     <li>
-                      Los asistentes automatizados pueden equivocarse. Ante cualquier duda sobre un
+                      Mapi, como todo asistente automático con IA, puede equivocarse. Ante cualquier duda sobre un
                       valor, una fecha o una decisión, prevalece lo que confirme la Escuela.
                     </li>
                   </ul>

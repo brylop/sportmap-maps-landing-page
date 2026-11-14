@@ -130,7 +130,7 @@ export const ciudadesPosts: BlogPost[] = [
           ],
           [
             "Transferencia o Nequi a tu cuenta, con captura por WhatsApp",
-            "El asistente de WhatsApp IA lee el comprobante, extrae monto y referencia, lo cruza con el cobro y lo deja listo para que lo apruebes con un toque",
+            "Mapi (el asistente de WhatsApp con IA) lee el comprobante, extrae monto y referencia, lo cruza con el cobro y lo deja listo para que lo apruebes con un toque",
             "Gratis en todos los planes. Meta da 1.000 conversaciones de servicio al mes por número; solo si te excedes, Meta cobra directo a tu tarjeta (en Colombia, del orden de $3 por mensaje de servicio).",
           ],
           [
@@ -153,7 +153,7 @@ export const ciudadesPosts: BlogPost[] = [
           "Define categorías por edad y equipos, con su horario y entrenador.",
           "Comparte el enlace o el QR de inscripción para que los papás llenen la ficha del atleta y queden vinculados como acudientes.",
           "Configura inscripción y mensualidad, y conecta Wompi o Mercado Pago a tu propia cuenta.",
-          "Conecta tu número de WhatsApp (sigue siendo tuyo, mediante el registro integrado de Meta) para que el asistente reciba comprobantes.",
+          "Conecta tu número de WhatsApp (sigue siendo tuyo, mediante el registro integrado de Meta) para que Mapi reciba comprobantes.",
           "Pide a los entrenadores instalar la app en el celular y tomar asistencia desde la primera sesión.",
         ],
       },
@@ -250,7 +250,7 @@ export const ciudadesPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Para un club deportivo en Medellín, el punto de partida formal es el reconocimiento deportivo del INDER, que hoy se tramita de manera completamente digital por la plataforma SIMÓN 2.0. Para la operación diaria —inscribir atletas por categoría, cobrar mensualidades, tomar asistencia y mantener informadas a las familias— lo que necesitas es un software de gestión. SportMaps hace esa parte, con cobros por Nequi, PSE o tarjeta que llegan directo a la cuenta del club y un asistente de WhatsApp que lee los comprobantes, sin costo adicional.",
+          "Para un club deportivo en Medellín, el punto de partida formal es el reconocimiento deportivo del INDER, que hoy se tramita de manera completamente digital por la plataforma SIMÓN 2.0. Para la operación diaria —inscribir atletas por categoría, cobrar mensualidades, tomar asistencia y mantener informadas a las familias— lo que necesitas es un software de gestión. SportMaps hace esa parte, con cobros por Nequi, PSE o tarjeta que llegan directo a la cuenta del club y Mapi, un asistente de WhatsApp que lee los comprobantes, sin costo adicional.",
       },
       { type: "h2", content: "En resumen" },
       {
@@ -340,7 +340,7 @@ export const ciudadesPosts: BlogPost[] = [
         type: "callout",
         variant: "info",
         content:
-          "Sobre WhatsApp: SportMaps no cobra el asistente ni vende paquetes de conversaciones. Meta da 1.000 conversaciones de servicio gratis al mes por número; si las superas, Meta cobra el excedente directo a la tarjeta del club (en Colombia, del orden de $3 por mensaje de servicio). El número sigue siendo del club.",
+          "Sobre WhatsApp: SportMaps no cobra por Mapi ni vende paquetes de conversaciones. Meta da 1.000 conversaciones de servicio gratis al mes por número; si las superas, Meta cobra el excedente directo a la tarjeta del club (en Colombia, del orden de $3 por mensaje de servicio). El número sigue siendo del club.",
       },
       { type: "h2", content: "Para los entrenadores" },
       {
@@ -358,7 +358,7 @@ export const ciudadesPosts: BlogPost[] = [
         type: "ul",
         items: [
           "La app instalable en el celular (sin pasar por tiendas de aplicaciones), con notificaciones push.",
-          "El cobro del mes con un enlace para pagar por PSE, Nequi o tarjeta en un minuto, o la opción de mandar el comprobante de transferencia por WhatsApp, que el asistente lee y deja listo para que el club lo apruebe.",
+          "El cobro del mes con un enlace para pagar por PSE, Nequi o tarjeta en un minuto, o la opción de mandar el comprobante de transferencia por WhatsApp, que Mapi (el asistente de WhatsApp con IA) lee y deja listo para que el club lo apruebe.",
           "El carné digital del atleta con código QR.",
           "El calendario y los avisos del grupo: horarios, cambios de escenario, partidos.",
           "Un informe mensual del atleta por correo, con enlace, para ver asistencia y avances.",
@@ -537,7 +537,7 @@ export const ciudadesPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "El asistente de WhatsApp IA viene gratis en todos los planes. Meta da 1.000 conversaciones de servicio al mes por número sin costo; si te pasas, el excedente lo cobra Meta directo a tu tarjeta (en Colombia, del orden de $3 por mensaje de servicio). SportMaps no vende paquetes de conversaciones.",
+          "Mapi (el asistente de WhatsApp con IA) viene gratis en todos los planes. Meta da 1.000 conversaciones de servicio al mes por número sin costo; si te pasas, el excedente lo cobra Meta directo a tu tarjeta (en Colombia, del orden de $3 por mensaje de servicio). SportMaps no vende paquetes de conversaciones.",
       },
       { type: "h2", content: "Implementación en cinco pasos" },
       {
@@ -784,7 +784,7 @@ export const ciudadesPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "Para el acudiente, el cambio se nota desde el primer mes. Recibe el cobro con un enlace para pagar desde el celular, puede mandar la captura por WhatsApp y el asistente la lee al instante y la deja lista para que el club la apruebe con un toque, tiene el carné digital de su hijo con QR, ve el calendario y los avisos del grupo en la app instalable con notificaciones push, y recibe un informe mensual del atleta por correo. Si el club tiene la tienda en línea (adicional), puede comprar uniformes sin crear cuenta. Y si algo falla, el soporte de SportMaps atiende en español por WhatsApp desde Colombia.",
+          "Para el acudiente, el cambio se nota desde el primer mes. Recibe el cobro con un enlace para pagar desde el celular, puede mandar la captura por WhatsApp y Mapi (el asistente de WhatsApp con IA) la lee al instante y la deja lista para que el club la apruebe con un toque, tiene el carné digital de su hijo con QR, ve el calendario y los avisos del grupo en la app instalable con notificaciones push, y recibe un informe mensual del atleta por correo. Si el club tiene la tienda en línea (adicional), puede comprar uniformes sin crear cuenta. Y si algo falla, el soporte de SportMaps atiende en español por WhatsApp desde Colombia.",
       },
       { type: "h2", content: "Cuándo NO conviene" },
       {
@@ -970,7 +970,7 @@ export const ciudadesPosts: BlogPost[] = [
       {
         type: "p",
         content:
-          "El acudiente instala la app en el celular, recibe el cobro con un enlace para pagar por PSE, Nequi o tarjeta, o manda la captura por WhatsApp para que el asistente la lea y la deje lista para aprobar. Tiene el carné digital de su hijo, el calendario del grupo con avisos push y un informe mensual del atleta por correo. Si la escuela tiene la tienda en línea (adicional), puede comprar el uniforme sin crear cuenta.",
+          "El acudiente instala la app en el celular, recibe el cobro con un enlace para pagar por PSE, Nequi o tarjeta, o manda la captura por WhatsApp para que Mapi (el asistente de WhatsApp con IA) la lea y la deje lista para aprobar. Tiene el carné digital de su hijo, el calendario del grupo con avisos push y un informe mensual del atleta por correo. Si la escuela tiene la tienda en línea (adicional), puede comprar el uniforme sin crear cuenta.",
       },
       { type: "h2", content: "Cómo arrancar en una semana" },
       {
@@ -1051,7 +1051,7 @@ export const ciudadesPosts: BlogPost[] = [
       {
         question: "¿Cómo cobro la mensualidad de la escuela por Nequi sin revisar capturas una por una?",
         answer:
-          "Tienes dos caminos: enviar un enlace de pago con Wompi, que acepta Nequi y se marca solo, o dejar que el asistente de WhatsApp IA de SportMaps lea las capturas, extraiga monto y referencia, las cruce contra el cobro y te las deje listas para aprobar con un toque. Ambos vienen en todos los planes.",
+          "Tienes dos caminos: enviar un enlace de pago con Wompi, que acepta Nequi y se marca solo, o dejar que Mapi lea las capturas, extraiga monto y referencia, las cruce contra el cobro y te las deje listas para aprobar con un toque. Ambos vienen en todos los planes.",
       },
     ],
   },

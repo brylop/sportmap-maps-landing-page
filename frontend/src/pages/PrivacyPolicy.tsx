@@ -262,8 +262,8 @@ export default function PrivacyPolicy() {
                       registramos de inmediato y dejamos de enviarle mensajes automáticos.
                     </li>
                     <li>
-                      <strong className="text-sport-text-primary">Asistente automático y personas.</strong>{" "}
-                      La conversación puede ser atendida por un asistente automático y por el
+                      <strong className="text-sport-text-primary">Mapi (asistente automático con IA) y personas.</strong>{" "}
+                      La conversación puede ser atendida por Mapi, el asistente automático con IA, y por el
                       personal de la escuela. En ambos casos queda registrada y visible para la
                       escuela.
                     </li>

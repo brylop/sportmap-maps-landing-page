@@ -61,8 +61,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- Google Fonts - Poppins -->
+  <!-- Sin bloquear el render: se carga como "print" y pasa a "all" al llegar. -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+  </noscript>
 
   <!-- Structured Data (JSON-LD) — SoftwareApplication canónica -->
   <script type="application/ld+json">
@@ -72,42 +77,73 @@
       "@id": "https://sportmaps.co/#software",
       "name": "SportMaps",
       "alternateName": "SportMaps Colombia",
-      "description": "Software SaaS todo-en-uno de gestión deportiva para escuelas, entrenadores, federaciones y organizadores de eventos en Latinoamérica. Integra agenda online, cobranza con Wompi, asistencia con QR, app de marca propia y WhatsApp AI para recordatorios y mora.",
+      "description": "Software de gestión deportiva para escuelas, academias, clubes y entrenadores en Colombia. Incluye en todos los planes a Mapi (asistente de WhatsApp con IA que lee comprobantes de pago y recuerda los cobros), Wompi y Mercado Pago, integración de facturación electrónica DIAN, asistencia, carnets digitales y app instalable para las familias.",
       "url": "https://sportmaps.co",
       "image": "https://app.sportmaps.co/sportmaps-logo.png",
       "screenshot": "https://app.sportmaps.co/sportmaps-logo.png",
       "applicationCategory": "BusinessApplication",
       "applicationSubCategory": "Sports Management Software",
-      "operatingSystem": "Web, iOS, Android",
+      "operatingSystem": "Web (app instalable PWA)",
       "inLanguage": "es-CO",
-      "datePublished": "2024-01-01",
-      "softwareVersion": "2026.5",
+      "datePublished": "2025-01-01",
+      "dateModified": "2026-11-13",
+      "softwareVersion": "2026.11",
       "featureList": [
-        "Gestión de alumnos con fichas médicas y carnets digitales",
-        "Agenda online con confirmación automática",
-        "Cobranza integrada con Wompi (Bancolombia)",
-        "Asistencia con check-in QR",
-        "App de marca propia publicada en App Store y Google Play",
-        "WhatsApp AI para recordatorios, confirmaciones y cobranza de mora",
-        "Dashboard con churn, mora, asistencia, NPS y LTV/CAC",
+        "Mapi: asistente de WhatsApp con IA que lee comprobantes de pago, recuerda cobros y atiende prospectos, gratis en todos los planes",
+        "Cobranza integrada con Wompi y Mercado Pago en todos los planes",
+        "Transferencias Bre-B, Nequi y Daviplata validadas por Mapi",
+        "Integración de facturación electrónica DIAN sin costo (solo el paquete de facturas)",
+        "Gestión de alumnos por categorías de edad, con carnets digitales",
+        "Asistencia a entrenamientos e informe mensual para las familias",
+        "Entrenadores y staff ilimitados",
+        "Página pública de la escuela y directorio geolocalizado",
+        "Control de acceso con torniquetes ZKTeco (adicional)",
         "Migración asistida gratuita desde Excel o competencia",
         "Soporte en español por WhatsApp directo con respuesta menor a 2 horas"
       ],
       "offers": [
         {
           "@type": "Offer",
-          "name": "Plan Free",
+          "name": "Free Start",
           "price": "0",
           "priceCurrency": "COP",
-          "description": "Gratis hasta 30 alumnos. Sin app de marca propia.",
+          "description": "Gratis hasta 20 alumnos, sin tarjeta. Incluye Mapi, Wompi y Mercado Pago.",
           "category": "Free"
         },
         {
           "@type": "Offer",
-          "name": "Plan Pro",
+          "name": "Escuela Start",
+          "price": "69000",
+          "priceCurrency": "COP",
+          "description": "Hasta 50 alumnos.",
+          "category": "Subscription",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "69000",
+            "priceCurrency": "COP",
+            "unitText": "MONTH"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Escuela Crecimiento",
+          "price": "99000",
+          "priceCurrency": "COP",
+          "description": "Hasta 120 alumnos.",
+          "category": "Subscription",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "99000",
+            "priceCurrency": "COP",
+            "unitText": "MONTH"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Escuela Pro",
           "price": "159000",
           "priceCurrency": "COP",
-          "description": "Plan completo para academias de 30 a 500 alumnos. Incluye app de marca propia, Wompi y WhatsApp AI.",
+          "description": "Hasta 300 alumnos.",
           "category": "Subscription",
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
@@ -118,8 +154,22 @@
         },
         {
           "@type": "Offer",
-          "name": "Plan Custom",
-          "description": "Cotización para federaciones y operaciones con más de 500 alumnos.",
+          "name": "Escuela Elite",
+          "price": "349000",
+          "priceCurrency": "COP",
+          "description": "Hasta 800 alumnos.",
+          "category": "Subscription",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "349000",
+            "priceCurrency": "COP",
+            "unitText": "MONTH"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Custom",
+          "description": "Desde $750.000 COP/mes para holdings y federaciones, alumnos ilimitados.",
           "priceCurrency": "COP",
           "category": "Custom"
         }
@@ -127,7 +177,7 @@
       "publisher": {
         "@id": "https://sportmaps.co/#organization"
       },
-      "areaServed": ["CO", "MX", "AR", "CL", "PE", "EC"]
+      "areaServed": ["CO"]
     }
     </script>
   <!-- Google Tag Manager -->

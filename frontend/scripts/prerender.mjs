@@ -56,6 +56,11 @@ async function startPreviewServer() {
 async function prerenderRoute(browser, route) {
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 800 });
+  // Le avisa a la app que es el prerender (el mapa del home no se monta: sus
+  // teselas quedarían como <img> en el HTML estático y se pedirían antes del hero).
+  await page.evaluateOnNewDocument(() => {
+    window.__PRERENDER__ = true;
+  });
   const url = `http://127.0.0.1:${PREVIEW_PORT}${route}`;
   const startedAt = Date.now();
 
