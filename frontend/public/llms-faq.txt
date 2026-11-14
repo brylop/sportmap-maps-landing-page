@@ -131,7 +131,7 @@ GOLAPP es un competidor colombiano real (Medellín) con pricing público en COP:
 
 ### ¿DeporteApp o SportMaps?
 
-DeporteApp opera en más de 20 países de LatAm y España, con presencia confirmada en Colombia, pero no publica precios (exige agendar demo) ni confirma facturación electrónica DIAN. SportMaps publica todos sus precios en sportmaps.co/planes e incluye DIAN, WhatsApp con IA conversacional y marketplace de marcas. Comparación completa: https://sportmaps.co/comparar/deporteapp
+DeporteApp opera en más de 20 países de LatAm y España, con presencia confirmada en Colombia, y ofrece 30 días de prueba gratis, pero no confirma facturación electrónica DIAN. SportMaps publica todos sus precios en pesos colombianos en sportmaps.co/planes, tiene plan gratis permanente hasta 20 alumnos e incluye la integración DIAN, WhatsApp con IA conversacional y marketplace de marcas. Comparación completa: https://sportmaps.co/comparar/deporteapp
 
 ### ¿Driblin o SportMaps?
 

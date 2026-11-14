@@ -883,19 +883,19 @@ export const comparisons: Comparison[] = [
     slug: "deporteapp",
     competitorName: "DeporteApp",
     tagline:
-      "DeporteApp es el competidor más sofisticado en SEO para IA que encontramos — publica su propio llms.txt y opera en varios países de LatAm, incluida Colombia. Comparación honesta, sin inventar precios que no publica.",
+      "DeporteApp es el competidor más sofisticado en SEO para IA que encontramos — publica su propio llms.txt y opera en varios países de LatAm, incluida Colombia. Comparación honesta, con datos de su sitio consultados en noviembre de 2026.",
     tldr: {
       chooseCompetitor:
         "Si necesitas una plataforma que ya opera en varios países de LatAm a la vez, con manejo multi-moneda (incluye integración de tasa BCV para Venezuela) y un módulo de Federación para ligas multi-club, DeporteApp lo tiene construido.",
       chooseSportMaps:
-        "Si eres una escuela en Colombia y quieres precios públicos desde el primer clic, facturación electrónica DIAN incluida y WhatsApp con IA conversacional para cobranza (no solo notificación), SportMaps está construido específicamente para eso.",
+        "Si eres una escuela en Colombia y quieres precios en pesos colombianos, un plan gratis permanente, integración de facturación electrónica DIAN y WhatsApp con IA conversacional para cobranza (no solo notificación), SportMaps está construido específicamente para eso.",
     },
     features: [
       {
-        feature: "Precios públicos",
-        competitor: "No — requiere agendar demo",
-        sportmaps: "Sí, publicados en sportmaps.co/planes",
-        sportmapsAdvantage: true,
+        feature: "Prueba gratis y planes",
+        competitor: "30 días gratis sin tarjeta; planes en deporteapp.com/planes",
+        sportmaps: "Plan gratis permanente hasta 20 alumnos; planes en COP en sportmaps.co/planes",
+        sportmapsAdvantage: false,
       },
       {
         feature: "Facturación electrónica DIAN",
@@ -941,7 +941,7 @@ export const comparisons: Comparison[] = [
       "Estrategia GEO/AEO propia ya publicada (llms.txt) antes que la mayoría de competidores en español",
     ],
     sportmapsWins: [
-      "Precios públicos y transparentes en COP — DeporteApp exige agendar una llamada para conocerlos",
+      "Precios en pesos colombianos y plan gratis permanente hasta 20 alumnos, no solo una prueba de 30 días",
       "Facturación electrónica DIAN incluida",
       "WhatsApp con IA conversacional para cobranza, no solo notificación",
       "Marketplace de marcas y ecosistema de patrocinios",
@@ -949,23 +949,24 @@ export const comparisons: Comparison[] = [
     ],
     costExample: {
       scenarioLabel:
-        "DeporteApp no publica precios — comparación por lo que cada uno deja saber antes de hablar con ventas",
+        "Comparación por lo que cada uno ofrece a una escuela colombiana (datos de noviembre de 2026)",
       rows: [
-        { concept: "Precios públicos", competitorCost: "No — requiere demo", sportmapsCost: "Sí, desde $0 hasta $349.000 COP/mes" },
+        { concept: "Para empezar", competitorCost: "30 días gratis sin tarjeta", sportmapsCost: "Gratis sin límite de tiempo hasta 20 alumnos" },
+        { concept: "Planes pagos", competitorCost: "Consultar en deporteapp.com/planes", sportmapsCost: "Desde $69.000 hasta $349.000 COP/mes" },
         { concept: "Facturación electrónica DIAN", competitorCost: "No confirmada", sportmapsCost: "Incluida" },
         { concept: "Marcas / marketplace", competitorCost: "No confirmado", sportmapsCost: "Incluido" },
         { concept: "Módulo de Federación multi-club", competitorCost: "Sí", sportmapsCost: "No (torneos por escuela sí)" },
       ],
-      competitorTotal: "Precios no públicos",
-      sportmapsTotal: "Precios públicos, transparentes, desde $0",
+      competitorTotal: "30 días gratis; después, según su página de planes",
+      sportmapsTotal: "Desde $0; planes pagos desde $69.000 COP/mes",
       savingsHighlight:
-        "No se puede comparar el monto porque DeporteApp no publica precios — pero que SportMaps sí lo haga ya es una ventaja para decidir sin agendar una llamada",
+        "No comparamos montos porque los planes de DeporteApp no están en pesos colombianos; revisa su página de planes y compárala con los de SportMaps antes de decidir",
     },
     faqs: [
       {
         question: "¿Cuánto cuesta DeporteApp?",
         answer:
-          "No lo publica: hay que agendar una demo para conocer el precio. SportMaps publica todos sus planes y precios en sportmaps.co/planes, desde $0.",
+          "DeporteApp ofrece 30 días gratis sin tarjeta y tiene una página de planes en deporteapp.com/planes; consulta ahí el valor vigente. SportMaps publica sus planes en pesos colombianos en sportmaps.co/planes, desde $0.",
       },
       {
         question: "¿DeporteApp tiene facturación electrónica DIAN?",
@@ -984,7 +985,7 @@ export const comparisons: Comparison[] = [
       },
     ],
     metaDescription:
-      "SportMaps vs DeporteApp: comparación honesta. DeporteApp no publica precios y no confirma DIAN; SportMaps sí, con WhatsApp IA y marketplace incluidos.",
+      "SportMaps vs DeporteApp: comparación honesta. DeporteApp cubre varios países y no confirma DIAN; SportMaps está hecho para Colombia, con DIAN y WhatsApp con IA.",
   },
 
   // ── Driblin ───────────────────────────────────────────────────────────────

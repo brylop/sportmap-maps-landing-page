@@ -27,6 +27,13 @@ import { actualidadOlimpicaPosts } from "./blog/actualidad-olimpica";
 import { actualidadContinentalPosts } from "./blog/actualidad-continental";
 import { actualidadFutbolVoleibolPosts } from "./blog/actualidad-futbol-voleibol";
 import { actualidadCheerGimnasiaPosts } from "./blog/actualidad-cheer-gimnasia";
+import { negocioPosts } from "./blog/negocio";
+import { formalizacionPosts } from "./blog/formalizacion";
+import { familias2Posts } from "./blog/familias-2";
+import { comparativas3Posts } from "./blog/comparativas-3";
+import { montarAcademiaPosts } from "./blog/montar-academia";
+import { temporadaPosts } from "./blog/temporada";
+import { pagos2Posts } from "./blog/pagos-2";
 
 export type BlogCategory =
   | "Casos de éxito"
@@ -573,6 +580,13 @@ export const blogPosts: BlogPost[] = [
   ...actualidadContinentalPosts,
   ...actualidadFutbolVoleibolPosts,
   ...actualidadCheerGimnasiaPosts,
+  ...negocioPosts,
+  ...formalizacionPosts,
+  ...familias2Posts,
+  ...comparativas3Posts,
+  ...montarAcademiaPosts,
+  ...temporadaPosts,
+  ...pagos2Posts,
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

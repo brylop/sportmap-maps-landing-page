@@ -72,7 +72,7 @@ const SobreNosotros = () => {
               Co-Creando la <span className="text-sport-primary">Realidad Tecnológica</span> del Deporte
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Somos una startup de Bogotá. Empezamos por lo que más le duele a una escuela
+              SportMaps fue fundada en 2025 en Bogotá por Brayan López y Julián Gómez. Empezamos por lo que más le duele a una escuela
               deportiva, cobrar las mensualidades, y desde ahí conectamos todo el deporte.
             </p>
           </motion.div>

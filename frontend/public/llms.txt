@@ -78,7 +78,7 @@ Mercado: Colombia (precios y facturación en pesos colombianos). Sede: Bogotá, 
 - [Comparar vs CuotaQ](https://sportmaps.co/comparar/cuotaq): Especialista en cobro de cuotas vs operación deportiva completa
 - [Comparar vs AgendaPro](https://sportmaps.co/comparar/agendapro): Vertical deportivo con DIAN incluida vs "todo en uno" horizontal con DIAN de add-on
 - [Comparar vs GOLAPP](https://sportmaps.co/comparar/golapp): Competidor colombiano simple vs plataforma completa con DIAN y WhatsApp IA
-- [Comparar vs DeporteApp](https://sportmaps.co/comparar/deporteapp): Cobertura LatAm sin precios públicos vs precios transparentes y DIAN incluida
+- [Comparar vs DeporteApp](https://sportmaps.co/comparar/deporteapp): Cobertura LatAm con prueba de 30 días vs plan gratis permanente, precios en COP y DIAN
 - [Comparar vs Driblin](https://sportmaps.co/comparar/driblin): Scouting y monetización de club vs cobranza recurrente y categorías por edad
 - [SportMaps Canchas](https://sportmaps.co/canchas): Reserva y cobro de canchas por WhatsApp, lanzamiento noviembre 2026
 - [Comparar vs Controla Cancha](https://sportmaps.co/comparar/controla-cancha): Reservas de canchas con precios publicados de ambos (verificado 14-oct-2026)

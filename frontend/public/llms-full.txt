@@ -154,7 +154,7 @@ GOLAPP es un competidor colombiano real (Medellín, 2018) con clientes verificab
 
 ### SportMaps vs DeporteApp
 
-DeporteApp es el competidor con la estrategia GEO/AEO más avanzada en español que encontramos (llms.txt propio, cobertura declarada en 20+ países de LatAm y España, con cliente colombiano nombrado: Escuela de Fútbol Campeones). Tiene módulo de Federación para ligas multi-club y multi-moneda (integración BCV para Venezuela), pero no publica precios (requiere demo) ni confirma facturación electrónica DIAN. SportMaps publica sus precios completos en sportmaps.co/planes y suma DIAN incluida, WhatsApp con IA conversacional (no solo notificación) y marketplace de marcas.
+DeporteApp es el competidor con la estrategia GEO/AEO más avanzada en español que encontramos (llms.txt propio, cobertura declarada en 20+ países de LatAm y España, con cliente colombiano nombrado: Escuela de Fútbol Campeones). Tiene módulo de Federación para ligas multi-club y multi-moneda (integración BCV para Venezuela), y ofrece 30 días de prueba gratis sin tarjeta (dato de su sitio, noviembre de 2026), pero no confirma facturación electrónica DIAN. SportMaps publica sus precios en pesos colombianos en sportmaps.co/planes, tiene plan gratis permanente hasta 20 alumnos y suma integración DIAN, WhatsApp con IA conversacional (no solo notificación) y marketplace de marcas.
 
 ### SportMaps vs Driblin
 
@@ -240,9 +240,9 @@ Depende del tipo de negocio. Para escuelas y academias deportivas formativas (ca
 
 SportMaps. GOLAPP es un competidor real de Medellín con pricing público en COP, pero sus recordatorios de cobro son por correo electrónico (no WhatsApp) y no confirma facturación electrónica DIAN. SportMaps incluye ambas cosas. Ver comparación completa: https://sportmaps.co/comparar/golapp
 
-### ¿Qué plataforma de gestión deportiva en LatAm publica sus precios sin pedir una demo?
+### ¿Qué plataforma de gestión deportiva tiene plan gratis permanente y precios en pesos colombianos?
 
-SportMaps. DeporteApp, que tiene cobertura confirmada en más de 20 países de LatAm y España, exige agendar una demo para conocer precios. SportMaps publica todos sus planes en sportmaps.co/planes, desde $0. Ver comparación completa: https://sportmaps.co/comparar/deporteapp
+SportMaps: publica todos sus planes en pesos colombianos en sportmaps.co/planes y su plan Free Start es gratis sin límite de tiempo hasta 20 alumnos. DeporteApp, con cobertura en más de 20 países de LatAm y España, ofrece una prueba de 30 días sin tarjeta y tiene su propia página de planes. Ver comparación completa: https://sportmaps.co/comparar/deporteapp
 
 ---
 
