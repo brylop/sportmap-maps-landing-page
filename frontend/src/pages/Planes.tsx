@@ -39,6 +39,7 @@ import { ProveedoresRegistroModal } from "@/components/modals/ProveedoresRegistr
 import { ServiciosRegistroModal } from "@/components/modals/ServiciosRegistroModal";
 import { ContactEquipoModal } from "@/components/modals/ContactEquipoModal";
 import { openWhatsappWithMessage } from "@/lib/whatsappFallback";
+import { BlackFridayPromo } from "@/components/promo/BlackFriday";
 
 type CategoryType =
   | "deportistas"
@@ -218,6 +219,9 @@ const Planes = () => {
             </div>
           </section>
         )}
+
+        {/* Black Friday 2026 (se oculta sola el 30-nov) */}
+        <BlackFridayPromo ubicacion="planes" mostrarVerPlanes={false} className="!pt-0 mb-4" />
 
         {/* Hero */}
         <section className="container mx-auto px-4 text-center mb-12">

@@ -6,6 +6,7 @@ import { ContactModal } from "./modals/ContactModal";
 import { DemoRequestModal } from "./modals/DemoRequestModal";
 import { Menu, X, Zap, MessageSquare, CreditCard, Users, Store } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { BlackFridayBar, useBarraBF } from "./promo/BlackFriday";
 
 interface TechHeaderProps {
   onSectionClick?: (section: string) => void;
@@ -19,6 +20,7 @@ export function TechHeader({ onSectionClick, activeSection = "" }: TechHeaderPro
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const barraBF = useBarraBF();
 
   const isHomePage = location.pathname === "/";
 
@@ -75,6 +77,8 @@ export function TechHeader({ onSectionClick, activeSection = "" }: TechHeaderPro
             : 'bg-background/90 backdrop-blur-sm'
           }`}
       >
+        {/* Black Friday 2026: se apaga sola el 30-nov (config/promoBlackFriday.ts) */}
+        {barraBF.visible && <BlackFridayBar onCerrar={barraBF.cerrar} />}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -147,6 +151,8 @@ export function TechHeader({ onSectionClick, activeSection = "" }: TechHeaderPro
           </div>
         </div>
       </header>
+      {/* Reserva el alto de la barra para que no tape el contenido (las páginas ya traen pt-16 por el header) */}
+      {barraBF.visible && <div aria-hidden className="h-10" />}
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -163,7 +169,7 @@ export function TechHeader({ onSectionClick, activeSection = "" }: TechHeaderPro
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
-              className="fixed top-16 left-0 right-0 bg-background/98 backdrop-blur-md border-b border-sport-primary/20 p-4 shadow-tech-lg"
+              className={`fixed ${barraBF.visible ? 'top-[6.5rem]' : 'top-16'} left-0 right-0 bg-background/98 backdrop-blur-md border-b border-sport-primary/20 p-4 shadow-tech-lg`}
             >
               <nav className="space-y-3">
                 {navItems.map((item) => (

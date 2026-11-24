@@ -11,6 +11,7 @@ import { SEO } from "@/components/SEO";
 import { TestimonialsSection } from "@/components/sections/Testimonials";
 import { SponsorshipsSection } from "@/components/sections/ValueProp";
 import { CTAFinalSection } from "@/components/sections/CTA";
+import { BlackFridayPromo } from "@/components/promo/BlackFriday";
 
 export default function Index() {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -58,6 +59,9 @@ export default function Index() {
       <main className="pt-16">
         {/* Hero Section with Roles */}
         <SegmentedHero onScrollToMap={scrollToMap} />
+
+        {/* Black Friday 2026 (se oculta sola el 30-nov) */}
+        <BlackFridayPromo ubicacion="home" />
 
         {/* Interactive Map Section */}
         <div ref={mapRef} id="mapa">

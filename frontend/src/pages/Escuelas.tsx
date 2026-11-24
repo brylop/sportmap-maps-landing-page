@@ -28,6 +28,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { DemoRequestModal } from "@/components/modals/DemoRequestModal";
 import { motion } from "framer-motion";
 import { RolePricingSection, rolePricingConfigs } from "@/components/common/cards";
+import { BlackFridayPromo } from "@/components/promo/BlackFriday";
 
 const painPoints = [
   {
@@ -150,6 +151,9 @@ export default function Escuelas() {
       </header>
 
       <main className="relative z-10 pt-20">
+        {/* Black Friday 2026 (se oculta sola el 30-nov) */}
+        <BlackFridayPromo ubicacion="escuelas" className="!pb-0" />
+
         {/* Hero Section - Problem Focused */}
         <section className="container mx-auto px-4 py-12 md:py-16">
           <div className="max-w-4xl mx-auto text-center">
