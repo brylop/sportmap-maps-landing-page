@@ -58,10 +58,10 @@ export default function Index() {
 
       <main className="pt-16">
         {/* Hero Section with Roles */}
-        <SegmentedHero onScrollToMap={scrollToMap} />
+        {/* Black Friday 2026, lo primero que se ve (se oculta sola el 30-nov) */}
+        <BlackFridayPromo ubicacion="home" className="!pt-6 md:!pt-8 !pb-0" />
 
-        {/* Black Friday 2026 (se oculta sola el 30-nov) */}
-        <BlackFridayPromo ubicacion="home" />
+        <SegmentedHero onScrollToMap={scrollToMap} />
 
         {/* Interactive Map Section */}
         <div ref={mapRef} id="mapa">
